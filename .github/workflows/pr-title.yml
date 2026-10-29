@@ -1,0 +1,32 @@
+# =============================================================================
+# PR title — Conventional Commits, in its own workflow.
+#
+# Its own workflow (not a ci.yml job) is what lets the check re-run on a title
+# edit without cancelling an in-flight build — see qnsc-landing's pr-title.yml
+# for the full history of both failure modes.
+# =============================================================================
+name: PR title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+concurrency:
+  # Deliberately NOT the ci group. Sharing one is what let a title edit cancel
+  # a build.
+  group: pr-title-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read # required by the action's underlying semantic-pull-request step
+
+jobs:
+  pr-title:
+    # This name IS the check context. Do not rename it.
+    name: PR title (conventional commits)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # No checkout: the action reads the title from the event payload.
+      - uses: quynhonsemiconductor/ci/actions/pr-title-conventional-commits@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3

@@ -1,0 +1,13 @@
+# osv-scanner reads this file from the directory of the lockfile it scans.
+#
+# GHSA-ch52-4w7c-c8xp (CVSS 7.5) — http-cache-semantics <= 4.2.0: a client `max-stale` directive can retrieve another user's
+# cached response from a SHARED cache. NO PATCHED VERSION EXISTS (the advisory lists none), so a bump cannot clear it.
+#
+# Why ignoring it is defensible here, and why it EXPIRES: the only path is astro (a build-time dependency of this static
+# site) using the package for its own HTTP fetches during `astro build`; the site serves prebuilt files, runs no shared HTTP
+# cache and no per-user responses. Re-check on `ignoreUntil`, or as soon as a fixed release is published, whichever is first:
+# a permanent ignore is how a scanner becomes decoration.
+[[IgnoredVulns]]
+id = "GHSA-ch52-4w7c-c8xp"
+ignoreUntil = 2026-11-17
+reason = "No fixed version exists. Build-time only via astro; no shared HTTP cache or per-user responses in this static site. Revisit by the date."

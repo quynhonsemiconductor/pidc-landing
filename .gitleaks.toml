@@ -1,0 +1,12 @@
+# EXTENDS the default ruleset — it does not replace it.
+#
+# Without this block gitleaks 8 treats a discovered config as THE config, so a file
+# that defines only an [allowlist] and no [[rules]] leaves the scanner with an EMPTY
+# ruleset. It then finds nothing, exits 0, and the required `Secret scan (Gitleaks)`
+# check goes green — a security control whose failure mode is silent success.
+#
+# Never delete these two lines to "simplify" the config.
+[extend]
+useDefault = true
+
+title = "pidc-landing gitleaks config"

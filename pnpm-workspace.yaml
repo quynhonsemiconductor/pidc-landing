@@ -1,0 +1,38 @@
+# pnpm workspace config. pidc-landing is a single package, so there is no
+# `packages:` list — this file exists for the two blocks below.
+#
+# Transitive CVE floors, mirrored from qnsc-landing (same toolchain). Entries
+# for packages this tree does not resolve are inert; they exist so a future
+# dependency that reintroduces one lands on the fixed version, not the advisory.
+
+overrides:
+  # GHSA-rgj7-g3m4-5g8c (CVSS 8.9) and GHSA-f88m-g3jw-g9cj (CVSS 7.0) — sharp inherits
+  # libheif and libvips vulnerabilities through its bundled native binaries. Fixed in
+  # 0.35.4 and 0.35.0 respectively. `>=` and not a pin: sharp ships prebuilt binaries
+  # per platform and pinning one patch across every consumer is how a CI runner ends
+  # up without one.
+  'sharp@<0.35.4': '>=0.35.4'
+  # GHSA-fxqj-rqcc-2cmp (CVSS 6.3) — incomplete fix of GHSA-6g55-p6wh-862q: an
+  # attacker-controlled `sourceMappingURL` is still read. Fixed in 8.5.23.
+  # Dev-only, via eslint-plugin-astro.
+  'postcss@<8.5.23': '>=8.5.23'
+  # GHSA-2v37-7h3g-55p8 (CVSS 8.2) — a custom generator can loop indefinitely when
+  # size is zero. Fixed in 3.3.18. Reached only through postcss, which calls it with
+  # a fixed non-zero size. NOT forced across majors: postcss declares ^3.3.11 and
+  # nanoid 4.x+ is ESM-only.
+  'nanoid@>=3.0.0 <3.3.18': '3.3.18'
+  # GHSA-5jgf-p345-68v8 and its siblings (CVSS 7.5 each) — host confusion and SSRF in
+  # the same URI parser. Fixed in 3.1.9. Dev-only, via ajv. The upper bound is the
+  # point: nothing here asks for 4.x.
+  'fast-uri@<3.1.9': '>=3.1.9 <4.0.0'
+  # GHSA-mh99-v99m-4gvg (fixed 5.0.8) and GHSA-rgw5-rvv9-x895 (CVSS 7.5, DoS via
+  # unbounded intermediate arrays, fixed 5.0.9 — it explicitly BYPASSES the earlier
+  # mitigation, so 5.0.8 is not a safe floor). Dev-only, via minimatch.
+  'brace-expansion': '5.0.12'
+
+# pnpm 11 refuses to run a package's postinstall unless it is named here, and exits 1
+# with ERR_PNPM_IGNORED_BUILDS if the decision is unmade. Both of these build native
+# binaries.
+allowBuilds:
+  esbuild: true
+  sharp: true
