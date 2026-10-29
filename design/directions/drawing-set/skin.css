@@ -1,0 +1,75 @@
+/* Drawing Set — component material over the neutral system.
+   Three signature moves, no more:
+   1 · section headers as drawing title blocks (mono sheet number cell + ruled line)
+   2 · red callout-number circles on the proof cards (matches the SVG .mk markers)
+   3 · mono annotations/units layer (badges, eyebrows, figure caps, kV values, data)
+   Everything else is paper ground, ink lines, hairlines, 0–2px radius. */
+
+/* ————— surfaces: one paper, white drawing sheets ————— */
+.c-sitehead, .c-cta { background: var(--color-bg); }        /* no white bands: header/CTA sit on paper */
+main > section + section { border-top: 1px solid var(--color-line); }  /* ruled sheet separations */
+.c-figure { border-radius: 0; }                             /* drawing sheets are square */
+.c-figure__title { background: var(--color-bg); font-family: var(--font-display); }
+.c-figure__cap  { background: var(--color-bg); }
+
+/* ————— type application ————— */
+.c-hero__title, .c-section__title, .c-cta__title, .c-section--body h3,
+.c-proof__title, .c-glossary dt, .c-sitehead__name, .c-sitefoot__tagline {
+  font-family: var(--font-display);
+}
+.c-btn { font-family: var(--font-display); }
+
+/* annotation layer: mono */
+.c-hero__badge, .c-section__eyebrow, .c-figure__cap, .c-figure__zone b,
+.c-sitehead__sub, .c-sitehead__langbtn, .c-callout, .c-sitefoot__site,
+.c-compare .c-table tbody th, .c-sitefoot__status {
+  font-family: var(--font-num);
+}
+.c-callout { font-size: var(--fs-meta); }
+
+/* ————— 1 · title-block section headers ————— */
+main { counter-reset: sheet 0; }
+main > section + section { counter-increment: sheet; }
+.c-section__eyebrow::before {
+  content: "S-" counter(sheet, decimal-leading-zero);
+  flex: none;
+  font: 600 var(--fs-meta)/1 var(--font-num);
+  letter-spacing: var(--ls-1);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  padding: 3px 7px;
+  margin-right: var(--s-3);
+}
+
+/* ————— 2 · red callout circles on proof cards ————— */
+.c-proof__index {
+  width: 44px; height: 44px; margin: 0 0 var(--s-3);
+  display: inline-grid; place-items: center;
+  border-radius: 50%;
+  background: var(--color-accent); color: var(--color-on-accent);
+  font: 600 var(--fs-title)/1 var(--font-num);
+  font-variant-numeric: tabular-nums;
+}
+
+/* dial red back where it is not a callout: benefit bullets are ink ticks */
+.c-section__list li::before { background: var(--color-text); }
+
+/* ————— 3 · diagram line restyle: thin ink, red live values ————— */
+/* live electrical values keep the drawing's red (220 kV, MV) */
+.t-kv { fill: var(--color-accent); }
+/* thinner line weights throughout */
+.s-pw { stroke-width: 1.5; }
+.s-bus { stroke-width: 5; }
+.s-bus-mv { stroke-width: 3.5; }
+.s-sym, .s-xf { stroke-width: 1.5; }
+.s-cable { stroke-width: 1.75; }
+.s-fb { stroke-width: 1.5; }
+.x-pw, .x-sym { stroke-width: 1.5; }
+.x-cable { stroke-width: 1.75; }
+.iso-pw { stroke-width: 1.2; }
+.iso-cable { stroke-width: 1.3; }
+.iso-fb { stroke-width: 1.4; }
+/* cold/supply coolant: dashed against solid warm/return — gray ink vs ink */
+.cl-cold, .rk-cool { stroke-dasharray: 5 3; }
+/* numbered markers: ink discs with a paper halo so they read over lines */
+.mk circle { stroke: var(--color-surface); stroke-width: 1.5; }

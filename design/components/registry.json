@@ -1,0 +1,283 @@
+{
+  "$description": "Design-component registry: the stack-neutral name of every c-*/r-* class, its WAI-ARIA APG behaviour pattern (https://www.w3.org/WAI-ARIA/apg/patterns/), and its parts/variants. Library maps (references/component-maps/*.json) key off these names. status.mjs flags components missing here.",
+  "c-btn": {
+    "name": "Button",
+    "apg": "button",
+    "variants": [
+      "primary",
+      "danger",
+      "ghost"
+    ],
+    "parts": [
+      "icon",
+      "label"
+    ]
+  },
+  "c-modal": {
+    "name": "Dialog",
+    "apg": "dialog-modal",
+    "variants": [],
+    "parts": [
+      "panel",
+      "title",
+      "actions"
+    ]
+  },
+  "c-status": {
+    "name": "Status",
+    "apg": null,
+    "role": "status-label",
+    "variants": [
+      "ok",
+      "warn",
+      "danger"
+    ],
+    "parts": []
+  },
+  "c-table": {
+    "name": "Table",
+    "apg": "table",
+    "variants": [
+      "compact"
+    ],
+    "parts": [
+      "num",
+      "row"
+    ]
+  },
+  "c-sitehead": {
+    "name": "Site header",
+    "apg": null,
+    "role": "banner landmark",
+    "variants": [],
+    "parts": [
+      "brand",
+      "name",
+      "sub",
+      "nav",
+      "lang",
+      "langbtn"
+    ]
+  },
+  "c-hero": {
+    "name": "Hero",
+    "apg": null,
+    "variants": [],
+    "parts": [
+      "badge",
+      "dot",
+      "title",
+      "lede",
+      "actions",
+      "legend",
+      "toc"
+    ]
+  },
+  "c-section": {
+    "name": "Section",
+    "apg": null,
+    "variants": [
+      "body"
+    ],
+    "parts": [
+      "eyebrow",
+      "title",
+      "lede",
+      "list"
+    ]
+  },
+  "c-figure": {
+    "name": "Figure",
+    "apg": null,
+    "role": "figure group",
+    "variants": [],
+    "parts": [
+      "title",
+      "keys",
+      "cap",
+      "zones",
+      "zone",
+      "swatches"
+    ]
+  },
+  "c-proof": {
+    "name": "Proof card",
+    "apg": null,
+    "variants": [],
+    "parts": [
+      "index",
+      "kicker",
+      "title",
+      "body"
+    ]
+  },
+  "c-stat": {
+    "name": "Stat",
+    "apg": null,
+    "variants": [],
+    "parts": [
+      "figure",
+      "label"
+    ]
+  },
+  "c-phase": {
+    "name": "Phase marker",
+    "apg": null,
+    "variants": [],
+    "parts": [
+      "n",
+      "label"
+    ]
+  },
+  "c-callout": {
+    "name": "Callout note",
+    "apg": null,
+    "variants": [],
+    "parts": []
+  },
+  "c-cta": {
+    "name": "CTA band",
+    "apg": null,
+    "variants": [],
+    "parts": [
+      "in",
+      "title"
+    ]
+  },
+  "c-sitefoot": {
+    "name": "Site footer",
+    "apg": null,
+    "role": "contentinfo landmark",
+    "variants": [],
+    "parts": [
+      "tag",
+      "wordmark",
+      "tagline",
+      "in",
+      "nav",
+      "legal",
+      "status",
+      "site"
+    ]
+  },
+  "c-compare": {
+    "name": "Compare table",
+    "apg": "table",
+    "variants": [],
+    "parts": [
+      "ai",
+      "dc"
+    ]
+  },
+  "c-glossary": {
+    "name": "Glossary list",
+    "apg": null,
+    "variants": [],
+    "parts": []
+  },
+  "c-formfield": {
+    "name": "Form field",
+    "apg": null,
+    "variants": [],
+    "parts": [
+      "label",
+      "input"
+    ]
+  },
+  "r-hero-figure": {
+    "name": "Hero figure column",
+    "apg": null,
+    "variants": [],
+    "parts": []
+  },
+  "r-proof-grid": {
+    "name": "Proof grid (3 proofs)",
+    "apg": null,
+    "variants": [],
+    "parts": []
+  },
+  "r-diagram": {
+    "name": "SVG diagram figure (s-*/t-*/x-*/iso-*/rk-*/dg-*/cl-*/lg-*/.mk base styles)",
+    "apg": null,
+    "variants": [],
+    "parts": []
+  },
+  "r-section-split": {
+    "name": "Section split (head + body)",
+    "apg": null,
+    "variants": [],
+    "parts": []
+  },
+  "r-sourcebox": {
+    "name": "Sources box",
+    "apg": null,
+    "variants": [],
+    "parts": []
+  },
+  "r-chart": {
+    "name": "Bar chart figure (.bar-row/.track/.bar/.axis/.stackbar)",
+    "apg": null,
+    "variants": [],
+    "parts": []
+  },
+  "c-statband": {
+    "name": "Stats band",
+    "apg": null,
+    "role": "group",
+    "variants": [],
+    "parts": [
+      "item",
+      "value",
+      "label",
+      "src"
+    ]
+  },
+  "c-ceo": {
+    "name": "CEO content placeholder",
+    "apg": null,
+    "role": "note",
+    "variants": [],
+    "parts": []
+  },
+  "c-milestones": {
+    "name": "Milestone list",
+    "apg": null,
+    "role": "list",
+    "variants": [],
+    "parts": []
+  },
+  "c-people": {
+    "name": "Leadership block",
+    "apg": null,
+    "role": "group",
+    "variants": [],
+    "parts": [
+      "card",
+      "role"
+    ]
+  },
+  "c-choice": {
+    "name": "Contact routing choice",
+    "apg": "radiogroup",
+    "variants": [],
+    "parts": [
+      "opt",
+      "title",
+      "desc"
+    ]
+  },
+  "c-terrainrule": {
+    "name": "Terrain motif rule",
+    "apg": null,
+    "role": "separator",
+    "variants": [],
+    "parts": []
+  },
+  "r-tocrail": {
+    "name": "Sticky TOC rail",
+    "apg": null,
+    "role": "navigation",
+    "variants": [],
+    "parts": []
+  }
+}

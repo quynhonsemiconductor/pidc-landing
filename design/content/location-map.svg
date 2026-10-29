@@ -1,0 +1,50 @@
+<svg id="lm" viewBox="0 0 560 420" role="img"
+  aria-label="Schematic location map. Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fiber routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-en="Schematic location map. Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fiber routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-vi="Sơ đồ vị trí. Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, trạm biến áp nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.">
+  <defs>
+    <pattern id="lm-sea" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M0 5 Q2.5 2.5 5 5 T10 5" fill="none" class="lm-sea-line"/>
+    </pattern>
+  </defs>
+  <!-- sea hatch, east of the coastline -->
+  <path d="M330 0 H560 V420 H330" fill="url(#lm-sea)"/>
+  <!-- Vietnam, schematic coastline and landmass (province precision only, not to scale) -->
+  <path class="lm-land" d="M262 14 C296 30 318 52 322 84 C326 116 306 136 300 164
+    C294 192 310 214 318 242 C326 270 318 300 296 322 C280 338 262 352 252 376
+    C246 392 240 404 228 412 C214 404 202 390 198 374 C194 358 178 350 160 342
+    C130 328 96 312 78 288 C62 266 60 240 74 222 C92 198 124 194 150 182
+    C178 169 196 148 208 122 C220 96 226 62 222 36 C220 24 224 14 234 8 Z"/>
+  <!-- country + neighbours context labels -->
+  <text class="lm-name" x="252" y="30">VIỆT NAM · VIETNAM</text>
+  <!-- 220 kV grid line: national grid down to the site (solid ink) -->
+  <path class="lm-kv" d="M268 60 C240 90 214 128 196 168 C186 190 180 206 178 218"/>
+  <text class="lm-kv-label" x="248" y="106">220 kV</text>
+  <!-- PIDC site marker -->
+  <g class="lm-site">
+    <circle cx="178" cy="222" r="7"/>
+    <text class="lm-site-label" x="192" y="219">PIDC · GIA LAI</text>
+    <text class="lm-site-sub" x="192" y="232">Khu dự án · site</text>
+  </g>
+  <!-- province relation: Gia Lai highlands band -->
+  <path class="lm-prov" d="M150 190 C170 180 196 182 210 196 C218 206 220 218 214 230 C200 248 172 250 154 240 C142 232 140 206 150 190 Z"/>
+  <text class="lm-prov-label" x="120" y="264">GIA LAI · GIA Lai</text>
+  <!-- fiber routes: two separate paths east to the coast (dashed) -->
+  <path class="lm-fb" d="M186 226 C230 240 262 252 292 268"/>
+  <path class="lm-fb" d="M186 230 C226 258 254 282 288 296"/>
+  <!-- Quy Nhơn landing point -->
+  <g class="lm-land-station">
+    <circle cx="296" cy="272" r="4"/>
+    <circle cx="292" cy="300" r="4"/>
+    <text class="lm-station-label" x="308" y="276">ADC</text>
+    <text class="lm-station-label" x="304" y="304">SJC2</text>
+  </g>
+  <text class="lm-coast-label" x="330" y="330">QUY NHƠN · Quy Nhơn</text>
+  <!-- submarine cables heading out to sea -->
+  <path class="lm-fb" d="M300 272 C340 268 380 264 420 258"/>
+  <path class="lm-fb" d="M296 300 C336 300 380 298 420 294"/>
+  <text class="lm-sea-label" x="428" y="266">ADC</text>
+  <text class="lm-sea-label" x="428" y="298">SJC2</text>
+  <!-- drawing-sheet frame annotation -->
+  <text class="lm-sheet" x="20" y="404">LM-01 · SCHEMATIC · NOT TO SCALE · SƠ ĐỒ · KHÔNG THEO TỶ LỆ</text>
+</svg>

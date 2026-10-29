@@ -1,0 +1,105 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Component catalog</title>
+<link rel="stylesheet" href="../tokens.css"><link rel="stylesheet" href="components.css">
+<style>/* catalog page layout only */
+body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-body)/var(--lh-body) var(--font-ui);padding:var(--s-6)}
+section{margin-bottom:var(--s-7)} h2{font-size:var(--fs-title);margin:0 0 var(--s-3)} .row{display:flex;flex-wrap:wrap;gap:var(--s-3);align-items:center}
+.demo-modal .c-modal{position:relative;inset:auto;min-height:260px}
+</style></head><body>
+<!-- Every component in components.css appears here in every variant and state. status.mjs flags any that don't. -->
+<section><h2>c-btn</h2><div class="row">
+  <button class="c-btn">Mặc định</button><button class="c-btn c-btn--primary">Chính</button><button class="c-btn" disabled>Tắt</button>
+</div></section>
+<section><h2>c-status</h2><div class="row">
+  <span class="c-status c-status--ok">✓ Hoàn tất</span><span class="c-status c-status--warn">! Chờ xử lý</span><span class="c-status c-status--danger">✕ Lỗi</span>
+</div></section>
+<section><h2>c-table — default · compact · touch (same component, three contexts)</h2>
+<div class="row" style="align-items:start">
+<div  style="flex:1;min-width:280px"><p>default</p><table class="c-table"><thead><tr><th>Đơn</th><th class="c-table__num">Tổng</th></tr></thead>
+<tbody><tr class="c-table__row--interactive"><td>DH-2641</td><td class="c-table__num">135.000 ₫</td></tr><tr><td>DH-2640</td><td class="c-table__num">97.000 ₫</td></tr></tbody></table>
+<p><button class="c-btn c-btn--primary">Thu tiền</button></p></div><div data-density="compact" style="flex:1;min-width:280px"><p>compact</p><table class="c-table"><thead><tr><th>Đơn</th><th class="c-table__num">Tổng</th></tr></thead>
+<tbody><tr class="c-table__row--interactive"><td>DH-2641</td><td class="c-table__num">135.000 ₫</td></tr><tr><td>DH-2640</td><td class="c-table__num">97.000 ₫</td></tr></tbody></table>
+<p><button class="c-btn c-btn--primary">Thu tiền</button></p></div><div data-density="touch" style="flex:1;min-width:280px"><p>touch</p><table class="c-table"><thead><tr><th>Đơn</th><th class="c-table__num">Tổng</th></tr></thead>
+<tbody><tr class="c-table__row--interactive"><td>DH-2641</td><td class="c-table__num">135.000 ₫</td></tr><tr><td>DH-2640</td><td class="c-table__num">97.000 ₫</td></tr></tbody></table>
+<p><button class="c-btn c-btn--primary">Thu tiền</button></p></div>
+</div></section>
+<section class="demo-modal"><h2>c-modal</h2>
+  <div class="c-modal"><div class="c-modal__panel"><h3 class="c-modal__title">Xoá khoản chi?</h3><p>Không hoàn tác được.</p>
+  <div class="c-modal__actions"><button class="c-btn">Huỷ</button><button class="c-btn c-btn--primary">Xoá</button></div></div></div>
+</section>
+<section><h2>c-sitehead</h2>
+  <div class="c-sitehead"><div class="c-sitehead__in" style="max-width:880px">
+    <a class="c-sitehead__brand" href="#"><span class="c-sitehead__name">PIDC</span><span class="c-sitehead__sub">Pisico Data Center</span></a>
+    <div class="c-sitehead__lang" role="group" aria-label="Language / Ngôn ngữ"><button type="button" class="c-sitehead__langbtn" aria-pressed="true">EN</button><button type="button" class="c-sitehead__langbtn" aria-pressed="false">VI</button></div>
+    <nav class="c-sitehead__nav" aria-label="Site"><a href="#" aria-current="page">The project</a><a href="#">AI data centers</a><a href="#">Contact</a></nav>
+  </div></div>
+</section>
+<section><h2>c-hero</h2>
+  <div class="c-hero" style="max-width:560px">
+    <p class="c-hero__badge"><span class="c-hero__dot" aria-hidden="true"></span>In development · Gia Lai, Vietnam</p>
+    <h1 class="c-hero__title">An international, green, resilient AI campus.</h1>
+    <p class="c-hero__lede">PIDC is developing a phased AI data center campus in Gia Lai.</p>
+    <div class="c-hero__actions"><a class="c-btn c-btn--primary" href="#">Contact us</a><a class="c-btn" href="#">Why Gia Lai</a></div>
+    <ul class="c-hero__toc"><li><a href="#">What it does</a></li><li><a href="#">Power</a></li></ul>
+  </div>
+</section>
+<section><h2>c-section · c-section--body</h2>
+  <div class="c-section" style="max-width:560px"><p class="c-section__eyebrow">Why Gia Lai</p><h2 class="c-section__title">Power, fiber and land in one place</h2><p class="c-section__lede">Three proofs, one site.</p></div>
+  <div class="c-section c-section--body" style="max-width:560px;margin-top:8px"><h3>Training</h3><p>Thousands of GPUs work together for weeks or months.</p><ul class="c-section__list"><li>Large investment in buildings and fiber.</li><li>A steady local buyer for power.</li></ul></div>
+</section>
+<section><h2>c-figure</h2>
+  <figure class="c-figure" style="max-width:480px"><figcaption class="c-figure__title">Building AI infrastructure where the power is.</figcaption>
+  <svg viewBox="0 0 120 48" role="img" aria-label="sample"><rect x="8" y="8" width="104" height="32" fill="none" stroke="currentColor"/><line x1="8" y1="24" x2="112" y2="24" stroke="currentColor"/></svg>
+  <ol class="c-figure__keys"><li class="c-phase"><span class="c-phase__n" aria-hidden="true">1</span><span>Phase 1 data hall</span></li><li class="c-phase"><span class="c-phase__n" aria-hidden="true">2</span><span>Cooling plant</span></li></ol>
+  <figcaption class="c-figure__cap"><span>Concept illustration</span><span>Not to scale</span></figcaption></figure>
+</section>
+<section><h2>c-proof</h2><div class="row" style="align-items:stretch">
+  <article class="c-proof" style="flex:1;min-width:240px"><p class="c-proof__index">01</p><p class="c-proof__kicker">Power</p><h3 class="c-proof__title">A province with surplus power</h3><p class="c-proof__body">Gia Lai's wind, solar and hydropower plants produce far more electricity than the province uses.</p></article>
+  <article class="c-proof" style="flex:1;min-width:240px"><p class="c-proof__index">02</p><p class="c-proof__kicker">Connectivity</p><h3 class="c-proof__title">Two international cables land nearby</h3><p class="c-proof__body">Quy Nhơn is the Vietnam landing point for the ADC and SJC2 submarine cables.</p></article>
+</div></section>
+<section><h2>c-stat · c-phase · c-callout</h2><div class="row">
+  <div class="c-stat"><span class="c-stat__figure">220 kV</span><span class="c-stat__label">Transmission grid</span></div>
+  <ol style="list-style:none;margin:0;padding:0;display:grid;gap:8px"><li class="c-phase"><span class="c-phase__n" aria-hidden="true">3</span><span>Grid connection</span></li><li class="c-phase"><span class="c-phase__n" aria-hidden="true">4</span><span>Cooling plant</span></li></ol>
+  <p class="c-callout" style="flex:1;min-width:240px">Capacity figures and technical details are shared under NDA.</p>
+</div></section>
+<section><h2>c-cta</h2>
+  <div class="c-cta"><div class="c-cta__in" style="padding-inline:0"><h2 class="c-cta__title">Talk to us about the campus</h2><a class="c-btn c-btn--primary" href="#">Contact us</a></div></div>
+</section>
+<section><h2>c-sitefoot</h2>
+  <div class="c-sitefoot"><div class="c-sitefoot__tag"><p class="c-sitefoot__wordmark">PIDC · Pisico Data Center</p><p class="c-sitefoot__tagline">An international, green, resilient AI campus.</p></div>
+  <div class="c-sitefoot__in"><nav class="c-sitefoot__nav" aria-label="Footer"><a href="#">The project</a><a href="#">Contact</a></nav><span class="c-sitefoot__legal">© 2026 Pisico Data Center Joint Stock Company</span><span class="c-sitefoot__site">pidc.vn</span></div></div>
+</section>
+<section><h2>c-compare · c-glossary · c-formfield</h2>
+  <div style="max-width:640px">
+    <div class="c-compare"><table class="c-table"><thead><tr><th scope="col"><span class="sr">Feature</span></th><th scope="col">Conventional</th><th scope="col">AI</th></tr></thead>
+    <tbody><tr><th scope="row">Power per rack</th><td>Mostly under 10 kW</td><td class="c-compare__ai">About 130 kW</td></tr></tbody></table></div>
+    <dl class="c-glossary" style="margin-top:16px"><div><dt>PUE</dt><dd>Power usage effectiveness: total facility power divided by IT power.</dd></div><div><dt>GPU</dt><dd>The chip that does most AI computing.</dd></div></dl>
+    <div class="c-formfield" style="margin-top:16px"><label class="c-formfield__label" for="cat-mail">Email</label><input class="c-formfield__input" id="cat-mail" type="email" placeholder="name at pidc dot vn (placeholder)"></div>
+  </div>
+</section>
+
+<section><h2>c-statband (PR2)</h2>
+<dl class="c-statband">
+  <div class="c-statband__item"><dt class="c-statband__label">Grid connection · Đấu nối lưới</dt>
+    <dd class="c-statband__value c-statband__value--red">220 kV</dd><dd class="c-statband__src">[CEO: source + as-of]</dd></div>
+  <div class="c-statband__item"><dt class="c-statband__label">Capacity · Công suất</dt>
+    <dd class="c-statband__value c-statband__value--nda">Under NDA · Theo NDA</dd><dd class="c-statband__src">NDA</dd></div>
+</dl></section>
+<section><h2>c-ceo (PR2)</h2><div class="row">
+  <span class="c-ceo">[CEO: land area ha]</span><span class="c-ceo">[CEO: current stage · giai đoạn hiện tại]</span>
+</div></section>
+<section><h2>c-milestones (PR2)</h2><ul class="c-milestones">
+  <li><time>[CEO: date]</time><div>[CEO: milestone + status]</div></li>
+</ul></section>
+<section><h2>c-people (PR2)</h2><div class="c-people">
+  <div class="c-people__card"><div class="c-people__role">[CEO: role]</div><div>[CEO: name + one line]</div></div>
+</div></section>
+<section><h2>c-choice (PR2)</h2><fieldset class="c-choice"><legend class="sr-only">I am a · Tôi là</legend>
+  <label class="c-choice__opt"><input class="c-choice__input" type="radio" name="cat-demo" checked>
+    <span><span class="c-choice__title">Capital partners · Đối tác vốn</span><br><span class="c-choice__desc">Infrastructure investors and funds.</span></span></label>
+  <label class="c-choice__opt"><input class="c-choice__input" type="radio" name="cat-demo">
+    <span><span class="c-choice__title">AI compute tenants</span><br><span class="c-choice__desc">Companies deploying GPU clusters.</span></span></label>
+</fieldset></section>
+<section><h2>c-terrainrule (PR2)</h2><hr class="c-terrainrule"></section>
+<section><h2>r-tocrail (PR2)</h2><div class="r-tocrail"><nav><ol><li><a href="#">S-02 · POWER · ĐIỆN</a></li><li aria-current="true"><a href="#">S-03 · FIBER · CÁP</a></li></ol></nav><div>Content column</div></div></section>
+</body></html>

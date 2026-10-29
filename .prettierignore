@@ -3,3 +3,6 @@ dist/
 node_modules/
 pnpm-lock.yaml
 CHANGELOG.md
+
+# design artifacts: uiux-studio mockups, not shipped source (see design/DESIGN.md)
+design/

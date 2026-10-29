@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+/* Drawing Set — token overrides only (semantic tier + new component-tier tokens).
+   Paper ground, near-black ink, ONE signal red used where a drawing uses red. */
+
+:root {
+  /* ground & ink */
+  --color-bg: #fafaf7;                 /* paper */
+  --color-surface: #ffffff;            /* drawing sheet (figure interiors, note cards) */
+  --color-text: #1a1d1f;               /* ink */
+  --color-text-2: #565b5d;             /* faded ink (AA on paper) */
+  --color-line: #d8d8d2;               /* hairline rule */
+
+  /* the one accent: signal red — callout markers, live values, key CTA, NDA note */
+  --color-accent: #c8401a;
+  --color-on-accent: #ffffff;
+  --color-accent-2: #1a1d1f;           /* citations/links: ink, underline carries them */
+  --color-warn: #c8401a;               /* NDA callout bar shares the single red job */
+
+  /* diagram roles → ink-line drawing language:
+     ink = power (solid), faded-ink = fiber/coolant (dashed), red = live kV values only */
+  --color-power: #1a1d1f;
+  --color-fiber: #7a8082;
+  --color-cool: #7a8082;
+  --color-heat: #1a1d1f;
+  --color-grid: #ecece6;               /* hatched ground / drawing grid */
+  --color-ok: #a8ae9f;                 /* trees: neutral vegetation gray, no second hue */
+  --color-iso-top: #ffffff; --color-iso-left: #f0f0e9; --color-iso-right: #e3e3da;
+
+  /* type: Space Grotesk display + Inter body + IBM Plex Mono annotations (all VN-subset) */
+  --font-ui: "Inter", sans-serif;
+  --font-num: "IBM Plex Mono", monospace;
+  --font-diagram: "IBM Plex Mono", monospace;
+  --font-display: "Space Grotesk", sans-serif;   /* component-tier: applied in skin.css */
+
+  /* geometry: 0–2px radius, slightly looser tight leading for VI stacked diacritics */
+  --r-1: 2px; --r-2: 2px; --r-3: 2px;
+  --lh-tight: 1.22;
+}
