@@ -1,8 +1,0 @@
-# Intentionally public names in this repository (identifier policy 2026-10-29;
-# ci v1.27.0 syntax).
-#
-# The site's own hostnames (tier 2, exact) — this IS the public site for the
-# pidc.vn domain, so every URL, canonical link, OG tag and sitemap entry uses
-# them by design.
-pidc\.vn
-www\.pidc\.vn

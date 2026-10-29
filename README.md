@@ -1,12 +1,12 @@
 # pidc-landing
 
 Marketing site for PIDC — Pisico Data Center JSC (`pidc.vn`). Astro + Tailwind CSS v4,
-static output, English (default) + Vietnamese (`/vi/`) routes. Tooling mirrors
-[qnsc-landing](https://github.com/quynhonsemiconductor/qnsc-landing).
+static output. English (default) + Vietnamese routes land with the content PRs. Tooling
+mirrors [qnsc-landing](https://github.com/quynhonsemiconductor/qnsc-landing).
 
 ## Stack
 
-- **Astro** — static site generation, image optimization via `astro:assets`
+- **Astro** — static site generation (image optimization via `astro:assets` lands with the content PRs)
 - **Tailwind CSS v4** — styling
 - **TypeScript** — strict, `astro check` gates CI
 - **Hosting** — Cloudflare Pages (separate PIDC account; deploy wiring lands later)

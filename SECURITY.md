@@ -11,7 +11,8 @@
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Please report security issues by emailing: **contact@pidc.vn**
+Please report security issues via GitHub's private vulnerability reporting:
+**[Security → Report a vulnerability](https://github.com/quynhonsemiconductor/pidc-landing/security/advisories/new)**
 
 Include:
 

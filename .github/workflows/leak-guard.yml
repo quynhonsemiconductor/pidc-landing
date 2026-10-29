@@ -3,8 +3,9 @@
 # repository: qnsc.vn hostnames and mail, GUIDs, private addresses, and (fed in
 # at RUNTIME from org variables, never written here) the org's Entra tenant GUID
 # and Azure subscription id. Patterns and exemptions live in ci's
-# actions/leak-guard; this repository's intentional public names (the site's
-# own pidc.vn hostnames) are allowlisted in .github/leak-guard-allowlist.txt.
+# actions/leak-guard. This repository has NO allowlist: the site's own pidc.vn
+# names match no pattern (leak-guard guards qnsc.vn, GUIDs and private IPs),
+# so a missing file at the default path deliberately means "none".
 # =============================================================================
 name: Leak guard
 

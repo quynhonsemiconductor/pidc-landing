@@ -1,8 +1,9 @@
 # pnpm workspace config. pidc-landing is a single package, so there is no
 # `packages:` list — this file exists for the two blocks below.
 #
-# Transitive CVE floors, mirrored from qnsc-landing (same toolchain). Entries
-# for packages this tree does not resolve are inert; they exist so a future
+# Transitive CVE floors, mirrored from qnsc-landing (same toolchain), minus
+# the ones whose only path was wrangler/miniflare (undici). Entries for
+# packages this tree does not resolve are inert; they exist so a future
 # dependency that reintroduces one lands on the fixed version, not the advisory.
 
 overrides:
