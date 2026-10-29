@@ -1,0 +1,93 @@
+# =============================================================================
+# CI — fast quality gates on every PR and push to main
+# Gate: lint → typecheck → build → pr-title
+# Security scans (Gitleaks, Semgrep, osv-scanner) live in security.yml —
+# independently runnable. Mirrors qnsc-landing's ci.yml.
+# =============================================================================
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    # NO `branches:` filter here, deliberately — see `push` above, which keeps one.
+    #
+    # On `pull_request` this filter matches the PR's BASE branch, which is a
+    # different question from `push`'s. Set to [main] it means "only run when
+    # this PR is aimed at main", so a PR aimed anywhere else — a stacked PR,
+    # aimed at the branch below it — got no CI at all, silently, while still
+    # reporting green.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: '22'
+  PNPM_VERSION: '10.34.7'
+
+jobs:
+  # ─────────────────────────────────────────────────────────────────────────
+  # 1. Lint + typecheck (fast gate — no deps needed)
+  # ─────────────────────────────────────────────────────────────────────────
+  quality:
+    name: Lint & typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: quynhonsemiconductor/ci/actions/setup-node-pnpm@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          pnpm-version: ${{ env.PNPM_VERSION }}
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck (Astro check)
+        run: pnpm typecheck
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # 2. Build — verifies the static output compiles cleanly (Astro + Sharp
+  #    image pipeline + sitemap). Correctness check only: the deploy build
+  #    will run in a web-deploy workflow once the PIDC Cloudflare account
+  #    exists (deliberately absent in this round).
+  # ─────────────────────────────────────────────────────────────────────────
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [quality]
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: quynhonsemiconductor/ci/actions/setup-node-pnpm@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          pnpm-version: ${{ env.PNPM_VERSION }}
+
+      - name: Build
+        run: pnpm build
+
+  # ── The aggregate gate ──────────────────────────────────────────────────────
+  # `CI required` is THE required check for this workflow. It exists because
+  # GitHub counts a SKIPPED or CANCELLED required check as PASSING, so naming
+  # each job in the ruleset cannot catch a job that never ran (see qnsc-landing's
+  # ci.yml for the incidents behind this).
+  ci-required:
+    name: CI required
+    if: always()
+    needs: [quality, build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: quynhonsemiconductor/ci/actions/assert-jobs-succeeded@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
+        with:
+          results: ${{ join(needs.*.result, ',') }}
