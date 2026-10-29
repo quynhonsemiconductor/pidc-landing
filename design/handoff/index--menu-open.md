@@ -1,0 +1,1 @@
+Menu-open state of `index` — see `index.md`. Only difference: the <details class="c-sitemenu"> carries `open` at 390. Closed state = index.html default; open panel renders in flow under the header (bordered list, current page ink+red).

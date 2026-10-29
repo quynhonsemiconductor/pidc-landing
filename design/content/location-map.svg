@@ -1,0 +1,57 @@
+<svg id="lm" viewBox="0 0 560 448" role="img"
+  aria-label="Schematic location map. Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-en="Schematic location map. Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-vi="Sơ đồ vị trí. Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.">
+  <title>Schematic location map — PIDC site in Gia Lai, 220 kV grid link, dual fibre routes to ADC and SJC2 landings at Quy Nhơn (LM-01)</title>
+  <!-- Geometry: Natural Earth 1:50m Admin 0 — Countries, VNM mainland polygon only (no islands),
+    public domain (naturalearthdata.com),
+    https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+    Clipped to 107.0–111.6 °E / 12.7–16.55 °N (frame 107.30–111.10 °E / 13.05–16.00 °N — mainland central
+    Vietnam only, cropped north of any island groups), Douglas–Peucker simplification tol 0.028 °,
+    equirectangular projection (x scaled by cos 14.5°). Province precision only, not to scale. -->
+  <defs>
+    <pattern id="lm-sea" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0 8 Q4 5.5 8 8 T16 8" class="lm-sea-line"/>
+    </pattern>
+  </defs>
+  <!-- sea: subtle wave hatch east/south of the coastline (frame rect minus land, even-odd);
+    land is drawn on top, so hatch can never sit over land -->
+  <path class="lm-sea" fill-rule="evenodd" d="M0 0H560V448H0Z
+    M47.6 -83.5 74.1 -61.2 78.7 -49 107.5 -50.3 134 -13.8 142.6 -13.6 145.3 1.7 188.3 63.1 224.2 94.5
+    241.7 151.6 263 195 263.3 219.8 295.2 325.5 293 339.4 286.9 325.8 290.6 413.2 313 462.3 313 501.2
+    304.3 501.2 300 493.3 289.7 501.2 36 501.2 25.8 451 45 389.1 43.3 376.4 4.6 284.5 9.5 247.7
+    21.9 235.2 34.7 205 26.6 154.9 52 113.1 38.9 92.4 5.7 66.7 -16.3 38.4 -16.4 24.5 8.9 11.9
+    16.2 0.3 -44.2 -47.5 -44.2 -83.5Z"/>
+  <!-- Vietnam mainland (Natural Earth 1:50m, simplified) -->
+  <path class="lm-land" d="M47.6 -83.5 74.1 -61.2 78.7 -49 107.5 -50.3 134 -13.8 142.6 -13.6 145.3 1.7
+    188.3 63.1 224.2 94.5 241.7 151.6 263 195 263.3 219.8 295.2 325.5 293 339.4 286.9 325.8 290.6 413.2
+    313 462.3 313 501.2 304.3 501.2 300 493.3 289.7 501.2 36 501.2 25.8 451 45 389.1 43.3 376.4 4.6 284.5
+    9.5 247.7 21.9 235.2 34.7 205 26.6 154.9 52 113.1 38.9 92.4 5.7 66.7 -16.3 38.4 -16.4 24.5 8.9 11.9
+    16.2 0.3 -44.2 -47.5 -44.2 -83.5Z"/>
+  <text class="lm-name" x="24" y="46">VIETNAM</text>
+  <!-- 220 kV grid line: national grid south to the site (solid ink) -->
+  <path class="lm-kv" d="M150 8C145 90 128 210 119 313"/>
+  <text class="lm-kv-label" x="146" y="146">220 kV grid</text>
+  <!-- Gia Lai province relation (dashed ring) -->
+  <ellipse class="lm-prov" cx="118" cy="320" rx="58" ry="50"/>
+  <text class="lm-prov-label" x="118" y="396" text-anchor="middle">Gia Lai Province</text>
+  <!-- PIDC site marker -->
+  <g class="lm-site"><circle cx="118" cy="320" r="7"/></g>
+  <text class="lm-site-label" x="118" y="348" text-anchor="middle">PIDC site</text>
+  <!-- two separate fibre routes, site to each landing station (dashed) -->
+  <path class="lm-fb" d="M125 316C170 312 230 307 289 304"/>
+  <path class="lm-fb" d="M124 328C175 342 235 360 289 372"/>
+  <!-- Quy Nhơn and the two cable landing stations -->
+  <text class="lm-coast-label" x="272" y="341" text-anchor="end">Quy Nhơn</text>
+  <g class="lm-land-station">
+    <circle cx="288.7" cy="303.7" r="4"/>
+    <circle cx="288.9" cy="372.1" r="4"/>
+  </g>
+  <!-- submarine cables continuing out to sea, labels at the sea edge -->
+  <path class="lm-fb" d="M293 302C340 296 385 288 428 282"/>
+  <path class="lm-fb" d="M293 374C340 370 385 364 426 358"/>
+  <text class="lm-station-label" x="424" y="300">ADC landing</text>
+  <text class="lm-station-label" x="424" y="376">SJC2 landing</text>
+  <text class="lm-sea-label" x="452" y="110" text-anchor="middle">EAST SEA</text>
+  <!-- sheet note LM-01 -->
+</svg>

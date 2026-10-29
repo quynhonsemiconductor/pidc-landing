@@ -1,0 +1,203 @@
+/* recipes.css — product-specific compositions of c-* components (prefix r-*).
+   A recipe arranges components and may add layout/spacing via tokens; it never restyles a c-* class.
+   r-diagram holds the base styles for the demo's SVG figure classes (s-*, t-*, x-*, iso-*, rk-*,
+   dg-*, cl-*, lg-*, .mk) and its HTML bar charts (.bar-row/.track/.bar/.axis/.stackbar): thin
+   currentColor-ish lines driven by semantic diagram tokens, so a skin restyles them purely by
+   overriding tokens in tokens.css. */
+
+/* helpers carried over from the source demo (non-visual) */
+.sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.nw { white-space:nowrap; }
+.cite { font:600 var(--fs-meta)/1 var(--font-diagram); color:var(--color-accent-2); text-decoration:none; vertical-align:super; margin-left:2px; }
+.cite:hover { text-decoration:underline; }
+.tlink { color:var(--color-accent-2); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:var(--s-1); }
+.tlink:hover { text-decoration-thickness:2px; }
+
+/* r-hero-figure — the SLD beside the hero copy */
+.r-hero-figure { min-width:0; }
+
+/* r-proof-grid — the three proofs (power / connectivity / land) */
+.r-proof-grid { display:grid; gap:var(--s-6); margin-top:var(--s-7); }
+@media (min-width:53.75em) { .r-proof-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--s-7); } }
+
+/* r-section-split — section head left, body right */
+.r-section-split { display:grid; gap:var(--s-6); }
+@media (min-width:57.5em) { .r-section-split { grid-template-columns:minmax(0,2fr) minmax(0,5fr); gap:var(--s-8); align-items:start; } }
+.r-section-split > * { min-width:0; margin-block-start:0; }
+
+/* r-sourcebox — "Where the numbers come from" */
+.r-sourcebox { border:1px solid var(--color-line); border-radius:var(--r-1); background:var(--color-surface); padding:var(--s-4); }
+.r-sourcebox ol { list-style:none; margin:0; padding:0; display:grid; gap:var(--s-2); counter-reset:src;
+  font:400 var(--fs-small)/var(--lh-body) var(--font-ui); color:var(--color-text-2); }
+.r-sourcebox li { display:grid; grid-template-columns:2.4em minmax(0,1fr); gap:var(--s-1); }
+.r-sourcebox li::before { counter-increment:src; content:"[" counter(src) "]"; font:600 var(--fs-meta)/var(--lh-body) var(--font-num);
+  font-variant-numeric:tabular-nums; color:var(--color-accent-2); }
+.r-sourcebox a { color:var(--color-text-2); text-decoration:underline; text-underline-offset:var(--s-1); overflow-wrap:anywhere; }
+.r-sourcebox a:hover { color:var(--color-text); }
+
+/* r-chart — HTML bar chart inside a c-figure (data via --v/--max/--ticks on the nodes) */
+.r-chart { padding:var(--s-4) var(--s-4) var(--s-3); }
+.r-chart .c-figure__title { padding:0 0 var(--s-4); border-bottom:0; }
+.r-chart .c-figure__swatches { border-top:0; padding:var(--s-3) 0 0; }
+.r-chart .c-stat__figure { font-size:var(--fs-title); margin-right:var(--s-2); }
+.bar-row + .bar-row { margin-top:var(--s-4); }
+.bar-label { display:block; margin-bottom:var(--s-1); font:400 var(--fs-small)/1.4 var(--font-ui); color:var(--color-text); }
+.track { position:relative; height:16px; border-right:1px solid var(--color-line);
+  background-image:linear-gradient(to right,var(--color-line) 1px,transparent 1px); background-size:calc(100% / var(--ticks,3)) 100%; }
+.bar { height:100%; width:calc(var(--v) / var(--max) * 100%); background:var(--color-power); }
+.bar.muted { background:var(--color-text-2); }
+.bar.proj { background:repeating-linear-gradient(135deg,var(--color-power) 0 3px,transparent 3px 7px); box-shadow:inset 0 0 0 1.5px var(--color-power); }
+.bar.over, .sw-over { background:repeating-linear-gradient(135deg,var(--color-text-2) 0 2px,transparent 2px 5px); box-shadow:inset 0 0 0 1px var(--color-text-2); }
+.axis { position:relative; height:18px; margin-top:var(--s-1); font:400 var(--fs-meta)/1 var(--font-num); font-variant-numeric:tabular-nums; color:var(--color-text-2); }
+.axis span { position:absolute; top:0; transform:translateX(-50%); white-space:nowrap; }
+.axis span:first-child { transform:none; }
+.axis span:last-child { transform:translateX(-100%); }
+.stackbar { display:flex; height:100%; gap:2px; }
+
+/* r-diagram — base styles for every copied SVG figure + figure internals */
+@media (min-width:43.75em) { .c-figure__zones { grid-template-columns:50fr 20fr 30fr; gap:var(--s-4); } }
+.dg { display:block; width:100%; max-width:340px; height:auto; margin:0 0 var(--s-3); }
+
+/* hero legend strokes */
+.lg-pw { stroke:var(--color-power); stroke-width:3; }
+.lg-fb { stroke:var(--color-fiber); stroke-width:2; stroke-dasharray:6 5; }
+.lg-bd { fill:none; stroke:var(--color-text-2); stroke-width:1.25; stroke-dasharray:7 5; }
+
+/* single-line diagram (SLD-00) */
+.s-bg { fill:var(--color-surface); }
+.s-grid { fill:none; stroke:var(--color-grid); stroke-width:1; }
+.s-pw { fill:none; stroke:var(--color-power); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.s-bus { fill:none; stroke:var(--color-power); stroke-width:6; }
+.s-bus-mv { fill:none; stroke:var(--color-power); stroke-width:4; }
+.s-sym { fill:var(--color-surface); stroke:var(--color-power); stroke-width:2; }
+.s-xf { fill:none; stroke:var(--color-power); stroke-width:2; }
+.s-dot { fill:var(--color-power); }
+.s-bound { fill:none; stroke:var(--color-text-2); stroke-width:1.25; stroke-dasharray:7 5; }
+.s-hall { fill:var(--color-surface); stroke:var(--color-text); stroke-width:1.5; }
+.s-rack { fill:var(--color-text-2); }
+.s-fb { fill:none; stroke:var(--color-fiber); stroke-width:2; stroke-dasharray:6 5; }
+.s-stn { fill:var(--color-surface); stroke:var(--color-fiber); stroke-width:2; stroke-linejoin:round; }
+.s-cable { fill:none; stroke:var(--color-fiber); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+.s-sea { fill:none; stroke:var(--color-fiber); stroke-width:1.25; opacity:.45; }
+.s-rule { stroke:var(--color-line); stroke-width:1; }
+.t-label { font-family:var(--font-diagram); font-weight:600; font-size:var(--fs-diagram-label); letter-spacing:var(--ls-3); fill:var(--color-text-2); }
+.t-xs { font-size:var(--fs-diagram-xs); }
+.t-ink { fill:var(--color-text); }
+.t-name { font-family:var(--font-ui); font-size:var(--fs-diagram-name); fill:var(--color-text); }
+.t-strong { font-weight:600; }
+.t-small { font-family:var(--font-ui); font-size:var(--fs-diagram-small); fill:var(--color-text-2); }
+.t-kv { font-family:var(--font-diagram); font-weight:600; font-size:var(--fs-diagram-kv); fill:var(--color-power); }
+.t-kv-sm { font-size:var(--fs-diagram-kv-sm); }
+.t-fbl { font-family:var(--font-diagram); font-weight:600; font-size:var(--fs-diagram-fbl); letter-spacing:var(--ls-1); fill:var(--color-fiber); }
+
+/* terrain cross-section */
+.x-ground { fill:var(--color-grid); }
+.x-edge { fill:none; stroke:var(--color-text-2); stroke-width:1.25; }
+.x-sea { fill:var(--color-fiber); opacity:.12; }
+.x-wave { fill:none; stroke:var(--color-fiber); stroke-width:1.25; opacity:.5; }
+.x-pw { fill:none; stroke:var(--color-power); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+.x-tower { fill:none; stroke:var(--color-text-2); stroke-width:1.25; stroke-linejoin:round; }
+.x-sym { fill:var(--color-surface); stroke:var(--color-power); stroke-width:1.75; }
+.x-stn { fill:var(--color-surface); stroke:var(--color-fiber); stroke-width:1.75; stroke-linejoin:round; }
+.x-cable { fill:none; stroke:var(--color-fiber); stroke-width:2; stroke-linecap:round; }
+.x-node { fill:var(--color-power); }
+
+/* campus concept, isometric */
+.iso-ground { fill:var(--color-grid); }
+.iso-bound { fill:none; stroke:var(--color-text-2); stroke-width:1; stroke-dasharray:6 4; }
+.iso-yard { fill:var(--color-line); fill-opacity:.55; }
+.iso-fence { fill:none; stroke:var(--color-text-2); stroke-width:.9; stroke-dasharray:2 2; }
+.iso-t, .iso-l, .iso-r { stroke:var(--color-text); stroke-width:.8; stroke-linejoin:round; }
+.iso-t.bld { fill:var(--color-iso-top); } .iso-l.bld { fill:var(--color-iso-left); } .iso-r.bld { fill:var(--color-iso-right); }
+.iso-t.clr { fill:var(--color-text-2); } .iso-l.clr { fill:var(--color-iso-left); } .iso-r.clr { fill:var(--color-iso-right); }
+.iso-t.xfm, .iso-l.xfm, .iso-r.xfm { fill:var(--color-power); }
+.iso-l.xfm { fill-opacity:.8; } .iso-r.xfm { fill-opacity:.6; }
+.iso-wire { fill:none; stroke:var(--color-text-2); stroke-width:.9; stroke-dasharray:4 3; stroke-linejoin:round; }
+.iso-pw { fill:none; stroke:var(--color-power); stroke-width:1.4; stroke-linecap:round; }
+.iso-tower { fill:none; stroke:var(--color-text-2); stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; }
+.iso-cable { fill:none; stroke:var(--color-power); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.iso-fb { fill:none; stroke:var(--color-fiber); stroke-width:1.8; stroke-dasharray:5 3; stroke-linecap:round; stroke-linejoin:round; }
+.iso-tree { fill:var(--color-ok); fill-opacity:.55; }
+.iso-trunk { fill:none; stroke:var(--color-text-2); stroke-width:1; }
+
+/* numbered markers inside the SVGs */
+.mk circle { fill:var(--color-text); }
+.mk text { fill:var(--color-bg); font-family:var(--font-diagram); font-weight:700; font-size:var(--fs-diagram-label); text-anchor:middle; dominant-baseline:central; }
+
+/* rack anatomy */
+.rk-frame { fill:var(--color-surface); stroke:var(--color-text); stroke-width:2; }
+.rk-pwr { fill:var(--color-power); fill-opacity:.18; stroke:var(--color-text-2); stroke-width:.8; }
+.rk-vent { stroke:var(--color-power); stroke-width:1; }
+.rk-tray { fill:var(--color-iso-top); stroke:var(--color-text-2); stroke-width:.8; }
+.rk-gpu { fill:var(--color-text-2); }
+.rk-sw { fill:var(--color-iso-left); stroke:var(--color-text-2); stroke-width:.8; }
+.rk-port { fill:var(--color-fiber); }
+.rk-cool { fill:none; stroke:var(--color-cool); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rk-heat { fill:none; stroke:var(--color-heat); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.rk-foot { stroke:var(--color-text); stroke-width:2; }
+
+/* training / inference diagrams */
+.dg-db { fill:var(--color-surface); stroke:var(--color-text-2); stroke-width:1.4; }
+.dg-line { fill:none; stroke:var(--color-text-2); stroke-width:1.2; }
+.dg-arrow { fill:none; stroke:var(--color-text); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.dg-arrow-b { fill:none; stroke:var(--color-fiber); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.dg-link { fill:none; stroke:var(--color-fiber); stroke-width:2; }
+.dg-gpu { fill:var(--color-text-2); }
+.dg-model { fill:var(--color-surface); stroke:var(--color-text); stroke-width:1.5; }
+.dg-dot { fill:var(--color-text); }
+.dg-person { fill:none; stroke:var(--color-text); stroke-width:1.5; }
+.dg-t { font-family:var(--font-ui); font-size:var(--fs-diagram-name); fill:var(--color-text); }
+.dg-s { font-family:var(--font-diagram); font-weight:600; font-size:var(--fs-diagram-dgs); letter-spacing:var(--ls-1); fill:var(--color-text-2); }
+
+/* liquid cooling loop */
+.cl-plate { fill:none; stroke:var(--color-cool); stroke-width:1.6; }
+.cl-hx { fill:none; stroke:var(--color-text-2); stroke-width:1.4; stroke-linejoin:round; }
+.cl-fan { fill:var(--color-surface); stroke:var(--color-text); stroke-width:1.4; }
+.cl-blade { stroke:var(--color-text-2); stroke-width:1.4; stroke-linecap:round; }
+.cl-warm { fill:none; stroke:var(--color-heat); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
+.cl-cold { fill:none; stroke:var(--color-cool); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
+
+/* swatch chips (figure legends) */
+.sw-cold { background:var(--color-cool); width:18px; height:8px; }
+.sw-warm { background:var(--color-heat); width:18px; height:8px; }
+.sw-it { background:var(--color-power); width:18px; height:8px; }
+.sw-over { width:18px; height:8px; }
+
+/* r-diagram additions — Drawing Set line language (folded from skin 2026-10-29) */
+.t-kv { fill: var(--color-accent); }             /* live electrical values keep the drawing's red */
+.s-pw { stroke-width: 1.5; } .s-bus { stroke-width: 5; } .s-bus-mv { stroke-width: 3.5; }
+.s-sym, .s-xf, .s-fb { stroke-width: 1.5; } .s-cable { stroke-width: 1.75; }
+.x-pw, .x-sym { stroke-width: 1.5; } .x-cable { stroke-width: 1.75; }
+.iso-pw { stroke-width: 1.2; } .iso-cable { stroke-width: 1.3; } .iso-fb { stroke-width: 1.4; }
+.cl-cold, .rk-cool { stroke-dasharray: 5 3; }    /* cold/supply coolant dashed vs solid warm/return */
+.mk circle { stroke: var(--color-surface); stroke-width: 1.5; }  /* marker halo */
+
+/* r-locationmap — schematic location map (content/location-map.svg + --vi / --m / --m--vi, LM-01)
+   Geometry: Natural Earth 1:50m admin-0 countries (VNM mainland), public domain — see SVG header.
+   Desktop viewBox 560 wide; smallest text 12 units → 9 px rendered at the 420 px page column (×0.75). */
+.lm-land { fill: var(--color-surface); stroke: var(--color-text); stroke-width: 1.5; }
+.lm-sea { fill: url(#lm-sea); }                    /* wave pattern, sea only — land is drawn over it */
+.lm-sea-line { stroke: var(--color-line); stroke-width: 1; fill: none; }
+.lm-name { font: 600 13px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .08em; }
+.lm-kv { fill: none; stroke: var(--color-power); stroke-width: 1.75; }
+.lm-kv-label { font: 600 13px var(--font-diagram); fill: var(--color-accent); }
+.lm-site circle { fill: var(--color-accent); }
+.lm-site-label { font: 600 13.5px var(--font-diagram); fill: var(--color-text); }
+.lm-prov { fill: none; stroke: var(--color-text-2); stroke-width: 1; stroke-dasharray: 4 3; }
+.lm-prov-label, .lm-coast-label { font: 500 12.5px var(--font-diagram); fill: var(--color-text-2); }
+.lm-fb { fill: none; stroke: var(--color-fiber); stroke-width: 1.75; stroke-dasharray: 6 3; }
+.lm-land-station circle { fill: var(--color-surface); stroke: var(--color-text); stroke-width: 1.5; }
+.lm-station-label { font: 600 12.5px var(--font-diagram); fill: var(--color-text); }
+.lm-sea-label { font: 500 13px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .14em; }
+.lm-sheet { font: 500 12.5px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .06em; }
+/* mobile variant (location-map--m*.svg), viewBox 360 wide rendered at 358 px:
+   scale = 358/360 = 0.9944 → 12 px rendered needs 12 / 0.9944 = 12.07 units; all sizes below ≥ 12.5 */
+.lm-m-site-label { font: 600 15px var(--font-diagram); fill: var(--color-text); }
+.lm-m-kv-label { font: 600 15px var(--font-diagram); fill: var(--color-accent); }
+.lm-m-station-label { font: 600 14px var(--font-diagram); fill: var(--color-text); }
+.lm-m-coast-label { font: 500 15px var(--font-diagram); fill: var(--color-text-2); }
+.lm-m-sheet { font: 500 13.5px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .06em; }
+
+/* r-locationmap — desktop/mobile variant swap (mobile: fewer, larger labels, ≥12px rendered) */
+.c-figure > svg.lm-m { display: none; }
+@media (max-width: 480px) { .c-figure > svg.lm-d { display: none; } .c-figure > svg.lm-m { display: block; } }

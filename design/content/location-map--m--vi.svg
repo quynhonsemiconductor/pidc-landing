@@ -1,0 +1,48 @@
+<svg id="lm-m" viewBox="0 0 360 460" role="img"
+  aria-label="Sơ đồ vị trí (mobile). Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển."
+  data-label-en="Schematic location map (mobile). Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-vi="Sơ đồ vị trí (mobile). Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.">
+  <title>Sơ đồ vị trí, mobile — khu dự án PIDC tại Gia Lai, lưới 220 kV, tuyến cáp quang đến trạm cập bờ ADC và SJC2 tại Quy Nhơn (LM-01)</title>
+  <!-- Cỡ chữ mobile: viewBox rộng 360, hiển thị ở 358 px → tỷ lệ = 358 / 360 = 0.9944;
+    nhãn hiển thị ≥ 12 px cần 12 / 0.9944 = 12.07 đơn vị viewBox, nên mọi cỡ chữ ở đây ≥ 13.5 đơn vị
+    (vị trí 15, 220 kV 15, bờ biển 15, trạm 14, ghi chú 13.5 → nhỏ nhất = 13.5 × 0.9944 ≈ 13.4 px).
+    Cùng hình học với location-map--vi.svg; ít nhãn hơn (bỏ vòng tỉnh, bỏ nhãn biển). -->
+  <!-- Geometry: Natural Earth 1:50m Admin 0 — Countries, VNM mainland polygon only (no islands),
+    public domain (naturalearthdata.com),
+    https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+    Clipped to 107.6–110.3 °E / 12.8–16.05 °N (frame 107.95–109.95 °E / 13.10–15.65 °N — mainland only),
+    Douglas–Peucker simplification tol 0.028 °, equirectangular projection (x scaled by cos 14.5°). -->
+  <defs>
+    <pattern id="lm-sea" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0 8 Q4 5.5 8 8 T16 8" class="lm-sea-line"/>
+    </pattern>
+  </defs>
+  <!-- sea hatch east/south of the coastline (frame minus land, even-odd); land drawn on top -->
+  <path class="lm-sea" fill-rule="evenodd" d="M0 0H360V460H0Z
+    M57.9 -72.2 113 11.8 156.8 49.1 178.2 117 204.3 168.5 204.7 198 243.6 323.5 240.9 340 233.5 323.9
+    237.9 427.6 265.3 486 264.8 514.1 -63 514.1 -63 92.9 -53.4 71.2 -63 55.8 -63 -72.2Z"/>
+  <!-- Vietnam mainland (Natural Earth 1:50m, simplified) -->
+  <path class="lm-land" d="M57.9 -72.2 113 11.8 156.8 49.1 178.2 117 204.3 168.5 204.7 198 243.6 323.5
+    240.9 340 233.5 323.9 237.9 427.6 265.3 486 264.8 514.1 -63 514.1 -63 92.9 -53.4 71.2 -63 55.8 -63 -72.2Z"/>
+  <!-- lưới 220 kV: đường dây từ lưới quốc gia về khu dự án (nét đậm) -->
+  <path class="lm-kv" d="M60 0C58 90 40 210 28 311"/>
+  <text class="lm-m-kv-label" x="75" y="118">Lưới 220 kV</text>
+  <!-- ký hiệu khu dự án PIDC -->
+  <g class="lm-site"><circle cx="27" cy="319" r="8"/></g>
+  <text class="lm-m-site-label" x="44" y="290">Khu dự án PIDC</text>
+  <!-- hai tuyến cáp quang riêng, từ khu dự án đến mỗi trạm cập bờ (nét đứt) -->
+  <path class="lm-fb" d="M35 316C100 310 170 302 236 298"/>
+  <path class="lm-fb" d="M33 326C100 350 170 370 236 379"/>
+  <!-- Quy Nhơn và hai trạm cập bờ -->
+  <text class="lm-m-coast-label" x="222" y="345" text-anchor="end">Quy Nhơn</text>
+  <g class="lm-land-station">
+    <circle cx="235.6" cy="297.6" r="4.5"/>
+    <circle cx="235.8" cy="378.8" r="4.5"/>
+  </g>
+  <!-- cáp ngầm tiếp tục ra biển, nhãn tại rìa biển -->
+  <path class="lm-fb" d="M240 296C265 292 290 288 308 284"/>
+  <path class="lm-fb" d="M240 381C265 378 290 374 308 370"/>
+  <text class="lm-m-station-label" x="312" y="289">ADC</text>
+  <text class="lm-m-station-label" x="312" y="374">SJC2</text>
+  <!-- ghi chú tờ bản vẽ LM-01 (sheet note) -->
+</svg>

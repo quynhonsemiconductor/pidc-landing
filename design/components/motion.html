@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion specimen — Drawing Set</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="recipes.css">
+<style>
+  body { font: 400 17px/1.5 var(--font-ui); color: var(--color-text); background: var(--color-bg); max-width: 760px; margin: 0 auto; padding: var(--s-7) var(--s-5); }
+  h1 { font: 600 var(--fs-figure)/1.1 var(--font-display); }
+  section { border-top: 1px solid var(--color-line); padding: var(--s-5) 0; }
+  .row { display: flex; gap: var(--s-4); flex-wrap: wrap; align-items: center; }
+  code { font: 500 var(--fs-small)/1.5 var(--font-num); color: var(--color-text-2); }
+</style>
+</head>
+<body>
+<h1>Motion specimen — Drawing Set</h1>
+<p>Quiet motion: state changes only. One ambient move (SLD flow dashes), off under reduced motion.
+Durations/easing: <code>--dur 160ms</code>, <code>--ease cubic-bezier(.2,.7,.2,1)</code>.</p>
+
+<section>
+  <h2>Button — hover / press / focus</h2>
+  <div class="row">
+    <a class="c-btn c-btn--primary" href="#x">Talk to us · Trao đổi với chúng tôi</a>
+    <a class="c-btn" href="#x">See the site · Xem địa điểm</a>
+    <button class="c-btn" disabled>Submit · Gửi</button>
+  </div>
+  <p>Hover: primary darkens ~5%; press: same, no scale; focus: 2px red outline, offset 2. No lift, no shadow grow.</p>
+</section>
+
+<section>
+  <h2>Proof callout + link hover</h2>
+  <p><span class="c-proof__index" style="display:inline-grid">1</span> Red callout circles are static ink anchors — no pulse, no bounce.</p>
+  <p><a href="#x" style="color:var(--color-accent-2)">A cited link · Liên kết dẫn nguồn</a> — underline thickens on hover; colour unchanged.</p>
+</section>
+
+<section>
+  <h2>TOC rail current state</h2>
+  <div class="r-tocrail" style="grid-template-columns:220px 1fr">
+    <nav><ol>
+      <li><a href="#x">S-02 · POWER · ĐIỆN</a></li>
+      <li aria-current="true"><a href="#x">S-03 · FIBER · CÁP QUANG</a></li>
+    </ol></nav>
+    <p>Current section: rule turns red, label to ink. Instant (no transition on scroll state).</p>
+  </div>
+</section>
+
+<section>
+  <h2>Ambient — SLD flow dashes (the one ambient move)</h2>
+  <svg viewBox="0 0 200 20" width="200" height="20" aria-label="animated fiber dashes">
+    <line class="s-cable" x1="0" y1="10" x2="200" y2="10" stroke="#7a8082" stroke-dasharray="6 3"/>
+  </svg>
+  <style>
+    .s-cable { animation: flow 1.2s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -9; } }
+    @media (prefers-reduced-motion: reduce) { .s-cable { animation: none; } }
+  </style>
+  <p>Only the SLD fiber paths animate (drawing "current flow"). Everything else is still.
+  <code>prefers-reduced-motion: reduce</code> stops it.</p>
+</section>
+</body>
+</html>

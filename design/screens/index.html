@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pisico Data Center (PIDC)</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../components/components.css">
+<link rel="stylesheet" href="../components/recipes.css">
+<style>/* LAYOUT ONLY: grid, regions, order — var(--*) values only, never raw colours/sizes, never restyle a c-* class */
+body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-body)/var(--lh-body) var(--font-ui)}
+.l-page{max-width:var(--w-sheet);margin-inline:auto;padding-inline:var(--s-4)}
+@media (min-width:45em){.l-page{padding-inline:var(--s-6)}}
+.l-hero{display:grid;gap:var(--s-6);padding-block:var(--s-7)}
+@media (min-width:57.5em){.l-hero{grid-template-columns:minmax(0,1fr) minmax(0,var(--w-fig-hero));gap:var(--s-8);align-items:start}}
+.l-band{padding-block:var(--s-7)}
+@media (min-width:57.5em){.l-band{padding-block:var(--s-8)}}
+.l-terrain{margin-top:var(--s-7)}
+.l-more{margin-top:var(--s-6)}
+.l-nda{margin-top:var(--s-4)}
+.l-fig-row{padding-block:var(--s-3) var(--s-7)}
+@media (min-width:57.5em){.l-fig-row{padding-block:var(--s-4) var(--s-8)}}
+.l-fig-iso{max-width:var(--w-fig-iso);margin-inline:auto}
+.l-statband{margin-top:var(--s-5)}
+.l-map{margin-top:var(--s-7)}
+.l-sep{margin-block:var(--s-5)}
+</style>
+</head>
+<body>
+<div id="pidc" data-lang="en">
+
+<header class="c-sitehead" id="top">
+  <div class="l-page c-sitehead__in">
+    <a class="c-sitehead__brand" href="#top">
+      <span class="c-sitehead__name">PIDC</span>
+      <span class="c-sitehead__sub">Pisico Data Center</span>
+    </a>
+    <div class="c-sitehead__lang" role="group" aria-label="Language / Ngôn ngữ">
+      <a class="c-sitehead__langbtn" href="index.html" data-set-lang="en" aria-current="true">EN</a>
+      <a class="c-sitehead__langbtn" href="index--vi.html" data-set-lang="vi">VI</a>
+    </div>
+    <nav class="c-sitehead__nav" aria-label="Site">
+      <a href="#top" aria-current="page"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
+      <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
+      <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
+    </nav>
+    <details class="c-sitemenu">
+      <summary aria-label="Menu"><span lang="en">Menu</span><span lang="vi">Menu</span><span class="c-sitemenu__mark" aria-hidden="true"></span></summary>
+      <nav aria-label="Site">
+      <a href="#top" aria-current="page"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
+      <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
+      <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main>
+
+<section class="l-hero l-page" aria-labelledby="hero-title">
+  <div class="c-hero">
+    <p class="c-hero__badge"><span class="c-hero__dot" aria-hidden="true"></span><span lang="en">In development · Gia Lai, Vietnam</span><span lang="vi">Đang phát triển · Gia Lai, Việt Nam</span></p>
+    <h1 id="hero-title" class="c-hero__title"><span lang="en">An international, green, resilient AI campus in a renewable-surplus province.</span><span lang="vi">Khu trung tâm dữ liệu AI quốc tế, xanh, có khả năng chống chịu, phục hồi, tại tỉnh dư thừa năng lượng tái tạo.</span></h1>
+    <p class="c-hero__lede"><span lang="en">PIDC is developing a phased AI data center campus in Gia Lai, a province that produces far more electricity than it uses. Our site sits beside the 220&nbsp;kV transmission grid, within reach of the two international submarine cables that land at Quy Nhơn.</span><span lang="vi">PIDC đang phát triển khu trung tâm dữ liệu AI theo từng giai đoạn tại Gia Lai, tỉnh có sản lượng điện vượt xa nhu cầu sử dụng. Địa điểm dự án nằm cạnh lưới truyền tải 220&nbsp;kV, gần hai tuyến cáp quang biển quốc tế cập bờ tại Quy Nhơn.</span></p>
+    <div class="c-hero__actions">
+      <a class="c-btn c-btn--primary" href="contact.html"><span lang="en">Contact us</span><span lang="vi">Liên hệ với chúng tôi</span></a>
+      <a class="c-btn" href="#why"><span lang="en">Why Gia Lai</span><span lang="vi">Vì sao chọn Gia Lai</span></a>
+    </div>
+  </div>
+
+  <figure class="c-figure r-hero-figure">
+    <figcaption class="c-figure__title"><span lang="en">Building AI infrastructure where the power is.</span><span lang="vi">Xây dựng hạ tầng AI ngay tại nguồn năng lượng.</span></figcaption>
+<svg id="sld" viewBox="0 0 360 620" role="img"
+        aria-label="Concept single-line diagram. Wind, solar and hydro plants feed the 220 kV grid. The PIDC campus takes power through its own substation, steps it down to medium voltage on two feeds, A and B, for the AI data halls, and connects by two separate fiber routes to the ADC and SJC2 cable landing stations at Quy Nhơn."
+        data-label-en="Concept single-line diagram. Wind, solar and hydro plants feed the 220 kV grid. The PIDC campus takes power through its own substation, steps it down to medium voltage on two feeds, A and B, for the AI data halls, and connects by two separate fiber routes to the ADC and SJC2 cable landing stations at Quy Nhơn."
+        data-label-vi="Sơ đồ nguyên lý. Các nhà máy điện gió, điện mặt trời và thủy điện cấp điện vào lưới 220 kV. Khu dữ liệu PIDC nhận điện qua trạm biến áp riêng, hạ xuống trung áp với hai nhánh cấp A và B cho khu máy chủ AI, và kết nối bằng hai tuyến cáp quang riêng đến các trạm cập bờ cáp ADC và SJC2 tại Quy Nhơn.">
+        <defs>
+          <pattern id="sld-grid" width="12" height="12" patternUnits="userSpaceOnUse"><path class="s-grid" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M12 0H0V12"/></pattern>
+          <pattern id="sld-racks" x="84" y="356" width="12" height="26" patternUnits="userSpaceOnUse"><rect class="s-rack" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" x="1.5" y="0" width="8" height="18"/></pattern>
+        </defs>
+        <rect class="s-bg" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" width="360" height="620"/>
+        <rect width="360" height="620" fill="url(#sld-grid)"/>
+
+        <circle class="s-sym" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" cx="90" cy="76" r="18"/>
+        <path class="s-pw" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M90 76V64.5M90 76L80 81.75M90 76L100 81.75"/>
+        <circle class="s-dot" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" cx="90" cy="76" r="2.2"/>
+        <rect class="s-sym" x="162" y="58" width="36" height="36"/>
+        <path class="s-pw" d="M162 94L198 58"/>
+        <circle class="s-sym" cx="270" cy="76" r="18"/>
+        <path class="s-pw" d="M259 76c2.75-6 8.25-6 11 0s8.25 6 11 0"/>
+        <path class="s-pw" d="M90 94V146M180 94V146M270 94V146"/>
+
+        <path class="s-bus" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M60 146H300"/>
+        <text class="t-kv" x="308" y="150">220 kV</text>
+        <path class="s-pw" d="M180 146V170M180 182V214"/>
+        <rect class="s-sym" x="174" y="170" width="12" height="12"/>
+
+        <rect class="s-bound" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" x="20" y="198" width="320" height="288"/>
+        <circle class="s-xf" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" cx="180" cy="230" r="16"/>
+        <circle class="s-xf" cx="180" cy="252" r="16"/>
+        <path class="s-pw" d="M180 268V294"/>
+        <path class="s-bus-mv" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M92 294H268"/>
+        <path class="s-pw" d="M140 294V326M220 294V326"/>
+        <text class="t-small" x="146" y="314">A</text>
+        <text class="t-small" x="226" y="314">B</text>
+        <rect class="s-hall" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" x="70" y="326" width="220" height="86"/>
+        <rect x="84" y="356" width="192" height="44" fill="url(#sld-racks)"/>
+
+        <path class="s-fb s-fb-anim s-fb" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M110 412V500M200 412V500"/>
+        <path class="s-stn" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M96 528V510L110 500L124 510V528Z"/>
+        <path class="s-stn" d="M186 528V510L200 500L214 510V528Z"/>
+        <path class="s-sea" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M20 548c5.3-4 10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0"/>
+        <path class="s-cable" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M110 528V588M200 528V588M104 582L110 590L116 582M194 582L200 590L206 582"/>
+        <text class="t-fbl" x="118" y="574">ADC</text>
+        <text class="t-fbl" x="208" y="574">SJC2</text>
+
+        <path class="s-rule" data-exception="demo SLD figure internals — base-styled in recipes.css r-diagram, kept verbatim from content" d="M0 598H360"/>
+
+        <g lang="en">
+          <text class="t-label" x="16" y="24">GENERATION</text>
+          <text class="t-name" x="90" y="47" text-anchor="middle">Wind</text>
+          <text class="t-name" x="180" y="47" text-anchor="middle">Solar</text>
+          <text class="t-name" x="270" y="47" text-anchor="middle">Hydro</text>
+          <text class="t-small" x="308" y="164">grid</text>
+          <text class="t-label t-ink" x="32" y="218">PIDC CAMPUS</text>
+          <text class="t-name" x="206" y="238">Substation</text>
+          <text class="t-small" x="206" y="253">HV / MV</text>
+          <text class="t-kv t-kv-sm" x="278" y="298">MV</text>
+          <text class="t-name t-strong" x="84" y="346">AI data halls</text>
+          <text class="t-fbl" x="155" y="452" text-anchor="middle">Fiber</text>
+          <text class="t-name" x="228" y="512">Cable landings</text>
+          <text class="t-small" x="228" y="527">Quy Nhơn</text>
+          <text class="t-label t-xs" x="16" y="612">SLD-00 · CONCEPT · NOT TO SCALE</text>
+        </g>
+        <g lang="vi">
+          <text class="t-label" x="16" y="24">NGUỒN PHÁT ĐIỆN</text>
+          <text class="t-name" x="90" y="47" text-anchor="middle">Gió</text>
+          <text class="t-name" x="180" y="47" text-anchor="middle">Mặt trời</text>
+          <text class="t-name" x="270" y="47" text-anchor="middle">Thủy điện</text>
+          <text class="t-small" x="308" y="164">lưới điện</text>
+          <text class="t-label t-ink" x="32" y="218">KHU DỮ LIỆU PIDC</text>
+          <text class="t-name" x="206" y="238">Trạm biến áp</text>
+          <text class="t-small" x="206" y="253">cao áp / trung áp</text>
+          <text class="t-kv t-kv-sm" x="278" y="298">Trung áp</text>
+          <text class="t-name t-strong" x="84" y="346">Khu máy chủ AI</text>
+          <text class="t-fbl" x="155" y="452" text-anchor="middle">Cáp quang</text>
+          <text class="t-name" x="228" y="512">Trạm cập bờ</text>
+          <text class="t-small" x="228" y="527">Quy Nhơn</text>
+          <text class="t-label t-xs" x="16" y="612">SLD-00 · SƠ ĐỒ NGUYÊN LÝ · KHÔNG THEO TỶ LỆ</text>
+        </g>
+      </svg>
+      <ol class="c-figure__keys c-figure__keys--3">
+      <li><svg viewBox="0 0 40 12" aria-hidden="true" focusable="false"><line class="lg-pw" x1="1" y1="6" x2="39" y2="6"/></svg><span><span lang="en">Power from the 220&nbsp;kV grid to the on-site substation</span><span lang="vi">Điện từ lưới 220&nbsp;kV về trạm biến áp của dự án</span></span></li>
+      <li><svg viewBox="0 0 40 12" aria-hidden="true" focusable="false"><line class="lg-fb" x1="1" y1="6" x2="39" y2="6"/></svg><span><span lang="en">Fiber on separate routes to each cable landing</span><span lang="vi">Cáp quang theo tuyến riêng đến từng trạm cập bờ</span></span></li>
+      <li><svg viewBox="0 0 40 12" aria-hidden="true" focusable="false"><rect class="lg-bd" x="1" y="1" width="38" height="10"/></svg><span><span lang="en">PIDC site boundary</span><span lang="vi">Ranh giới khu đất của PIDC</span></span></li>
+    </ol>
+</figure>
+</section>
+
+<section class="l-band" aria-label="Site facts · Thông số khu đất">
+  <div class="l-page">
+    <header class="c-section">
+      <p class="c-section__eyebrow"><span lang="en">Site facts</span><span lang="vi">Thông số khu đất</span></p>
+    </header>
+    <div class="c-statband l-statband">
+      <div class="c-statband__item">
+        <span class="c-statband__value c-statband__value--red">220 kV</span>
+        <span class="c-statband__label"><span lang="en">Grid connection</span><span lang="vi">Đấu nối lưới</span></span>
+        <span class="c-statband__src"><span class="c-ceo"><span lang="en">[CEO: source + as-of]</span><span lang="vi">[CEO: nguồn + thời điểm]</span></span></span>
+      </div>
+      <div class="c-statband__item">
+        <span class="c-statband__value"><span class="c-ceo"><span lang="en">[CEO: distance km to Quy Nhơn cable landings]</span><span lang="vi">[CEO: khoảng cách km đến trạm cập bờ Quy Nhơn]</span></span></span>
+        <span class="c-statband__label"><span lang="en">Distance to the Quy Nhơn cable landings</span><span lang="vi">Khoảng cách đến các trạm cập bờ tại Quy Nhơn</span></span>
+        <span class="c-statband__src"><span class="c-ceo"><span lang="en">[CEO: source + as-of]</span><span lang="vi">[CEO: nguồn + thời điểm]</span></span></span>
+      </div>
+      <div class="c-statband__item">
+        <span class="c-statband__value"><span class="c-ceo"><span lang="en">[CEO: land area ha]</span><span lang="vi">[CEO: diện tích khu đất ha]</span></span></span>
+        <span class="c-statband__label"><span lang="en">Land area</span><span lang="vi">Diện tích khu đất</span></span>
+        <span class="c-statband__src"><span class="c-ceo"><span lang="en">[CEO: source + as-of]</span><span lang="vi">[CEO: nguồn + thời điểm]</span></span></span>
+      </div>
+      <div class="c-statband__item">
+        <span class="c-statband__value"><span class="c-ceo"><span lang="en">[CEO: number of phases]</span><span lang="vi">[CEO: số lượng giai đoạn]</span></span></span>
+        <span class="c-statband__label"><span lang="en">Build phases</span><span lang="vi">Giai đoạn xây dựng</span></span>
+        <span class="c-statband__src"><span class="c-ceo"><span lang="en">[CEO: source + as-of]</span><span lang="vi">[CEO: nguồn + thời điểm]</span></span></span>
+      </div>
+      <div class="c-statband__item">
+        <span class="c-statband__value"><span class="c-ceo"><span lang="en">[CEO: current stage]</span><span lang="vi">[CEO: giai đoạn hiện tại]</span></span></span>
+        <span class="c-statband__label"><span lang="en">Current stage</span><span lang="vi">Giai đoạn hiện tại</span></span>
+        <span class="c-statband__src"><span class="c-ceo"><span lang="en">[CEO: source + as-of]</span><span lang="vi">[CEO: nguồn + thời điểm]</span></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="l-band" id="why" aria-labelledby="why-title">
+  <div class="l-page">
+    <header class="c-section">
+      <p class="c-section__eyebrow"><span lang="en">Why Gia Lai</span><span lang="vi">Vì sao chọn Gia Lai</span></p>
+      <h2 class="c-section__title" id="why-title"><span lang="en">Power, fiber and land in one place</span><span lang="vi">Điện, cáp quang và đất đai tại cùng một nơi</span></h2>
+    </header>
+    <div class="r-proof-grid">
+      <article class="c-proof">
+        <p class="c-proof__index">01</p>
+        <p class="c-proof__kicker"><span lang="en">Power</span><span lang="vi">Điện</span></p>
+        <h3 class="c-proof__title"><span lang="en">A province with surplus power</span><span lang="vi">Tỉnh dư thừa điện năng</span></h3>
+        <p class="c-proof__body"><span lang="en">Gia Lai's wind, solar and hydropower plants produce far more electricity than the province uses. The site is beside the 220&nbsp;kV transmission grid, and Vietnam's national power development plan includes new transmission capacity for the region. Using this power locally also eases the load on long-distance lines.</span><span lang="vi">Các nhà máy điện gió, điện mặt trời và thủy điện tại Gia Lai sản xuất lượng điện vượt xa nhu cầu sử dụng của tỉnh. Địa điểm dự án nằm cạnh lưới truyền tải 220&nbsp;kV, và Quy hoạch phát triển điện lực quốc gia đã bổ sung năng lực truyền tải cho khu vực. Sử dụng điện ngay tại chỗ còn giúp giảm tải cho các đường dây truyền tải đi xa.</span></p>
+      </article>
+      <article class="c-proof">
+        <p class="c-proof__index">02</p>
+        <p class="c-proof__kicker"><span lang="en">Connectivity</span><span lang="vi">Kết nối</span></p>
+        <h3 class="c-proof__title"><span lang="en">Two international cables land nearby</span><span lang="vi">Hai tuyến cáp quang biển quốc tế ngay gần</span></h3>
+        <p class="c-proof__body"><span lang="en">Quy Nhơn is the Vietnam landing point for the ADC and SJC2 submarine cables, both in service since 2025. We plan separate fiber routes from the campus to each landing station.</span><span lang="vi">Quy Nhơn là điểm cập bờ tại Việt Nam của hai tuyến cáp quang biển ADC và SJC2, cùng đi vào hoạt động từ năm 2025. Chúng tôi dự kiến xây dựng tuyến cáp quang riêng biệt từ khu dữ liệu đến từng trạm cập bờ.</span></p>
+      </article>
+      <article class="c-proof">
+        <p class="c-proof__index">03</p>
+        <p class="c-proof__kicker"><span lang="en">Land</span><span lang="vi">Đất đai</span></p>
+        <h3 class="c-proof__title"><span lang="en">Room to grow on one site</span><span lang="vi">Mở rộng trên cùng một khu đất</span></h3>
+        <p class="c-proof__body"><span lang="en">The campus is planned in phases on a single parcel. Later phases expand in place instead of starting over at a new location.</span><span lang="vi">Dự án được quy hoạch phát triển theo từng giai đoạn trên cùng một khu đất. Các giai đoạn sau mở rộng ngay tại chỗ, không phải bắt đầu lại ở một địa điểm mới.</span></p>
+      </article>
+    </div>
+    <figure class="c-figure r-diagram l-map">
+<svg class="lm-d" id="lm" viewBox="0 0 560 448" role="img"
+  aria-label="Schematic location map. Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-en="Schematic location map. Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-vi="Sơ đồ vị trí. Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.">
+  <title>Schematic location map — PIDC site in Gia Lai, 220 kV grid link, dual fibre routes to ADC and SJC2 landings at Quy Nhơn (LM-01)</title>
+  <!-- Geometry: Natural Earth 1:50m Admin 0 — Countries, VNM mainland polygon only (no islands),
+    public domain (naturalearthdata.com),
+    https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+    Clipped to 107.0–111.6 °E / 12.7–16.55 °N (frame 107.30–111.10 °E / 13.05–16.00 °N — mainland central
+    Vietnam only, cropped north of any island groups), Douglas–Peucker simplification tol 0.028 °,
+    equirectangular projection (x scaled by cos 14.5°). Province precision only, not to scale. -->
+  <defs>
+    <pattern id="lm-sea" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0 8 Q4 5.5 8 8 T16 8" class="lm-sea-line"/>
+    </pattern>
+  </defs>
+  <!-- sea: subtle wave hatch east/south of the coastline (frame rect minus land, even-odd);
+    land is drawn on top, so hatch can never sit over land -->
+  <path class="lm-sea" fill-rule="evenodd" d="M0 0H560V448H0Z
+    M47.6 -83.5 74.1 -61.2 78.7 -49 107.5 -50.3 134 -13.8 142.6 -13.6 145.3 1.7 188.3 63.1 224.2 94.5
+    241.7 151.6 263 195 263.3 219.8 295.2 325.5 293 339.4 286.9 325.8 290.6 413.2 313 462.3 313 501.2
+    304.3 501.2 300 493.3 289.7 501.2 36 501.2 25.8 451 45 389.1 43.3 376.4 4.6 284.5 9.5 247.7
+    21.9 235.2 34.7 205 26.6 154.9 52 113.1 38.9 92.4 5.7 66.7 -16.3 38.4 -16.4 24.5 8.9 11.9
+    16.2 0.3 -44.2 -47.5 -44.2 -83.5Z"/>
+  <!-- Vietnam mainland (Natural Earth 1:50m, simplified) -->
+  <path class="lm-land" d="M47.6 -83.5 74.1 -61.2 78.7 -49 107.5 -50.3 134 -13.8 142.6 -13.6 145.3 1.7
+    188.3 63.1 224.2 94.5 241.7 151.6 263 195 263.3 219.8 295.2 325.5 293 339.4 286.9 325.8 290.6 413.2
+    313 462.3 313 501.2 304.3 501.2 300 493.3 289.7 501.2 36 501.2 25.8 451 45 389.1 43.3 376.4 4.6 284.5
+    9.5 247.7 21.9 235.2 34.7 205 26.6 154.9 52 113.1 38.9 92.4 5.7 66.7 -16.3 38.4 -16.4 24.5 8.9 11.9
+    16.2 0.3 -44.2 -47.5 -44.2 -83.5Z"/>
+  <text class="lm-name" x="24" y="46">VIETNAM</text>
+  <!-- 220 kV grid line: national grid south to the site (solid ink) -->
+  <path class="lm-kv" d="M150 8C145 90 128 210 119 313"/>
+  <text class="lm-kv-label" x="146" y="146">220 kV grid</text>
+  <!-- Gia Lai province relation (dashed ring) -->
+  <ellipse class="lm-prov" cx="118" cy="320" rx="58" ry="50"/>
+  <text class="lm-prov-label" x="118" y="396" text-anchor="middle">Gia Lai Province</text>
+  <!-- PIDC site marker -->
+  <g class="lm-site"><circle cx="118" cy="320" r="7"/></g>
+  <text class="lm-site-label" x="118" y="348" text-anchor="middle">PIDC site</text>
+  <!-- two separate fibre routes, site to each landing station (dashed) -->
+  <path class="lm-fb" d="M125 316C170 312 230 307 289 304"/>
+  <path class="lm-fb" d="M124 328C175 342 235 360 289 372"/>
+  <!-- Quy Nhơn and the two cable landing stations -->
+  <text class="lm-coast-label" x="272" y="341" text-anchor="end">Quy Nhơn</text>
+  <g class="lm-land-station">
+    <circle cx="288.7" cy="303.7" r="4"/>
+    <circle cx="288.9" cy="372.1" r="4"/>
+  </g>
+  <!-- submarine cables continuing out to sea, labels at the sea edge -->
+  <path class="lm-fb" d="M293 302C340 296 385 288 428 282"/>
+  <path class="lm-fb" d="M293 374C340 370 385 364 426 358"/>
+  <text class="lm-station-label" x="424" y="300">ADC landing</text>
+  <text class="lm-station-label" x="424" y="376">SJC2 landing</text>
+  <text class="lm-sea-label" x="452" y="110" text-anchor="middle">EAST SEA</text>
+</svg>
+      <svg class="lm-m" id="lm-m" viewBox="0 0 360 460" role="img"
+  aria-label="Schematic location map (mobile). Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-en="Schematic location map (mobile). Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-vi="Sơ đồ vị trí (mobile). Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.">
+  <title>Schematic location map, mobile — PIDC site in Gia Lai, 220 kV grid link, fibre routes to ADC and SJC2 landings at Quy Nhơn (LM-01)</title>
+  <!-- Mobile text sizes: viewBox 360 wide rendered at 358 px → scale = 358 / 360 = 0.9944;
+    a 12 px rendered label needs 12 / 0.9944 = 12.07 viewBox units, so every text size here is ≥ 13.5 units
+    (site 15, kv 15, coast 15, station 14, sheet 13.5 → smallest rendered = 13.5 × 0.9944 ≈ 13.4 px).
+    Same geometry as location-map.svg; fewer labels (no province ring, no sea label). -->
+  <!-- Geometry: Natural Earth 1:50m Admin 0 — Countries, VNM mainland polygon only (no islands),
+    public domain (naturalearthdata.com),
+    https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+    Clipped to 107.6–110.3 °E / 12.8–16.05 °N (frame 107.95–109.95 °E / 13.10–15.65 °N — mainland only),
+    Douglas–Peucker simplification tol 0.028 °, equirectangular projection (x scaled by cos 14.5°). -->
+  <defs>
+    <pattern id="lm-sea" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0 8 Q4 5.5 8 8 T16 8" class="lm-sea-line"/>
+    </pattern>
+  </defs>
+  <!-- sea hatch east/south of the coastline (frame minus land, even-odd); land drawn on top -->
+  <path class="lm-sea" fill-rule="evenodd" d="M0 0H360V460H0Z
+    M57.9 -72.2 113 11.8 156.8 49.1 178.2 117 204.3 168.5 204.7 198 243.6 323.5 240.9 340 233.5 323.9
+    237.9 427.6 265.3 486 264.8 514.1 -63 514.1 -63 92.9 -53.4 71.2 -63 55.8 -63 -72.2Z"/>
+  <!-- Vietnam mainland (Natural Earth 1:50m, simplified) -->
+  <path class="lm-land" d="M57.9 -72.2 113 11.8 156.8 49.1 178.2 117 204.3 168.5 204.7 198 243.6 323.5
+    240.9 340 233.5 323.9 237.9 427.6 265.3 486 264.8 514.1 -63 514.1 -63 92.9 -53.4 71.2 -63 55.8 -63 -72.2Z"/>
+  <!-- 220 kV grid line: national grid south to the site (solid ink) -->
+  <path class="lm-kv" d="M60 0C58 90 40 210 28 311"/>
+  <text class="lm-m-kv-label" x="75" y="118">220 kV</text>
+  <!-- PIDC site marker -->
+  <g class="lm-site"><circle cx="27" cy="319" r="8"/></g>
+  <text class="lm-m-site-label" x="44" y="290">PIDC site</text>
+  <!-- two separate fibre routes, site to each landing station (dashed) -->
+  <path class="lm-fb" d="M35 316C100 310 170 302 236 298"/>
+  <path class="lm-fb" d="M33 326C100 350 170 370 236 379"/>
+  <!-- Quy Nhơn and the two cable landing stations -->
+  <text class="lm-m-coast-label" x="222" y="345" text-anchor="end">Quy Nhơn</text>
+  <g class="lm-land-station">
+    <circle cx="235.6" cy="297.6" r="4.5"/>
+    <circle cx="235.8" cy="378.8" r="4.5"/>
+  </g>
+  <!-- submarine cables continuing out to sea, labels at the sea edge -->
+  <path class="lm-fb" d="M240 296C265 292 290 288 308 284"/>
+  <path class="lm-fb" d="M240 381C265 378 290 374 308 370"/>
+  <text class="lm-m-station-label" x="312" y="289">ADC</text>
+  <text class="lm-m-station-label" x="312" y="374">SJC2</text>
+</svg>
+      <figcaption class="c-figure__cap"><span><span lang="en">Vietnam · Gia Lai · the site</span><span lang="vi">Việt Nam · Gia Lai · khu dự án</span></span><span><span lang="en">LM-01 · schematic · not to scale</span><span lang="vi">LM-01 · sơ đồ · không theo tỷ lệ</span></span></figcaption>
+    </figure>
+    <figure class="c-figure r-diagram l-terrain">
+<svg viewBox="0 0 600 170" role="img" aria-label="Schematic west-to-east section of Gia Lai: generation on the highland plateau, transmission lines down through the mountain pass, and cable landings on the coast at Quy Nhơn." data-label-en="Schematic west-to-east section of Gia Lai: generation on the highland plateau, transmission lines down through the mountain pass, and cable landings on the coast at Quy Nhơn." data-label-vi="Mặt cắt sơ đồ tỉnh Gia Lai từ tây sang đông: nguồn phát điện trên cao nguyên, đường dây truyền tải qua vùng đèo xuống vùng ven biển, và các trạm cập bờ cáp quang biển tại Quy Nhơn."><path class="x-ground" d="M0 60C30 54 60 62 95 57S165 52 200 58S270 56 300 62C330 72 360 98 395 110S445 122 480 127L480 170L0 170Z"/><rect class="x-sea" x="480" y="129" width="120" height="41"/><path class="x-edge" d="M0 60C30 54 60 62 95 57S165 52 200 58S270 56 300 62C330 72 360 98 395 110S445 122 480 127"/><path class="x-wave" d="M480 130c3.3-2.5 6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0"/><path class="x-pw" d="M48 58V30M48 30V20M48 30L39.3 35M48 30L56.7 35"/><circle class="x-node" cx="48" cy="30" r="1.6"/><path class="x-pw" d="M74 59V36M74 36V28M74 36L67.1 40M74 36L80.9 40"/><circle class="x-node" cx="74" cy="36" r="1.4"/><path class="x-pw" d="M140 49V54"/><circle class="x-sym" cx="140" cy="40" r="9"/><path class="x-pw" d="M134 40c1.5-3.5 4.5-3.5 6 0s4.5 3.5 6 0"/><path class="x-sym" d="M203 50L223 44L229 50L209 56Z"/><path class="x-pw" d="M216 53V57.5"/><path class="x-tower" d="M95 56.5L100 38.5L105 56.5M96 43.5H104"/><path class="x-tower" d="M175 56L180 38L185 56M176 43H184"/><path class="x-tower" d="M250 59L255 41L260 59M251 46H259"/><path class="x-tower" d="M327 77L332 59L337 77M328 64H336"/><path class="x-tower" d="M405 114.6L410 96.6L415 114.6M406 101.6H414"/><path class="x-pw" d="M100 38.5Q140 44 180 38Q217 45 255 41Q295 52 332 59Q372 80 410 96.6Q432 108 452 116"/><circle class="x-node" cx="452" cy="117" r="3.5"/><path class="x-cable" d="M475 124C490 127 498 138 515 145S565 152 600 153"/><path class="x-cable" d="M475 126C492 133 502 152 525 158S572 163 600 164"/><path class="x-stn" d="M461 126V119L468 114L475 119V126Z"/></svg>
+      <div class="c-figure__zones">
+        <p class="c-figure__zone"><b><span lang="en">Highlands</span><span lang="vi">Cao nguyên</span></b><span lang="en">Hydropower, wind and solar plants across the plateau.</span><span lang="vi">Thủy điện, điện gió và điện mặt trời trên cao nguyên.</span></p>
+        <p class="c-figure__zone"><b><span lang="en">Mountain pass</span><span lang="vi">Vùng đồi</span></b><span lang="en">Transmission lines carry power down to the coast.</span><span lang="vi">Đường dây truyền tải đưa điện xuống vùng ven biển.</span></p>
+        <p class="c-figure__zone"><b><span lang="en">Coast · Quy Nhơn</span><span lang="vi">Ven biển · Quy Nhơn</span></b><span lang="en">Grid, port and the ADC and SJC2 cable landings.</span><span lang="vi">Lưới điện, cảng biển và hai trạm cập bờ cáp ADC, SJC2.</span></p>
+      </div>
+      <figcaption class="c-figure__cap"><span><span lang="en">Section A–A · west to east</span><span lang="vi">Mặt cắt A–A · tây sang đông</span></span><span><span lang="en">Schematic, not to scale</span><span lang="vi">Sơ đồ, không theo tỷ lệ</span></span></figcaption>
+    </figure>
+    <div class="l-more"><a class="c-btn" href="why-vietnam.html"><span lang="en">More on Vietnam and Gia Lai</span><span lang="vi">Tìm hiểu thêm về Việt Nam và Gia Lai</span></a></div>
+  </div>
+</section>
+
+<section class="l-band" id="campus" aria-labelledby="campus-title">
+  <div class="l-page r-section-split">
+    <header class="c-section">
+      <p class="c-section__eyebrow"><span lang="en">The campus</span><span lang="vi">Dự án</span></p>
+      <h2 class="c-section__title" id="campus-title"><span lang="en">Planned for dense AI compute, built in phases</span><span lang="vi">Dành cho điện toán AI mật độ cao, xây dựng theo từng giai đoạn</span></h2>
+      <p class="c-section__lede"><span lang="en">We are planning the campus around what large GPU deployments need: high power density, liquid cooling and direct international connectivity. Each phase is sized to committed tenant demand.</span><span lang="vi">Chúng tôi quy hoạch dự án theo nhu cầu của các cụm GPU quy mô lớn: mật độ điện cao, làm mát bằng chất lỏng và kết nối quốc tế trực tiếp. Quy mô từng giai đoạn được xác định theo nhu cầu đã cam kết của khách thuê.</span></p>
+      <div class="l-more"><a class="c-btn" href="ai-data-center.html"><span lang="en">What is an AI data center?</span><span lang="vi">Trung tâm dữ liệu AI là gì?</span></a></div>
+    </header>
+    <div>
+      <dl class="c-glossary">
+        <div><dt><span lang="en">Workloads</span><span lang="vi">Loại tải</span></dt><dd><span lang="en">AI training and inference</span><span lang="vi">Huấn luyện và suy luận AI</span></dd></div>
+        <div><dt><span lang="en">Racks and cooling</span><span lang="vi">Tủ rack và làm mát</span></dt><dd><span lang="en">High-density racks, liquid-cooled</span><span lang="vi">Tủ rack mật độ cao, làm mát bằng chất lỏng</span></dd></div>
+        <div><dt><span lang="en">Power</span><span lang="vi">Cấp điện</span></dt><dd><span lang="en">Dedicated high-voltage substation on site, beside the 220&nbsp;kV grid</span><span lang="vi">Trạm biến áp cao áp riêng trong khu dự án, cạnh lưới 220&nbsp;kV</span></dd></div>
+        <div><dt><span lang="en">Connectivity</span><span lang="vi">Kết nối</span></dt><dd><span lang="en">Carrier-neutral, with separate fiber routes to both cable landing stations</span><span lang="vi">Trung lập nhà mạng, tuyến cáp quang riêng đến cả hai trạm cập bờ</span></dd></div>
+        <div><dt><span lang="en">Delivery</span><span lang="vi">Triển khai</span></dt><dd><span lang="en">In phases, on one site</span><span lang="vi">Theo từng giai đoạn, trên cùng một khu đất</span></dd></div>
+        <div><dt><span lang="en">Status</span><span lang="vi">Hiện trạng</span></dt><dd><span lang="en">In development</span><span lang="vi">Đang phát triển</span></dd></div>
+      </dl>
+      <p class="c-callout l-nda"><span lang="en">Capacity figures and technical details are shared under NDA.</span><span lang="vi">Công suất và thông số kỹ thuật chi tiết được cung cấp theo thỏa thuận bảo mật (NDA).</span></p>
+    </div>
+  </div>
+  <div class="l-page l-fig-row">
+    <figure class="c-figure r-diagram l-fig-iso">
+<svg viewBox="-188 -25 561 326" role="img" aria-label="Concept illustration of the campus: a first data hall with its cooling plant, later phases on the same parcel, an on-site substation connected to the grid, and two separate fiber routes." data-label-en="Concept illustration of the campus: a first data hall with its cooling plant, later phases on the same parcel, an on-site substation connected to the grid, and two separate fiber routes." data-label-vi="Hình minh họa ý tưởng khu dữ liệu: nhà dữ liệu đầu tiên với hệ thống giải nhiệt, các giai đoạn sau trên cùng khu đất, trạm biến áp trong khu dự án đấu nối lưới điện, và hai tuyến cáp quang riêng biệt."><path class="iso-ground" d="M0.0 0.0L322.2 186.0L150.3 285.2L-171.8 99.2Z"/><path class="iso-yard" d="M252.4 170.5L295.3 195.3L225.5 235.6L182.6 210.8Z"/><path class="iso-fence" d="M252.4 170.5L295.3 195.3L225.5 235.6L182.6 210.8Z"/><path class="iso-bound" d="M0.0 0.0L322.2 186.0L150.3 285.2L-171.8 99.2Z"/><path class="iso-cable" d="M196.0 206.2L83.2 141.1L115.4 122.5L107.4 117.8"/><path class="iso-fb" d="M145.0 40.3L85.9 74.4"/><path class="iso-fb" d="M-158.4 150.3L-2.7 60.5L5.4 65.1"/><path class="iso-l bld" d="M-21.5 24.8L10.7 43.4L10.7 27.9L-21.5 9.3Z"/><path class="iso-r bld" d="M32.2 31.0L10.7 43.4L10.7 27.9L32.2 15.5Z"/><path class="iso-t bld" d="M0.0 -3.1L32.2 15.5L10.7 27.9L-21.5 9.3Z"/><path class="iso-trunk" d="M-51.0 38.8L-51.0 31.3"/><circle class="iso-tree" cx="-51.0" cy="26.7" r="5.6"/><path class="iso-l bld" d="M-16.1 77.5L80.5 133.3L80.5 102.3L-16.1 46.5Z"/><path class="iso-r bld" d="M134.2 102.3L80.5 133.3L80.5 102.3L134.2 71.3Z"/><path class="iso-t bld" d="M37.6 15.5L134.2 71.3L80.5 102.3L-16.1 46.5Z"/><path class="iso-trunk" d="M-88.6 60.5L-88.6 53.0"/><circle class="iso-tree" cx="-88.6" cy="48.4" r="5.6"/><path class="iso-trunk" d="M-126.2 82.2L-126.2 74.7"/><circle class="iso-tree" cx="-126.2" cy="70.1" r="5.6"/><path class="iso-wire" d="M-85.9 117.8L10.7 173.6L10.7 142.6L-85.9 86.8Z"/><path class="iso-wire" d="M64.4 142.6L10.7 173.6L10.7 142.6L64.4 111.6Z"/><path class="iso-wire" d="M-32.2 55.8L64.4 111.6L10.7 142.6L-85.9 86.8Z"/><path class="iso-trunk" d="M-134.2 108.5L-134.2 101.1"/><circle class="iso-tree" cx="-134.2" cy="96.4" r="5.6"/><path class="iso-wire" d="M96.6 142.6L182.6 192.2L182.6 161.2L96.6 111.6Z"/><path class="iso-wire" d="M236.3 161.2L182.6 192.2L182.6 161.2L236.3 130.2Z"/><path class="iso-wire" d="M150.3 80.6L236.3 130.2L182.6 161.2L96.6 111.6Z"/><path class="iso-wire" d="M26.8 182.9L112.8 232.5L112.8 201.5L26.8 151.9Z"/><path class="iso-wire" d="M166.5 201.5L112.8 232.5L112.8 201.5L166.5 170.5Z"/><path class="iso-wire" d="M80.5 120.9L166.5 170.5L112.8 201.5L26.8 151.9Z"/><path class="iso-trunk" d="M-53.7 155.0L-53.7 147.6"/><circle class="iso-tree" cx="-53.7" cy="142.9" r="5.6"/><path class="iso-l xfm" d="M238.9 187.6L252.4 195.3L252.4 181.4L238.9 173.6Z"/><path class="iso-r xfm" d="M265.8 187.6L252.4 195.3L252.4 181.4L265.8 173.6Z"/><path class="iso-t xfm" d="M252.4 165.9L265.8 173.6L252.4 181.4L238.9 173.6Z"/><path class="iso-trunk" d="M0.0 186.0L0.0 178.6"/><circle class="iso-tree" cx="0.0" cy="173.9" r="5.6"/><path class="iso-l bld" d="M255.0 200.0L268.5 207.7L268.5 196.9L255.0 189.1Z"/><path class="iso-r bld" d="M284.6 198.4L268.5 207.7L268.5 196.9L284.6 187.6Z"/><path class="iso-t bld" d="M271.2 179.8L284.6 187.6L268.5 196.9L255.0 189.1Z"/><path class="iso-l xfm" d="M209.4 204.6L222.8 212.3L222.8 198.4L209.4 190.7Z"/><path class="iso-r xfm" d="M236.3 204.6L222.8 212.3L222.8 198.4L236.3 190.7Z"/><path class="iso-t xfm" d="M222.8 182.9L236.3 190.7L222.8 198.4L209.4 190.7Z"/><path class="iso-trunk" d="M53.7 217.0L53.7 209.6"/><circle class="iso-tree" cx="53.7" cy="204.9" r="5.6"/><path class="iso-trunk" d="M174.5 243.3L174.5 235.9"/><circle class="iso-tree" cx="174.5" cy="231.3" r="5.6"/><path class="iso-trunk" d="M107.4 248.0L107.4 240.6"/><circle class="iso-tree" cx="107.4" cy="235.9" r="5.6"/><path class="iso-trunk" d="M145.0 260.4L145.0 253.0"/><circle class="iso-tree" cx="145.0" cy="248.3" r="5.6"/><path class="iso-l clr" d="M30.9 28.7L40.0 33.9L40.0 29.0L30.9 23.7Z"/><path class="iso-r clr" d="M48.1 29.3L40.0 33.9L40.0 29.0L48.1 24.3Z"/><path class="iso-t clr" d="M38.9 19.1L48.1 24.3L40.0 29.0L30.9 23.7Z"/><path class="iso-l clr" d="M44.3 36.4L53.4 41.7L53.4 36.7L44.3 31.5Z"/><path class="iso-r clr" d="M61.5 37.0L53.4 41.7L53.4 36.7L61.5 32.1Z"/><path class="iso-t clr" d="M52.4 26.8L61.5 32.1L53.4 36.7L44.3 31.5Z"/><path class="iso-l clr" d="M57.7 44.2L66.8 49.4L66.8 44.5L57.7 39.2Z"/><path class="iso-r clr" d="M74.9 44.8L66.8 49.4L66.8 44.5L74.9 39.8Z"/><path class="iso-t clr" d="M65.8 34.6L74.9 39.8L66.8 44.5L57.7 39.2Z"/><path class="iso-l clr" d="M-1.3 47.3L7.8 52.5L7.8 47.6L-1.3 42.3Z"/><path class="iso-r clr" d="M15.8 47.9L7.8 52.5L7.8 47.6L15.8 42.9Z"/><path class="iso-t clr" d="M6.7 37.7L15.8 42.9L7.8 47.6L-1.3 42.3Z"/><path class="iso-l clr" d="M71.1 51.9L80.3 57.2L80.3 52.2L71.1 47.0Z"/><path class="iso-r clr" d="M88.3 52.5L80.3 57.2L80.3 52.2L88.3 47.6Z"/><path class="iso-t clr" d="M79.2 42.3L88.3 47.6L80.3 52.2L71.1 47.0Z"/><path class="iso-l clr" d="M12.1 55.0L21.2 60.3L21.2 55.3L12.1 50.1Z"/><path class="iso-r clr" d="M29.3 55.6L21.2 60.3L21.2 55.3L29.3 50.7Z"/><path class="iso-t clr" d="M20.1 45.4L29.3 50.7L21.2 55.3L12.1 50.1Z"/><path class="iso-l clr" d="M84.6 59.7L93.7 64.9L93.7 60.0L84.6 54.7Z"/><path class="iso-r clr" d="M101.7 60.3L93.7 64.9L93.7 60.0L101.7 55.3Z"/><path class="iso-t clr" d="M92.6 50.1L101.7 55.3L93.7 60.0L84.6 54.7Z"/><path class="iso-l clr" d="M25.5 62.8L34.6 68.0L34.6 63.1L25.5 57.8Z"/><path class="iso-r clr" d="M42.7 63.4L34.6 68.0L34.6 63.1L42.7 58.4Z"/><path class="iso-t clr" d="M33.6 53.2L42.7 58.4L34.6 63.1L25.5 57.8Z"/><path class="iso-l clr" d="M98.0 67.4L107.1 72.7L107.1 67.7L98.0 62.5Z"/><path class="iso-r clr" d="M115.2 68.0L107.1 72.7L107.1 67.7L115.2 63.1Z"/><path class="iso-t clr" d="M106.0 57.8L115.2 63.1L107.1 67.7L98.0 62.5Z"/><path class="iso-l clr" d="M38.9 70.5L48.1 75.8L48.1 70.8L38.9 65.6Z"/><path class="iso-r clr" d="M56.1 71.1L48.1 75.8L48.1 70.8L56.1 66.2Z"/><path class="iso-t clr" d="M47.0 60.9L56.1 66.2L48.1 70.8L38.9 65.6Z"/><path class="iso-l clr" d="M111.4 75.2L120.5 80.4L120.5 75.5L111.4 70.2Z"/><path class="iso-r clr" d="M128.6 75.8L120.5 80.4L120.5 75.5L128.6 70.8Z"/><path class="iso-t clr" d="M119.5 65.6L128.6 70.8L120.5 75.5L111.4 70.2Z"/><path class="iso-l clr" d="M52.4 78.3L61.5 83.5L61.5 78.6L52.4 73.3Z"/><path class="iso-r clr" d="M69.5 78.9L61.5 83.5L61.5 78.6L69.5 73.9Z"/><path class="iso-t clr" d="M60.4 68.7L69.5 73.9L61.5 78.6L52.4 73.3Z"/><path class="iso-l clr" d="M65.8 86.0L74.9 91.3L74.9 86.3L65.8 81.1Z"/><path class="iso-r clr" d="M83.0 86.6L74.9 91.3L74.9 86.3L83.0 81.7Z"/><path class="iso-t clr" d="M73.8 76.4L83.0 81.7L74.9 86.3L65.8 81.1Z"/><path class="iso-l clr" d="M79.2 93.8L88.3 99.0L88.3 94.1L79.2 88.8Z"/><path class="iso-r clr" d="M96.4 94.4L88.3 99.0L88.3 94.1L96.4 89.4Z"/><path class="iso-t clr" d="M87.3 84.2L96.4 89.4L88.3 94.1L79.2 88.8Z"/><path class="iso-pw" d="M276.5 203.1L276.5 175.2"/><path class="iso-pw" d="M238.9 224.8L238.9 196.8"/><path class="iso-pw" d="M276.5 175.2L238.9 196.8"/><path class="iso-tower" d="M303.4 240.2L308.7 190.6L314.1 246.5"/><path class="iso-tower" d="M319.5 190.7L298.0 203.1"/><path class="iso-tower" d="M316.8 201.5L300.7 210.8"/><path class="iso-pw" d="M319.5 190.7Q298.0 186.9 276.5 175.2"/><path class="iso-pw" d="M298.0 203.1Q268.5 203.9 238.9 196.8"/><path class="iso-pw" d="M319.5 190.7Q338.3 206.6 357.1 218.6"/><path class="iso-pw" d="M298.0 203.1Q316.8 219.0 335.6 230.9"/><g class="mk"><circle cx="32.2" cy="87.9" r="9"/><text x="32.2" y="87.9">1</text></g><g class="mk"><circle cx="96.6" cy="159.2" r="9"/><text x="96.6" y="159.2">2</text></g><g class="mk"><circle cx="238.9" cy="173.2" r="9"/><text x="238.9" y="173.2">3</text></g><g class="mk"><circle cx="308.7" cy="179.3" r="9"/><text x="308.7" y="179.3">4</text></g><g class="mk"><circle cx="-110.1" cy="117.4" r="9"/><text x="-110.1" y="117.4">5</text></g><g class="mk"><circle cx="59.1" cy="41.4" r="9"/><text x="59.1" y="41.4">6</text></g></svg>
+      <ol class="c-figure__keys c-figure__keys--3">
+        <li class="c-phase"><span class="c-phase__n" aria-hidden="true">1</span><span><span lang="en">Phase 1 data hall</span><span lang="vi">Nhà dữ liệu giai đoạn 1</span></span></li>
+        <li class="c-phase"><span class="c-phase__n" aria-hidden="true">2</span><span><span lang="en">Later phases on the same parcel</span><span lang="vi">Các giai đoạn sau trên cùng khu đất</span></span></li>
+        <li class="c-phase"><span class="c-phase__n" aria-hidden="true">3</span><span><span lang="en">On-site high-voltage substation</span><span lang="vi">Trạm biến áp cao áp trong khu dự án</span></span></li>
+        <li class="c-phase"><span class="c-phase__n" aria-hidden="true">4</span><span><span lang="en">Grid connection</span><span lang="vi">Đấu nối lưới điện</span></span></li>
+        <li class="c-phase"><span class="c-phase__n" aria-hidden="true">5</span><span><span lang="en">Separate fiber routes to the cable landings</span><span lang="vi">Tuyến cáp quang riêng đến các trạm cập bờ</span></span></li>
+        <li class="c-phase"><span class="c-phase__n" aria-hidden="true">6</span><span><span lang="en">Cooling plant</span><span lang="vi">Hệ thống giải nhiệt</span></span></li>
+      </ol>
+      <figcaption class="c-figure__cap"><span><span lang="en">Concept illustration</span><span lang="vi">Hình minh họa ý tưởng</span></span><span><span lang="en">Not a design · not to scale</span><span lang="vi">Không phải thiết kế · không theo tỷ lệ</span></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<hr class="c-terrainrule l-page l-sep">
+
+</main>
+
+<section class="c-cta" aria-label="Contact">
+  <div class="l-page c-cta__in">
+    <h2 class="c-cta__title"><span lang="en">Talk to us about the campus</span><span lang="vi">Trao đổi với chúng tôi về dự án</span></h2>
+    <a class="c-btn c-btn--primary" href="contact.html"><span lang="en">Contact us</span><span lang="vi">Liên hệ với chúng tôi</span></a>
+  </div>
+</section>
+
+<footer class="c-sitefoot">
+  <div class="l-page c-sitefoot__tag">
+    <p class="c-sitefoot__wordmark">PIDC · Pisico Data Center</p>
+    <p class="c-sitefoot__tagline"><span lang="en">An international, green, resilient AI campus in a renewable-surplus province.</span><span lang="vi">Khu trung tâm dữ liệu AI quốc tế, xanh, có khả năng chống chịu, phục hồi, tại tỉnh dư thừa năng lượng tái tạo.</span></p>
+  </div>
+  <div class="l-page c-sitefoot__in">
+    <nav class="c-sitefoot__nav" aria-label="Footer">
+      <a href="#top"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
+      <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
+      <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
+    </nav>
+    <span class="c-sitefoot__legal"><span lang="en">© 2026 Pisico Data Center Joint Stock Company</span><span lang="vi">© 2026 Công ty Cổ phần Pisico Data Center</span></span>
+    <span class="c-sitefoot__status"><span lang="en">In development · Gia Lai, Vietnam</span><span lang="vi">Đang phát triển · Gia Lai, Việt Nam</span></span>
+    <span class="c-sitefoot__site">pidc.vn</span>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

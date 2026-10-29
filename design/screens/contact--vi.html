@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · PIDC</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../components/components.css">
+<link rel="stylesheet" href="../components/recipes.css">
+<style>/* LAYOUT ONLY: grid, regions, order — var(--*) values only, never raw colours/sizes, never restyle a c-* class */
+body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-body)/var(--lh-body) var(--font-ui)}
+.l-page{max-width:var(--w-sheet);margin-inline:auto;padding-inline:var(--s-4)}
+@media (min-width:45em){.l-page{padding-inline:var(--s-6)}}
+.l-hero{padding-block:var(--s-7)}
+@media (min-width:57.5em){.l-hero{padding-block:var(--s-8)}}
+.l-band{padding-block:var(--s-7)}
+@media (min-width:57.5em){.l-band{padding-block:var(--s-8)}}
+.l-form{display:grid;gap:var(--s-4);margin-top:var(--s-5)}
+@media (min-width:48em){.l-form{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-4) var(--s-5)}
+  .l-form .l-form--full{grid-column:1 / -1}}
+.l-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-3);margin-top:var(--s-5)
+  /* full-width even under 48em, where .l-form is 1-col and this rule is outside it */ }
+.l-note{margin-top:var(--s-4);max-width:60ch;display:grid;gap:var(--s-3);justify-items:start}
+.l-im{margin-top:var(--s-5);max-width:60ch}
+.l-office{margin-top:var(--s-5)}
+.l-choice-body{display:grid;gap:var(--s-1)}
+.l-terrain{margin-block:var(--s-2) 0}
+</style>
+</head>
+<body>
+<div id="pidc" data-lang="vi">
+
+<header class="c-sitehead" id="top">
+  <div class="l-page c-sitehead__in">
+    <a class="c-sitehead__brand" href="#top">
+      <span class="c-sitehead__name">PIDC</span>
+      <span class="c-sitehead__sub">Pisico Data Center</span>
+    </a>
+    <div class="c-sitehead__lang" role="group" aria-label="Language / Ngôn ngữ">
+      <a class="c-sitehead__langbtn" href="contact.html" data-set-lang="en">EN</a>
+      <a class="c-sitehead__langbtn" href="contact--vi.html" data-set-lang="vi" aria-current="true">VI</a>
+    </div>
+    <nav class="c-sitehead__nav" aria-label="Site">
+      <a href="index.html"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
+      <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
+      <a href="contact.html" aria-current="page"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
+    </nav>
+    <details class="c-sitemenu">
+      <summary aria-label="Menu"><span lang="en">Menu</span><span lang="vi">Menu</span><span class="c-sitemenu__mark" aria-hidden="true"></span></summary>
+      <nav aria-label="Site">
+      <a href="contact.html" aria-current="page"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
+      <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
+      <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main>
+
+<section class="l-hero l-page" aria-labelledby="hero-title">
+  <div class="c-hero">
+    <p class="c-hero__badge"><span class="c-hero__dot" aria-hidden="true"></span><span lang="en">Contact</span><span lang="vi">Liên hệ</span></p>
+    <h1 id="hero-title" class="c-hero__title"><span lang="en">Talk to us about the campus</span><span lang="vi">Trao đổi với chúng tôi về dự án</span></h1>
+    <p class="c-hero__lede"><span lang="en">We welcome conversations with capital partners, AI compute tenants, and engineering or government partners.</span><span lang="vi">Chúng tôi mong được trao đổi với đối tác vốn, khách thuê hạ tầng AI, và đối tác kỹ thuật hoặc cơ quan nhà nước.</span></p>
+  </div>
+</section>
+
+<section class="l-band" id="iam" aria-labelledby="iam-title">
+  <div class="l-page r-section-split">
+    <header class="c-section">
+      <p class="c-section__eyebrow"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></p>
+      <h2 class="c-section__title" id="iam-title"><span lang="en">I am a</span><span lang="vi">Tôi là</span></h2>
+    </header>
+    <div>
+      <fieldset class="c-choice">
+        <legend class="sr"><span lang="en">I am a</span><span lang="vi">Tôi là</span></legend>
+        <label class="c-choice__opt">
+          <input class="c-choice__input" type="radio" name="audience" value="capital" checked>
+          <span class="l-choice-body">
+            <span class="c-choice__title"><span lang="en">Capital partners</span><span lang="vi">Đối tác vốn</span></span>
+            <span class="c-choice__desc"><span lang="en">Infrastructure investors and funds for the campus build-out.</span><span lang="vi">Nhà đầu tư và quỹ hạ tầng tham gia đầu tư xây dựng dự án.</span></span>
+          </span>
+        </label>
+        <label class="c-choice__opt">
+          <input class="c-choice__input" type="radio" name="audience" value="tenant">
+          <span class="l-choice-body">
+            <span class="c-choice__title"><span lang="en">AI compute tenants</span><span lang="vi">Khách thuê hạ tầng AI</span></span>
+            <span class="c-choice__desc"><span lang="en">Companies deploying GPU clusters that need power, space and connectivity in Vietnam.</span><span lang="vi">Doanh nghiệp triển khai cụm GPU, cần điện, mặt bằng và kết nối tại Việt Nam.</span></span>
+          </span>
+        </label>
+        <label class="c-choice__opt">
+          <input class="c-choice__input" type="radio" name="audience" value="engineering">
+          <span class="l-choice-body">
+            <span class="c-choice__title"><span lang="en">Engineering or government partners</span><span lang="vi">Đối tác kỹ thuật hoặc cơ quan nhà nước</span></span>
+            <span class="c-choice__desc"><span lang="en">Specialists in power, cooling, design and construction.</span><span lang="vi">Đơn vị chuyên về điện, làm mát, thiết kế và thi công.</span></span>
+          </span>
+        </label>
+      </fieldset>
+      <p class="c-callout l-im"><span lang="en">Capital partners:</span><span lang="vi">Đối tác vốn:</span>
+        <span class="c-ceo" lang="en">[CEO: confirm "Request the information memorandum"]</span>
+        <span class="c-ceo" lang="vi">[CEO: xác nhận "Yêu cầu bản thông tin dự án (IM)"]</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="l-band" id="write" aria-labelledby="write-title">
+  <div class="l-page r-section-split">
+    <header class="c-section">
+      <p class="c-section__eyebrow"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></p>
+      <h2 class="c-section__title" id="write-title"><span lang="en">Write to us</span><span lang="vi">Viết cho chúng tôi</span></h2>
+    </header>
+    <form class="l-form" action="mailto:contact@pidc.vn" method="post" enctype="text/plain">
+      <p class="c-formfield">
+        <label class="c-formfield__label" for="f-name"><span lang="en">Name</span><span lang="vi">Họ tên</span></label>
+        <input class="c-formfield__input" id="f-name" name="name" type="text" autocomplete="name">
+      </p>
+      <p class="c-formfield">
+        <label class="c-formfield__label" for="f-email"><span lang="en">Email</span><span lang="vi">Email</span></label>
+        <input class="c-formfield__input" id="f-email" name="email" type="email" autocomplete="email">
+      </p>
+      <p class="c-formfield l-form--full">
+        <label class="c-formfield__label" for="f-org"><span lang="en">Organisation</span><span lang="vi">Tổ chức</span></label>
+        <input class="c-formfield__input" id="f-org" name="organization" type="text" autocomplete="organization">
+      </p>
+      <p class="c-formfield l-form--full">
+        <label class="c-formfield__label" for="f-msg"><span lang="en">Message</span><span lang="vi">Nội dung</span></label>
+        <textarea class="c-formfield__input" id="f-msg" name="message" rows="5"></textarea>
+      </p>
+      <div class="l-form--full">
+        <div class="l-actions">
+          <button class="c-btn" type="submit" disabled><span class="c-ceo" lang="en">[CEO: submit label]</span><span class="c-ceo" lang="vi">[CEO: xác nhận "Yêu cầu bản thông tin dự án (IM)"]</span></button>
+        </div>
+        <div class="l-note">
+          <p class="c-callout"><span lang="en">This form is not live yet. Until it is, please email us directly:</span><span lang="vi">Form này chưa hoạt động. Trong thời gian chờ, vui lòng gửi email trực tiếp cho chúng tôi:</span></p>
+          <a class="c-btn c-btn--primary" href="mailto:contact@pidc.vn">contact@pidc.vn</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="l-band" id="office" aria-labelledby="office-title">
+  <div class="l-page r-section-split">
+    <header class="c-section">
+      <p class="c-section__eyebrow"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></p>
+      <h2 class="c-section__title" id="office-title"><span lang="en">Office</span><span lang="vi">Văn phòng</span></h2>
+    </header>
+    <div class="l-office">
+      <dl class="c-glossary">
+        <div>
+          <dt><span lang="en">Email</span><span lang="vi">Email</span></dt>
+          <dd><a class="tlink" href="mailto:contact@pidc.vn">contact@pidc.vn</a></dd>
+        </div>
+        <div>
+          <dt><span lang="en">Office</span><span lang="vi">Văn phòng</span></dt>
+          <dd><span lang="en">99 Tây Sơn, Quy Nhơn Nam Ward, Gia Lai Province, Vietnam</span><span lang="vi">99 Tây Sơn, phường Quy Nhơn Nam, tỉnh Gia Lai, Việt Nam</span></dd>
+        </div>
+      </dl>
+      <p class="c-callout l-im"><span lang="en">Detailed project information is shared with qualified parties under a non-disclosure agreement.</span><span lang="vi">Thông tin chi tiết về dự án được cung cấp cho các đối tác phù hợp trên cơ sở thỏa thuận bảo mật.</span></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<hr class="c-terrainrule l-terrain" aria-hidden="true">
+
+<footer class="c-sitefoot">
+  <div class="l-page c-sitefoot__tag">
+    <p class="c-sitefoot__wordmark">PIDC · Pisico Data Center</p>
+    <p class="c-sitefoot__tagline"><span lang="en">An international, green, resilient AI campus in a <span class="nw">renewable-surplus</span> province.</span><span lang="vi">Khu trung tâm dữ liệu AI quốc tế, xanh, có khả năng chống chịu, phục hồi, tại tỉnh dư thừa năng lượng tái tạo.</span></p>
+  </div>
+  <div class="l-page c-sitefoot__in">
+    <nav class="c-sitefoot__nav" aria-label="Footer">
+      <a href="index.html"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
+      <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
+      <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
+    </nav>
+    <span class="c-sitefoot__legal"><span lang="en">© 2026 Pisico Data Center Joint Stock Company</span><span lang="vi">© 2026 Công ty Cổ phần Pisico Data Center</span></span>
+    <span class="c-sitefoot__status"><span lang="en">In development · Gia Lai, Vietnam</span><span lang="vi">Đang phát triển · Gia Lai, Việt Nam</span></span>
+    <span class="c-sitefoot__site">pidc.vn</span>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+{
+  "project": "PIDC Landing",
+  "phase": "locked",
+  "designVersion": "1.0.0",
+  "direction": "drawing-set",
+  "taste": {
+    "anchors": [
+      "Stripe (type-led calm)",
+      "Vantage/Stack (category standard)",
+      "engineering-drawing tradition (grid, schematics, numbered annotations)"
+    ],
+    "position": "balanced leaning distinctive",
+    "dislikes": [
+      "generic",
+      "AI slop",
+      "stock-photo gloss"
+    ],
+    "note": "inferred by agent F; owner confirms via direction pick"
+  },
+  "platforms": [
+    "web"
+  ],
+  "locale": "en (default) + vi",
+  "sizes": [
+    "1440x900",
+    "1280x800",
+    "1024x768",
+    "390x844"
+  ],
+  "minTarget": 44,
+  "minFont": 13,
+  "paths": {
+    "brief": "BRIEF.md",
+    "design": "DESIGN.md",
+    "tokens": "tokens.css",
+    "components": "components/components.css",
+    "catalog": "components/catalog.html",
+    "screens": "screens",
+    "shots": "shots",
+    "handoff": "handoff",
+    "changelog": "CHANGELOG.md",
+    "registry": "components/registry.json",
+    "implementation": null
+  },
+  "screens": [
+    {
+      "file": "index.html",
+      "title": "Home / The project",
+      "status": "planned",
+      "states": [
+        "default",
+        "menu-open",
+        "vi"
+      ],
+      "pattern": "overview-evidence"
+    },
+    {
+      "file": "ai-data-center.html",
+      "title": "AI data centers explainer",
+      "status": "draft",
+      "states": [
+        "default",
+        "vi"
+      ],
+      "pattern": "long-form-explainer"
+    },
+    {
+      "file": "why-vietnam.html",
+      "title": "Why Vietnam, why Gia Lai",
+      "status": "planned",
+      "states": [
+        "default",
+        "vi"
+      ],
+      "pattern": "evidence-list"
+    },
+    {
+      "file": "company.html",
+      "title": "Company",
+      "status": "planned",
+      "states": [
+        "default",
+        "vi"
+      ],
+      "pattern": "profile"
+    },
+    {
+      "file": "contact.html",
+      "title": "Contact",
+      "status": "planned",
+      "states": [
+        "default",
+        "disabled-submit",
+        "vi"
+      ],
+      "pattern": "contact-routing"
+    }
+  ],
+  "groups": [],
+  "flows": [],
+  "extraPages": [],
+  "notes": "phase: brief → scope → research → directions → locked → screens. Managed by the uiux-studio skill; update on every change. screens[]: {file, title, status, states, pattern (references/page-patterns.md), group?, note?, device?: phone|desktop|any}.",
+  "budget": {
+    "targets": "references/cost-playbook.md",
+    "log": []
+  },
+  "implementation": {
+    "maps": [
+      "component-maps/pidc-static-astro.json (create from custom.json)"
+    ],
+    "baseUrl": null,
+    "routes": {},
+    "masks": [],
+    "threshold": 2,
+    "note": "choose per app when the stack is known (detect.mjs); never assume"
+  },
+  "tech": {
+    "platforms": [
+      "web"
+    ],
+    "ui": "inhouse",
+    "libs": [
+      "custom:pidc-static-astro"
+    ],
+    "reason": null,
+    "revisitWhen": null,
+    "decided": "2026-10-29"
+  },
+  "type": "standalone",
+  "created": "2026-10-29"
+}
