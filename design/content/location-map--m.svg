@@ -1,0 +1,49 @@
+<svg id="lm-m" viewBox="0 0 360 460" role="img"
+  aria-label="Schematic location map (mobile). Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-en="Schematic location map (mobile). Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
+  data-label-vi="Sơ đồ vị trí (mobile). Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.">
+  <title>Schematic location map, mobile — PIDC site in Gia Lai, 220 kV grid link, fibre routes to ADC and SJC2 landings at Quy Nhơn (LM-01)</title>
+  <!-- Mobile text sizes: viewBox 360 wide rendered at 358 px → scale = 358 / 360 = 0.9944;
+    a 12 px rendered label needs 12 / 0.9944 = 12.07 viewBox units, so every text size here is ≥ 13.5 units
+    (site 15, kv 15, coast 15, station 14, sheet 13.5 → smallest rendered = 13.5 × 0.9944 ≈ 13.4 px).
+    Same geometry as location-map.svg; fewer labels (no province ring, no sea label). -->
+  <!-- Geometry: Natural Earth 1:50m Admin 0 — Countries, VNM mainland polygon only (no islands),
+    public domain (naturalearthdata.com),
+    https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson
+    Clipped to 107.6–110.3 °E / 12.8–16.05 °N (frame 107.95–109.95 °E / 13.10–15.65 °N — mainland only),
+    Douglas–Peucker simplification tol 0.028 °, equirectangular projection (x scaled by cos 14.5°). -->
+  <defs>
+    <pattern id="lm-sea" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0 8 Q4 5.5 8 8 T16 8" class="lm-sea-line"/>
+    </pattern>
+  </defs>
+  <!-- sea hatch east/south of the coastline (frame minus land, even-odd); land drawn on top -->
+  <path class="lm-sea" fill-rule="evenodd" d="M0 0H360V460H0Z
+    M57.9 -72.2 113 11.8 156.8 49.1 178.2 117 204.3 168.5 204.7 198 243.6 323.5 240.9 340 233.5 323.9
+    237.9 427.6 265.3 486 264.8 514.1 -63 514.1 -63 92.9 -53.4 71.2 -63 55.8 -63 -72.2Z"/>
+  <!-- Vietnam mainland (Natural Earth 1:50m, simplified) -->
+  <path class="lm-land" d="M57.9 -72.2 113 11.8 156.8 49.1 178.2 117 204.3 168.5 204.7 198 243.6 323.5
+    240.9 340 233.5 323.9 237.9 427.6 265.3 486 264.8 514.1 -63 514.1 -63 92.9 -53.4 71.2 -63 55.8 -63 -72.2Z"/>
+  <!-- 220 kV grid line: national grid south to the site (solid ink) -->
+  <path class="lm-kv" d="M60 0C58 90 40 210 28 311"/>
+  <text class="lm-m-kv-label" x="75" y="118">220 kV</text>
+  <!-- PIDC site marker -->
+  <g class="lm-site"><circle cx="27" cy="319" r="8"/></g>
+  <text class="lm-m-site-label" x="44" y="290">PIDC site</text>
+  <!-- two separate fibre routes, site to each landing station (dashed) -->
+  <path class="lm-fb" d="M35 316C100 310 170 302 236 298"/>
+  <path class="lm-fb" d="M33 326C100 350 170 370 236 379"/>
+  <!-- Quy Nhơn and the two cable landing stations -->
+  <text class="lm-m-coast-label" x="222" y="345" text-anchor="end">Quy Nhơn</text>
+  <g class="lm-land-station">
+    <circle cx="235.6" cy="297.6" r="4.5"/>
+    <circle cx="235.8" cy="378.8" r="4.5"/>
+  </g>
+  <!-- submarine cables continuing out to sea, labels at the sea edge -->
+  <path class="lm-fb" d="M240 296C265 292 290 288 308 284"/>
+  <path class="lm-fb" d="M240 381C265 378 290 374 308 370"/>
+  <text class="lm-m-station-label" x="312" y="289">ADC</text>
+  <text class="lm-m-station-label" x="312" y="374">SJC2</text>
+  <!-- sheet note LM-01 -->
+  <text class="lm-m-sheet" x="14" y="448">LM-01 · NOT TO SCALE</text>
+</svg>

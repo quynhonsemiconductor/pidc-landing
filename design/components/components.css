@@ -288,3 +288,51 @@ main > section + section { counter-increment: sheet; }
 .c-sitehead__langbtn { min-width: var(--target); min-height: var(--target); }
 .c-formfield__input { font: inherit; }
 input, button, textarea, select { font-family: inherit; }
+
+/* ————— SA fix round (PR3 review, 2026-10-29) ————— */
+
+/* lang switch is links (matches handoff: plain links per locale) */
+.c-sitehead__langbtn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+a.c-sitehead__langbtn[aria-current="true"] { color: var(--color-text); border-bottom: 2px solid var(--color-accent); }
+
+/* c-sitemenu — mobile menu (no JS: <details>). Desktop keeps the inline nav. */
+.c-sitemenu { display: none; }
+@media (max-width: 64em) {
+  .c-sitehead__nav { display: none; }
+  .c-sitemenu { display: block; }
+  .c-sitemenu summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: var(--s-2);
+    min-height: var(--target); min-width: var(--target); justify-content: center;
+    font: 600 var(--fs-small)/1 var(--font-num); border: 1px solid var(--color-line); padding: 0 var(--s-3); }
+  .c-sitemenu summary::-webkit-details-marker { display: none; }
+  .c-sitemenu__mark { width: 14px; height: 2px; background: var(--color-text); position: relative; }
+  .c-sitemenu__mark::before, .c-sitemenu__mark::after { content: ""; position: absolute; left: 0; width: 14px; height: 2px; background: var(--color-text); transition: transform var(--dur) var(--ease); }
+  .c-sitemenu__mark::before { top: -5px; } .c-sitemenu__mark::after { top: 5px; }
+  .c-sitemenu[open] .c-sitemenu__mark::before { transform: translateY(5px) rotate(45deg); }
+  .c-sitemenu[open] .c-sitemenu__mark::after { transform: translateY(-5px) rotate(-45deg); }
+  .c-sitemenu[open] { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line); padding: 0 var(--s-4) var(--s-4); }
+  .c-sitemenu nav { display: grid; }
+  .c-sitemenu nav a { display: flex; align-items: center; min-height: 56px; border-bottom: 1px solid var(--color-line);
+    font: 500 var(--fs-body)/1.4 var(--font-ui); text-decoration: none; color: var(--color-text); }
+  .c-sitemenu nav a[aria-current="page"] { color: var(--color-accent); }
+}
+
+/* c-tocdetails — TOC at ≤1024 collapses into <details> so the H1 leads the first screen */
+.c-tocdetails { display: none; }
+@media (max-width: 64em) {
+  .r-tocrail > nav { display: none; }
+  .c-tocdetails { display: block; border: 1px solid var(--color-line); background: var(--color-surface); }
+  .c-tocdetails summary { list-style: none; cursor: pointer; display: flex; align-items: center; min-height: var(--target);
+    padding: 0 var(--s-3); font: 600 var(--fs-small)/1.5 var(--font-num); letter-spacing: var(--ls-1); }
+  .c-tocdetails summary::-webkit-details-marker { display: none; }
+  .c-tocdetails summary::after { content: "+"; margin-left: auto; font: 600 var(--fs-title)/1 var(--font-num); }
+  .c-tocdetails[open] summary::after { content: "–"; }
+  .c-tocdetails ol { padding: 0 var(--s-3) var(--s-3); }
+}
+
+/* r-sourcebox — trailing punctuation never wraps alone */
+.r-sourcebox a { white-space: nowrap; }
+[data-punct="keep"] li { text-wrap: avoid-ellipsis; }
+
+/* map figure holds both variants stacked; figure sizes to the visible one */
+.c-figure > svg { max-width: 100%; height: auto; }

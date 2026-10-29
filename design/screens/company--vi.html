@@ -34,8 +34,8 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
       <span class="c-sitehead__sub">Pisico Data Center</span>
     </a>
     <div class="c-sitehead__lang" role="group" aria-label="Language / Ngôn ngữ">
-      <button type="button" class="c-sitehead__langbtn" data-set-lang="en" aria-pressed="false">EN</button>
-      <button type="button" class="c-sitehead__langbtn" data-set-lang="vi" aria-pressed="true">VI</button>
+      <a class="c-sitehead__langbtn" href="company.html" data-set-lang="en">EN</a>
+      <a class="c-sitehead__langbtn" href="company--vi.html" data-set-lang="vi" aria-current="true">VI</a>
     </div>
     <nav class="c-sitehead__nav" aria-label="Site">
       <a href="index.html"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
@@ -44,6 +44,16 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
       <a href="company.html" aria-current="page"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
       <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
     </nav>
+    <details class="c-sitemenu">
+      <summary aria-label="Menu"><span lang="en">Menu</span><span lang="vi">Menu</span><span class="c-sitemenu__mark" aria-hidden="true"></span></summary>
+      <nav aria-label="Site">
+      <a href="company.html" aria-current="page"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
+      <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
+      <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -73,7 +83,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
           <div><dt><span lang="en">Company</span><span lang="vi">Tên công ty</span></dt><dd>Công ty Cổ phần Pisico Data Center<br>Pisico Data Center Joint Stock Company</dd></div>
           <div><dt><span lang="en">Short name</span><span lang="vi">Tên viết tắt</span></dt><dd>PIDC</dd></div>
           <div><dt><span lang="en">Enterprise code</span><span lang="vi">Mã số doanh nghiệp</span></dt><dd>4101699991</dd></div>
-          <div><dt><span lang="en">Chairman of the Board</span><span lang="vi">Chủ tịch HĐQT</span></dt><dd>Lâm Duy Việt</dd></div>
+          <div><dt><span lang="en">Chairman of the Board</span><span lang="vi">Chủ tịch HĐQT</span></dt><dd><span class="c-ceo" lang="en">[CEO: confirm showing the Chairman's name]</span><span class="c-ceo" lang="vi">[CEO: xác nhận việc công khai tên Chủ tịch HĐQT]</span></dd></div>
           <div><dt><span lang="en">Member of</span><span lang="vi">Thành viên của</span></dt><dd><a class="tlink" href="https://www.pisico.vn" target="_blank" rel="noopener">Tổng Công ty PISICO Bình Định – CTCP</a></dd></div>
           <div><dt><span lang="en">Registered office</span><span lang="vi">Trụ sở chính</span></dt><dd><span lang="en">99 Tây Sơn, Quy Nhơn Nam Ward, Gia Lai Province, Vietnam</span><span lang="vi">99 Tây Sơn, phường Quy Nhơn Nam, tỉnh Gia Lai, Việt Nam</span></dd></div>
         </dl>
@@ -82,7 +92,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
     </div>
     <figure class="c-figure l-group">
       <figcaption class="c-figure__title"><span lang="en">The Pisico group</span><span lang="vi">Các lĩnh vực của Pisico</span></figcaption>
-      <ol class="c-figure__keys">
+      <ol class="c-figure__keys c-figure__keys--3">
         <li class="c-phase"><span class="c-phase__n" aria-hidden="true">1</span><span><span lang="en">Forest products for export</span><span lang="vi">Chế biến lâm sản xuất khẩu</span></span></li>
         <li class="c-phase"><span class="c-phase__n" aria-hidden="true">2</span><span><span lang="en">Industrial cluster infrastructure</span><span lang="vi">Hạ tầng cụm công nghiệp</span></span></li>
         <li class="c-phase"><span class="c-phase__n" aria-hidden="true">3</span><span><span lang="en">Real estate</span><span lang="vi">Bất động sản</span></span></li>

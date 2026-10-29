@@ -13,7 +13,7 @@
 Default + VI.
 
 ## Interactions
-TOC rail scrollspy: build sets aria-current on the section in view (IntersectionObserver or CSS scroll-driven — implementer's choice; mockups show it static on the first item). 
+Mockup note: the TOC exists twice (desktop rail nav + mobile <details> copy) for the no-JS mockups; the build renders ONE component, shown as the sticky rail >1024 and inside the collapsible at <=1024. TOC rail scrollspy: build sets aria-current on the section in view (IntersectionObserver or CSS scroll-driven — implementer's choice; mockups show it static on the first item). 
 TOC anchors; campus-plan button → index#phases; contact CTA.
 
 ## Accessibility

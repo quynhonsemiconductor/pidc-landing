@@ -23,5 +23,4 @@ These points govern the Astro implementation (PR3+). They are part of every page
 7. **Print stylesheet** ships as-is from `components.css` (`@media print`): no nav/switcher, URLs after
    links, figures unbreakable.
 8. **Contact**: submit stays disabled (no backend yet) + `mailto:contact@pidc.vn` fallback. No
-   Form/Function work in this phase. `info@pidc.vn` appears in the demo's Office block — SA to confirm
-   which mailbox is public before launch.
+   Form/Function work in this phase. Use `contact@pidc.vn` only, everywhere (SA decision 2026-10-29).

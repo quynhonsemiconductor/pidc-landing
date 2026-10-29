@@ -37,8 +37,8 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
       <span class="c-sitehead__sub">Pisico Data Center</span>
     </a>
     <div class="c-sitehead__lang" role="group" aria-label="Language / Ngôn ngữ">
-      <button type="button" class="c-sitehead__langbtn" data-set-lang="en" aria-pressed="true">EN</button>
-      <button type="button" class="c-sitehead__langbtn" data-set-lang="vi" aria-pressed="false">VI</button>
+      <a class="c-sitehead__langbtn" href="contact.html" data-set-lang="en" aria-current="true">EN</a>
+      <a class="c-sitehead__langbtn" href="contact--vi.html" data-set-lang="vi">VI</a>
     </div>
     <nav class="c-sitehead__nav" aria-label="Site">
       <a href="index.html"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
@@ -47,6 +47,16 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
       <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
       <a href="contact.html" aria-current="page"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
     </nav>
+    <details class="c-sitemenu">
+      <summary aria-label="Menu"><span lang="en">Menu</span><span lang="vi">Menu</span><span class="c-sitemenu__mark" aria-hidden="true"></span></summary>
+      <nav aria-label="Site">
+      <a href="contact.html" aria-current="page"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
+      <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
+      <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -56,7 +66,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
   <div class="c-hero">
     <p class="c-hero__badge"><span class="c-hero__dot" aria-hidden="true"></span><span lang="en">Contact</span><span lang="vi">Liên hệ</span></p>
     <h1 id="hero-title" class="c-hero__title"><span lang="en">Talk to us about the campus</span><span lang="vi">Trao đổi với chúng tôi về dự án</span></h1>
-    <p class="c-hero__lede"><span lang="en">We welcome conversations with:</span><span lang="vi">Chúng tôi mong được làm việc với:</span></p>
+    <p class="c-hero__lede"><span lang="en">We welcome conversations with capital partners, AI compute tenants, and engineering or government partners.</span><span lang="vi">Chúng tôi mong được trao đổi với đối tác vốn, khách thuê hạ tầng AI, và đối tác kỹ thuật hoặc cơ quan nhà nước.</span></p>
   </div>
 </section>
 
@@ -86,14 +96,14 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
         <label class="c-choice__opt">
           <input class="c-choice__input" type="radio" name="audience" value="engineering">
           <span class="l-choice-body">
-            <span class="c-choice__title"><span lang="en">Engineering partners</span><span lang="vi">Đối tác kỹ thuật</span></span>
+            <span class="c-choice__title"><span lang="en">Engineering or government partners</span><span lang="vi">Đối tác kỹ thuật hoặc cơ quan nhà nước</span></span>
             <span class="c-choice__desc"><span lang="en">Specialists in power, cooling, design and construction.</span><span lang="vi">Đơn vị chuyên về điện, làm mát, thiết kế và thi công.</span></span>
           </span>
         </label>
       </fieldset>
       <p class="c-callout l-im"><span lang="en">Capital partners:</span><span lang="vi">Đối tác vốn:</span>
         <span class="c-ceo" lang="en">[CEO: confirm "Request the information memorandum"]</span>
-        <span class="c-ceo" lang="vi">[CEO: VI wording]</span>
+        <span class="c-ceo" lang="vi">[CEO: xác nhận "Yêu cầu bản thông tin dự án (IM)"]</span>
       </p>
     </div>
   </div>
@@ -103,28 +113,28 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
   <div class="l-page r-section-split">
     <header class="c-section">
       <p class="c-section__eyebrow"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></p>
-      <h2 class="c-section__title" id="write-title"><span class="c-ceo" lang="en">[CEO: form section title]</span><span class="c-ceo" lang="vi">[CEO: VI wording]</span></h2>
+      <h2 class="c-section__title" id="write-title"><span lang="en">Write to us</span><span lang="vi">Viết cho chúng tôi</span></h2>
     </header>
     <form class="l-form" action="mailto:contact@pidc.vn" method="post" enctype="text/plain">
       <p class="c-formfield">
-        <label class="c-formfield__label" for="f-name"><span class="c-ceo" lang="en">[CEO: field label]</span><span class="c-ceo" lang="vi">[CEO: VI wording]</span></label>
+        <label class="c-formfield__label" for="f-name"><span lang="en">Name</span><span lang="vi">Họ tên</span></label>
         <input class="c-formfield__input" id="f-name" name="name" type="text" autocomplete="name">
       </p>
       <p class="c-formfield">
-        <label class="c-formfield__label" for="f-email"><span class="c-ceo" lang="en">[CEO: field label]</span><span class="c-ceo" lang="vi">[CEO: VI wording]</span></label>
+        <label class="c-formfield__label" for="f-email"><span lang="en">Email</span><span lang="vi">Email</span></label>
         <input class="c-formfield__input" id="f-email" name="email" type="email" autocomplete="email">
       </p>
       <p class="c-formfield l-form--full">
-        <label class="c-formfield__label" for="f-org"><span class="c-ceo" lang="en">[CEO: field label]</span><span class="c-ceo" lang="vi">[CEO: VI wording]</span></label>
+        <label class="c-formfield__label" for="f-org"><span lang="en">Organisation</span><span lang="vi">Tổ chức</span></label>
         <input class="c-formfield__input" id="f-org" name="organization" type="text" autocomplete="organization">
       </p>
       <p class="c-formfield l-form--full">
-        <label class="c-formfield__label" for="f-msg"><span class="c-ceo" lang="en">[CEO: field label]</span><span class="c-ceo" lang="vi">[CEO: VI wording]</span></label>
+        <label class="c-formfield__label" for="f-msg"><span lang="en">Message</span><span lang="vi">Nội dung</span></label>
         <textarea class="c-formfield__input" id="f-msg" name="message" rows="5"></textarea>
       </p>
       <div class="l-form--full">
         <div class="l-actions">
-          <button class="c-btn" type="submit" disabled><span class="c-ceo" lang="en">[CEO: submit label]</span><span class="c-ceo" lang="vi">[CEO: VI wording]</span></button>
+          <button class="c-btn" type="submit" disabled><span class="c-ceo" lang="en">[CEO: submit label]</span><span class="c-ceo" lang="vi">[CEO: xác nhận "Yêu cầu bản thông tin dự án (IM)"]</span></button>
         </div>
         <div class="l-note">
           <p class="c-callout"><span lang="en">This form is not live yet. Until it is, please email us directly:</span><span lang="vi">Form này chưa hoạt động. Trong thời gian chờ, vui lòng gửi email trực tiếp cho chúng tôi:</span></p>
@@ -145,7 +155,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
       <dl class="c-glossary">
         <div>
           <dt><span lang="en">Email</span><span lang="vi">Email</span></dt>
-          <dd><a class="tlink" href="mailto:info@pidc.vn">info@pidc.vn</a></dd>
+          <dd><a class="tlink" href="mailto:contact@pidc.vn">contact@pidc.vn</a></dd>
         </div>
         <div>
           <dt><span lang="en">Office</span><span lang="vi">Văn phòng</span></dt>

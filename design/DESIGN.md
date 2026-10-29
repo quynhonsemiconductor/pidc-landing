@@ -60,7 +60,9 @@ cubic-bezier(.2,.7,.2,1)); the SLD's flow-dash animation is the one ambient move
 ### Icons & imagery
 No icon set — numbers and diagrams do the marking (site nav is text; statuses are words).
 Imagery = the project's OWN SVG schematics only (SLD, terrain cross-section, rack anatomy, cooling loop,
-location map LM-01, charts). Never stock photos, never renders, never maker-drawn illustration.
+location map LM-01, charts). LM-01 geometry: Natural Earth 1:50m admin-0 (public domain, source URL in
+the SVG header), VNM mainland only — extent cropped so no islands appear; one language per page
+(EN/VI map variants), mobile variant with fewer, ≥12px-rendered labels. Never stock photos, never renders, never maker-drawn illustration.
 Every figure keeps its drawing honesty: sheet id + "SCHEMATIC · NOT TO SCALE".
 
 ## 3. Layout grammar

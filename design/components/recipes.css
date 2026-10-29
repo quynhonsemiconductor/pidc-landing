@@ -172,19 +172,32 @@
 .cl-cold, .rk-cool { stroke-dasharray: 5 3; }    /* cold/supply coolant dashed vs solid warm/return */
 .mk circle { stroke: var(--color-surface); stroke-width: 1.5; }  /* marker halo */
 
-/* r-locationmap — schematic location map (content/location-map.svg, LM-01) */
+/* r-locationmap — schematic location map (content/location-map.svg + --vi / --m / --m--vi, LM-01)
+   Geometry: Natural Earth 1:50m admin-0 countries (VNM mainland), public domain — see SVG header.
+   Desktop viewBox 560 wide; smallest text 12 units → 9 px rendered at the 420 px page column (×0.75). */
 .lm-land { fill: var(--color-surface); stroke: var(--color-text); stroke-width: 1.5; }
+.lm-sea { fill: url(#lm-sea); }                    /* wave pattern, sea only — land is drawn over it */
 .lm-sea-line { stroke: var(--color-line); stroke-width: 1; fill: none; }
-.lm-name { font: 600 10px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .08em; }
+.lm-name { font: 600 13px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .08em; }
 .lm-kv { fill: none; stroke: var(--color-power); stroke-width: 1.75; }
-.lm-kv-label { font: 600 11px var(--font-diagram); fill: var(--color-accent); }
+.lm-kv-label { font: 600 13px var(--font-diagram); fill: var(--color-accent); }
 .lm-site circle { fill: var(--color-accent); }
-.lm-site-label { font: 600 11.5px var(--font-diagram); fill: var(--color-text); }
-.lm-site-sub { font: 400 9.5px var(--font-diagram); fill: var(--color-text-2); }
+.lm-site-label { font: 600 13.5px var(--font-diagram); fill: var(--color-text); }
 .lm-prov { fill: none; stroke: var(--color-text-2); stroke-width: 1; stroke-dasharray: 4 3; }
-.lm-prov-label, .lm-coast-label { font: 500 10.5px var(--font-diagram); fill: var(--color-text-2); }
+.lm-prov-label, .lm-coast-label { font: 500 12.5px var(--font-diagram); fill: var(--color-text-2); }
 .lm-fb { fill: none; stroke: var(--color-fiber); stroke-width: 1.75; stroke-dasharray: 6 3; }
 .lm-land-station circle { fill: var(--color-surface); stroke: var(--color-text); stroke-width: 1.5; }
-.lm-station-label { font: 600 10.5px var(--font-diagram); fill: var(--color-text); }
-.lm-sea-label { font: 500 10.5px var(--font-diagram); fill: var(--color-text-2); }
-.lm-sheet { font: 500 9.5px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .06em; }
+.lm-station-label { font: 600 12.5px var(--font-diagram); fill: var(--color-text); }
+.lm-sea-label { font: 500 13px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .14em; }
+.lm-sheet { font: 500 12.5px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .06em; }
+/* mobile variant (location-map--m*.svg), viewBox 360 wide rendered at 358 px:
+   scale = 358/360 = 0.9944 → 12 px rendered needs 12 / 0.9944 = 12.07 units; all sizes below ≥ 12.5 */
+.lm-m-site-label { font: 600 15px var(--font-diagram); fill: var(--color-text); }
+.lm-m-kv-label { font: 600 15px var(--font-diagram); fill: var(--color-accent); }
+.lm-m-station-label { font: 600 14px var(--font-diagram); fill: var(--color-text); }
+.lm-m-coast-label { font: 500 15px var(--font-diagram); fill: var(--color-text-2); }
+.lm-m-sheet { font: 500 13.5px var(--font-diagram); fill: var(--color-text-2); letter-spacing: .06em; }
+
+/* r-locationmap — desktop/mobile variant swap (mobile: fewer, larger labels, ≥12px rendered) */
+.c-figure > svg.lm-m { display: none; }
+@media (max-width: 480px) { .c-figure > svg.lm-d { display: none; } .c-figure > svg.lm-m { display: block; } }

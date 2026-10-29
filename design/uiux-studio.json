@@ -49,6 +49,7 @@
       "status": "planned",
       "states": [
         "default",
+        "menu-open",
         "vi"
       ],
       "pattern": "overview-evidence"
