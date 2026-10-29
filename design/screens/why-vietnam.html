@@ -15,6 +15,10 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
 @media (min-width:57.5em){.l-pagehero{padding-block:var(--s-8)}}
 .l-railband{padding-block:var(--s-3) 0}
 .r-tocrail > nav{margin-block-end:var(--s-5)}
+@media (min-width:1025px){
+  .r-tocrail > nav{grid-column:1;grid-row:1 / span 8}
+  .r-tocrail > section, .r-tocrail > .l-rail{grid-column:2}
+}
 .l-rail > section{padding-block:var(--s-6) var(--s-7)}
 .l-facts{display:grid;gap:var(--s-6)}
 @media (min-width:48em){.l-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-7)}}
@@ -45,8 +49,8 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
     <details class="c-sitemenu">
       <summary aria-label="Menu"><span lang="en">Menu</span><span lang="vi">Menu</span><span class="c-sitemenu__mark" aria-hidden="true"></span></summary>
       <nav aria-label="Site">
-      <a href="why-vietnam.html" aria-current="page"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
-      <a href="why-vietnam.html"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
+      <a href="index.html"><span lang="en">The project</span><span lang="vi">Dự án</span></a>
+      <a href="why-vietnam.html" aria-current="page"><span lang="en">Vietnam &amp; Gia Lai</span><span lang="vi">Việt Nam &amp; Gia Lai</span></a>
       <a href="ai-data-center.html"><span lang="en">AI data centers</span><span lang="vi">Trung tâm dữ liệu AI</span></a>
       <a href="company.html"><span lang="en">Company</span><span lang="vi">Công ty</span></a>
       <a href="contact.html"><span lang="en">Contact</span><span lang="vi">Liên hệ</span></a>
@@ -55,7 +59,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
   </div>
 </header>
 
-<main>
+<main class="l-page r-tocrail">
 
 <section class="l-pagehero l-page" aria-labelledby="page-title">
   <div class="c-hero">
@@ -65,8 +69,6 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
   </div>
 </section>
 
-<section class="l-railband" aria-label="Page contents">
-  <div class="l-page r-tocrail">
     <details class="c-tocdetails"><summary><span lang="en">On this page</span><span lang="vi">Trên trang này</span></summary><nav aria-label="On this page">
       <ol>
         <li aria-current="true"><a href="#vietnam"><span lang="en">Vietnam</span><span lang="vi">Việt Nam</span></a></li>
@@ -75,7 +77,8 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
         <li><a href="#sources"><span lang="en">Sources</span><span lang="vi">Nguồn</span></a></li>
       </ol>
     </nav></details>
-  <nav aria-label="On this page">
+
+    <nav aria-label="On this page">
       <ol>
         <li aria-current="true"><a href="#vietnam"><span lang="en">Vietnam</span><span lang="vi">Việt Nam</span></a></li>
         <li><a href="#gia-lai">Gia Lai</a></li>
@@ -262,8 +265,6 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
   <text class="lm-station-label" x="424" y="300">ADC landing</text>
   <text class="lm-station-label" x="424" y="376">SJC2 landing</text>
   <text class="lm-sea-label" x="452" y="110" text-anchor="middle">EAST SEA</text>
-  <!-- sheet note LM-01 -->
-  <text class="lm-sheet" x="36" y="440">LM-01 · SCHEMATIC · NOT TO SCALE</text>
 </svg>
       <svg class="lm-m" id="lm-m" viewBox="0 0 360 460" role="img"
   aria-label="Schematic location map (mobile). Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast."
@@ -311,8 +312,6 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
   <path class="lm-fb" d="M240 381C265 378 290 374 308 370"/>
   <text class="lm-m-station-label" x="312" y="289">ADC</text>
   <text class="lm-m-station-label" x="312" y="374">SJC2</text>
-  <!-- sheet note LM-01 -->
-  <text class="lm-m-sheet" x="14" y="448">LM-01 · NOT TO SCALE</text>
 </svg>
               <figcaption class="c-figure__cap"><span><span lang="en">Schematic location map</span><span lang="vi">Sơ đồ vị trí</span></span><span><span lang="en">Not to scale</span><span lang="vi">Không theo tỷ lệ</span></span></figcaption>
             </figure>
@@ -347,8 +346,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--fs-b
       </section>
 
     </div>
-  </div>
-</section>
+
 
 <div class="l-page l-rule"><hr class="c-terrainrule"></div>
 

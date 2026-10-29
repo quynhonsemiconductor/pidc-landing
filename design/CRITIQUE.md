@@ -146,7 +146,7 @@ map labels (source: correct "Gia Lai", "Khu dự án"); "Vi sao chon Gia Lai" di
 button (source: correct "Vì sao chọn Gia Lai"); "TÍM HIỂU" vs "TÌM" (source: "Tìm hiểu", correct);
 "Lâm Duy Viêt" (source: "Lâm Duy Việt"); "[CEO: Land area ha]" title-case (source: sentence-case);
 "(Cổng Thương)" truncated (source: "(Công Thương)", complete); garbled map micro-label (source:
-"Khu dự án · site", correct). Also not defects: info@pidc.vn alongside contact@pidc.vn — both are
+"Khu dự án · site", correct). Also not defects: the demo mailbox (removed) alongside contact@pidc.vn — both are
 verbatim from the owner's demo content (content/contact.html, schema.org block); "71/2025/QH15"
 law number is demo-verbatim (an SA fact-check is reasonable but it is not this design's error);
 "© 2026" is coherent with in-development status.

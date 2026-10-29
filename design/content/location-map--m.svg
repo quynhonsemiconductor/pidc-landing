@@ -44,6 +44,4 @@
   <path class="lm-fb" d="M240 381C265 378 290 374 308 370"/>
   <text class="lm-m-station-label" x="312" y="289">ADC</text>
   <text class="lm-m-station-label" x="312" y="374">SJC2</text>
-  <!-- sheet note LM-01 -->
-  <text class="lm-m-sheet" x="14" y="448">LM-01 · NOT TO SCALE</text>
 </svg>

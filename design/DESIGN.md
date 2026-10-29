@@ -70,7 +70,7 @@ Every figure keeps its drawing honesty: sheet id + "SCHEMATIC · NOT TO SCALE".
 - Home: hero (badge + H1 + SLD figure) → site-facts statband → Power/Fiber/Land proofs + location map →
   terrain cross-section → phases → CTA. Ruled hairlines separate sections; sheet numbers S-01… auto.
 - Inner pages: `r-tocrail` — sticky 220px TOC left rail on >1024, first figure after the lead
-  paragraph (never beside the H1), rail stacks above content at ≤1024.
+  paragraph (never beside the H1), TOC rail visible ≥1025 px only; at ≤1024 px the rail is hidden and a collapsed "On this page" <details> shows instead (breakpoint 64em, intentional).
 - Breakpoints: 1440/1280 full rail; 1024 rail collapses; 390 single column, comparison table becomes
   attr()-labelled rows.
 - Print: `@media print` — no nav/switcher/CTA buttons, URLs after links, figures unbreakable, red

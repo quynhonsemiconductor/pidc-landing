@@ -17,7 +17,7 @@ Subagent budget totals for the record: research 42K, neutral maker 163K, 3 skin 
 ## 2026-10-29 — SA fix round on PR3 (head 14bb415)
 - Location map redrawn from Natural Earth 1:50m (mainland-only extent, sea-only hatching, leader/offset
   labels, EN/VI separate SVGs, mobile variant ≥12px labels); desktop/mobile swap fixed (specificity bug).
-- info@pidc.vn → contact@pidc.vn everywhere (screens, content/, BUILD-NOTES).
+- contact@pidc.vn everywhere (screens, content/, BUILD-NOTES; the demo mailbox is gone from the repo).
 - Routing label 3 = "Engineering or government partners / Đối tác kỹ thuật hoặc cơ quan nhà nước".
 - VI placeholders: real wording (IM CTA, chairman confirm).
 - Mobile menu (closed + open state) via <details>; TOC collapses into <details> ≤1024; rail restored as

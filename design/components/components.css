@@ -309,8 +309,8 @@ a.c-sitehead__langbtn[aria-current="true"] { color: var(--color-text); border-bo
   .c-sitemenu__mark::before { top: -5px; } .c-sitemenu__mark::after { top: 5px; }
   .c-sitemenu[open] .c-sitemenu__mark::before { transform: translateY(5px) rotate(45deg); }
   .c-sitemenu[open] .c-sitemenu__mark::after { transform: translateY(-5px) rotate(-45deg); }
-  .c-sitemenu[open] { position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg);
-    border-bottom: 1px solid var(--color-line); padding: 0 var(--s-4) var(--s-4); }
+  .c-sitemenu[open] { background: var(--color-bg); border: 1px solid var(--color-line); border-top: 0;
+    padding: 0 var(--s-4) var(--s-4); margin-block-start: var(--s-2); }
   .c-sitemenu nav { display: grid; }
   .c-sitemenu nav a { display: flex; align-items: center; min-height: 56px; border-bottom: 1px solid var(--color-line);
     font: 500 var(--fs-body)/1.4 var(--font-ui); text-decoration: none; color: var(--color-text); }
@@ -330,9 +330,6 @@ a.c-sitehead__langbtn[aria-current="true"] { color: var(--color-text); border-bo
   .c-tocdetails ol { padding: 0 var(--s-3) var(--s-3); }
 }
 
-/* r-sourcebox — trailing punctuation never wraps alone */
-.r-sourcebox a { white-space: nowrap; }
-[data-punct="keep"] li { text-wrap: avoid-ellipsis; }
 
 /* map figure holds both variants stacked; figure sizes to the visible one */
 .c-figure > svg { max-width: 100%; height: auto; }

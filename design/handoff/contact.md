@@ -19,7 +19,7 @@ Radios native (keyboard OK, probe 20/20 stops); mailto link = primary action unt
 a11y.mjs 0 violations 2026-10-29; fieldset/legend; radio target = full card label (input 24px inside ≥44px label).
 
 ## Open questions
-CEO: confirm 'Request the information memorandum' CTA wording (EN + VI); field labels EN+VI; which mailbox is public (contact@ vs info@); form backend later.
+CEO: confirm 'Request the information memorandum' CTA wording (EN + VI); field labels EN+VI; mailbox is contact@pidc.vn (SA decision); form backend later.
 
 <!-- handoff.mjs:start — generated 2026-10-29, do not edit inside this block -->
 ## Generated facts
