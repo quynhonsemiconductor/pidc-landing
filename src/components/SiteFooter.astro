@@ -1,0 +1,45 @@
+---
+// Site footer — markup/classes ported verbatim from the mockup (design/screens/index.html c-sitefoot).
+import { localizedPath } from '../i18n';
+import type { Dictionary, Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  path: string;
+  dict: Dictionary;
+}
+
+const { locale, path, dict } = Astro.props;
+const navItems = [
+  { href: '/', label: dict.nav.project },
+  { href: '/why-vietnam/', label: dict.nav.vietnamGiaLai },
+  { href: '/ai-data-center/', label: dict.nav.aiDataCenters },
+  { href: '/company/', label: dict.nav.company },
+  { href: '/contact/', label: dict.nav.contact },
+].map((item) => ({
+  ...item,
+  localized: localizedPath(locale, item.href),
+  current: item.href === path,
+}));
+---
+
+<footer class="c-sitefoot">
+  <div class="l-page c-sitefoot__tag">
+    <p class="c-sitefoot__wordmark">{dict.brand.name} · {dict.brand.sub}</p>
+    <p class="c-sitefoot__tagline">{dict.footer.tagline}</p>
+  </div>
+  <div class="l-page c-sitefoot__in">
+    <nav class="c-sitefoot__nav" aria-label={dict.ui.footerNav}>
+      {
+        navItems.map((item) => (
+          <a href={item.localized} aria-current={item.current ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <span class="c-sitefoot__legal">{dict.footer.legal}</span>
+    <span class="c-sitefoot__status">{dict.footer.status}</span>
+    <span class="c-sitefoot__site">{dict.footer.site}</span>
+  </div>
+</footer>

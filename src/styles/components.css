@@ -1,0 +1,312 @@
+/* components.css — the parts of design/components/components.css the shared layout needs
+   (c-sitehead, c-sitemenu, c-sitefoot, c-hero badge/title/lede), ported verbatim where the
+   design review did not change them. Only deviations from the mockup:
+   - the bilingual [data-lang] display mechanism is gone (Astro i18n resolves text at render time);
+   - c-sitemenu is the design-review change: a FULL-WIDTH panel under the header holding BOTH the
+     nav links and the EN/VI switch (the mockup's half-width panel kept the switch outside).
+   Visuals come ONLY from semantic tokens (tokens.css) — no raw colors/sizes. */
+
+/* c-sitehead — banner: wordmark, primary nav, EN|VI toggle */
+.c-sitehead {
+  position: relative;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-bg);
+}
+.c-sitehead__in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-6);
+  padding-block: var(--s-3);
+}
+.c-sitehead__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  margin-right: auto;
+  order: 0;
+  text-decoration: none;
+  color: var(--color-text);
+}
+.c-sitehead__name {
+  font: 700 var(--fs-figure)/var(--lh-tight) var(--font-display);
+  letter-spacing: var(--ls-2);
+}
+.c-sitehead__sub {
+  font: 600 var(--fs-meta)/var(--lh-tight) var(--font-num);
+  letter-spacing: var(--ls-3);
+  text-transform: uppercase;
+  color: var(--color-text-2);
+}
+.c-sitehead__lang {
+  order: 1;
+  display: inline-flex;
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-1);
+  overflow: hidden;
+}
+.c-sitehead__langbtn {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font: 600 var(--fs-small)/1 var(--font-num);
+  letter-spacing: var(--ls-1);
+  padding: 0 var(--s-3);
+  min-width: var(--target);
+  min-height: var(--target);
+  cursor: pointer;
+}
+.c-sitehead__langbtn[aria-current='true'] {
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-accent);
+}
+.c-sitehead__langbtn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+.c-sitehead__nav {
+  order: 2;
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-5);
+  padding-top: var(--s-2);
+  border-top: 1px solid var(--color-line);
+}
+.c-sitehead__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  padding-block: var(--s-2);
+  font: 500 var(--fs-body)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
+  text-decoration: none;
+}
+.c-sitehead__nav a:hover {
+  color: var(--color-text);
+}
+.c-sitehead__nav a[aria-current='page'] {
+  color: var(--color-text);
+  box-shadow: inset 0 -2px 0 var(--color-accent);
+}
+.c-sitehead__nav a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+@media (min-width: 64em) {
+  .c-sitehead__in {
+    flex-wrap: nowrap;
+  }
+  .c-sitehead__nav {
+    order: 1;
+    flex-basis: auto;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .c-sitehead__lang {
+    order: 2;
+  }
+}
+
+/* c-sitemenu — mobile menu. Base: <details> (works without JS); one small inline module script
+   (the only JS on the site) manages aria-expanded, focus in/out, Esc and body scroll lock.
+   Design review: full-width panel under the header holding BOTH nav and EN/VI switch. */
+.c-sitemenu {
+  display: none;
+}
+@media (max-width: 64em) {
+  .c-sitehead__nav {
+    display: none;
+  }
+  .c-sitehead__in > .c-sitehead__lang {
+    display: none;
+  } /* the switch lives in the panel instead */
+  .c-sitemenu {
+    display: block;
+  }
+  .c-sitemenu summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    min-height: var(--target);
+    min-width: var(--target);
+    justify-content: center;
+    font: 600 var(--fs-small)/1 var(--font-num);
+    border: 1px solid var(--color-line);
+    padding: 0 var(--s-3);
+  }
+  .c-sitemenu summary::-webkit-details-marker {
+    display: none;
+  }
+  .c-sitemenu summary:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  .c-sitemenu__mark {
+    width: 14px;
+    height: 2px;
+    background: var(--color-text);
+    position: relative;
+  }
+  .c-sitemenu__mark::before,
+  .c-sitemenu__mark::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 14px;
+    height: 2px;
+    background: var(--color-text);
+    transition: transform var(--dur) var(--ease);
+  }
+  .c-sitemenu__mark::before {
+    top: -5px;
+  }
+  .c-sitemenu__mark::after {
+    top: 5px;
+  }
+  .c-sitemenu[open] .c-sitemenu__mark::before {
+    transform: translateY(5px) rotate(45deg);
+  }
+  .c-sitemenu[open] .c-sitemenu__mark::after {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+  /* full-width panel: absolute under the header (which is position:relative), edge to edge */
+  .c-sitemenu__panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 10;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+    padding: var(--s-2) var(--s-4) var(--s-5);
+  }
+  .c-sitemenu__panel nav {
+    display: grid;
+  }
+  .c-sitemenu__panel nav a {
+    display: flex;
+    align-items: center;
+    min-height: calc(var(--target) + var(--s-3));
+    border-bottom: 1px solid var(--color-line);
+    font: 500 var(--fs-body)/1.4 var(--font-ui);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  .c-sitemenu__panel nav a[aria-current='page'] {
+    color: var(--color-accent);
+  }
+  .c-sitemenu__panel nav a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+  }
+  .c-sitemenu__panel .c-sitehead__lang {
+    margin-top: var(--s-4);
+  }
+}
+
+/* c-hero — page-opening statement (badge, H1, lede) */
+.c-hero {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+}
+.c-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  font: 600 var(--fs-meta)/var(--lh-tight) var(--font-num);
+  letter-spacing: var(--ls-3);
+  text-transform: uppercase;
+  color: var(--color-text-2);
+}
+.c-hero__dot {
+  width: var(--s-2);
+  height: var(--s-2);
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex: none;
+}
+.c-hero__title {
+  margin: var(--s-4) 0;
+  font: 600 var(--fs-hero)/var(--lh-tight) var(--font-display);
+  max-width: 27ch;
+  text-wrap: balance;
+}
+.c-hero__lede {
+  margin: 0;
+  font: 400 var(--fs-lede)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
+  max-width: 60ch;
+}
+
+/* c-sitefoot — wordmark, tagline, nav, legal, status */
+.c-sitefoot {
+  border-top: 1px solid var(--color-line);
+}
+.c-sitefoot__tag {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4);
+  padding-block: var(--s-6) 0;
+}
+.c-sitefoot__wordmark {
+  margin: 0;
+  font: 700 var(--fs-title)/var(--lh-tight) var(--font-display);
+  letter-spacing: var(--ls-2);
+}
+.c-sitefoot__tagline {
+  margin: 0;
+  font: 600 var(--fs-title)/var(--lh-tight) var(--font-display);
+  max-width: 46ch;
+}
+.c-sitefoot__in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-6);
+  padding-block: var(--s-5) var(--s-6);
+  font: 400 var(--fs-small)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
+}
+.c-sitefoot__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+}
+.c-sitefoot__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  padding-block: var(--s-2);
+  color: var(--color-text-2);
+  text-decoration: none;
+}
+.c-sitefoot__nav a:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: var(--s-1);
+}
+.c-sitefoot__nav a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.c-sitefoot__site {
+  font: 600 var(--fs-meta)/var(--lh-body) var(--font-num);
+  letter-spacing: var(--ls-3);
+  text-transform: uppercase;
+}
+.c-sitefoot__status {
+  font-family: var(--font-num);
+}

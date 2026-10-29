@@ -1,17 +1,27 @@
 ---
+// EN home (canonical "/"). Placeholder hero from the mockup; page content lands in per-page PRs.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getDictionary } from '../i18n';
+
+const dict = getDictionary('en');
 ---
 
 <BaseLayout
+  dict={dict}
+  locale="en"
+  path="/"
   title="Pisico Data Center (PIDC)"
-  description="An international, green, resilient AI campus in a renewable-surplus province: PIDC's phased AI data center campus in Gia Lai, Vietnam."
+  description="PIDC is developing a phased, international AI data center campus in Gia Lai, Vietnam — a province that produces far more electricity than it uses."
 >
-  <main class="flex min-h-screen items-center justify-center">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold tracking-tight">Pisico Data Center</h1>
-      <p class="mt-4 text-lg text-neutral-600">
-        Placeholder page — design and content land in the next PRs.
-      </p>
-    </div>
+  <main id="main">
+    <section class="l-hero l-page" aria-labelledby="hero-title">
+      <div class="c-hero">
+        <p class="c-hero__badge">
+          <span class="c-hero__dot" aria-hidden="true"></span>{dict.hero.badge}
+        </p>
+        <h1 id="hero-title" class="c-hero__title">{dict.hero.title}</h1>
+        <p class="c-hero__lede">{dict.hero.placeholder}</p>
+      </div>
+    </section>
   </main>
 </BaseLayout>
