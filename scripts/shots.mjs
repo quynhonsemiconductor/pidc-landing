@@ -30,6 +30,10 @@ const SHOTS = [
   { path: '/company/', name: 'company-en-1440', width: 1440, height: 900, dsf: 1 },
   { path: '/vi/company/', name: 'company-vi-390', width: 390, height: 844, dsf: 2 },
   { path: '/vi/company/', name: 'company-vi-1440', width: 1440, height: 900, dsf: 1 },
+  { path: '/contact/', name: 'contact-en-390', width: 390, height: 844, dsf: 2 },
+  { path: '/contact/', name: 'contact-en-1440', width: 1440, height: 900, dsf: 1 },
+  { path: '/vi/contact/', name: 'contact-vi-390', width: 390, height: 844, dsf: 2 },
+  { path: '/vi/contact/', name: 'contact-vi-1440', width: 1440, height: 900, dsf: 1 },
 ];
 
 async function waitForServer(url, attempts = 60) {

@@ -615,6 +615,74 @@ const dictionary = {
       btn: 'Contact us',
     },
   },
+  // Contact ("/contact/") — copy verbatim from the locked mockup
+  // (design/screens/contact.html). The submit button stays disabled (no backend yet) and the
+  // mailto fallback (contact@pidc.vn only — SA decision, BUILD-NOTES 8) is the real primary
+  // action. The IM request CTA wording is the one TODO(CEO) slot on the page (handoff);
+  // the mockup's stale "[CEO: submit label]" placeholder is replaced by a real label so the
+  // disabled state reads plainly (SA label fix, same round as the field labels).
+  contact: {
+    pageMeta: {
+      title: 'Contact · PIDC',
+      description:
+        'Talk to PIDC about the AI data center campus in Gia Lai: capital partners, AI compute tenants, engineering and government partners.',
+    },
+    hero: {
+      badge: 'Contact',
+      title: 'Talk to us about the campus',
+      lede: 'We welcome conversations with capital partners, AI compute tenants, and engineering or government partners.',
+    },
+    iam: {
+      eyebrow: 'Contact',
+      title: 'I am a',
+      legend: 'I am a',
+      options: [
+        {
+          value: 'capital',
+          title: 'Capital partners',
+          desc: 'Infrastructure investors and funds for the campus build-out.',
+        },
+        {
+          value: 'tenant',
+          title: 'AI compute tenants',
+          desc: 'Companies deploying GPU clusters that need power, space and connectivity in Vietnam.',
+        },
+        {
+          value: 'engineering',
+          title: 'Engineering or government partners',
+          desc: 'Specialists in power, cooling, design and construction.',
+        },
+      ],
+      imPre: 'Capital partners:',
+      imCeo: 'TODO(CEO): confirm "Request the information memorandum"',
+    },
+    write: {
+      eyebrow: 'Contact',
+      title: 'Write to us',
+      fields: [
+        { id: 'f-name', name: 'name', type: 'text', autocomplete: 'name', label: 'Name' },
+        { id: 'f-email', name: 'email', type: 'email', autocomplete: 'email', label: 'Email' },
+        {
+          id: 'f-org',
+          name: 'organization',
+          type: 'text',
+          autocomplete: 'organization',
+          label: 'Organisation',
+        },
+        { id: 'f-msg', name: 'message', type: 'textarea', autocomplete: '', label: 'Message' },
+      ],
+      submit: 'Send message',
+      notLive: 'This form is not live yet. Until it is, please email us directly:',
+    },
+    office: {
+      eyebrow: 'Contact',
+      title: 'Office',
+      emailDt: 'Email',
+      officeDt: 'Office',
+      address: '99 Tây Sơn, Quy Nhơn Nam Ward, Gia Lai Province, Vietnam',
+      nda: 'Detailed project information is shared with qualified parties under a non-disclosure agreement.',
+    },
+  },
   diagrams: {
     sld: {
       a11yTitle: 'Concept single-line diagram (SLD-00)',

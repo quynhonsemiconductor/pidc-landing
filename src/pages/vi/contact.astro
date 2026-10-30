@@ -1,0 +1,12 @@
+---
+// VI "Contact" ("/vi/contact/"). The demo ships no VI meta description (EN-only demo head);
+// this is the VI rendering of the same sentence, in the page's own voice (DESIGN.md §6) —
+// same approach as the company/whyv/aidc VI routes. The <title> stays "Contact · PIDC" as
+// the VI mockup ships it (design/screens/contact--vi.html).
+import ContactBody from '../../components/pages/ContactBody.astro';
+import { getDictionary } from '../../i18n';
+
+const dict = getDictionary('vi');
+---
+
+<ContactBody dict={dict} locale="vi" />

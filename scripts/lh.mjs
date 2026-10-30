@@ -21,6 +21,8 @@ const TARGETS = [
   { path: '/vi/why-vietnam/', name: 'whyv-vi' },
   { path: '/company/', name: 'company-en' },
   { path: '/vi/company/', name: 'company-vi' },
+  { path: '/contact/', name: 'contact-en' },
+  { path: '/vi/contact/', name: 'contact-vi' },
 ];
 const CATEGORIES = ['performance', 'accessibility', 'best-practices', 'seo'];
 

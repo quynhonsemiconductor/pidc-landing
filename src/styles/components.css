@@ -355,6 +355,10 @@
   filter: brightness(0.95);
   background: var(--color-accent);
 }
+.c-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
 
 .c-hero__actions {
   display: flex;
@@ -1787,4 +1791,67 @@ main > section + section {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 5 3;
+}
+
+/* ————— Contact page (ported from design/components/components.css) ————— */
+
+/* c-formfield — label + input (contact page; real labels per the SA fix, never placeholders) */
+.c-formfield {
+  display: grid;
+  gap: var(--s-1);
+  min-width: 0;
+}
+.c-formfield__label {
+  font: 600 var(--fs-small)/var(--lh-body) var(--font-ui);
+  color: var(--color-text);
+}
+.c-formfield__input {
+  min-height: var(--target);
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-1);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+.c-formfield__input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* c-choice — contact "I am a" routing (radio semantics, keyboard-safe, native radios — no JS) */
+.c-choice {
+  display: grid;
+  gap: var(--s-3);
+}
+.c-choice__opt {
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+  border: 1px solid var(--color-line);
+  padding: var(--s-4);
+  cursor: pointer;
+}
+.c-choice__opt:has(input:checked) {
+  border-color: var(--color-text);
+  box-shadow: inset 0 0 0 1px var(--color-text);
+}
+.c-choice__input {
+  accent-color: var(--color-accent);
+  min-width: var(--target-check, 24px);
+  min-height: var(--target-check, 24px);
+  margin-top: 2px;
+}
+.c-choice__title {
+  font: 600 var(--fs-body)/1.4 var(--font-display);
+}
+.c-choice__desc {
+  font: var(--fs-small)/1.5 var(--font-ui);
+  color: var(--color-text-2);
 }
