@@ -344,6 +344,182 @@ const dictionary: Dictionary = {
       btn: 'Liên hệ với chúng tôi',
     },
   },
+  // Why Vietnam, why Gia Lai — verbatim VI strings from design/screens/why-vietnam--vi.html
+  // (the VI mockup keeps the source list identical to EN).
+  whyv: {
+    hero: {
+      badge: 'Địa điểm',
+      title: 'Vì sao Việt Nam, vì sao Gia Lai',
+      lede: 'Nhu cầu điện toán của Việt Nam tăng nhanh, và luật pháp hiện xác định trung tâm dữ liệu là lĩnh vực ưu tiên. Trong cả nước, Gia Lai hội tụ nguồn điện tái tạo lớn cùng hai tuyến cáp quang biển quốc tế cập bờ tại Quy Nhơn.',
+    },
+    tocSummary: 'Trên trang này',
+    tocItems: [
+      { id: 'vietnam', label: 'Việt Nam' },
+      { id: 'gia-lai', label: 'Gia Lai' },
+      { id: 'pidc-site', label: 'Vị trí của PIDC' },
+      { id: 'sources', label: 'Nguồn' },
+    ],
+    vietnam: {
+      eyebrow: 'Việt Nam',
+      title: 'Thị trường tăng trưởng, có luật pháp hỗ trợ',
+      items: [
+        {
+          index: '01',
+          kicker: 'Nhu cầu',
+          title: 'Kinh tế số tăng trưởng nhanh',
+          stat: { figure: 'US$39B', label: '+17% năm 2025 · 81% dùng AI hằng ngày' },
+          cites: [1],
+          body: 'Kinh tế số Việt Nam ước đạt 39 tỷ USD tổng giá trị hàng hóa (GMV) năm 2025, tăng 17% so với năm trước. Người dùng Việt Nam cũng dẫn đầu Đông Nam Á về tỷ lệ sử dụng công cụ AI hằng ngày, ở mức 81%.',
+        },
+        {
+          index: '02',
+          kicker: 'Pháp luật',
+          title: 'Trung tâm dữ liệu là lĩnh vực ưu tiên',
+          stat: { figure: '71/2025/QH15', label: 'Hiệu lực từ 01/01/2026' },
+          cites: [2],
+          body: 'Luật Công nghiệp công nghệ số (số 71/2025/QH15), có hiệu lực từ ngày 01/01/2026, đưa trung tâm dữ liệu và trí tuệ nhân tạo vào nhóm lĩnh vực ưu tiên hưởng ưu đãi đầu tư.',
+        },
+        {
+          index: '03',
+          kicker: 'Dữ liệu',
+          title: 'Một số dữ liệu phải lưu trữ trong nước',
+          stat: { figure: '53/2022/NĐ-CP', label: 'Hiệu lực từ tháng 10/2022' },
+          cites: [3],
+          body: 'Từ tháng 10/2022, Nghị định 53/2022/NĐ-CP yêu cầu doanh nghiệp trong nước, và doanh nghiệp nước ngoài trong một số trường hợp, lưu trữ một số loại dữ liệu người dùng tại Việt Nam.',
+        },
+        {
+          index: '04',
+          kicker: 'Kết nối',
+          title: 'Thêm nhiều tuyến cáp quốc tế',
+          stat: { figure: '15+', label: 'tuyến cáp vào 2030 · trên 350 Tbps' },
+          cites: [4],
+          body: 'Chiến lược phát triển hệ thống cáp quang quốc tế của Việt Nam đặt mục tiêu đưa vào hoạt động thêm tối thiểu 10 tuyến cáp quang biển mới đến năm 2030, nâng tổng số lên ít nhất 15 tuyến với dung lượng tối thiểu 350 Tbps.',
+        },
+      ],
+    },
+    gialai: {
+      eyebrow: 'Gia Lai',
+      title: 'Từ cao nguyên ra biển',
+      intro:
+        'Sau khi hợp nhất với tỉnh Bình Định năm 2025, tỉnh Gia Lai trải dài từ Tây Nguyên ra đến biển, với trung tâm hành chính đặt tại Quy Nhơn.',
+      power: {
+        index: '01',
+        kicker: 'Điện',
+        title: 'Nguồn điện tái tạo lớn',
+        body: 'Tỉnh hiện có 85 nhà máy điện tái tạo đang vận hành với tổng công suất 4.179 MW, cung cấp hơn 15 tỷ kWh điện mỗi năm cho lưới điện quốc gia. Theo Quy hoạch điện VIII điều chỉnh, công suất điện tái tạo của tỉnh sẽ đạt khoảng 9.657 MW vào năm 2035.',
+      },
+      chart: {
+        title: 'Công suất điện tái tạo đang vận hành, MW',
+        axisMax: '4,179 MW',
+        keys: [
+          { n: '1', value: '2,516', label: 'thủy điện' },
+          { n: '2', value: '1,048', label: 'điện gió' },
+          { n: '3', value: '485', label: 'điện mặt trời' },
+          { n: '4', value: '130', label: 'sinh khối' },
+        ],
+      },
+      items: [
+        {
+          index: '02',
+          kicker: 'Kết nối',
+          title: 'Hai tuyến cáp quốc tế cập bờ tại Quy Nhơn',
+          stat: { figure: 'ADC · SJC2', label: '04/2025 · 07/2025' },
+          cites: [7, 8, 9],
+          body: 'Tuyến ADC do Viettel khai thác tại Việt Nam, đi vào hoạt động từ tháng 4/2025. Tuyến SJC2, với VNPT là đối tác Việt Nam, đi vào hoạt động tháng 7/2025; trục chính nối Singapore, Hồng Kông, Trung Quốc và Nhật Bản.',
+        },
+        {
+          index: '03',
+          kicker: 'Chính sách',
+          title: 'Địa phương chủ động thu hút',
+          stat: {
+            figure: 'AI · trung tâm dữ liệu',
+            label: 'Lĩnh vực ưu tiên thu hút đầu tư',
+          },
+          cites: [10],
+          body: 'Gia Lai đưa công nghệ số, trí tuệ nhân tạo và trung tâm dữ liệu vào nhóm lĩnh vực ưu tiên trong hoạt động xúc tiến đầu tư.',
+        },
+      ],
+    },
+    fit: {
+      eyebrow: 'Vị trí của PIDC',
+      title: 'Nguồn điện và cáp quang tại một địa điểm',
+      intro:
+        'Địa điểm của PIDC nằm ở vùng ven biển tỉnh Gia Lai, cạnh lưới truyền tải 220 kV và gần cả hai trạm cập bờ cáp quang biển. Thông tin chi tiết về địa điểm được cung cấp theo thỏa thuận bảo mật.',
+      mapCapA: 'Sơ đồ vị trí',
+      mapCapB: 'Không theo tỷ lệ',
+      btn: 'Xem kế hoạch dự án',
+    },
+    sources: {
+      eyebrow: 'Nguồn',
+      title: 'Nguồn số liệu',
+      items: [
+        {
+          pre: 'Google, Temasek and Bain, e-Conomy SEA 2025, as reported by ',
+          href: 'https://ven.congthuong.vn/google-vietnam-s-digital-economy-to-reach-usd-39-billion-in-2025-58364.html',
+          text: 'Vietnam Economic News (Công Thương), 27/11/2025.',
+          post: '',
+        },
+        {
+          pre: 'LuatVietnam, ',
+          href: 'https://luatvietnam.vn/linh-vuc-khac/diem-dang-chu-y-tai-luat-cong-nghiep-cong-nghe-so-2025-883-103086-article.html',
+          text: 'Điểm đáng chú ý tại Luật Công nghiệp công nghệ số 2025.',
+          post: '',
+        },
+        {
+          pre: 'Tạp chí Luật sư Việt Nam, ',
+          href: 'https://lsvn.vn/tu-01102022-du-lieu-nguoi-dung-internet-tai-viet-nam-se-duoc-luu-tru1661052929.html',
+          text: 'Từ 01/10/2022, dữ liệu người dùng Internet tại Việt Nam sẽ được lưu trữ, 21/08/2022.',
+          post: '',
+        },
+        {
+          pre: 'VnEconomy, ',
+          href: 'https://vneconomy.vn/chien-luoc-phat-trien-cap-quang-bien-cua-viet-nam-den-2030-toi-thieu-dua-vao-hoat-dong-them-10-tuyen-cap.htm',
+          text: 'Chiến lược phát triển cáp quang biển của Việt Nam đến 2030, 18/06/2024.',
+          post: '',
+        },
+        {
+          pre: 'Wikipedia, ',
+          href: 'https://en.wikipedia.org/wiki/Gia_Lai_province',
+          text: 'Gia Lai province',
+          post: ' (Resolution 202/2025/QH15).',
+        },
+        {
+          pre: 'Nhà Đầu Tư, ',
+          href: 'https://nhadautu.vn/don-dong-von-ty-usd-gia-lai-tang-toc-tren-ban-do-nang-luong-xanh-d103183.html',
+          text: 'Đón dòng vốn tỷ USD, Gia Lai tăng tốc trên bản đồ năng lượng xanh, 02/03/2026.',
+          post: '',
+        },
+        {
+          pre: 'VTC News, ',
+          href: 'https://vtcnews.vn/tuyen-cap-bien-lon-nhat-vua-hoat-dong-dan-mang-viet-sap-luot-nhu-bay-ar938050.html',
+          text: 'ADC cable enters operation, 04/2025.',
+          post: '',
+        },
+        {
+          pre: 'W.Media, ',
+          href: 'https://w.media/sjc2-goes-live-linking-singapore-hk-china-and-japan/',
+          text: 'SJC2 goes live linking Singapore, HK, China and Japan, 22/07/2025.',
+          post: '',
+        },
+        {
+          pre: 'SGGP, ',
+          href: 'https://www.sggp.org.vn/vnpt-cap-quang-bien-sjc2-tang-cuong-suc-manh-truyen-dan-quoc-te-post560862.html',
+          text: 'VNPT: SJC2 landing at Quy Nhơn, 07/07/2020.',
+          post: '',
+        },
+        {
+          pre: 'Tạp chí Quản lý nhà nước, ',
+          href: 'https://www.quanlynhanuoc.vn/2026/06/16/gia-lai-dinh-huong-thu-hut-dau-tu-chien-luoc-trong-boi-canh-hoi-nhap-quoc-te/',
+          text: 'Gia Lai định hướng thu hút đầu tư chiến lược, 16/06/2026.',
+          post: '',
+        },
+      ],
+    },
+    cta: {
+      title: 'Trao đổi với chúng tôi về dự án',
+      btn: 'Liên hệ với chúng tôi',
+    },
+  },
   diagrams: {
     sld: {
       a11yTitle: 'Sơ đồ nguyên lý (SLD-00)',
@@ -423,9 +599,9 @@ const dictionary: Dictionary = {
       },
       mobile: {
         a11yTitle:
-          'Sơ đồ vị trí, mobile — khu dự án PIDC tại Gia Lai, lưới 220 kV, tuyến cáp quang đến trạm cập bờ ADC và SJC2 tại Quy Nhơn (LM-01)',
+          'Sơ đồ vị trí, bản di động — khu dự án PIDC tại Gia Lai, lưới 220 kV, tuyến cáp quang đến trạm cập bờ ADC và SJC2 tại Quy Nhơn (LM-01)',
         a11yDesc:
-          'Sơ đồ vị trí (mobile). Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.',
+          'Sơ đồ vị trí (bản di động). Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.',
         kv: 'Lưới 220 kV',
         site: 'Khu dự án PIDC',
         coast: 'Quy Nhơn',

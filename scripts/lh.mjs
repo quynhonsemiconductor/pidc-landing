@@ -17,6 +17,8 @@ const TARGETS = [
   { path: '/vi/', name: 'home-vi' },
   { path: '/ai-data-center/', name: 'aidc-en' },
   { path: '/vi/ai-data-center/', name: 'aidc-vi' },
+  { path: '/why-vietnam/', name: 'whyv-en' },
+  { path: '/vi/why-vietnam/', name: 'whyv-vi' },
 ];
 const CATEGORIES = ['performance', 'accessibility', 'best-practices', 'seo'];
 
