@@ -22,8 +22,18 @@ export default [
     },
   },
   {
+    // node scripts (scripts/): Node >=22 globals (Buffer, fetch, WebSocket are built-in)
     files: ['scripts/**'],
-    languageOptions: { globals: { console: 'readonly', process: 'readonly', URL: 'readonly' } },
+    languageOptions: {
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        URL: 'readonly',
+        Buffer: 'readonly',
+        fetch: 'readonly',
+        WebSocket: 'readonly',
+      },
+    },
   },
   {
     ignores: ['dist/**', 'node_modules/**', '.astro/**', 'design/**'], // design artifacts: uiux-studio mockups, not shipped source

@@ -16,9 +16,10 @@ interface Props {
   description: string;
   path: string; // canonical path without locale prefix, e.g. "/" or "/company/"
   ogImage?: string;
+  jsonLd?: object[]; // schema.org nodes (Organization, WebSite …) rendered as ld+json
 }
 
-const { dict, locale, title, description, path, ogImage } = Astro.props;
+const { dict, locale, title, description, path, ogImage, jsonLd } = Astro.props;
 
 const canonicalUrl = new URL(localizedPath(locale, path), Astro.site).toString();
 const enUrl = new URL(localizedPath('en', path), Astro.site).toString();
@@ -57,6 +58,14 @@ const preloadFonts =
     <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'vi_VN'} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      jsonLd && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonLd })}
+        />
+      )
+    }
     {
       preloadFonts.map((font) => (
         <link rel="preload" href={font} as="font" type="font/woff2" crossorigin />

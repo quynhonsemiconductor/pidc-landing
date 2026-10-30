@@ -1,0 +1,67 @@
+---
+// Section A–A — schematic west-to-east terrain cross-section (highlands → pass → coast).
+// Geometry byte-verbatim from the mockup; labels resolve from the i18n dictionaries.
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['diagrams']['terrain'];
+}
+
+const { t } = Astro.props;
+---
+
+<figure class="c-figure r-diagram">
+  <svg viewBox="0 0 600 170" role="img" aria-labelledby="terrain-title terrain-desc">
+    <title id="terrain-title">{t.a11yTitle}</title>
+    <desc id="terrain-desc">{t.a11yDesc}</desc>
+    <path
+      class="x-ground"
+      d="M0 60C30 54 60 62 95 57S165 52 200 58S270 56 300 62C330 72 360 98 395 110S445 122 480 127L480 170L0 170Z"
+    ></path>
+    <rect class="x-sea" x="480" y="129" width="120" height="41"></rect>
+    <path
+      class="x-edge"
+      d="M0 60C30 54 60 62 95 57S165 52 200 58S270 56 300 62C330 72 360 98 395 110S445 122 480 127"
+    ></path>
+    <path
+      class="x-wave"
+      d="M480 130c3.3-2.5 6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0s6.7-2.5 10 0s6.7 2.5 10 0"
+    ></path>
+    <path class="x-pw" d="M48 58V30M48 30V20M48 30L39.3 35M48 30L56.7 35"></path>
+    <circle class="x-node" cx="48" cy="30" r="1.6"></circle>
+    <path class="x-pw" d="M74 59V36M74 36V28M74 36L67.1 40M74 36L80.9 40"></path>
+    <circle class="x-node" cx="74" cy="36" r="1.4"></circle>
+    <path class="x-pw" d="M140 49V54"></path>
+    <circle class="x-sym" cx="140" cy="40" r="9"></circle>
+    <path class="x-pw" d="M134 40c1.5-3.5 4.5-3.5 6 0s4.5 3.5 6 0"></path>
+    <path class="x-sym" d="M203 50L223 44L229 50L209 56Z"></path>
+    <path class="x-pw" d="M216 53V57.5"></path>
+    <path class="x-tower" d="M95 56.5L100 38.5L105 56.5M96 43.5H104"></path>
+    <path class="x-tower" d="M175 56L180 38L185 56M176 43H184"></path>
+    <path class="x-tower" d="M250 59L255 41L260 59M251 46H259"></path>
+    <path class="x-tower" d="M327 77L332 59L337 77M328 64H336"></path>
+    <path class="x-tower" d="M405 114.6L410 96.6L415 114.6M406 101.6H414"></path>
+    <path
+      class="x-pw"
+      d="M100 38.5Q140 44 180 38Q217 45 255 41Q295 52 332 59Q372 80 410 96.6Q432 108 452 116"
+    ></path>
+    <circle class="x-node" cx="452" cy="117" r="3.5"></circle>
+    <path class="x-cable" d="M475 124C490 127 498 138 515 145S565 152 600 153"></path>
+    <path class="x-cable" d="M475 126C492 133 502 152 525 158S572 163 600 164"></path>
+    <path class="x-stn" d="M461 126V119L468 114L475 119V126Z"></path>
+  </svg>
+  <div class="c-figure__zones">
+    {
+      t.zones.map((zone) => (
+        <p class="c-figure__zone">
+          <b>{zone.name}</b>
+          {zone.desc}
+        </p>
+      ))
+    }
+  </div>
+  <figcaption class="c-figure__cap">
+    <span>{t.capA}</span>
+    <span>{t.capB}</span>
+  </figcaption>
+</figure>

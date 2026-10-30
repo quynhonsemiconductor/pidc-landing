@@ -1,0 +1,103 @@
+---
+// SLD-00 — concept single-line diagram (hero figure). ONE component serves both locales:
+// geometry is byte-verbatim from the mockup (design/screens/index.html); every label resolves
+// from the i18n dictionaries at render time (BUILD-NOTES 1). <title>+<desc> per BUILD-NOTES 2.
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['diagrams']['sld'];
+  title: string; // figure title strip (hero.figureTitle in the dictionaries)
+}
+
+const { t, title } = Astro.props;
+---
+
+<figure class="c-figure r-hero-figure">
+  <figcaption class="c-figure__title">{title}</figcaption>
+  <svg viewBox="0 0 360 620" role="img" aria-labelledby="sld-title sld-desc">
+    <title id="sld-title">{t.a11yTitle}</title>
+    <desc id="sld-desc">{t.a11yDesc}</desc>
+    <defs>
+      <pattern id="sld-grid" width="12" height="12" patternUnits="userSpaceOnUse"
+        ><path class="s-grid" d="M12 0H0V12"></path></pattern
+      >
+      <pattern id="sld-racks" x="84" y="356" width="12" height="26" patternUnits="userSpaceOnUse"
+        ><rect class="s-rack" x="1.5" y="0" width="8" height="18"></rect></pattern
+      >
+    </defs>
+    <rect class="s-bg" width="360" height="620"></rect>
+    <rect width="360" height="620" fill="url(#sld-grid)"></rect>
+
+    <circle class="s-sym" cx="90" cy="76" r="18"></circle>
+    <path class="s-pw" d="M90 76V64.5M90 76L80 81.75M90 76L100 81.75"></path>
+    <circle class="s-dot" cx="90" cy="76" r="2.2"></circle>
+    <rect class="s-sym" x="162" y="58" width="36" height="36"></rect>
+    <path class="s-pw" d="M162 94L198 58"></path>
+    <circle class="s-sym" cx="270" cy="76" r="18"></circle>
+    <path class="s-pw" d="M259 76c2.75-6 8.25-6 11 0s8.25 6 11 0"></path>
+    <path class="s-pw" d="M90 94V146M180 94V146M270 94V146"></path>
+
+    <path class="s-bus" d="M60 146H300"></path>
+    <text class="t-kv" x="308" y="150">220 kV</text>
+    <path class="s-pw" d="M180 146V170M180 182V214"></path>
+    <rect class="s-sym" x="174" y="170" width="12" height="12"></rect>
+
+    <rect class="s-bound" x="20" y="198" width="320" height="288"></rect>
+    <circle class="s-xf" cx="180" cy="230" r="16"></circle>
+    <circle class="s-xf" cx="180" cy="252" r="16"></circle>
+    <path class="s-pw" d="M180 268V294"></path>
+    <path class="s-bus-mv" d="M92 294H268"></path>
+    <path class="s-pw" d="M140 294V326M220 294V326"></path>
+    <text class="t-small" x="146" y="314">A</text>
+    <text class="t-small" x="226" y="314">B</text>
+    <rect class="s-hall" x="70" y="326" width="220" height="86"></rect>
+    <rect x="84" y="356" width="192" height="44" fill="url(#sld-racks)"></rect>
+
+    <path class="s-fb s-fb-anim" d="M110 412V500M200 412V500"></path>
+    <path class="s-stn" d="M96 528V510L110 500L124 510V528Z"></path>
+    <path class="s-stn" d="M186 528V510L200 500L214 510V528Z"></path>
+    <path
+      class="s-sea"
+      d="M20 548c5.3-4 10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0s10.7-4 16 0s10.7 4 16 0"
+    ></path>
+    <path
+      class="s-cable"
+      d="M110 528V588M200 528V588M104 582L110 590L116 582M194 582L200 590L206 582"></path>
+    <text class="t-fbl" x="118" y="574">ADC</text>
+    <text class="t-fbl" x="208" y="574">SJC2</text>
+
+    <path class="s-rule" d="M0 598H360"></path>
+
+    <text class="t-label" x="16" y="24">{t.generation}</text>
+    <text class="t-name" x="90" y="47" text-anchor="middle">{t.wind}</text>
+    <text class="t-name" x="180" y="47" text-anchor="middle">{t.solar}</text>
+    <text class="t-name" x="270" y="47" text-anchor="middle">{t.hydro}</text>
+    <text class="t-small" x="308" y="164">{t.grid}</text>
+    <text class="t-label t-ink" x="32" y="218">{t.campus}</text>
+    <text class="t-name" x="206" y="238">{t.substation}</text>
+    <text class="t-small" x="206" y="253">{t.hvMv}</text>
+    <text class="t-kv t-kv-sm" x="278" y="298">{t.mv}</text>
+    <text class="t-name t-strong" x="84" y="346">{t.halls}</text>
+    <text class="t-fbl" x="155" y="452" text-anchor="middle">{t.fiber}</text>
+    <text class="t-name" x="228" y="512">{t.landings}</text>
+    <text class="t-small" x="228" y="527">{t.quyNhon}</text>
+    <text class="t-label t-xs" x="16" y="612">{t.sheet}</text>
+  </svg>
+  <ol class="c-figure__keys c-figure__keys--3">
+    <li>
+      <svg viewBox="0 0 40 12" aria-hidden="true" focusable="false"
+        ><line class="lg-pw" x1="1" y1="6" x2="39" y2="6"></line></svg
+      ><span>{t.keys[0]}</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 40 12" aria-hidden="true" focusable="false"
+        ><line class="lg-fb" x1="1" y1="6" x2="39" y2="6"></line></svg
+      ><span>{t.keys[1]}</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 40 12" aria-hidden="true" focusable="false"
+        ><rect class="lg-bd" x="1" y="1" width="38" height="10"></rect></svg
+      ><span>{t.keys[2]}</span>
+    </li>
+  </ol>
+</figure>

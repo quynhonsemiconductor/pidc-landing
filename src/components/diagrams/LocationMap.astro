@@ -1,0 +1,139 @@
+---
+// LM-01 — schematic location map, desktop + mobile variants in one figure (the .lm-d/.lm-m
+// class swap in components.css picks the variant at ≤480px). Geometry byte-verbatim from the
+// mockup (Natural Earth 1:50m admin-0, VNM mainland only — province precision, no coordinates
+// in the labels); text resolves from the i18n dictionaries (BUILD-NOTES 1).
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['diagrams']['lm'];
+  capA: string;
+  capB: string;
+}
+
+const { t, capA, capB } = Astro.props;
+const d = t.desktop;
+const m = t.mobile;
+---
+
+<figure class="c-figure r-diagram">
+  <svg class="lm-d" viewBox="0 0 560 448" role="img" aria-labelledby="lm-title lm-desc">
+    <title id="lm-title">{d.a11yTitle}</title>
+    <desc id="lm-desc">{d.a11yDesc}</desc>
+    <defs>
+      <pattern id="lm-sea" width="16" height="16" patternUnits="userSpaceOnUse">
+        <path d="M0 8 Q4 5.5 8 8 T16 8" class="lm-sea-line"></path>
+      </pattern>
+    </defs>
+    <!-- sea: subtle wave hatch east/south of the coastline (frame rect minus land, even-odd);
+      land is drawn on top, so hatch can never sit over land -->
+    <path
+      class="lm-sea"
+      fill-rule="evenodd"
+      d="M0 0H560V448H0Z
+    M47.6 -83.5 74.1 -61.2 78.7 -49 107.5 -50.3 134 -13.8 142.6 -13.6 145.3 1.7 188.3 63.1 224.2 94.5
+    241.7 151.6 263 195 263.3 219.8 295.2 325.5 293 339.4 286.9 325.8 290.6 413.2 313 462.3 313 501.2
+    304.3 501.2 300 493.3 289.7 501.2 36 501.2 25.8 451 45 389.1 43.3 376.4 4.6 284.5 9.5 247.7
+    21.9 235.2 34.7 205 26.6 154.9 52 113.1 38.9 92.4 5.7 66.7 -16.3 38.4 -16.4 24.5 8.9 11.9
+    16.2 0.3 -44.2 -47.5 -44.2 -83.5Z"
+    ></path>
+    <!-- Vietnam mainland (Natural Earth 1:50m, simplified) -->
+    <path
+      class="lm-land"
+      d="M47.6 -83.5 74.1 -61.2 78.7 -49 107.5 -50.3 134 -13.8 142.6 -13.6 145.3 1.7
+    188.3 63.1 224.2 94.5 241.7 151.6 263 195 263.3 219.8 295.2 325.5 293 339.4 286.9 325.8 290.6 413.2
+    313 462.3 313 501.2 304.3 501.2 300 493.3 289.7 501.2 36 501.2 25.8 451 45 389.1 43.3 376.4 4.6 284.5
+    9.5 247.7 21.9 235.2 34.7 205 26.6 154.9 52 113.1 38.9 92.4 5.7 66.7 -16.3 38.4 -16.4 24.5 8.9 11.9
+    16.2 0.3 -44.2 -47.5 -44.2 -83.5Z"
+    ></path>
+    <text class="lm-name" x="24" y="46">{d.name}</text>
+    <!-- 220 kV grid line: national grid south to the site (solid ink) -->
+    <path class="lm-kv" d="M150 8C145 90 128 210 119 313"></path>
+    <text class="lm-kv-label" x="146" y="146">{d.kv}</text>
+    <!-- Gia Lai province relation (dashed ring) -->
+    <ellipse class="lm-prov" cx="118" cy="320" rx="58" ry="50"></ellipse>
+    <text class="lm-prov-label" x="118" y="396" text-anchor="middle">{d.prov}</text>
+    <!-- PIDC site marker -->
+    <g class="lm-site"><circle cx="118" cy="320" r="7"></circle></g>
+    {
+      d.siteSecondLine ? (
+        <>
+          <text class="lm-site-label" x="118" y="346" text-anchor="middle">
+            {d.site}
+          </text>
+          <text class="lm-site-label" x="118" y="362" text-anchor="middle">
+            {d.siteSecondLine}
+          </text>
+        </>
+      ) : (
+        <text class="lm-site-label" x="118" y="348" text-anchor="middle">
+          {d.site}
+        </text>
+      )
+    }
+    <!-- two separate fibre routes, site to each landing station (dashed) -->
+    <path class="lm-fb" d="M125 316C170 312 230 307 289 304"></path>
+    <path class="lm-fb" d="M124 328C175 342 235 360 289 372"></path>
+    <!-- Quy Nhơn and the two cable landing stations -->
+    <text class="lm-coast-label" x="272" y="341" text-anchor="end">{d.coast}</text>
+    <g class="lm-land-station">
+      <circle cx="288.7" cy="303.7" r="4"></circle>
+      <circle cx="288.9" cy="372.1" r="4"></circle>
+    </g>
+    <!-- submarine cables continuing out to sea, labels at the sea edge -->
+    <path class="lm-fb" d="M293 302C340 296 385 288 428 282"></path>
+    <path class="lm-fb" d="M293 374C340 370 385 364 426 358"></path>
+    <text class="lm-station-label" x="424" y="300">{d.stationA}</text>
+    <text class="lm-station-label" x="424" y="376">{d.stationB}</text>
+    <text class="lm-sea-label" x="452" y="110" text-anchor="middle">{d.sea}</text>
+  </svg>
+  <svg class="lm-m" viewBox="0 0 360 460" role="img" aria-labelledby="lm-m-title lm-m-desc">
+    <title id="lm-m-title">{m.a11yTitle}</title>
+    <desc id="lm-m-desc">{m.a11yDesc}</desc>
+    <!-- Mobile text sizes: every text size ≥ 13.5 viewBox units → ≥ 13.4 px rendered at 358 px.
+      Same geometry as the desktop variant; fewer labels (no province ring, no sea name). -->
+    <defs>
+      <pattern id="lm-sea-m" width="16" height="16" patternUnits="userSpaceOnUse">
+        <path d="M0 8 Q4 5.5 8 8 T16 8" class="lm-sea-line"></path>
+      </pattern>
+    </defs>
+    <!-- sea hatch east/south of the coastline (frame minus land, even-odd); land drawn on top -->
+    <path
+      class="lm-sea"
+      fill-rule="evenodd"
+      d="M0 0H360V460H0Z
+    M57.9 -72.2 113 11.8 156.8 49.1 178.2 117 204.3 168.5 204.7 198 243.6 323.5 240.9 340 233.5 323.9
+    237.9 427.6 265.3 486 264.8 514.1 -63 514.1 -63 92.9 -53.4 71.2 -63 55.8 -63 -72.2Z"
+    ></path>
+    <!-- Vietnam mainland (Natural Earth 1:50m, simplified) -->
+    <path
+      class="lm-land"
+      d="M57.9 -72.2 113 11.8 156.8 49.1 178.2 117 204.3 168.5 204.7 198 243.6 323.5
+    240.9 340 233.5 323.9 237.9 427.6 265.3 486 264.8 514.1 -63 514.1 -63 92.9 -53.4 71.2 -63 55.8 -63 -72.2Z"
+    ></path>
+    <!-- 220 kV grid line: national grid south to the site (solid ink) -->
+    <path class="lm-kv" d="M60 0C58 90 40 210 28 311"></path>
+    <text class="lm-m-kv-label" x="75" y="118">{m.kv}</text>
+    <!-- PIDC site marker -->
+    <g class="lm-site"><circle cx="27" cy="319" r="8"></circle></g>
+    <text class="lm-m-site-label" x="44" y="290">{m.site}</text>
+    <!-- two separate fibre routes, site to each landing station (dashed) -->
+    <path class="lm-fb" d="M35 316C100 310 170 302 236 298"></path>
+    <path class="lm-fb" d="M33 326C100 350 170 370 236 379"></path>
+    <!-- Quy Nhơn and the two cable landing stations -->
+    <text class="lm-m-coast-label" x="222" y="345" text-anchor="end">{m.coast}</text>
+    <g class="lm-land-station">
+      <circle cx="235.6" cy="297.6" r="4.5"></circle>
+      <circle cx="235.8" cy="378.8" r="4.5"></circle>
+    </g>
+    <!-- submarine cables continuing out to sea, labels at the sea edge -->
+    <path class="lm-fb" d="M240 296C265 292 290 288 308 284"></path>
+    <path class="lm-fb" d="M240 381C265 378 290 374 308 370"></path>
+    <text class="lm-m-station-label" x="312" y="289">{m.stationA}</text>
+    <text class="lm-m-station-label" x="312" y="374">{m.stationB}</text>
+  </svg>
+  <figcaption class="c-figure__cap">
+    <span>{capA}</span>
+    <span>{capB}</span>
+  </figcaption>
+</figure>

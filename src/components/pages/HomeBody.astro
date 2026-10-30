@@ -1,0 +1,197 @@
+---
+// Home page body, shared by the EN ("/") and VI ("/vi/") routes — one markup source, every
+// string resolved from the locale dictionary. Full page from the locked mockup
+// (design/screens/index.html): hero + SLD-00, S-01 site facts statband, S-02 proofs + LM-01 map
+// + Section A–A, S-03 campus + isometric concept, terrain rule and the CTA band.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SldDiagram from '../diagrams/SldDiagram.astro';
+import LocationMap from '../diagrams/LocationMap.astro';
+import TerrainSection from '../diagrams/TerrainSection.astro';
+import IsoCampus from '../diagrams/IsoCampus.astro';
+import { localizedPath } from '../../i18n';
+import type { Dictionary, Locale } from '../../i18n';
+
+interface Props {
+  dict: Dictionary;
+  locale: Locale;
+  description: string;
+}
+
+const { dict, locale, description } = Astro.props;
+const t = dict;
+const contactPath = localizedPath(locale, '/contact/');
+const whyPath = localizedPath(locale, '/why-vietnam/');
+const aiPath = localizedPath(locale, '/ai-data-center/');
+const title = 'Pisico Data Center (PIDC)';
+
+// Organization JSON-LD ported from the demo (design/content/index.html); WebSite added.
+const jsonLd = [
+  {
+    '@type': 'Organization',
+    name: 'Pisico Data Center Joint Stock Company',
+    alternateName: ['PIDC', 'Công ty Cổ phần Pisico Data Center'],
+    url: 'https://pidc.vn/',
+    slogan: 'An international, green, resilient AI campus in a renewable-surplus province',
+    email: 'contact@pidc.vn',
+    taxID: '4101699991',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '99 Tây Sơn',
+      addressLocality: 'Phường Quy Nhơn Nam',
+      addressRegion: 'Gia Lai',
+      addressCountry: 'VN',
+    },
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'Tổng Công ty PISICO Bình Định – CTCP',
+      url: 'https://www.pisico.vn',
+    },
+  },
+  {
+    '@type': 'WebSite',
+    name: 'PIDC',
+    url: 'https://pidc.vn/',
+    inLanguage: ['en', 'vi'],
+  },
+];
+---
+
+<BaseLayout
+  dict={dict}
+  locale={locale}
+  path="/"
+  title={title}
+  description={description}
+  ogImage="/assets/og/home.png"
+  jsonLd={jsonLd}
+>
+  <main id="main">
+    <section class="l-hero l-page" aria-labelledby="hero-title">
+      <div class="c-hero">
+        <p class="c-hero__badge">
+          <span class="c-hero__dot" aria-hidden="true"></span>{t.hero.badge}
+        </p>
+        <h1 id="hero-title" class="c-hero__title">{t.hero.title}</h1>
+        <p class="c-hero__lede">{t.hero.lede}</p>
+        <div class="c-hero__actions">
+          <a class="c-btn c-btn--primary" href={contactPath}>{t.hero.ctaPrimary}</a>
+          <a class="c-btn" href="#why">{t.hero.ctaSecondary}</a>
+        </div>
+      </div>
+      <SldDiagram t={t.diagrams.sld} title={t.hero.figureTitle} />
+    </section>
+
+    <section class="l-band" aria-label={t.statband.eyebrow}>
+      <div class="l-page">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.statband.eyebrow}</p>
+        </header>
+        <div class="c-statband l-statband">
+          <div class="c-statband__item">
+            <span class="c-statband__value c-statband__value--red">{t.statband.kv.value}</span>
+            <span class="c-statband__label">{t.statband.kv.label}</span>
+            <span class="c-statband__src"><span class="c-ceo">{t.statband.kv.src}</span></span>
+          </div>
+          <div class="c-statband__item">
+            <span class="c-statband__value"
+              ><span class="c-ceo">{t.statband.distance.value}</span></span
+            >
+            <span class="c-statband__label">{t.statband.distance.label}</span>
+            <span class="c-statband__src"><span class="c-ceo">{t.statband.distance.src}</span></span
+            >
+          </div>
+          <div class="c-statband__item">
+            <span class="c-statband__value"><span class="c-ceo">{t.statband.land.value}</span></span
+            >
+            <span class="c-statband__label">{t.statband.land.label}</span>
+            <span class="c-statband__src"><span class="c-ceo">{t.statband.land.src}</span></span>
+          </div>
+          <div class="c-statband__item">
+            <span class="c-statband__value"
+              ><span class="c-ceo">{t.statband.phases.value}</span></span
+            >
+            <span class="c-statband__label">{t.statband.phases.label}</span>
+            <span class="c-statband__src"><span class="c-ceo">{t.statband.phases.src}</span></span>
+          </div>
+          <div class="c-statband__item">
+            <span class="c-statband__value"
+              ><span class="c-ceo">{t.statband.stage.value}</span></span
+            >
+            <span class="c-statband__label">{t.statband.stage.label}</span>
+            <span class="c-statband__src"><span class="c-ceo">{t.statband.stage.src}</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="why" aria-labelledby="why-title">
+      <div class="l-page">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.proofs.eyebrow}</p>
+          <h2 class="c-section__title" id="why-title">{t.proofs.title}</h2>
+        </header>
+        <div class="r-proof-grid">
+          {
+            t.proofs.items.map((proof) => (
+              <article class="c-proof">
+                <p class="c-proof__index">{proof.index}</p>
+                <p class="c-proof__kicker">{proof.kicker}</p>
+                <h3 class="c-proof__title">{proof.title}</h3>
+                <p class="c-proof__body">{proof.body}</p>
+              </article>
+            ))
+          }
+        </div>
+        <div class="l-map">
+          <LocationMap t={t.diagrams.lm} capA={t.mapCap.a} capB={t.mapCap.b} />
+        </div>
+        <div class="l-terrain">
+          <TerrainSection t={t.diagrams.terrain} />
+        </div>
+        <div class="l-more">
+          <a class="c-btn" href={whyPath}>{t.moreBtn}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="campus" aria-labelledby="campus-title">
+      <div class="l-page r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.campus.eyebrow}</p>
+          <h2 class="c-section__title" id="campus-title">{t.campus.title}</h2>
+          <p class="c-section__lede">{t.campus.lede}</p>
+          <div class="l-more">
+            <a class="c-btn" href={aiPath}>{t.campus.btn}</a>
+          </div>
+        </header>
+        <div>
+          <dl class="c-glossary">
+            {
+              t.campus.glossary.map((entry) => (
+                <div>
+                  <dt>{entry.dt}</dt>
+                  <dd>{entry.dd}</dd>
+                </div>
+              ))
+            }
+          </dl>
+          <p class="c-callout l-nda">{t.campus.nda}</p>
+        </div>
+      </div>
+      <div class="l-page l-fig-row">
+        <div class="l-fig-iso">
+          <IsoCampus t={t.diagrams.iso} />
+        </div>
+      </div>
+    </section>
+
+    <hr class="c-terrainrule l-page l-sep" />
+  </main>
+
+  <section class="c-cta" aria-label={dict.nav.contact}>
+    <div class="l-page c-cta__in">
+      <h2 class="c-cta__title">{t.cta.title}</h2>
+      <a class="c-btn c-btn--primary" href={contactPath}>{t.cta.btn}</a>
+    </div>
+  </section>
+</BaseLayout>

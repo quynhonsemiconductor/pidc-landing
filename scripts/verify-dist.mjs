@@ -1,6 +1,7 @@
 // verify-dist.mjs — build assertions over dist/ (run after `astro build`).
 // 1. Every canonical/hreflang href equals an existing page URL, trailing slash included.
-// 2. No inline <script> (CSP readiness: script-src 'self').
+// 2. No inline executable <script> (CSP readiness: script-src 'self'). Structured-data blocks
+//    (type="application/ld+json") are data, never executed by the browser, so they are allowed.
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -41,7 +42,7 @@ for (const file of htmlFiles) {
       errors.push(`${file}: ${rel} href is not a built page: ${href}`);
     }
   }
-  const inline = html.match(/<script(?![^>]*\bsrc=)[^>]*>/);
+  const inline = html.match(/<script(?![^>]*\bsrc=)(?![^>]*type="application\/ld\+json")[^>]*>/);
   if (inline) errors.push(`${file}: inline script (CSP): ${inline[0].slice(0, 60)}`);
 }
 
