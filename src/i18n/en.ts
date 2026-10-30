@@ -583,7 +583,7 @@ const dictionary = {
       eyebrow: 'Status',
       title: 'Milestones',
       intro:
-        'Status of land, grid connection and permits for the campus — what the CEO confirms as secured, and what is still in progress.',
+        'Status of land, grid connection and permits for the campus — what is confirmed as secured, and what is still in progress.',
       items: [
         {
           time: 'TODO(CEO): date — land secured',

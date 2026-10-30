@@ -23,9 +23,16 @@ const htmlFiles = [];
 pages.delete('404/');
 
 const errors = [];
-const titlesEn = new Set();
+const meta = new Map(); // page path -> { title, ogTitle }, filled for every page first
+const read = (file) => readFileSync(file, 'utf8');
+const attr = (html, re) => html.match(re)?.[1] ?? '';
 for (const file of htmlFiles) {
-  const html = readFileSync(file, 'utf8');
+  const html = read(file);
+  const rel = file.slice(dist.length);
+  meta.set(rel, {
+    title: attr(html, /<title>([^<]*)<\/title>/),
+    ogTitle: attr(html, /<meta property="og:title" content="([^"]*)"/),
+  });
   for (const m of html.matchAll(/<link rel="(canonical|alternate)"[^>]*href="([^"]+)"/g)) {
     const [, rel, href] = m;
     let path;
@@ -44,15 +51,19 @@ for (const file of htmlFiles) {
     }
   }
 
-  // VI pages must not ship the EN <title> (SA decision: VI fully Vietnamese)
-  const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
-  if (file.includes('/vi/') && titlesEn.has(title)) {
-    errors.push(`${file}: VI page reuses the EN <title>: ${title}`);
-  }
-  if (!file.includes('/vi/')) titlesEn.add(title);
-
   const inline = html.match(/<script(?![^>]*\bsrc=)(?![^>]*type="application\/ld\+json")[^>]*>/);
   if (inline) errors.push(`${file}: inline script (CSP): ${inline[0].slice(0, 60)}`);
+}
+
+// VI pages must not ship the EN <title>/og:title (SA decision: VI fully Vietnamese).
+// Each /vi/x/index.html is compared directly with its EN twin /x/index.html.
+for (const [rel, vi] of meta) {
+  if (!rel.startsWith('vi/')) continue;
+  const en = meta.get(rel.slice('vi/'.length));
+  if (!en) continue; // no EN twin (e.g. 404)
+  if (vi.title === en.title) errors.push(`${rel}: VI <title> equals its EN twin: ${vi.title}`);
+  if (vi.ogTitle === en.ogTitle)
+    errors.push(`${rel}: VI og:title equals its EN twin: ${vi.ogTitle}`);
 }
 
 if (errors.length) {
