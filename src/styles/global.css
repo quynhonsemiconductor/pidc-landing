@@ -1,6 +1,6 @@
-/* global.css — import order matters: Tailwind 4 stays for layout utilities only (no design
-   values encoded in its theme); tokens.css is the single source of design values; fonts.css
-   self-hosts the three families; components.css holds the ported c-* component rules. */
+/* global.css — import order matters: tokens.css is the single source of design values;
+   fonts.css self-hosts the three families; components.css holds the ported c-* component
+   rules. (The Tailwind 4 pipeline is wired but currently unused.) */
 @import 'tailwindcss';
 @import './fonts.css';
 @import './tokens.css';
@@ -33,7 +33,54 @@ body {
 .l-hero {
   display: grid;
   gap: var(--s-6);
-  padding-block: var(--s-7) var(--s-8);
+  padding-block: var(--s-7);
+}
+@media (min-width: 57.5em) {
+  .l-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--w-fig-hero));
+    gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+/* home page section rhythm (from design/screens/index.html layout styles) */
+.l-band {
+  padding-block: var(--s-7);
+}
+@media (min-width: 57.5em) {
+  .l-band {
+    padding-block: var(--s-8);
+  }
+}
+.l-statband {
+  margin-top: var(--s-5);
+}
+.l-map {
+  margin-top: var(--s-7);
+}
+.l-terrain {
+  margin-top: var(--s-7);
+}
+.l-more {
+  margin-top: var(--s-6);
+}
+.l-nda {
+  margin-top: var(--s-4);
+}
+.l-fig-row {
+  padding-block: var(--s-3) var(--s-7);
+}
+@media (min-width: 57.5em) {
+  .l-fig-row {
+    padding-block: var(--s-4) var(--s-8);
+  }
+}
+.l-fig-iso {
+  max-width: var(--w-fig-iso);
+  margin-inline: auto;
+}
+.l-sep {
+  margin-block: var(--s-5);
 }
 
 /* skip link — first focusable element, visible on focus */
@@ -84,6 +131,11 @@ body {
   .c-figure {
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+  /* red CEO placeholders keep their warning color in print (DESIGN.md §4 c-ceo) */
+  .c-ceo {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   h1,
   h2,

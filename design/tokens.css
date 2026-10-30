@@ -1,6 +1,4 @@
 /*
-  MOVED: the canonical token source is src/styles/tokens.css (repo root build path, PR4-fix 2026-10-30).
-  This file is kept as a pointer for the design folder only — do NOT edit it; change src/styles/tokens.css
-  and, when a mockup re-render is needed, copy it back over this pointer's target.
-  The last design-phase values are preserved in git history (design PRs #3).
+  NOT USED by the build. The canonical token source is src/styles/tokens.css — edit that file.
+  This pointer exists only so design-folder readers know where the values live.
 */

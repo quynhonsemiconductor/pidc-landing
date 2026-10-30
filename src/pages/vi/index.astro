@@ -1,27 +1,11 @@
 ---
-// VI home ("/vi/"). Placeholder hero from the mockup; page content lands in per-page PRs.
-import BaseLayout from '../../layouts/BaseLayout.astro';
+// VI home ("/vi/").
+import HomeBody from '../../components/pages/HomeBody.astro';
 import { getDictionary } from '../../i18n';
 
 const dict = getDictionary('vi');
+const description =
+  'PIDC đang phát triển khu trung tâm dữ liệu AI quốc tế theo từng giai đoạn tại Gia Lai, Việt Nam — tỉnh có sản lượng điện vượt xa nhu cầu sử dụng.';
 ---
 
-<BaseLayout
-  dict={dict}
-  locale="vi"
-  path="/"
-  title="Pisico Data Center (PIDC)"
-  description="PIDC đang phát triển khu trung tâm dữ liệu AI quốc tế theo từng giai đoạn tại Gia Lai, Việt Nam — tỉnh có sản lượng điện vượt xa nhu cầu sử dụng."
->
-  <main id="main">
-    <section class="l-hero l-page" aria-labelledby="hero-title">
-      <div class="c-hero">
-        <p class="c-hero__badge">
-          <span class="c-hero__dot" aria-hidden="true"></span>{dict.hero.badge}
-        </p>
-        <h1 id="hero-title" class="c-hero__title">{dict.hero.title}</h1>
-        <p class="c-hero__lede">{dict.hero.placeholder}</p>
-      </div>
-    </section>
-  </main>
-</BaseLayout>
+<HomeBody dict={dict} locale="vi" description={description} />

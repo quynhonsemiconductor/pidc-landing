@@ -1,0 +1,147 @@
+---
+// Phased campus concept, isometric, with numbered keys 1–6. Geometry byte-verbatim from the
+// mockup; key labels resolve from the i18n dictionaries (BUILD-NOTES 1).
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['diagrams']['iso'];
+}
+
+const { t } = Astro.props;
+---
+
+<figure class="c-figure r-diagram">
+  <svg viewBox="-188 -25 561 326" role="img" aria-labelledby="iso-title iso-desc">
+    <title id="iso-title">{t.a11yTitle}</title>
+    <desc id="iso-desc">{t.a11yDesc}</desc>
+    <path class="iso-ground" d="M0.0 0.0L322.2 186.0L150.3 285.2L-171.8 99.2Z"></path>
+    <path class="iso-yard" d="M252.4 170.5L295.3 195.3L225.5 235.6L182.6 210.8Z"></path>
+    <path class="iso-fence" d="M252.4 170.5L295.3 195.3L225.5 235.6L182.6 210.8Z"></path>
+    <path class="iso-bound" d="M0.0 0.0L322.2 186.0L150.3 285.2L-171.8 99.2Z"></path>
+    <path class="iso-cable" d="M196.0 206.2L83.2 141.1L115.4 122.5L107.4 117.8"></path>
+    <path class="iso-fb" d="M145.0 40.3L85.9 74.4"></path>
+    <path class="iso-fb" d="M-158.4 150.3L-2.7 60.5L5.4 65.1"></path>
+    <path class="iso-l bld" d="M-21.5 24.8L10.7 43.4L10.7 27.9L-21.5 9.3Z"></path>
+    <path class="iso-r bld" d="M32.2 31.0L10.7 43.4L10.7 27.9L32.2 15.5Z"></path>
+    <path class="iso-t bld" d="M0.0 -3.1L32.2 15.5L10.7 27.9L-21.5 9.3Z"></path>
+    <path class="iso-trunk" d="M-51.0 38.8L-51.0 31.3"></path>
+    <circle class="iso-tree" cx="-51.0" cy="26.7" r="5.6"></circle>
+    <path class="iso-l bld" d="M-16.1 77.5L80.5 133.3L80.5 102.3L-16.1 46.5Z"></path>
+    <path class="iso-r bld" d="M134.2 102.3L80.5 133.3L80.5 102.3L134.2 71.3Z"></path>
+    <path class="iso-t bld" d="M37.6 15.5L134.2 71.3L80.5 102.3L-16.1 46.5Z"></path>
+    <path class="iso-trunk" d="M-88.6 60.5L-88.6 53.0"></path>
+    <circle class="iso-tree" cx="-88.6" cy="48.4" r="5.6"></circle>
+    <path class="iso-trunk" d="M-126.2 82.2L-126.2 74.7"></path>
+    <circle class="iso-tree" cx="-126.2" cy="70.1" r="5.6"></circle>
+    <path class="iso-wire" d="M-85.9 117.8L10.7 173.6L10.7 142.6L-85.9 86.8Z"></path>
+    <path class="iso-wire" d="M64.4 142.6L10.7 173.6L10.7 142.6L64.4 111.6Z"></path>
+    <path class="iso-wire" d="M-32.2 55.8L64.4 111.6L10.7 142.6L-85.9 86.8Z"></path>
+    <path class="iso-trunk" d="M-134.2 108.5L-134.2 101.1"></path>
+    <circle class="iso-tree" cx="-134.2" cy="96.4" r="5.6"></circle>
+    <path class="iso-wire" d="M96.6 142.6L182.6 192.2L182.6 161.2L96.6 111.6Z"></path>
+    <path class="iso-wire" d="M236.3 161.2L182.6 192.2L182.6 161.2L236.3 130.2Z"></path>
+    <path class="iso-wire" d="M150.3 80.6L236.3 130.2L182.6 161.2L96.6 111.6Z"></path>
+    <path class="iso-wire" d="M26.8 182.9L112.8 232.5L112.8 201.5L26.8 151.9Z"></path>
+    <path class="iso-wire" d="M166.5 201.5L112.8 232.5L112.8 201.5L166.5 170.5Z"></path>
+    <path class="iso-wire" d="M80.5 120.9L166.5 170.5L112.8 201.5L26.8 151.9Z"></path>
+    <path class="iso-trunk" d="M-53.7 155.0L-53.7 147.6"></path>
+    <circle class="iso-tree" cx="-53.7" cy="142.9" r="5.6"></circle>
+    <path class="iso-l xfm" d="M238.9 187.6L252.4 195.3L252.4 181.4L238.9 173.6Z"></path>
+    <path class="iso-r xfm" d="M265.8 187.6L252.4 195.3L252.4 181.4L265.8 173.6Z"></path>
+    <path class="iso-t xfm" d="M252.4 165.9L265.8 173.6L252.4 181.4L238.9 173.6Z"></path>
+    <path class="iso-trunk" d="M0.0 186.0L0.0 178.6"></path>
+    <circle class="iso-tree" cx="0.0" cy="173.9" r="5.6"></circle>
+    <path class="iso-l bld" d="M255.0 200.0L268.5 207.7L268.5 196.9L255.0 189.1Z"></path>
+    <path class="iso-r bld" d="M284.6 198.4L268.5 207.7L268.5 196.9L284.6 187.6Z"></path>
+    <path class="iso-t bld" d="M271.2 179.8L284.6 187.6L268.5 196.9L255.0 189.1Z"></path>
+    <path class="iso-l xfm" d="M209.4 204.6L222.8 212.3L222.8 198.4L209.4 190.7Z"></path>
+    <path class="iso-r xfm" d="M236.3 204.6L222.8 212.3L222.8 198.4L236.3 190.7Z"></path>
+    <path class="iso-t xfm" d="M222.8 182.9L236.3 190.7L222.8 198.4L209.4 190.7Z"></path>
+    <path class="iso-trunk" d="M53.7 217.0L53.7 209.6"></path>
+    <circle class="iso-tree" cx="53.7" cy="204.9" r="5.6"></circle>
+    <path class="iso-trunk" d="M174.5 243.3L174.5 235.9"></path>
+    <circle class="iso-tree" cx="174.5" cy="231.3" r="5.6"></circle>
+    <path class="iso-trunk" d="M107.4 248.0L107.4 240.6"></path>
+    <circle class="iso-tree" cx="107.4" cy="235.9" r="5.6"></circle>
+    <path class="iso-trunk" d="M145.0 260.4L145.0 253.0"></path>
+    <circle class="iso-tree" cx="145.0" cy="248.3" r="5.6"></circle>
+    <path class="iso-l clr" d="M30.9 28.7L40.0 33.9L40.0 29.0L30.9 23.7Z"></path>
+    <path class="iso-r clr" d="M48.1 29.3L40.0 33.9L40.0 29.0L48.1 24.3Z"></path>
+    <path class="iso-t clr" d="M38.9 19.1L48.1 24.3L40.0 29.0L30.9 23.7Z"></path>
+    <path class="iso-l clr" d="M44.3 36.4L53.4 41.7L53.4 36.7L44.3 31.5Z"></path>
+    <path class="iso-r clr" d="M61.5 37.0L53.4 41.7L53.4 36.7L61.5 32.1Z"></path>
+    <path class="iso-t clr" d="M52.4 26.8L61.5 32.1L53.4 36.7L44.3 31.5Z"></path>
+    <path class="iso-l clr" d="M57.7 44.2L66.8 49.4L66.8 44.5L57.7 39.2Z"></path>
+    <path class="iso-r clr" d="M74.9 44.8L66.8 49.4L66.8 44.5L74.9 39.8Z"></path>
+    <path class="iso-t clr" d="M65.8 34.6L74.9 39.8L66.8 44.5L57.7 39.2Z"></path>
+    <path class="iso-l clr" d="M-1.3 47.3L7.8 52.5L7.8 47.6L-1.3 42.3Z"></path>
+    <path class="iso-r clr" d="M15.8 47.9L7.8 52.5L7.8 47.6L15.8 42.9Z"></path>
+    <path class="iso-t clr" d="M6.7 37.7L15.8 42.9L7.8 47.6L-1.3 42.3Z"></path>
+    <path class="iso-l clr" d="M71.1 51.9L80.3 57.2L80.3 52.2L71.1 47.0Z"></path>
+    <path class="iso-r clr" d="M88.3 52.5L80.3 57.2L80.3 52.2L88.3 47.6Z"></path>
+    <path class="iso-t clr" d="M79.2 42.3L88.3 47.6L80.3 52.2L71.1 47.0Z"></path>
+    <path class="iso-l clr" d="M12.1 55.0L21.2 60.3L21.2 55.3L12.1 50.1Z"></path>
+    <path class="iso-r clr" d="M29.3 55.6L21.2 60.3L21.2 55.3L29.3 50.7Z"></path>
+    <path class="iso-t clr" d="M20.1 45.4L29.3 50.7L21.2 55.3L12.1 50.1Z"></path>
+    <path class="iso-l clr" d="M84.6 59.7L93.7 64.9L93.7 60.0L84.6 54.7Z"></path>
+    <path class="iso-r clr" d="M101.7 60.3L93.7 64.9L93.7 60.0L101.7 55.3Z"></path>
+    <path class="iso-t clr" d="M92.6 50.1L101.7 55.3L93.7 60.0L84.6 54.7Z"></path>
+    <path class="iso-l clr" d="M25.5 62.8L34.6 68.0L34.6 63.1L25.5 57.8Z"></path>
+    <path class="iso-r clr" d="M42.7 63.4L34.6 68.0L34.6 63.1L42.7 58.4Z"></path>
+    <path class="iso-t clr" d="M33.6 53.2L42.7 58.4L34.6 63.1L25.5 57.8Z"></path>
+    <path class="iso-l clr" d="M98.0 67.4L107.1 72.7L107.1 67.7L98.0 62.5Z"></path>
+    <path class="iso-r clr" d="M115.2 68.0L107.1 72.7L107.1 67.7L115.2 63.1Z"></path>
+    <path class="iso-t clr" d="M106.0 57.8L115.2 63.1L107.1 67.7L98.0 62.5Z"></path>
+    <path class="iso-l clr" d="M38.9 70.5L48.1 75.8L48.1 70.8L38.9 65.6Z"></path>
+    <path class="iso-r clr" d="M56.1 71.1L48.1 75.8L48.1 70.8L56.1 66.2Z"></path>
+    <path class="iso-t clr" d="M47.0 60.9L56.1 66.2L48.1 70.8L38.9 65.6Z"></path>
+    <path class="iso-l clr" d="M111.4 75.2L120.5 80.4L120.5 75.5L111.4 70.2Z"></path>
+    <path class="iso-r clr" d="M128.6 75.8L120.5 80.4L120.5 75.5L128.6 70.8Z"></path>
+    <path class="iso-t clr" d="M119.5 65.6L128.6 70.8L120.5 75.5L111.4 70.2Z"></path>
+    <path class="iso-l clr" d="M52.4 78.3L61.5 83.5L61.5 78.6L52.4 73.3Z"></path>
+    <path class="iso-r clr" d="M69.5 78.9L61.5 83.5L61.5 78.6L69.5 73.9Z"></path>
+    <path class="iso-t clr" d="M60.4 68.7L69.5 73.9L61.5 78.6L52.4 73.3Z"></path>
+    <path class="iso-l clr" d="M65.8 86.0L74.9 91.3L74.9 86.3L65.8 81.1Z"></path>
+    <path class="iso-r clr" d="M83.0 86.6L74.9 91.3L74.9 86.3L83.0 81.7Z"></path>
+    <path class="iso-t clr" d="M73.8 76.4L83.0 81.7L74.9 86.3L65.8 81.1Z"></path>
+    <path class="iso-l clr" d="M79.2 93.8L88.3 99.0L88.3 94.1L79.2 88.8Z"></path>
+    <path class="iso-r clr" d="M96.4 94.4L88.3 99.0L88.3 94.1L96.4 89.4Z"></path>
+    <path class="iso-t clr" d="M87.3 84.2L96.4 89.4L88.3 94.1L79.2 88.8Z"></path>
+    <path class="iso-pw" d="M276.5 203.1L276.5 175.2"></path>
+    <path class="iso-pw" d="M238.9 224.8L238.9 196.8"></path>
+    <path class="iso-pw" d="M276.5 175.2L238.9 196.8"></path>
+    <path class="iso-tower" d="M303.4 240.2L308.7 190.6L314.1 246.5"></path>
+    <path class="iso-tower" d="M319.5 190.7L298.0 203.1"></path>
+    <path class="iso-tower" d="M316.8 201.5L300.7 210.8"></path>
+    <path class="iso-pw" d="M319.5 190.7Q298.0 186.9 276.5 175.2"></path>
+    <path class="iso-pw" d="M298.0 203.1Q268.5 203.9 238.9 196.8"></path>
+    <path class="iso-pw" d="M319.5 190.7Q338.3 206.6 357.1 218.6"></path>
+    <path class="iso-pw" d="M298.0 203.1Q316.8 219.0 335.6 230.9"></path>
+    <g class="mk"><circle cx="32.2" cy="87.9" r="9"></circle><text x="32.2" y="87.9">1</text></g>
+    <g class="mk"><circle cx="96.6" cy="159.2" r="9"></circle><text x="96.6" y="159.2">2</text></g>
+    <g class="mk"><circle cx="238.9" cy="173.2" r="9"></circle><text x="238.9" y="173.2">3</text></g
+    >
+    <g class="mk"><circle cx="308.7" cy="179.3" r="9"></circle><text x="308.7" y="179.3">4</text></g
+    >
+    <g class="mk"
+      ><circle cx="-110.1" cy="117.4" r="9"></circle><text x="-110.1" y="117.4">5</text></g
+    >
+    <g class="mk"><circle cx="59.1" cy="41.4" r="9"></circle><text x="59.1" y="41.4">6</text></g>
+  </svg>
+  <ol class="c-figure__keys c-figure__keys--3">
+    {
+      t.keys.map((key, i) => (
+        <li class="c-phase">
+          <span class="c-phase__n" aria-hidden="true">
+            {i + 1}
+          </span>
+          <span>{key}</span>
+        </li>
+      ))
+    }
+  </ol>
+  <figcaption class="c-figure__cap">
+    <span>{t.capA}</span>
+    <span>{t.capB}</span>
+  </figcaption>
+</figure>

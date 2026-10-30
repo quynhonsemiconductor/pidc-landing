@@ -176,10 +176,10 @@
     background: transparent; /* open state: two bars only, no asterisk look */
   }
   .c-sitemenu[open] .c-sitemenu__mark::before {
-    transform: translateY(5px) rotate(45deg);
+    transform: translateY(var(--menu-mark-gap)) rotate(45deg);
   }
   .c-sitemenu[open] .c-sitemenu__mark::after {
-    transform: translateY(-5px) rotate(-45deg);
+    transform: translateY(calc(-1 * var(--menu-mark-gap))) rotate(-45deg);
   }
   /* full-width panel: absolute under the header (which is position:relative), edge to edge */
   .c-sitemenu__panel {
@@ -312,4 +312,820 @@
 }
 .c-sitefoot__status {
   font-family: var(--font-num);
+}
+
+/* =====================================================================
+   HOME PAGE (ported from design/components/components.css + recipes.css —
+   only what the home page needs, Drawing Set direction already folded in:
+   paper ground, white drawing sheets, ink lines, one signal red).
+   ===================================================================== */
+
+/* c-btn — square corners, hairline border; primary = red fill (red job: attention) */
+.c-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: var(--btn-height, var(--target));
+  padding: 0 var(--btn-pad-x, var(--s-4));
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-2);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: 600 var(--btn-fs, var(--fs-body))/1 var(--font-display);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+.c-btn:hover {
+  background: var(--color-bg);
+}
+.c-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.c-btn--primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+.c-btn--primary:hover {
+  filter: brightness(0.95);
+  background: var(--color-accent);
+}
+
+.c-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+}
+
+/* ruled sheet separations between page sections */
+main > section + section {
+  border-top: 1px solid var(--color-line);
+}
+
+/* c-section — ruled section head (eyebrow with auto sheet number S-01…, title, lede) */
+.c-section {
+  min-width: 0;
+}
+.c-section__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin: 0 0 var(--s-3);
+  font: 600 var(--fs-meta)/var(--lh-tight) var(--font-num);
+  letter-spacing: var(--ls-3);
+  text-transform: uppercase;
+  color: var(--color-text-2);
+}
+.c-section__eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+main {
+  counter-reset: sheet 0;
+}
+main > section + section {
+  counter-increment: sheet;
+}
+.c-section__eyebrow::before {
+  content: 'S-' counter(sheet, decimal-leading-zero);
+  flex: none;
+  font: 600 var(--fs-meta)/1 var(--font-num);
+  letter-spacing: var(--ls-1);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  padding: 3px 7px;
+  margin-right: var(--s-3);
+}
+.c-section__title {
+  margin: 0;
+  font: 600 var(--fs-section)/var(--lh-tight) var(--font-display);
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.c-section__lede {
+  margin: var(--s-4) 0 0;
+  font: 400 var(--fs-body)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
+  max-width: 60ch;
+}
+
+/* c-figure — white drawing sheet with bg title/cap strips, square corners */
+.c-figure {
+  margin: 0;
+  min-width: 0;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  border-radius: 0;
+}
+.c-figure > svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.c-figure__title {
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-bg);
+  font: 600 var(--fs-title)/var(--lh-tight) var(--font-display);
+}
+.c-figure__keys {
+  list-style: none;
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  border-top: 1px solid var(--color-line);
+  display: grid;
+  gap: var(--s-2);
+  font: 400 var(--fs-small)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
+}
+@media (min-width: 43.75em) {
+  .c-figure__keys--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-3) var(--s-6);
+  }
+}
+@media (min-width: 64em) {
+  .c-figure__keys--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.c-figure__cap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-1) var(--s-3);
+  padding: var(--s-2) var(--s-4);
+  border-top: 1px solid var(--color-line);
+  background: var(--color-bg);
+  font: 600 var(--fs-meta)/var(--lh-body) var(--font-num);
+  letter-spacing: var(--ls-3);
+  text-transform: uppercase;
+  color: var(--color-text-2);
+}
+.c-figure__zones {
+  display: grid;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-top: 1px solid var(--color-line);
+}
+@media (min-width: 43.75em) {
+  .c-figure__zones {
+    grid-template-columns: 50fr 20fr 30fr;
+    gap: var(--s-4);
+  }
+}
+.c-figure__zone {
+  margin: 0;
+  font: 400 var(--fs-small)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
+}
+.c-figure__zone b {
+  display: block;
+  margin-bottom: var(--s-1);
+  font: 600 var(--fs-meta)/var(--lh-tight) var(--font-num);
+  letter-spacing: var(--ls-3);
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* c-phase — numbered marker row (isometric campus keys) */
+.c-phase {
+  display: grid;
+  grid-template-columns: var(--s-5) minmax(0, 1fr);
+  gap: var(--s-2);
+  align-items: start;
+}
+.c-phase__n {
+  display: inline-grid;
+  place-items: center;
+  width: var(--s-5);
+  height: var(--s-5);
+  border-radius: 50%;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font: 700 var(--fs-meta)/1 var(--font-num);
+  font-variant-numeric: tabular-nums;
+}
+
+/* c-proof — numbered proof card; the index is the 44px red callout circle */
+.c-proof {
+  border-top: 2px solid var(--color-text);
+  padding-block: var(--s-4) var(--s-6);
+  min-width: 0;
+  display: grid;
+  align-content: start;
+}
+.c-proof__index {
+  width: 44px;
+  height: 44px;
+  margin: 0 0 var(--s-3);
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font: 600 var(--fs-title)/1 var(--font-num);
+  font-variant-numeric: tabular-nums;
+}
+.c-proof__kicker {
+  margin: var(--s-3) 0 0;
+  font: 600 var(--fs-meta)/var(--lh-tight) var(--font-ui);
+  letter-spacing: var(--ls-3);
+  text-transform: uppercase;
+  color: var(--color-text-2);
+}
+.c-proof__title {
+  margin: var(--s-2) 0;
+  font: 600 var(--fs-title)/var(--lh-tight) var(--font-display);
+}
+.c-proof__body {
+  margin: 0;
+  font: 400 var(--fs-body)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
+  max-width: 60ch;
+}
+
+/* c-statband — site facts: every figure carries source + as-of */
+.c-statband {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--s-5) var(--s-6);
+  border-top: 2px solid var(--color-text);
+  border-bottom: 1px solid var(--color-line);
+  padding: var(--s-5) 0;
+}
+.c-statband__item {
+  display: grid;
+  gap: var(--s-1);
+}
+.c-statband__value {
+  font: 600 var(--fs-figure)/1.1 var(--font-num);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+.c-statband__value--red {
+  color: var(--color-accent);
+} /* live values only (e.g. 220 kV) */
+.c-statband__label {
+  font: var(--fs-small)/1.4 var(--font-ui);
+  color: var(--color-text);
+}
+.c-statband__src {
+  font: var(--fs-meta)/1.4 var(--font-num);
+  color: var(--color-text-2);
+}
+
+/* c-ceo — content placeholder: can never be mistaken for final copy */
+.c-ceo {
+  display: inline-block;
+  border: 1.5px dashed var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 6%, var(--color-bg));
+  color: var(--color-accent-deep); /* darker red: AA on the tinted ground; border stays accent */
+  font: 500 var(--fs-small)/1.5 var(--font-num);
+  padding: var(--s-1) var(--s-2);
+  border-radius: var(--r-1);
+}
+
+/* c-callout — plain-spoken note (NDA gating) */
+.c-callout {
+  margin: 0;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--color-line);
+  border-left: var(--callout-bar, 3px) solid var(--color-warn);
+  border-radius: var(--r-1);
+  background: var(--color-surface);
+  font: 400 var(--fs-meta)/var(--lh-body) var(--font-num);
+  color: var(--color-text-2);
+}
+
+/* c-glossary — definition list (the campus spec sheet) */
+.c-glossary {
+  display: grid;
+  gap: 0 var(--s-7);
+  margin: 0;
+  min-width: 0;
+}
+@media (min-width: 48em) {
+  .c-glossary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.c-glossary > div {
+  border-top: 1px solid var(--color-line);
+  padding-block: var(--s-3);
+  min-width: 0;
+}
+.c-glossary dt {
+  font: 600 var(--fs-title)/var(--lh-tight) var(--font-display);
+}
+.c-glossary dd {
+  margin: var(--s-1) 0 0;
+  font: 400 var(--fs-small)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
+}
+
+/* c-cta — end-of-page contact band, on paper */
+.c-cta {
+  border-top: 1px solid var(--color-line);
+  background: var(--color-bg);
+}
+.c-cta__in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: var(--s-7);
+}
+.c-cta__title {
+  margin: 0;
+  font: 600 var(--fs-section)/var(--lh-tight) var(--font-display);
+  max-width: 30ch;
+}
+
+/* c-terrainrule — recurring motif (highlands → pass → coast); decoration only */
+.c-terrainrule {
+  height: 6px;
+  border: 0;
+  margin: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-text) 0 46%,
+    transparent 46% 54%,
+    var(--color-text) 54% 78%,
+    transparent 78% 86%,
+    var(--color-text) 86% 100%
+  );
+}
+
+/* ————— recipes (r-*) ————— */
+
+/* r-hero-figure — the SLD beside the hero copy */
+.r-hero-figure {
+  min-width: 0;
+}
+
+/* r-proof-grid — the three proofs (power / connectivity / land) */
+.r-proof-grid {
+  display: grid;
+  gap: var(--s-6);
+  margin-top: var(--s-7);
+}
+@media (min-width: 53.75em) {
+  .r-proof-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-7);
+  }
+}
+
+/* r-section-split — section head left, body right */
+.r-section-split {
+  display: grid;
+  gap: var(--s-6);
+}
+@media (min-width: 57.5em) {
+  .r-section-split {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
+    gap: var(--s-8);
+    align-items: start;
+  }
+}
+.r-section-split > * {
+  min-width: 0;
+  margin-block-start: 0;
+}
+
+/* ————— diagram languages (from recipes.css r-diagram) ————— */
+
+/* hero legend strokes */
+.lg-pw {
+  stroke: var(--color-power);
+  stroke-width: 3;
+}
+.lg-fb {
+  stroke: var(--color-fiber);
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+}
+.lg-bd {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 1.25;
+  stroke-dasharray: 7 5;
+}
+
+/* single-line diagram (SLD-00) */
+.s-bg {
+  fill: var(--color-surface);
+}
+.s-grid {
+  fill: none;
+  stroke: var(--color-grid);
+  stroke-width: 1;
+}
+.s-pw {
+  fill: none;
+  stroke: var(--color-power);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.s-bus {
+  fill: none;
+  stroke: var(--color-power);
+  stroke-width: 5;
+}
+.s-bus-mv {
+  fill: none;
+  stroke: var(--color-power);
+  stroke-width: 3.5;
+}
+.s-sym {
+  fill: var(--color-surface);
+  stroke: var(--color-power);
+  stroke-width: 1.5;
+}
+.s-xf {
+  fill: none;
+  stroke: var(--color-power);
+  stroke-width: 1.5;
+}
+.s-dot {
+  fill: var(--color-power);
+}
+.s-bound {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 1.25;
+  stroke-dasharray: 7 5;
+}
+.s-hall {
+  fill: var(--color-surface);
+  stroke: var(--color-text);
+  stroke-width: 1.5;
+}
+.s-rack {
+  fill: var(--color-text-2);
+}
+.s-fb {
+  fill: none;
+  stroke: var(--color-fiber);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 5;
+}
+.s-stn {
+  fill: var(--color-surface);
+  stroke: var(--color-fiber);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+.s-cable {
+  fill: none;
+  stroke: var(--color-fiber);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.s-sea {
+  fill: none;
+  stroke: var(--color-fiber);
+  stroke-width: 1.25;
+  opacity: 0.45;
+}
+.s-rule {
+  stroke: var(--color-line);
+  stroke-width: 1;
+}
+/* the one ambient move: flow-dash along the fiber runs, off under reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .s-fb-anim {
+    animation: sld-flow 1.1s linear infinite;
+  }
+  @keyframes sld-flow {
+    to {
+      stroke-dashoffset: -11;
+    }
+  }
+}
+.t-label {
+  font-family: var(--font-diagram);
+  font-weight: 600;
+  font-size: var(--fs-diagram-label);
+  letter-spacing: var(--ls-3);
+  fill: var(--color-text-2);
+}
+.t-xs {
+  font-size: var(--fs-diagram-xs);
+}
+.t-ink {
+  fill: var(--color-text);
+}
+.t-name {
+  font-family: var(--font-ui);
+  font-size: var(--fs-diagram-name);
+  fill: var(--color-text);
+}
+.t-strong {
+  font-weight: 600;
+}
+.t-small {
+  font-family: var(--font-ui);
+  font-size: var(--fs-diagram-small);
+  fill: var(--color-text-2);
+}
+.t-kv {
+  font-family: var(--font-diagram);
+  font-weight: 600;
+  font-size: var(--fs-diagram-kv);
+  fill: var(--color-accent);
+}
+.t-kv-sm {
+  font-size: var(--fs-diagram-kv-sm);
+}
+.t-fbl {
+  font-family: var(--font-diagram);
+  font-weight: 600;
+  font-size: var(--fs-diagram-fbl);
+  letter-spacing: var(--ls-1);
+  fill: var(--color-fiber);
+}
+
+/* terrain cross-section (Section A–A) */
+.x-ground {
+  fill: var(--color-grid);
+}
+.x-edge {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 1.25;
+}
+.x-sea {
+  fill: var(--color-fiber);
+  opacity: 0.12;
+}
+.x-wave {
+  fill: none;
+  stroke: var(--color-fiber);
+  stroke-width: 1.25;
+  opacity: 0.5;
+}
+.x-pw {
+  fill: none;
+  stroke: var(--color-power);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.x-tower {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 1.25;
+  stroke-linejoin: round;
+}
+.x-sym {
+  fill: var(--color-surface);
+  stroke: var(--color-power);
+  stroke-width: 1.5;
+}
+.x-stn {
+  fill: var(--color-surface);
+  stroke: var(--color-fiber);
+  stroke-width: 1.75;
+  stroke-linejoin: round;
+}
+.x-cable {
+  fill: none;
+  stroke: var(--color-fiber);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+}
+.x-node {
+  fill: var(--color-power);
+}
+
+/* campus concept, isometric */
+.iso-ground {
+  fill: var(--color-grid);
+}
+.iso-bound {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 1;
+  stroke-dasharray: 6 4;
+}
+.iso-yard {
+  fill: var(--color-line);
+  fill-opacity: 0.55;
+}
+.iso-fence {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 0.9;
+  stroke-dasharray: 2 2;
+}
+.iso-t,
+.iso-l,
+.iso-r {
+  stroke: var(--color-text);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+.iso-t.bld {
+  fill: var(--color-iso-top);
+}
+.iso-l.bld {
+  fill: var(--color-iso-left);
+}
+.iso-r.bld {
+  fill: var(--color-iso-right);
+}
+.iso-t.clr {
+  fill: var(--color-text-2);
+}
+.iso-l.clr {
+  fill: var(--color-iso-left);
+}
+.iso-r.clr {
+  fill: var(--color-iso-right);
+}
+.iso-t.xfm,
+.iso-r.xfm {
+  fill: var(--color-power);
+}
+.iso-l.xfm {
+  fill: var(--color-power);
+  fill-opacity: 0.8;
+}
+.iso-r.xfm {
+  fill-opacity: 0.6;
+}
+.iso-wire {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 0.9;
+  stroke-dasharray: 4 3;
+  stroke-linejoin: round;
+}
+.iso-pw {
+  fill: none;
+  stroke: var(--color-power);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+.iso-tower {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.iso-cable {
+  fill: none;
+  stroke: var(--color-power);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.iso-fb {
+  fill: none;
+  stroke: var(--color-fiber);
+  stroke-width: 1.4;
+  stroke-dasharray: 5 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.iso-tree {
+  fill: var(--color-ok);
+  fill-opacity: 0.55;
+}
+.iso-trunk {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 1;
+}
+
+/* numbered markers inside the SVGs (halo + number) */
+.mk circle {
+  fill: var(--color-text);
+  stroke: var(--color-surface);
+  stroke-width: 1.5;
+}
+.mk text {
+  fill: var(--color-bg);
+  font-family: var(--font-diagram);
+  font-weight: 700;
+  font-size: var(--fs-diagram-label);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+/* location map (LM-01). Geometry: Natural Earth 1:50m admin-0 countries (VNM mainland),
+   public domain — see the SVG comments. Desktop viewBox 560 wide; smallest text 12 units. */
+.lm-land {
+  fill: var(--color-surface);
+  stroke: var(--color-text);
+  stroke-width: 1.5;
+}
+.lm-sea {
+  fill: url(#lm-sea);
+} /* wave pattern, sea only — land is drawn over it */
+.lm-m .lm-sea {
+  fill: url(#lm-sea-m);
+} /* mobile variant carries its own pattern (unique ids) */
+.lm-sea-line {
+  stroke: var(--color-line);
+  stroke-width: 1;
+  fill: none;
+}
+.lm-name {
+  font: 600 13px var(--font-diagram);
+  fill: var(--color-text-2);
+  letter-spacing: 0.08em;
+}
+.lm-kv {
+  fill: none;
+  stroke: var(--color-power);
+  stroke-width: 1.75;
+}
+.lm-kv-label {
+  font: 600 13px var(--font-diagram);
+  fill: var(--color-accent);
+}
+.lm-site circle {
+  fill: var(--color-accent);
+}
+.lm-site-label {
+  font: 600 13.5px var(--font-diagram);
+  fill: var(--color-text);
+}
+.lm-prov {
+  fill: none;
+  stroke: var(--color-text-2);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+.lm-prov-label,
+.lm-coast-label {
+  font: 500 12.5px var(--font-diagram);
+  fill: var(--color-text-2);
+}
+.lm-fb {
+  fill: none;
+  stroke: var(--color-fiber);
+  stroke-width: 1.75;
+  stroke-dasharray: 6 3;
+}
+.lm-land-station circle {
+  fill: var(--color-surface);
+  stroke: var(--color-text);
+  stroke-width: 1.5;
+}
+.lm-station-label {
+  font: 600 12.5px var(--font-diagram);
+  fill: var(--color-text);
+}
+.lm-sea-label {
+  font: 500 13px var(--font-diagram);
+  fill: var(--color-text-2);
+  letter-spacing: 0.14em;
+}
+/* mobile variant: viewBox 360 wide rendered at 358 px → every size below ≥ 12.5 units */
+.lm-m-site-label {
+  font: 600 15px var(--font-diagram);
+  fill: var(--color-text);
+}
+.lm-m-kv-label {
+  font: 600 15px var(--font-diagram);
+  fill: var(--color-accent);
+}
+.lm-m-station-label {
+  font: 600 14px var(--font-diagram);
+  fill: var(--color-text);
+}
+.lm-m-coast-label {
+  font: 500 15px var(--font-diagram);
+  fill: var(--color-text-2);
+}
+
+/* desktop/mobile variant swap (mobile: fewer, larger labels, ≥12px rendered) */
+.c-figure > svg.lm-m {
+  display: none;
+}
+@media (width <= 480px) {
+  .c-figure > svg.lm-d {
+    display: none;
+  }
+  .c-figure > svg.lm-m {
+    display: block;
+  }
 }
