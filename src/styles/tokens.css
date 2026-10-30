@@ -89,6 +89,9 @@
   --fs-diagram-kv-sm: 12px;
   --fs-diagram-fbl: 12px;
   --fs-diagram-dgs: 11px;
+  /* LM-01 mobile variant labels: viewBox 360 rendered at 358px, so 1 unit ~ 1px; >= 12.5px keeps >= 12px rendered */
+  --fs-diagram-m-label: 15px;
+  --fs-diagram-m-station: 14px;
   --ls-1: 0.04em;
   --ls-2: 0.08em;
   --ls-3: 0.14em; /* letter-spacing steps */
@@ -129,7 +132,16 @@
   --print-ink: #000000;
   --print-link: #555555;
   --fs-print-url: 10pt;
+  --print-fig-max-h: 150mm; /* tall figures capped per page in print */
   --menu-mark-w: 14px;
   --menu-mark-bar: 2px;
   --menu-mark-gap: 5px;
+}
+
+/* PR-fix additions: proof index, compare table, rack strokes (raw values live ONLY here) */
+:root {
+  --proof-index-size: 44px;
+  --proof-index-radius: 50%;
+  --compare-th-w: 22%;
+  --stroke-rk-fine: 0.8px;
 }

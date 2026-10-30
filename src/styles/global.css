@@ -153,14 +153,24 @@ body {
   .c-sitehead__nav,
   .c-sitehead__in > .c-sitehead__lang,
   .c-sitemenu,
+  .c-tocdetails,
+  .r-tocrail > nav,
   .c-skiplink {
     display: none !important;
+  }
+  /* tall figures (SLD-00) must not blank the next page: cap height, keep aspect */
+  .c-figure svg {
+    max-height: var(--print-fig-max-h);
   }
   body {
     background: var(--print-bg);
     color: var(--print-ink);
   }
-  a[href^='http']::after,
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font: 400 var(--fs-print-url)/1.4 var(--font-num);
+    color: var(--print-link);
+  }
   a[href^='/']::after {
     content: ' (https://pidc.vn' attr(href) ')';
     font: 400 var(--fs-print-url)/1.4 var(--font-num);

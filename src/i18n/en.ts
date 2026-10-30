@@ -109,6 +109,11 @@ const dictionary = {
   // (design/screens/ai-data-center.html). The mockup's &nbsp; inside 220 kV stays a no-break
   // space character, matching the convention above.
   aidc: {
+    pageMeta: {
+      title: 'What is an AI data center? · PIDC',
+      description:
+        'A plain-language guide to AI data centers: GPUs, power per rack, liquid cooling, and why grid power decides where they are built.',
+    },
     hero: {
       badge: 'Guide',
       title: 'What is an AI data center?',
@@ -403,9 +408,9 @@ const dictionary = {
     lm: {
       desktop: {
         a11yTitle:
-          'Schematic location map — PIDC site in Gia Lai, 220 kV grid link, dual fibre routes to ADC and SJC2 landings at Quy Nhơn (LM-01)',
+          'Schematic location map — PIDC site in Gia Lai, 220 kV grid link, dual fiber routes to ADC and SJC2 landings at Quy Nhơn (LM-01)',
         a11yDesc:
-          'Schematic location map. Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast.',
+          'Schematic location map. Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fiber routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast.',
         name: 'VIETNAM',
         kv: '220 kV grid',
         prov: 'Gia Lai Province',
@@ -418,9 +423,9 @@ const dictionary = {
       },
       mobile: {
         a11yTitle:
-          'Schematic location map, mobile — PIDC site in Gia Lai, 220 kV grid link, fibre routes to ADC and SJC2 landings at Quy Nhơn (LM-01)',
+          'Schematic location map, mobile — PIDC site in Gia Lai, 220 kV grid link, fiber routes to ADC and SJC2 landings at Quy Nhơn (LM-01)',
         a11yDesc:
-          'Schematic location map (mobile). Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fibre routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast.',
+          'Schematic location map (mobile). Central Vietnam, with the PIDC site in Gia Lai province, a 220 kV grid connection, and two separate fiber routes east to the ADC and SJC2 cable landing stations at Quy Nhơn on the coast.',
         kv: '220 kV',
         site: 'PIDC site',
         coast: 'Quy Nhơn',

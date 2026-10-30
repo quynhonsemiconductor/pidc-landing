@@ -18,14 +18,14 @@ import type { Dictionary, Locale } from '../../i18n';
 interface Props {
   dict: Dictionary;
   locale: Locale;
-  description: string;
 }
 
-const { dict, locale, description } = Astro.props;
+const { dict, locale } = Astro.props;
 const t = dict.aidc;
 const contactPath = localizedPath(locale, '/contact/');
 const whyPath = localizedPath(locale, '/why-vietnam/');
-const title = 'What is an AI data center? · PIDC';
+const title = t.pageMeta.title;
+const description = t.pageMeta.description;
 
 // The TOC list is one data source (t.tocItems) rendered twice, exactly as the mockup
 // does: the standalone <nav> is the sticky desktop rail (>64em); the <details> copy is

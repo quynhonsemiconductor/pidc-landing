@@ -114,7 +114,7 @@
   }
 }
 
-/* c-sitemenu — mobile menu. Base: <details> (works without JS); one small inline module script
+/* c-sitemenu — mobile menu. Base: <details> (works without JS); one small script (public/scripts/menu.js, loaded with src)
    (the only JS on the site) manages aria-expanded, focus in/out, Esc and body scroll lock.
    Design review: full-width panel under the header holding BOTH nav and EN/VI switch. */
 .c-sitemenu {
@@ -235,7 +235,7 @@
 .c-hero__dot {
   width: var(--s-2);
   height: var(--s-2);
-  border-radius: 50%;
+  border-radius: var(--proof-index-radius);
   background: var(--color-accent);
   flex: none;
 }
@@ -527,7 +527,7 @@ main > section + section {
 }
 .c-proof__index {
   width: 44px;
-  height: 44px;
+  height: var(--proof-index-size);
   margin: 0 0 var(--s-3);
   display: inline-grid;
   place-items: center;
@@ -698,6 +698,13 @@ main > section + section {
     grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
     gap: var(--s-8);
     align-items: start;
+  }
+}
+/* VI titles run long (stacked diacritics, ~20-30% longer): give the section-head
+   column more width on desktop so headings wrap 2-3 lines, not 5-6. */
+@media (min-width: 64em) {
+  html[lang='vi'] .r-section-split {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   }
 }
 .r-section-split > * {
@@ -1048,7 +1055,7 @@ main > section + section {
   fill: none;
 }
 .lm-name {
-  font: 600 13px var(--font-diagram);
+  font: 600 var(--fs-diagram-label) var(--font-diagram);
   fill: var(--color-text-2);
   letter-spacing: 0.08em;
 }
@@ -1058,14 +1065,14 @@ main > section + section {
   stroke-width: 1.75;
 }
 .lm-kv-label {
-  font: 600 13px var(--font-diagram);
+  font: 600 var(--fs-diagram-kv) var(--font-diagram);
   fill: var(--color-accent);
 }
 .lm-site circle {
   fill: var(--color-accent);
 }
 .lm-site-label {
-  font: 600 13.5px var(--font-diagram);
+  font: 600 var(--fs-diagram-name) var(--font-diagram);
   fill: var(--color-text);
 }
 .lm-prov {
@@ -1076,7 +1083,7 @@ main > section + section {
 }
 .lm-prov-label,
 .lm-coast-label {
-  font: 500 12.5px var(--font-diagram);
+  font: 500 var(--fs-diagram-name) var(--font-diagram);
   fill: var(--color-text-2);
 }
 .lm-fb {
@@ -1091,29 +1098,29 @@ main > section + section {
   stroke-width: 1.5;
 }
 .lm-station-label {
-  font: 600 12.5px var(--font-diagram);
+  font: 600 var(--fs-diagram-name) var(--font-diagram);
   fill: var(--color-text);
 }
 .lm-sea-label {
-  font: 500 13px var(--font-diagram);
+  font: 500 var(--fs-diagram-kv) var(--font-diagram);
   fill: var(--color-text-2);
   letter-spacing: 0.14em;
 }
 /* mobile variant: viewBox 360 wide rendered at 358 px → every size below ≥ 12.5 units */
 .lm-m-site-label {
-  font: 600 15px var(--font-diagram);
+  font: 600 var(--fs-diagram-m-label) var(--font-diagram);
   fill: var(--color-text);
 }
 .lm-m-kv-label {
-  font: 600 15px var(--font-diagram);
+  font: 600 var(--fs-diagram-m-label) var(--font-diagram);
   fill: var(--color-accent);
 }
 .lm-m-station-label {
-  font: 600 14px var(--font-diagram);
+  font: 600 var(--fs-diagram-m-station) var(--font-diagram);
   fill: var(--color-text);
 }
 .lm-m-coast-label {
-  font: 500 15px var(--font-diagram);
+  font: 500 var(--fs-diagram-m-label) var(--font-diagram);
   fill: var(--color-text-2);
 }
 
@@ -1307,7 +1314,7 @@ main > section + section {
   letter-spacing: var(--ls-1);
   text-transform: uppercase;
   white-space: normal;
-  width: 22%;
+  width: var(--compare-th-w);
 }
 .c-compare .c-table td {
   color: var(--color-text-2);
@@ -1634,7 +1641,7 @@ main > section + section {
   fill: var(--color-power);
   fill-opacity: 0.18;
   stroke: var(--color-text-2);
-  stroke-width: 0.8;
+  stroke-width: var(--stroke-rk-fine);
 }
 .rk-vent {
   stroke: var(--color-power);

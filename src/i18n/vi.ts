@@ -109,6 +109,11 @@ const dictionary: Dictionary = {
   // AI data center explainer — verbatim VI strings from design/screens/ai-data-center.html
   // (lang="vi" spans; the VI mockup keeps the source list identical to EN).
   aidc: {
+    pageMeta: {
+      title: 'Trung tâm dữ liệu AI là gì? · PIDC',
+      description:
+        'Hướng dẫn dễ hiểu về trung tâm dữ liệu AI: GPU, công suất mỗi tủ rack, làm mát bằng chất lỏng, và vì sao nguồn điện lưới quyết định nơi xây dựng.',
+    },
     hero: {
       badge: 'Tìm hiểu',
       title: 'Trung tâm dữ liệu AI là gì?',

@@ -23,6 +23,7 @@ const htmlFiles = [];
 pages.delete('404/');
 
 const errors = [];
+const titlesEn = new Set();
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf8');
   for (const m of html.matchAll(/<link rel="(canonical|alternate)"[^>]*href="([^"]+)"/g)) {
@@ -42,6 +43,14 @@ for (const file of htmlFiles) {
       errors.push(`${file}: ${rel} href is not a built page: ${href}`);
     }
   }
+
+  // VI pages must not ship the EN <title> (SA decision: VI fully Vietnamese)
+  const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+  if (file.includes('/vi/') && titlesEn.has(title)) {
+    errors.push(`${file}: VI page reuses the EN <title>: ${title}`);
+  }
+  if (!file.includes('/vi/')) titlesEn.add(title);
+
   const inline = html.match(/<script(?![^>]*\bsrc=)(?![^>]*type="application\/ld\+json")[^>]*>/);
   if (inline) errors.push(`${file}: inline script (CSP): ${inline[0].slice(0, 60)}`);
 }
