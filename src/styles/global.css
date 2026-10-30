@@ -192,58 +192,6 @@ body {
   margin-top: var(--s-5);
 }
 
-/* Contact page (from design/screens/contact.html layout styles). Routing layout — no TOC
-   rail, no CTA band (the page is the CTA). The hero's ≥57.5em padding bump is scoped to
-   the .r-contact body; the closing terrain rule sits flush above the footer (margin-block
-   s-2 0 in the mockup — the later .l-terrain--flush rule wins over .l-terrain above). */
-@media (min-width: 57.5em) {
-  .r-contact > .l-pagehero {
-    padding-block: var(--s-8);
-  }
-}
-.l-choice-body {
-  display: grid;
-  gap: var(--s-1);
-}
-.l-form {
-  display: grid;
-  gap: var(--s-4);
-  margin-top: var(--s-5);
-}
-@media (min-width: 48em) {
-  .l-form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--s-4) var(--s-5);
-  }
-  .l-form .l-form--full {
-    grid-column: 1 / -1;
-  }
-}
-.l-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--s-3);
-  margin-top: var(--s-5);
-}
-.l-note {
-  margin-top: var(--s-4);
-  max-width: 60ch;
-  display: grid;
-  gap: var(--s-3);
-  justify-items: start;
-}
-.l-im {
-  margin-top: var(--s-5);
-  max-width: 60ch;
-}
-.l-office {
-  margin-top: var(--s-5);
-}
-.l-terrain--flush {
-  margin-block: var(--s-2) 0;
-}
-
 /* skip link — first focusable element, visible on focus */
 .c-skiplink {
   position: absolute;
