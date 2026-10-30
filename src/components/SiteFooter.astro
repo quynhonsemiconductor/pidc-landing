@@ -1,6 +1,7 @@
 ---
 // Site footer — markup/classes ported verbatim from the mockup (design/screens/index.html c-sitefoot).
 import { localizedPath, navItems as navItemsRaw } from '../i18n';
+import { CONTACT_EMAIL } from '../site';
 import type { Dictionary, Locale } from '../i18n';
 
 interface Props {
@@ -18,12 +19,13 @@ const navItems = navItemsRaw(dict).map((item) => ({
 ---
 
 <footer class="c-sitefoot">
-  <div class="l-page c-sitefoot__tag">
-    <p class="c-sitefoot__wordmark">{dict.brand.name} · {dict.brand.sub}</p>
-    <p class="c-sitefoot__tagline">{dict.footer.tagline}</p>
-  </div>
-  <div class="l-page c-sitefoot__in">
-    <nav class="c-sitefoot__nav" aria-label={dict.ui.footerNav}>
+  <div class="l-page c-sitefoot__grid">
+    <div class="c-sitefoot__brand">
+      <p class="c-sitefoot__wordmark">{dict.brand.name} · {dict.brand.sub}</p>
+      <p class="c-sitefoot__tagline">{dict.footer.tagline}</p>
+    </div>
+    <nav class="c-sitefoot__col c-sitefoot__nav" aria-label={dict.ui.footerNav}>
+      <p class="c-sitefoot__head">{dict.footer.navTitle}</p>
       {
         navItems.map((item) => (
           <a href={item.localized} aria-current={item.current ? 'page' : undefined}>
@@ -32,8 +34,16 @@ const navItems = navItemsRaw(dict).map((item) => ({
         ))
       }
     </nav>
-    <span class="c-sitefoot__legal">{dict.footer.legal}</span>
-    <span class="c-sitefoot__status">{dict.footer.status}</span>
-    <span class="c-sitefoot__site">{dict.footer.site}</span>
+    <div class="c-sitefoot__col c-sitefoot__contact">
+      <p class="c-sitefoot__head">{dict.footer.contactTitle}</p>
+      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      <address>{dict.company.group.facts.office.dd}</address>
+    </div>
+  </div>
+  <div class="c-sitefoot__bar">
+    <div class="l-page c-sitefoot__in">
+      <span class="c-sitefoot__legal">{dict.footer.legal}</span>
+      <span class="c-sitefoot__status">{dict.footer.status}</span>
+    </div>
   </div>
 </footer>

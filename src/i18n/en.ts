@@ -24,11 +24,21 @@ const dictionary = {
     figureTitle: 'Building AI infrastructure where the power is.',
   },
   statband: {
-    eyebrow: 'Site facts',
+    eyebrow: 'Key facts',
     kv: {
       value: '220 kV',
       label: 'Grid connection',
       src: 'TODO(CEO): source + as-of',
+    },
+    cables: {
+      value: '2',
+      label: 'International submarine cables landing at Quy Nhơn',
+      src: 'ADC · SJC2',
+    },
+    location: {
+      value: 'Gia Lai',
+      label: 'Location',
+      src: 'Vietnam',
     },
     distance: {
       value: 'TODO(CEO): distance km to Quy Nhơn cable landings',
@@ -560,10 +570,10 @@ const dictionary = {
           dd: '99 Tây Sơn, Quy Nhơn Nam Ward, Gia Lai Province, Vietnam',
         },
         capA: 'PIDC.VN',
-        capB: 'Schematic sheet',
+        capB: 'Entity details',
       },
       figure: {
-        title: 'The Pisico group',
+        title: 'Pisico business lines',
         keys: [
           { n: '1', label: 'Forest products for export' },
           { n: '2', label: 'Industrial cluster infrastructure' },
@@ -597,17 +607,6 @@ const dictionary = {
           body: 'TODO(CEO): permits — milestone + status',
         },
         { time: 'TODO(CEO): date — other', body: 'TODO(CEO): other milestone + status' },
-      ],
-    },
-    people: {
-      eyebrow: 'Company',
-      title: 'Who stands behind PIDC',
-      intro:
-        'PIDC is the project company for the campus and a member of Pisico (Tổng Công ty PISICO Bình Định – CTCP).',
-      cards: [
-        { role: 'Chairman of the Board', line: 'Lâm Duy Việt' },
-        { role: 'TODO(CEO): role', line: 'TODO(CEO): name + one line' },
-        { role: 'TODO(CEO): role', line: 'TODO(CEO): name + one line' },
       ],
     },
     cta: {
@@ -777,7 +776,8 @@ const dictionary = {
     tagline: 'An international, green, resilient AI campus in a renewable-surplus province.',
     legal: '© 2026 Pisico Data Center Joint Stock Company',
     status: 'In development · Gia Lai, Vietnam',
-    site: 'pidc.vn',
+    navTitle: 'Pages',
+    contactTitle: 'Contact',
   },
   ui: {
     skipLink: 'Skip to content',

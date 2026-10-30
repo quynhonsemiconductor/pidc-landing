@@ -31,9 +31,8 @@ const title =
 
 // The TOC list is one data source (t.tocItems) rendered twice, exactly as the mockup does:
 // the standalone <nav> is the sticky desktop rail (>64em); the <details> copy is the
-// collapsed "On this page" at <=64em. CSS picks which one shows — no JS. Scrollspy:
-// aria-current stays STATIC on the first item, as in the mockup (BUILD-NOTES 3 allows CSS
-// sticky only; IntersectionObserver would be new JS and is deferred).
+// collapsed "On this page" at <=64em. CSS picks which one shows. Scrollspy:
+// aria-current starts on the first item; /scripts/toc.js (external, CSP-safe) moves it.
 const tocList = `<ol>${t.tocItems
   .map(
     (item, i) =>
@@ -193,9 +192,8 @@ const tocList = `<ol>${t.tocItems
         </div>
       </section>
     </div>
-
-    <div class="l-rule"><hr class="c-terrainrule" /></div>
   </main>
+  <script type="module" src="/scripts/toc.js"></script>
 
   <section class="c-cta" aria-label={dict.nav.contact}>
     <div class="l-page c-cta__in">

@@ -79,9 +79,6 @@ body {
   max-width: var(--w-fig-iso);
   margin-inline: auto;
 }
-.l-sep {
-  margin-block: var(--s-5);
-}
 
 /* AI data center explainer page (from design/screens/ai-data-center.html layout styles).
    r-tocrail page body: <main> is the rail grid so sections stay main's direct children
@@ -128,8 +125,7 @@ body {
    grid. The hero's ≥57.5em padding bump is scoped to this page (the aidc hero keeps its
    own mockup's flat rhythm). */
 @media (min-width: 1025px) {
-  .r-tocrail > .l-rail,
-  .r-tocrail > .l-rule {
+  .r-tocrail > .l-rail {
     grid-column: 2;
   }
 }
@@ -153,9 +149,6 @@ body {
 }
 .l-rail .l-more {
   margin-top: var(--s-5);
-}
-.l-rule {
-  padding-block: var(--s-5) var(--s-6);
 }
 
 /* Company page (from design/screens/company.html layout styles). Profile layout — no TOC
@@ -239,9 +232,6 @@ body {
 }
 .l-office {
   margin-top: var(--s-5);
-}
-.l-terrain--flush {
-  margin-block: var(--s-2) 0;
 }
 
 /* skip link — first focusable element, visible on focus */
