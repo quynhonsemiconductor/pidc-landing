@@ -1,0 +1,12 @@
+---
+// EN "Company" (canonical "/company/"). Meta description verbatim from the demo
+// (design/content/company.html).
+import CompanyBody from '../components/pages/CompanyBody.astro';
+import { getDictionary } from '../i18n';
+
+const dict = getDictionary('en');
+const description =
+  'Pisico Data Center Joint Stock Company (PIDC) is the project company for the AI data center campus in Gia Lai and a member of the Pisico group (Tổng Công ty PISICO Bình Định – CTCP).';
+---
+
+<CompanyBody dict={dict} locale="en" description={description} />

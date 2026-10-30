@@ -1,0 +1,14 @@
+---
+// VI "Company" ("/vi/company/"). The demo ships no VI meta description (EN-only demo head);
+// this is the VI rendering of the same sentence, in the page's own voice (DESIGN.md §6) —
+// same approach as the whyv/aidc VI routes. The <title> stays "Company · PIDC" as the VI
+// mockup ships it (design/screens/company--vi.html).
+import CompanyBody from '../../components/pages/CompanyBody.astro';
+import { getDictionary } from '../../i18n';
+
+const dict = getDictionary('vi');
+const description =
+  'Công ty Cổ phần Pisico Data Center (PIDC) là pháp nhân dự án của khu trung tâm dữ liệu AI tại Gia Lai và là công ty thành viên của tập đoàn Pisico (Tổng Công ty PISICO Bình Định – CTCP).';
+---
+
+<CompanyBody dict={dict} locale="vi" description={description} />

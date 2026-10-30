@@ -26,6 +26,10 @@ const SHOTS = [
   { path: '/why-vietnam/', name: 'whyv-en-1024', width: 1024, height: 800, dsf: 1 },
   { path: '/vi/why-vietnam/', name: 'whyv-vi-390', width: 390, height: 844, dsf: 2 },
   { path: '/vi/why-vietnam/', name: 'whyv-vi-1440', width: 1440, height: 900, dsf: 1 },
+  { path: '/company/', name: 'company-en-390', width: 390, height: 844, dsf: 2 },
+  { path: '/company/', name: 'company-en-1440', width: 1440, height: 900, dsf: 1 },
+  { path: '/vi/company/', name: 'company-vi-390', width: 390, height: 844, dsf: 2 },
+  { path: '/vi/company/', name: 'company-vi-1440', width: 1440, height: 900, dsf: 1 },
 ];
 
 async function waitForServer(url, attempts = 60) {
