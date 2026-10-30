@@ -3,13 +3,14 @@
 // one markup source, every string resolved from the locale dictionary. Full page from the
 // locked mockup (design/screens/company.html): hero, S-01 the Pisico group (prose + the
 // entity-facts c-glossary sheet and the numbered-keys group figure — keys 1–8 ported as
-// markup, not an SVG), S-02 milestones (all TODO(CEO) slots), S-03 who stands behind PIDC
-// (TODO(CEO) governance intro + three placeholder people cards), terrain rule and CTA band.
+// markup, not an SVG), S-02 milestones (hidden until dated items are confirmed), S-03 who stands behind PIDC
+// (governance intro + people cards, only the confirmed ones), terrain rule and CTA band.
 // Profile layout: no TOC rail. Sheet numbers S-01… come from the existing main > section
 // counter in components.css. The group figure's key 8 carries the mockup's <strong> PIDC
 // entry; entity facts are registry data kept verbatim (BUILD-NOTES / company handoff).
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { localizedPath } from '../../i18n';
+import { pruneTodo } from '../../i18n/prune';
 import type { Dictionary, Locale } from '../../i18n';
 
 interface Props {
@@ -18,12 +19,11 @@ interface Props {
 }
 
 const { dict, locale } = Astro.props;
-const t = dict.company;
+const t = pruneTodo(dict.company);
 const f = t.group.facts;
 const contactPath = localizedPath(locale, '/contact/');
 const pisicoUrl = 'https://www.pisico.vn';
-const title = t.pageMeta.title;
-const description = t.pageMeta.description;
+const { title, description } = dict.company.pageMeta;
 ---
 
 <BaseLayout
@@ -58,15 +58,7 @@ const description = t.pageMeta.description;
         <div class="l-split">
           <div class="c-section c-section--body">
             <p>{t.group.p1}</p>
-            {
-              t.group.p2.startsWith('TODO(CEO)') ? (
-                <p>
-                  <span class="c-ceo">{t.group.p2}</span>
-                </p>
-              ) : (
-                <p>{t.group.p2}</p>
-              )
-            }
+            {t.group.p2 && <p>{t.group.p2}</p>}
           </div>
           <figure class="c-figure l-titleblock">
             <dl class="c-glossary">
@@ -82,10 +74,14 @@ const description = t.pageMeta.description;
                 <dt>{f.code.dt}</dt>
                 <dd>{f.code.dd}</dd>
               </div>
-              <div>
-                <dt>{f.chairman.dt}</dt>
-                <dd><span class="c-ceo">{f.chairman.dd}</span></dd>
-              </div>
+              {
+                f.chairman?.dd && (
+                  <div>
+                    <dt>{f.chairman.dt}</dt>
+                    <dd>{f.chairman.dd}</dd>
+                  </div>
+                )
+              }
               <div>
                 <dt>{f.member.dt}</dt>
                 <dd>
@@ -127,57 +123,57 @@ const description = t.pageMeta.description;
       </div>
     </section>
 
-    <section class="l-band" id="milestones" aria-labelledby="milestones-title">
-      <div class="l-page r-section-split">
-        <header class="c-section">
-          <p class="c-section__eyebrow">{t.milestones.eyebrow}</p>
-          <h2 class="c-section__title" id="milestones-title">{t.milestones.title}</h2>
-        </header>
-        <div class="c-section c-section--body">
-          <p>{t.milestones.intro}</p>
-          <ul class="c-milestones l-milestones">
-            {
-              t.milestones.items.map((item) => (
-                <li>
-                  <time>
-                    <span class="c-ceo">{item.time}</span>
-                  </time>
-                  <p>
-                    <span class="c-ceo">{item.body}</span>
-                  </p>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="l-band" id="people" aria-labelledby="people-title">
-      <div class="l-page r-section-split">
-        <header class="c-section">
-          <p class="c-section__eyebrow">{t.people.eyebrow}</p>
-          <h2 class="c-section__title" id="people-title">{t.people.title}</h2>
-        </header>
-        <div class="c-section c-section--body">
-          <p><span class="c-ceo">{t.people.intro}</span></p>
-          <div class="c-people">
-            {
-              t.people.cards.map((card) => (
-                <div class="c-people__card">
-                  <p class="c-people__role">
-                    <span class="c-ceo">{card.role}</span>
-                  </p>
-                  <p>
-                    <span class="c-ceo">{card.line}</span>
-                  </p>
-                </div>
-              ))
-            }
+    {
+      t.milestones?.items?.length ? (
+        <section class="l-band" id="milestones" aria-labelledby="milestones-title">
+          <div class="l-page r-section-split">
+            <header class="c-section">
+              <p class="c-section__eyebrow">{t.milestones.eyebrow}</p>
+              <h2 class="c-section__title" id="milestones-title">
+                {t.milestones.title}
+              </h2>
+            </header>
+            <div class="c-section c-section--body">
+              <p>{t.milestones.intro}</p>
+              <ul class="c-milestones l-milestones">
+                {t.milestones.items.map((item) => (
+                  <li>
+                    {item.time && <time>{item.time}</time>}
+                    <p>{item.body}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      ) : null
+    }
+
+    {
+      t.people?.cards?.length ? (
+        <section class="l-band" id="people" aria-labelledby="people-title">
+          <div class="l-page r-section-split">
+            <header class="c-section">
+              <p class="c-section__eyebrow">{t.people.eyebrow}</p>
+              <h2 class="c-section__title" id="people-title">
+                {t.people.title}
+              </h2>
+            </header>
+            <div class="c-section c-section--body">
+              {t.people.intro && <p>{t.people.intro}</p>}
+              <div class="c-people">
+                {t.people.cards.map((card) => (
+                  <div class="c-people__card">
+                    <p class="c-people__role">{card.role}</p>
+                    <p>{card.line}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null
+    }
 
     <div class="l-page l-rule"><hr class="c-terrainrule" /></div>
   </main>

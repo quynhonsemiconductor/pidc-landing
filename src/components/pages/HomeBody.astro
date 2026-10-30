@@ -9,6 +9,8 @@ import LocationMap from '../diagrams/LocationMap.astro';
 import TerrainSection from '../diagrams/TerrainSection.astro';
 import IsoCampus from '../diagrams/IsoCampus.astro';
 import { localizedPath } from '../../i18n';
+import { pruneTodo } from '../../i18n/prune';
+import { CONTACT_EMAIL } from '../../site';
 import type { Dictionary, Locale } from '../../i18n';
 
 interface Props {
@@ -19,6 +21,11 @@ interface Props {
 
 const { dict, locale, description } = Astro.props;
 const t = dict;
+const sb = pruneTodo(dict.statband);
+const stats = [sb.kv, sb.distance, sb.land, sb.phases, sb.stage].filter(
+  (x): x is NonNullable<typeof x> => x !== undefined,
+);
+const siteUrl = new URL('/', Astro.site).href; // canonical host comes from astro.config `site`
 const contactPath = localizedPath(locale, '/contact/');
 const whyPath = localizedPath(locale, '/why-vietnam/');
 const aiPath = localizedPath(locale, '/ai-data-center/');
@@ -34,13 +41,13 @@ const jsonLd = [
     '@type': 'Organization',
     name: 'Pisico Data Center Joint Stock Company',
     alternateName: ['PIDC', 'Công ty Cổ phần Pisico Data Center'],
-    url: 'https://pidc.vn/',
+    url: siteUrl,
     // VI pages state the slogan in Vietnamese (SA decision: VI fully Vietnamese except brand/tech terms)
     slogan:
       locale === 'vi'
         ? 'Khu trung tâm dữ liệu AI quốc tế, xanh, có khả năng chống chịu, phục hồi, tại tỉnh dư thừa năng lượng tái tạo'
         : 'An international, green, resilient AI campus in a renewable-surplus province',
-    email: 'contact@pidc.vn',
+    email: CONTACT_EMAIL,
     taxID: '4101699991',
     address: {
       '@type': 'PostalAddress',
@@ -58,7 +65,7 @@ const jsonLd = [
   {
     '@type': 'WebSite',
     name: 'PIDC',
-    url: 'https://pidc.vn/',
+    url: siteUrl,
     inLanguage: ['en', 'vi'],
   },
 ];
@@ -95,39 +102,20 @@ const jsonLd = [
           <p class="c-section__eyebrow">{t.statband.eyebrow}</p>
         </header>
         <div class="c-statband l-statband">
-          <div class="c-statband__item">
-            <span class="c-statband__value c-statband__value--red">{t.statband.kv.value}</span>
-            <span class="c-statband__label">{t.statband.kv.label}</span>
-            <span class="c-statband__src"><span class="c-ceo">{t.statband.kv.src}</span></span>
-          </div>
-          <div class="c-statband__item">
-            <span class="c-statband__value"
-              ><span class="c-ceo">{t.statband.distance.value}</span></span
-            >
-            <span class="c-statband__label">{t.statband.distance.label}</span>
-            <span class="c-statband__src"><span class="c-ceo">{t.statband.distance.src}</span></span
-            >
-          </div>
-          <div class="c-statband__item">
-            <span class="c-statband__value"><span class="c-ceo">{t.statband.land.value}</span></span
-            >
-            <span class="c-statband__label">{t.statband.land.label}</span>
-            <span class="c-statband__src"><span class="c-ceo">{t.statband.land.src}</span></span>
-          </div>
-          <div class="c-statband__item">
-            <span class="c-statband__value"
-              ><span class="c-ceo">{t.statband.phases.value}</span></span
-            >
-            <span class="c-statband__label">{t.statband.phases.label}</span>
-            <span class="c-statband__src"><span class="c-ceo">{t.statband.phases.src}</span></span>
-          </div>
-          <div class="c-statband__item">
-            <span class="c-statband__value"
-              ><span class="c-ceo">{t.statband.stage.value}</span></span
-            >
-            <span class="c-statband__label">{t.statband.stage.label}</span>
-            <span class="c-statband__src"><span class="c-ceo">{t.statband.stage.src}</span></span>
-          </div>
+          {
+            stats.map(
+              (stat, i) =>
+                stat.value && (
+                  <div class="c-statband__item">
+                    <span class:list={['c-statband__value', { 'c-statband__value--red': i === 0 }]}>
+                      {stat.value}
+                    </span>
+                    <span class="c-statband__label">{stat.label}</span>
+                    {stat.src && <span class="c-statband__src">{stat.src}</span>}
+                  </div>
+                ),
+            )
+          }
         </div>
       </div>
     </section>
