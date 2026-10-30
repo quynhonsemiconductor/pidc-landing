@@ -1,0 +1,37 @@
+---
+// TWh chart — data center electricity use worldwide (415 TWh 2024 → ≈945 TWh 2030 IEA
+// projection, hatched). HTML bar chart (r-chart) ported verbatim from the mockup; the
+// 2030 projection bar keeps its hatched style. Labels resolve from the i18n dictionaries.
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['aidc']['power']['chart'];
+}
+
+const { t } = Astro.props;
+const rows = [
+  { label: t.rows[0], bar: '', v: 415 },
+  { label: t.rows[1], bar: 'proj', v: 945 },
+];
+---
+
+<figure class="c-figure r-chart" style="--max:1000;--ticks:4">
+  <figcaption class="c-figure__title">{t.title}</figcaption>
+  {
+    rows.map((row) => (
+      <div class="bar-row">
+        <span class="bar-label">
+          <b class="c-stat__figure">{row.label.value}</b>
+          {row.label.label}
+        </span>
+        <div class="track">
+          <div class={`bar ${row.bar}`} style={`--v:${row.v}`} />
+        </div>
+      </div>
+    ))
+  }
+  <div class="axis" aria-hidden="true">
+    <span style="left:0">0</span><span style="left:25%">250</span><span style="left:50%">500</span
+    ><span style="left:75%">750</span><span style="left:100%">1,000</span>
+  </div>
+</figure>

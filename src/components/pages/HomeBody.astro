@@ -22,7 +22,11 @@ const t = dict;
 const contactPath = localizedPath(locale, '/contact/');
 const whyPath = localizedPath(locale, '/why-vietnam/');
 const aiPath = localizedPath(locale, '/ai-data-center/');
-const title = 'Pisico Data Center (PIDC)';
+// Demo ships the same brand-led title for both locales; VI keeps the brand names but localizes the descriptor.
+const title =
+  locale === 'vi'
+    ? 'Pisico Data Center (PIDC) — khu dữ liệu AI tại Gia Lai'
+    : 'Pisico Data Center (PIDC)';
 
 // Organization JSON-LD ported from the demo (design/content/index.html); WebSite added.
 const jsonLd = [
@@ -31,7 +35,11 @@ const jsonLd = [
     name: 'Pisico Data Center Joint Stock Company',
     alternateName: ['PIDC', 'Công ty Cổ phần Pisico Data Center'],
     url: 'https://pidc.vn/',
-    slogan: 'An international, green, resilient AI campus in a renewable-surplus province',
+    // VI pages state the slogan in Vietnamese (SA decision: VI fully Vietnamese except brand/tech terms)
+    slogan:
+      locale === 'vi'
+        ? 'Khu trung tâm dữ liệu AI quốc tế, xanh, có khả năng chống chịu, phục hồi, tại tỉnh dư thừa năng lượng tái tạo'
+        : 'An international, green, resilient AI campus in a renewable-surplus province',
     email: 'contact@pidc.vn',
     taxID: '4101699991',
     address: {

@@ -17,7 +17,7 @@ export default defineConfig({
     sitemap({
       i18n: {
         defaultLocale: 'en',
-        locales: { en: 'en-US', vi: 'vi-VN' },
+        locales: { en: 'en', vi: 'vi' }, // match the HTML hreflang values (en/vi), not regional
       },
     }),
   ],

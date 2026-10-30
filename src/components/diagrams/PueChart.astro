@@ -1,0 +1,51 @@
+---
+// PUE chart — grid power drawn for 100 kW of computing (PUE 1.56 stacked overhead vs
+// PUE 1.0 no overhead). HTML bar chart (r-chart) ported verbatim from the mockup; the
+// first row is the stacked bar (computing + hatched overhead). Labels from the i18n
+// dictionaries at render time (BUILD-NOTES 1).
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['aidc']['cooling']['chart'];
+}
+
+const { t } = Astro.props;
+---
+
+<figure class="c-figure r-chart" style="--max:160;--ticks:4">
+  <figcaption class="c-figure__title">{t.title}</figcaption>
+  <div class="bar-row">
+    <span class="bar-label">
+      <b class="c-stat__figure">{t.rows[0].value}</b>
+      {t.rows[0].label}
+      {
+        t.rows[0].cite && (
+          <a class="cite" href={`#src-${t.rows[0].cite}`}>
+            [{t.rows[0].cite}]
+          </a>
+        )
+      }
+    </span>
+    <div class="track">
+      <div class="stackbar">
+        <div class="bar" style="--v:100"></div>
+        <div class="bar over" style="--v:56"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">
+      <b class="c-stat__figure">{t.rows[1].value}</b>
+      {t.rows[1].label}
+    </span>
+    <div class="track"><div class="bar" style="--v:100"></div></div>
+  </div>
+  <div class="axis" aria-hidden="true">
+    <span style="left:0">0</span><span style="left:25%">40</span><span style="left:50%">80</span
+    ><span style="left:75%">120</span><span style="left:100%">160</span>
+  </div>
+  <ul class="c-figure__swatches">
+    <li><i class="sw-it" aria-hidden="true"></i><span>{t.swIt}</span></li>
+    <li><i class="sw-over" aria-hidden="true"></i><span>{t.swOver}</span></li>
+  </ul>
+</figure>

@@ -1,0 +1,58 @@
+---
+// CL-01 — liquid cooling loop (cold plates → CDU → dry cooler / cooling tower).
+// Geometry is byte-verbatim from the mockup (design/screens/ai-data-center.html);
+// the mockup's aria-label becomes <title>+<desc> and every label resolves from the
+// i18n dictionaries at render time (BUILD-NOTES 1–2).
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['aidc']['cooling']['loop'];
+}
+
+const { t } = Astro.props;
+---
+
+<figure class="c-figure r-diagram l-fig-loop">
+  <svg viewBox="0 0 420 206" role="img" aria-labelledby="loop-title loop-desc">
+    <title id="loop-title">{t.a11yTitle}</title>
+    <desc id="loop-desc">{t.a11yDesc}</desc>
+    <rect class="dg-model" x="16" y="56" width="92" height="90" rx="4"></rect>
+    <rect class="cl-plate" x="27" y="71" width="26" height="22" rx="2"></rect>
+    <rect class="dg-gpu" x="30" y="74" width="20" height="16" rx="1.5"></rect>
+    <rect class="cl-plate" x="63" y="71" width="26" height="22" rx="2"></rect>
+    <rect class="dg-gpu" x="66" y="74" width="20" height="16" rx="1.5"></rect>
+    <rect class="cl-plate" x="27" y="107" width="26" height="22" rx="2"></rect>
+    <rect class="dg-gpu" x="30" y="110" width="20" height="16" rx="1.5"></rect>
+    <rect class="cl-plate" x="63" y="107" width="26" height="22" rx="2"></rect>
+    <rect class="dg-gpu" x="66" y="110" width="20" height="16" rx="1.5"></rect>
+    <rect class="dg-model" x="166" y="66" width="74" height="70" rx="4"></rect>
+    <path class="cl-hx" d="M180 101l7-14 7 28 7-28 7 28 7-28 7 14"></path>
+    <rect class="dg-model" x="300" y="56" width="104" height="84" rx="4"></rect>
+    <circle class="cl-fan" cx="328" cy="98" r="17"></circle>
+    <path class="cl-blade" d="M328 98l9-9M328 98l9 9M328 98l-9 9M328 98l-9-9"></path>
+    <circle class="dg-dot" cx="328" cy="98" r="2.4"></circle>
+    <circle class="cl-fan" cx="376" cy="98" r="17"></circle>
+    <path class="cl-blade" d="M376 98l9-9M376 98l9 9M376 98l-9 9M376 98l-9-9"></path>
+    <circle class="dg-dot" cx="376" cy="98" r="2.4"></circle>
+    <path class="cl-warm" d="M108.0 80.0L162.0 80.0M157.6 82.4L162.0 80.0L157.6 77.6"></path>
+    <path class="cl-cold" d="M162.0 122.0L112.0 122.0M116.4 119.6L112.0 122.0L116.4 124.4"></path>
+    <path class="cl-warm" d="M240.0 80.0L296.0 80.0M291.6 82.4L296.0 80.0L291.6 77.6"></path>
+    <path class="cl-cold" d="M296.0 122.0L244.0 122.0M248.4 119.6L244.0 122.0L248.4 124.4"></path>
+    <text class="dg-t" x="62" y="168" text-anchor="middle">{t.coldPlateA}</text>
+    <text class="dg-t" x="62" y="182" text-anchor="middle">{t.coldPlateB}</text>
+    <text class="dg-t" x="203" y="168" text-anchor="middle">{t.cdu}</text>
+    <text class="dg-s" x="203" y="182" text-anchor="middle">{t.cduSub}</text>
+    <text class="dg-t" x="352" y="168" text-anchor="middle">{t.dryA}</text>
+    <text class="dg-t" x="352" y="182" text-anchor="middle">{t.dryB}</text>
+    <text class="dg-s" x="16" y="36">{t.rack}</text>
+    <text class="dg-s" x="300" y="36">{t.outdoors}</text>
+  </svg>
+  <ul class="c-figure__swatches">
+    <li><i class="sw-cold" aria-hidden="true"></i><span>{t.swCold}</span></li>
+    <li><i class="sw-warm" aria-hidden="true"></i><span>{t.swWarm}</span></li>
+  </ul>
+  <figcaption class="c-figure__cap">
+    <span>{t.capA}</span>
+    <span>{t.capB}</span>
+  </figcaption>
+</figure>

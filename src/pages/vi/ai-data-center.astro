@@ -1,0 +1,11 @@
+---
+// VI AI data center explainer ("/vi/ai-data-center/"). The demo ships no VI meta
+// description (EN-only demo head); this is the VI rendering of the same sentence,
+// in the page's own voice (DESIGN.md §6).
+import AiDataCenterBody from '../../components/pages/AiDataCenterBody.astro';
+import { getDictionary } from '../../i18n';
+
+const dict = getDictionary('vi');
+---
+
+<AiDataCenterBody dict={dict} locale="vi" />

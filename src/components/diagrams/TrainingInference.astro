@@ -1,0 +1,77 @@
+---
+// Training / inference flow diagrams (the "What it does" section of the AI data center
+// explainer). Geometry is byte-verbatim from the mockup; the SVGs stay decorative
+// (aria-hidden, as in the mockup) because the adjacent h3 + paragraph carry the meaning.
+// Labels resolve from the i18n dictionaries at render time (BUILD-NOTES 1).
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['aidc']['what'];
+}
+
+const { t } = Astro.props;
+---
+
+<div class="l-pair">
+  <div>
+    <svg class="dg" viewBox="0 0 280 118" aria-hidden="true" focusable="false">
+      <path class="dg-db" d="M18 34v40c0 3.3 9.8 6 22 6s22-2.7 22-6V34"></path>
+      <ellipse class="dg-db" cx="40" cy="34" rx="22" ry="6"></ellipse>
+      <path
+        class="dg-line"
+        d="M18 47c0 3.3 9.8 6 22 6s22-2.7 22-6M18 60c0 3.3 9.8 6 22 6s22-2.7 22-6"></path>
+      <path class="dg-arrow" d="M70.0 54.0L96.0 54.0M91.6 56.4L96.0 54.0L91.6 51.6"></path>
+      <path
+        class="dg-link"
+        d="M120 34H132M112 42V50M148 34H160M140 42V50M168 42V50M120 58H132M112 66V74M148 58H160M140 66V74M168 66V74M120 82H132M148 82H160"
+      ></path>
+      <rect class="dg-gpu" x="104" y="26" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="132" y="26" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="160" y="26" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="104" y="50" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="132" y="50" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="160" y="50" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="104" y="74" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="132" y="74" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="160" y="74" width="16" height="16" rx="2"></rect>
+      <path class="dg-arrow" d="M186.0 54.0L212.0 54.0M207.6 56.4L212.0 54.0L207.6 51.6"></path>
+      <rect class="dg-model" x="218" y="34" width="50" height="40" rx="6"></rect>
+      <path class="dg-line" d="M230 46L243 62L256 46M230 46H256M243 62V68"></path>
+      <circle class="dg-dot" cx="230" cy="46" r="2.6"></circle>
+      <circle class="dg-dot" cx="256" cy="46" r="2.6"></circle>
+      <circle class="dg-dot" cx="243" cy="62" r="2.6"></circle>
+      <text class="dg-t" x="40" y="108" text-anchor="middle">{t.training.data}</text>
+      <text class="dg-t" x="140" y="108" text-anchor="middle">{t.training.cluster}</text>
+      <text class="dg-t" x="243" y="108" text-anchor="middle">{t.training.model}</text>
+    </svg>
+    <h3>{t.training.title}</h3>
+    <p>{t.training.body}</p>
+  </div>
+  <div>
+    <svg class="dg" viewBox="0 0 280 118" aria-hidden="true" focusable="false">
+      <circle class="dg-person" cx="24" cy="30" r="5"></circle>
+      <path class="dg-person" d="M15 47c0-6 4-9 9-9s9 3 9 9"></path>
+      <circle class="dg-person" cx="52" cy="30" r="5"></circle>
+      <path class="dg-person" d="M43 47c0-6 4-9 9-9s9 3 9 9"></path>
+      <circle class="dg-person" cx="38" cy="60" r="5"></circle>
+      <path class="dg-person" d="M29 77c0-6 4-9 9-9s9 3 9 9"></path>
+      <path class="dg-arrow" d="M80.0 40.0L168.0 40.0M163.6 42.4L168.0 40.0L163.6 37.6"></path>
+      <path class="dg-arrow-b" d="M168.0 70.0L80.0 70.0M84.4 67.6L80.0 70.0L84.4 72.4"></path>
+      <rect class="dg-model" x="176" y="24" width="88" height="62" rx="6"></rect>
+      <path class="dg-line" d="M196 40L210 56L224 40M196 40H224M210 56V62"></path>
+      <circle class="dg-dot" cx="196" cy="40" r="2.6"></circle>
+      <circle class="dg-dot" cx="224" cy="40" r="2.6"></circle>
+      <circle class="dg-dot" cx="210" cy="56" r="2.6"></circle>
+      <rect class="dg-gpu" x="236" y="34" width="16" height="16" rx="2"></rect>
+      <rect class="dg-gpu" x="236" y="56" width="16" height="16" rx="2"></rect>
+      <text class="dg-s" x="124" y="33" text-anchor="middle">{t.inference.requests}</text>
+      <text class="dg-s" x="124" y="86" text-anchor="middle">{t.inference.answers}</text>
+      <text class="dg-t" x="38" y="108" text-anchor="middle">{t.inference.users}</text>
+      <text class="dg-t" x="220" y="108" text-anchor="middle">
+        {t.inference.modelOnGpus}
+      </text>
+    </svg>
+    <h3>{t.inference.title}</h3>
+    <p>{t.inference.body}</p>
+  </div>
+</div>
