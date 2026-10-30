@@ -15,15 +15,15 @@ import type { Dictionary, Locale } from '../../i18n';
 interface Props {
   dict: Dictionary;
   locale: Locale;
-  description: string;
 }
 
-const { dict, locale, description } = Astro.props;
+const { dict, locale } = Astro.props;
 const t = dict.company;
 const f = t.group.facts;
 const contactPath = localizedPath(locale, '/contact/');
 const pisicoUrl = 'https://www.pisico.vn';
-const title = 'Company · PIDC';
+const title = t.pageMeta.title;
+const description = t.pageMeta.description;
 ---
 
 <BaseLayout

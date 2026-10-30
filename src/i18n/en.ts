@@ -525,6 +525,11 @@ const dictionary = {
   // (BUILD-NOTES 6) and render inside .c-ceo. The hero lede carries the pisico.vn link, so
   // it is split pre/link/post for markup.
   company: {
+    pageMeta: {
+      title: 'Company · PIDC',
+      description:
+        'PIDC — Pisico Data Center Joint Stock Company: the project company for the AI data center campus in Gia Lai, and a member of the Pisico group.',
+    },
     hero: {
       badge: 'Company',
       title: 'Part of the Pisico group',
@@ -537,7 +542,7 @@ const dictionary = {
       eyebrow: 'Company',
       title: 'The Pisico group',
       p1: 'Pisico is a multi-sector group in Gia Lai that traces its history to 1985. Its shares have traded on UPCoM under the ticker PIS since 2016. Its businesses span forest-product processing for export, industrial cluster infrastructure, real estate, trade and services, logistics including Thị Nại Port in Quy Nhơn, workforce development, and agricultural investment, with acacia, rubber and coffee plantations in Vietnam and Laos.',
-      p2: 'PIDC is Vietnamese-owned, and its ownership is simple and documented, so tenants deploying advanced GPUs can verify who stands behind the facility.',
+      p2: 'TODO(CEO): PIDC ownership statement (Vietnamese-owned, simple and documented ownership, verifiable for tenants deploying advanced GPUs).',
       facts: {
         company: {
           dt: 'Company',
@@ -556,7 +561,7 @@ const dictionary = {
           dd: '99 Tây Sơn, Quy Nhơn Nam Ward, Gia Lai Province, Vietnam',
         },
         capA: 'PIDC.VN',
-        capB: 'REV M',
+        capB: 'Schematic sheet',
       },
       figure: {
         title: 'The Pisico group',
@@ -578,7 +583,7 @@ const dictionary = {
       eyebrow: 'Status',
       title: 'Milestones',
       intro:
-        'What is already secured for the campus — the land, the grid connection and the permits — and what is still in progress.',
+        'Status of land, grid connection and permits for the campus — what the CEO confirms as secured, and what is still in progress.',
       items: [
         {
           time: 'TODO(CEO): date — land secured',
