@@ -294,7 +294,7 @@ body {
     color: var(--print-link);
   }
   a[href^='/']::after {
-    content: ' (https://pidc.vn' attr(href) ')';
+    content: ' (https://www.pidc.vn' attr(href) ')';
     font: 400 var(--fs-print-url)/1.4 var(--font-num);
     color: var(--print-link);
   }
@@ -302,11 +302,6 @@ body {
   .c-figure {
     break-inside: avoid;
     page-break-inside: avoid;
-  }
-  /* red CEO placeholders keep their warning color in print (DESIGN.md §4 c-ceo) */
-  .c-ceo {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
   }
   h1,
   h2,

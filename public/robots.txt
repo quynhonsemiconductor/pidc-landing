@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# Pre-launch: nothing indexed (SA decision 2026-10-30). Launch flip, both files:
-# delete the Disallow line above, delete the `X-Robots-Tag: noindex, nofollow`
-# line in public/_headers, and add: Sitemap: https://pidc.vn/sitemap-index.xml
+Sitemap: https://www.pidc.vn/sitemap-index.xml

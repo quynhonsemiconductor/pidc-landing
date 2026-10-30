@@ -1,7 +1,7 @@
 // English dictionary — UI strings + home-page copy from the locked mockup
 // (design/screens/index.html). Copy is verbatim from the demo (DESIGN.md §6).
 // The mockup uses no-break spaces inside 220 kV etc.; strings keep them as   escapes.
-// become the build convention TODO(CEO): … (BUILD-NOTES 6) and render inside .c-ceo.
+// become the build convention TODO(CEO): … (BUILD-NOTES 6); pruneTodo() hides them at render.
 const dictionary = {
   brand: {
     name: 'PIDC',
@@ -46,7 +46,7 @@ const dictionary = {
       src: 'TODO(CEO): source + as-of',
     },
     stage: {
-      value: 'TODO(CEO): current stage',
+      value: 'In development',
       label: 'Current stage',
       src: 'TODO(CEO): source + as-of',
     },
@@ -521,8 +521,7 @@ const dictionary = {
   // Company profile ("/company/") — copy verbatim from the locked mockup
   // (design/screens/company.html). Entity facts are registry data kept verbatim from the
   // demo (BUILD-NOTES / handoff: enterprise code stays public); the Chairman's name is the
-  // one TODO(CEO) slot in the table. Milestones and people are all TODO(CEO) content slots
-  // (BUILD-NOTES 6) and render inside .c-ceo. The hero lede carries the pisico.vn link, so
+  // filled from the Chairman's sample site. Unknown TODO(CEO) slots are pruned at render. The hero lede carries the pisico.vn link, so
   // it is split pre/link/post for markup.
   company: {
     pageMeta: {
@@ -542,7 +541,7 @@ const dictionary = {
       eyebrow: 'Company',
       title: 'The Pisico group',
       p1: 'Pisico is a multi-sector group in Gia Lai that traces its history to 1985. Its shares have traded on UPCoM under the ticker PIS since 2016. Its businesses span forest-product processing for export, industrial cluster infrastructure, real estate, trade and services, logistics including Thị Nại Port in Quy Nhơn, workforce development, and agricultural investment, with acacia, rubber and coffee plantations in Vietnam and Laos.',
-      p2: 'TODO(CEO): PIDC ownership statement (Vietnamese-owned, simple and documented ownership, verifiable for tenants deploying advanced GPUs).',
+      p2: 'PIDC is Vietnamese-owned, and its ownership is simple and documented, so tenants deploying advanced GPUs can verify who stands behind the facility.',
       facts: {
         company: {
           dt: 'Company',
@@ -553,7 +552,7 @@ const dictionary = {
         code: { dt: 'Enterprise code', dd: '4101699991' },
         chairman: {
           dt: 'Chairman of the Board',
-          dd: "TODO(CEO): confirm showing the Chairman's name",
+          dd: 'Lâm Duy Việt',
         },
         member: { dt: 'Member of', dd: 'Tổng Công ty PISICO Bình Định – CTCP' },
         office: {
@@ -603,9 +602,10 @@ const dictionary = {
     people: {
       eyebrow: 'Company',
       title: 'Who stands behind PIDC',
-      intro: 'TODO(CEO): 1–2 sentences on the Pisico relationship and governance',
+      intro:
+        'PIDC is the project company for the campus and a member of Pisico (Tổng Công ty PISICO Bình Định – CTCP).',
       cards: [
-        { role: 'TODO(CEO): role', line: 'TODO(CEO): name + one line' },
+        { role: 'Chairman of the Board', line: 'Lâm Duy Việt' },
         { role: 'TODO(CEO): role', line: 'TODO(CEO): name + one line' },
         { role: 'TODO(CEO): role', line: 'TODO(CEO): name + one line' },
       ],
@@ -617,7 +617,7 @@ const dictionary = {
   },
   // Contact ("/contact/") — copy verbatim from the locked mockup
   // (design/screens/contact.html). The submit button stays disabled (no backend yet) and the
-  // mailto fallback (contact@pidc.vn only — SA decision, BUILD-NOTES 8) is the real primary
+  // mailto fallback (CONTACT_EMAIL, src/site.ts) is the real primary
   // action. The IM request CTA wording is the one TODO(CEO) slot on the page (handoff);
   // the mockup's stale "[CEO: submit label]" placeholder is replaced by a real label so the
   // disabled state reads plainly (SA label fix, same round as the field labels).

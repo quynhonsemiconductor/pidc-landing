@@ -521,7 +521,7 @@ main > section + section {
   font-variant-numeric: tabular-nums;
 }
 
-/* c-milestones — what is secured, dated list (dates/items stay TODO(CEO) slots until confirmed;
+/* c-milestones — what is secured, dated list (items render only once confirmed;
    ported verbatim from design/components/components.css) */
 .c-milestones {
   list-style: none;
@@ -645,17 +645,6 @@ main > section + section {
 .c-statband__src {
   font: var(--fs-meta)/1.4 var(--font-num);
   color: var(--color-text-2);
-}
-
-/* c-ceo — content placeholder: can never be mistaken for final copy */
-.c-ceo {
-  display: inline-block;
-  border: 1.5px dashed var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 6%, var(--color-bg));
-  color: var(--color-accent-deep); /* darker red: AA on the tinted ground; border stays accent */
-  font: 500 var(--fs-small)/1.5 var(--font-num);
-  padding: var(--s-1) var(--s-2);
-  border-radius: var(--r-1);
 }
 
 /* c-callout — plain-spoken note (NDA gating) */

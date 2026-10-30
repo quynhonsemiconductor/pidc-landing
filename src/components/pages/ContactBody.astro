@@ -3,12 +3,13 @@
 // source, every string resolved from the locale dictionary. Full page from the locked mockup
 // (design/screens/contact.html): hero, S-01 "I am a" audience routing (native c-choice
 // radios — keyboard-safe, zero JS; capital pre-checked as the mockup ships it) + the
-// capital-partner IM callout (the page's one TODO(CEO) slot), S-02 "Write to us" form
+// capital-partner IM callout (hidden until the CTA wording is confirmed), S-02 "Write to us" form
 // (c-formfield, real labels per the SA fix; submit stays disabled — no backend yet) with the
-// not-live callout + mailto fallback, S-03 Office (address verbatim, contact@pidc.vn only —
-// SA decision, BUILD-NOTES 8) + NDA callout. Routing layout: no TOC rail and no CTA band —
+// not-live callout + mailto fallback, S-03 Office (address verbatim, CONTACT_EMAIL only) + NDA callout. Routing layout: no TOC rail and no CTA band —
 // the page is itself the CTA, so it ends on the terrain rule, flush above the footer.
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { pruneTodo } from '../../i18n/prune';
+import { CONTACT_EMAIL } from '../../site';
 import type { Dictionary, Locale } from '../../i18n';
 
 interface Props {
@@ -17,11 +18,9 @@ interface Props {
 }
 
 const { dict, locale } = Astro.props;
-const t = dict.contact;
-// mailto fallback target — contact@pidc.vn ONLY, everywhere (SA decision 2026-10-29)
-const contactEmail = 'contact@pidc.vn';
-const title = t.pageMeta.title;
-const description = t.pageMeta.description;
+const t = pruneTodo(dict.contact);
+const contactEmail = CONTACT_EMAIL; // mailto fallback target, one constant (src/site.ts)
+const { title, description } = dict.contact.pageMeta;
 ---
 
 <BaseLayout
@@ -70,10 +69,13 @@ const description = t.pageMeta.description;
               ))
             }
           </fieldset>
-          <p class="c-callout l-im">
-            {t.iam.imPre}
-            <span class="c-ceo">{t.iam.imCeo}</span>
-          </p>
+          {
+            t.iam.imCeo && (
+              <p class="c-callout l-im">
+                {t.iam.imPre} {t.iam.imCeo}
+              </p>
+            )
+          }
         </div>
       </div>
     </section>

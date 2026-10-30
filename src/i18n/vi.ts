@@ -47,7 +47,7 @@ const dictionary: Dictionary = {
       src: 'TODO(CEO): nguồn + thời điểm',
     },
     stage: {
-      value: 'TODO(CEO): giai đoạn hiện tại',
+      value: 'Đang phát triển',
       label: 'Giai đoạn hiện tại',
       src: 'TODO(CEO): nguồn + thời điểm',
     },
@@ -521,7 +521,7 @@ const dictionary: Dictionary = {
     },
   },
   // Công ty ("/company/") — chuỗi verbatim từ mockup (design/screens/company.html); các
-  // placeholder [CEO: …] theo quy ước TODO(CEO): … của bản dựng (BUILD-NOTES 6).
+  // chỗ trống TODO(CEO): … bị ẩn khi dựng trang (pruneTodo).
   company: {
     pageMeta: {
       title: 'Công ty · PIDC',
@@ -540,7 +540,7 @@ const dictionary: Dictionary = {
       eyebrow: 'Công ty',
       title: 'Các lĩnh vực của Pisico',
       p1: 'Pisico là doanh nghiệp đa ngành tại Gia Lai, có lịch sử từ năm 1985. Cổ phiếu của Pisico giao dịch trên UPCoM với mã PIS từ năm 2016. Hoạt động của Tổng công ty gồm chế biến lâm sản xuất khẩu, hạ tầng cụm công nghiệp, bất động sản, thương mại – dịch vụ, logistics (trong đó có Cảng Thị Nại tại Quy Nhơn), phát triển nguồn nhân lực và đầu tư nông nghiệp, với các vùng trồng keo, cao su và cà phê tại Việt Nam và Lào.',
-      p2: 'TODO(CEO): xác nhận tuyên bố sở hữu PIDC (thuộc sở hữu Việt Nam, cơ cấu đơn giản, hồ sơ rõ ràng, có thể xác minh).',
+      p2: 'PIDC thuộc sở hữu Việt Nam, với cơ cấu sở hữu đơn giản và hồ sơ rõ ràng, giúp khách hàng triển khai GPU tiên tiến dễ dàng xác minh chủ sở hữu hưởng lợi của cơ sở.',
       facts: {
         company: {
           dt: 'Tên công ty',
@@ -551,7 +551,7 @@ const dictionary: Dictionary = {
         code: { dt: 'Mã số doanh nghiệp', dd: '4101699991' },
         chairman: {
           dt: 'Chủ tịch HĐQT',
-          dd: 'TODO(CEO): xác nhận việc công khai tên Chủ tịch HĐQT',
+          dd: 'Lâm Duy Việt',
         },
         member: { dt: 'Thành viên của', dd: 'Tổng Công ty PISICO Bình Định – CTCP' },
         office: {
@@ -601,9 +601,10 @@ const dictionary: Dictionary = {
     people: {
       eyebrow: 'Công ty',
       title: 'Ai đứng sau PIDC',
-      intro: 'TODO(CEO): 1–2 câu về quan hệ với Pisico và cơ cấu quản trị',
+      intro:
+        'PIDC là pháp nhân dự án của khu dữ liệu và là công ty thành viên của Tổng Công ty PISICO Bình Định – CTCP.',
       cards: [
-        { role: 'TODO(CEO): vai trò', line: 'TODO(CEO): tên + một dòng' },
+        { role: 'Chủ tịch HĐQT', line: 'Lâm Duy Việt' },
         { role: 'TODO(CEO): vai trò', line: 'TODO(CEO): tên + một dòng' },
         { role: 'TODO(CEO): vai trò', line: 'TODO(CEO): tên + một dòng' },
       ],
@@ -615,7 +616,7 @@ const dictionary: Dictionary = {
   },
   // Liên hệ ("/vi/contact/") — chuỗi lấy nguyên văn từ mockup
   // (design/screens/contact--vi.html). Nút gửi giữ trạng thái vô hiệu hóa (chưa có backend);
-  // mailto dự phòng chỉ dùng contact@pidc.vn (quyết định SA, BUILD-NOTES 8).
+  // mailto dự phòng chỉ dùng CONTACT_EMAIL (src/site.ts).
   contact: {
     pageMeta: {
       title: 'Liên hệ · PIDC',

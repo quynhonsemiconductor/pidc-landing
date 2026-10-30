@@ -10,7 +10,7 @@ import { setTimeout as sleep } from 'node:timers/promises';
 import { launch as launchChrome } from 'chrome-launcher';
 import lighthouse from 'lighthouse';
 
-const PORT = 4321;
+const PORT = Number(process.env.PORT ?? 4321);
 const BASE = `http://127.0.0.1:${PORT}`;
 const TARGETS = [
   { path: '/', name: 'home-en' },

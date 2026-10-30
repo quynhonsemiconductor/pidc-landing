@@ -2,17 +2,28 @@
 // 1. Every canonical/hreflang href equals an existing page URL, trailing slash included.
 // 2. No inline executable <script> (CSP readiness: script-src 'self'). Structured-data blocks
 //    (type="application/ld+json") are data, never executed by the browser, so they are allowed.
+// 3. No unconfirmed-content leak: no `TODO(CEO)` text and no `c-ceo` placeholder class in any
+//    text file under dist/ (unknown content slots are hidden at build time, see i18n/prune.ts).
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = new URL('../dist/', import.meta.url).pathname;
 const pages = new Set();
 const htmlFiles = [];
+const errors = [];
+const LEAKS = ['TODO(CEO)', 'c-ceo'];
+const TEXT_FILE = /\.(html|css|js|mjs|json|xml|txt|svg|webmanifest)$/;
 (function walk(dir) {
   for (const e of readdirSync(dir)) {
     const p = join(dir, e);
     if (statSync(p).isDirectory()) walk(p);
-    else if (e.endsWith('.html')) {
+    else {
+      if (TEXT_FILE.test(e)) {
+        const text = readFileSync(p, 'utf8');
+        for (const leak of LEAKS) if (text.includes(leak)) errors.push(`${p}: contains "${leak}"`);
+      }
+    }
+    if (e.endsWith('.html')) {
       htmlFiles.push(p);
       let rel = p.slice(dist.length, -'.html'.length);
       if (rel.endsWith('/index') || rel === 'index') rel = rel.slice(0, -'index'.length); // dir index pages
@@ -22,7 +33,6 @@ const htmlFiles = [];
 })(dist);
 pages.delete('404/');
 
-const errors = [];
 const meta = new Map(); // page path -> { title, ogTitle }, filled for every page first
 const read = (file) => readFileSync(file, 'utf8');
 const attr = (html, re) => html.match(re)?.[1] ?? '';
@@ -72,5 +82,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `verify-dist: OK — ${htmlFiles.length} page(s), all canonical/hreflang hrefs resolve, no inline scripts`,
+  `verify-dist: OK — ${htmlFiles.length} page(s), all canonical/hreflang hrefs resolve, no inline scripts, no TODO(CEO)/c-ceo leak`,
 );

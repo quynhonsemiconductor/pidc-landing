@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pidc.vn',
+  site: 'https://www.pidc.vn',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'vi'],

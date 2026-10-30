@@ -9,7 +9,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { launch as launchChrome } from 'chrome-launcher';
 
-const PORT = 4321;
+const PORT = Number(process.env.PORT ?? 4321);
 const BASE = `http://127.0.0.1:${PORT}`;
 const SHOTS = [
   { path: '/', name: 'home-en-390', width: 390, height: 844, dsf: 2 },

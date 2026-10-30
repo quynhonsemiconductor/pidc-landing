@@ -25,7 +25,6 @@
   --p-blue-300: #6bb3ea;
   --p-red-500: #c0503a;
   --p-red-300: #f08c70;
-  --p-red-900: #9c3011; /* CEO-placeholder text: AA on the tinted c-ceo ground */
   --p-iso-left: #f0f0e9;
   --p-iso-right: #e3e3da;
   --p-space-1: 4px;
@@ -52,7 +51,6 @@
   --color-line: var(--p-ink-200);
   --color-accent: var(--p-red-700);
   --color-on-accent: var(--p-white);
-  --color-accent-deep: var(--p-red-900); /* c-ceo placeholder text on its tinted ground */
   --color-accent-2: var(--p-ink-900); /* citations/links: ink; underline carries them */
   --color-ok: #a8ae9f; /* neutral vegetation gray in diagrams */
   --color-warn: var(--p-red-700);
