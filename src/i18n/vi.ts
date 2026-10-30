@@ -456,7 +456,11 @@ const dictionary: Dictionary = {
         {
           pre: 'Google, Temasek and Bain, e-Conomy SEA 2025, as reported by ',
           href: 'https://ven.congthuong.vn/google-vietnam-s-digital-economy-to-reach-usd-39-billion-in-2025-58364.html',
+<<<<<<< HEAD
           text: 'Vietnam Economic News (Công Thương), 27/11/2025.',
+=======
+          text: 'Vietnam Economic News (Công Thương), 27 Nov 2025.',
+>>>>>>> eaded7d (feat: why-vietnam page (EN + VI))
           post: '',
         },
         {
@@ -468,13 +472,21 @@ const dictionary: Dictionary = {
         {
           pre: 'Tạp chí Luật sư Việt Nam, ',
           href: 'https://lsvn.vn/tu-01102022-du-lieu-nguoi-dung-internet-tai-viet-nam-se-duoc-luu-tru1661052929.html',
+<<<<<<< HEAD
           text: 'Từ 01/10/2022, dữ liệu người dùng Internet tại Việt Nam sẽ được lưu trữ, 21/08/2022.',
+=======
+          text: 'Từ 01/10/2022, dữ liệu người dùng Internet tại Việt Nam sẽ được lưu trữ, 21 Aug 2022.',
+>>>>>>> eaded7d (feat: why-vietnam page (EN + VI))
           post: '',
         },
         {
           pre: 'VnEconomy, ',
           href: 'https://vneconomy.vn/chien-luoc-phat-trien-cap-quang-bien-cua-viet-nam-den-2030-toi-thieu-dua-vao-hoat-dong-them-10-tuyen-cap.htm',
+<<<<<<< HEAD
           text: 'Chiến lược phát triển cáp quang biển của Việt Nam đến 2030, 18/06/2024.',
+=======
+          text: 'Chiến lược phát triển cáp quang biển của Việt Nam đến 2030, 18 Jun 2024.',
+>>>>>>> eaded7d (feat: why-vietnam page (EN + VI))
           post: '',
         },
         {
@@ -486,31 +498,51 @@ const dictionary: Dictionary = {
         {
           pre: 'Nhà Đầu Tư, ',
           href: 'https://nhadautu.vn/don-dong-von-ty-usd-gia-lai-tang-toc-tren-ban-do-nang-luong-xanh-d103183.html',
+<<<<<<< HEAD
           text: 'Đón dòng vốn tỷ USD, Gia Lai tăng tốc trên bản đồ năng lượng xanh, 02/03/2026.',
+=======
+          text: 'Đón dòng vốn tỷ USD, Gia Lai tăng tốc trên bản đồ năng lượng xanh, 2 Mar 2026.',
+>>>>>>> eaded7d (feat: why-vietnam page (EN + VI))
           post: '',
         },
         {
           pre: 'VTC News, ',
           href: 'https://vtcnews.vn/tuyen-cap-bien-lon-nhat-vua-hoat-dong-dan-mang-viet-sap-luot-nhu-bay-ar938050.html',
+<<<<<<< HEAD
           text: 'ADC cable enters operation, 04/2025.',
+=======
+          text: 'ADC cable enters operation, Apr 2025.',
+>>>>>>> eaded7d (feat: why-vietnam page (EN + VI))
           post: '',
         },
         {
           pre: 'W.Media, ',
           href: 'https://w.media/sjc2-goes-live-linking-singapore-hk-china-and-japan/',
+<<<<<<< HEAD
           text: 'SJC2 goes live linking Singapore, HK, China and Japan, 22/07/2025.',
+=======
+          text: 'SJC2 goes live linking Singapore, HK, China and Japan, 22 Jul 2025.',
+>>>>>>> eaded7d (feat: why-vietnam page (EN + VI))
           post: '',
         },
         {
           pre: 'SGGP, ',
           href: 'https://www.sggp.org.vn/vnpt-cap-quang-bien-sjc2-tang-cuong-suc-manh-truyen-dan-quoc-te-post560862.html',
+<<<<<<< HEAD
           text: 'VNPT: SJC2 landing at Quy Nhơn, 07/07/2020.',
+=======
+          text: 'VNPT: SJC2 landing at Quy Nhơn, 7 Jul 2020.',
+>>>>>>> eaded7d (feat: why-vietnam page (EN + VI))
           post: '',
         },
         {
           pre: 'Tạp chí Quản lý nhà nước, ',
           href: 'https://www.quanlynhanuoc.vn/2026/06/16/gia-lai-dinh-huong-thu-hut-dau-tu-chien-luoc-trong-boi-canh-hoi-nhap-quoc-te/',
+<<<<<<< HEAD
           text: 'Gia Lai định hướng thu hút đầu tư chiến lược, 16/06/2026.',
+=======
+          text: 'Gia Lai định hướng thu hút đầu tư chiến lược, 16 Jun 2026.',
+>>>>>>> eaded7d (feat: why-vietnam page (EN + VI))
           post: '',
         },
       ],
