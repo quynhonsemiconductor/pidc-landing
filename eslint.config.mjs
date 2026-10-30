@@ -23,18 +23,6 @@ export default [
   },
   {
     // node scripts (scripts/): Node >=22 globals (Buffer, fetch, WebSocket are built-in)
-    files: ['functions/**'],
-    languageOptions: {
-      // Cloudflare Pages Functions runtime globals
-      globals: {
-        Headers: 'readonly',
-        Response: 'readonly',
-        Request: 'readonly',
-        console: 'readonly',
-      },
-    },
-  },
-  {
     files: ['scripts/**'],
     languageOptions: {
       globals: {
