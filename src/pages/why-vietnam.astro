@@ -1,0 +1,12 @@
+---
+// EN "Why Vietnam, why Gia Lai" (canonical "/why-vietnam/"). Meta description verbatim
+// from the demo (design/content/why-vietnam.html).
+import WhyVietnamBody from '../components/pages/WhyVietnamBody.astro';
+import { getDictionary } from '../i18n';
+
+const dict = getDictionary('en');
+const description =
+  'Why PIDC is developing an AI data center campus in Vietnam and in Gia Lai: demand and policy, a large renewable power base, and two international submarine cables at Quy Nhơn.';
+---
+
+<WhyVietnamBody dict={dict} locale="en" description={description} />

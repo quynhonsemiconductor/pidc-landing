@@ -344,6 +344,180 @@ const dictionary = {
       btn: 'Contact us',
     },
   },
+  // Why Vietnam, why Gia Lai ("/why-vietnam/") — copy verbatim from the locked mockup
+  // (design/screens/why-vietnam.html). Source titles keep their dates/punctuation inside the
+  // link text exactly as mocked, so no punctuation ever dangles alone after a link.
+  whyv: {
+    hero: {
+      badge: 'Location',
+      title: 'Why Vietnam, and why Gia Lai',
+      lede: "Vietnam's demand for computing is growing fast, and its laws now treat data centers as a priority sector. Within Vietnam, Gia Lai pairs a large renewable power base with two international submarine cables that land at Quy Nhơn.",
+    },
+    tocSummary: 'On this page',
+    tocItems: [
+      { id: 'vietnam', label: 'Vietnam' },
+      { id: 'gia-lai', label: 'Gia Lai' },
+      { id: 'pidc-site', label: 'Where PIDC fits' },
+      { id: 'sources', label: 'Sources' },
+    ],
+    vietnam: {
+      eyebrow: 'Vietnam',
+      title: 'A growing market, with the law behind it',
+      items: [
+        {
+          index: '01',
+          kicker: 'Demand',
+          title: 'A fast-growing digital economy',
+          stat: { figure: 'US$39B', label: '+17% in 2025 · 81% use AI daily' },
+          cites: [1],
+          body: "Vietnam's digital economy was estimated at US$39 billion in gross merchandise value in 2025, up 17% on the year. Vietnamese users also lead Southeast Asia in daily use of AI tools, at 81%.",
+        },
+        {
+          index: '02',
+          kicker: 'Law',
+          title: 'Data centers are a priority sector',
+          stat: { figure: '71/2025/QH15', label: 'In force since 1 Jan 2026' },
+          cites: [2],
+          body: 'The Law on Digital Technology Industry (No. 71/2025/QH15), in force since 1 January 2026, lists data centers and AI among the priority sectors for investment incentives.',
+        },
+        {
+          index: '03',
+          kicker: 'Data',
+          title: 'Some data must stay in Vietnam',
+          stat: { figure: '53/2022/NĐ-CP', label: 'In force since Oct 2022' },
+          cites: [3],
+          body: 'Since October 2022, Decree 53/2022/NĐ-CP has required domestic companies, and foreign providers in certain cases, to store specified user data in Vietnam.',
+        },
+        {
+          index: '04',
+          kicker: 'Connectivity',
+          title: 'More international cables on the way',
+          stat: { figure: '15+', label: 'cables by 2030 · 350+ Tbps' },
+          cites: [4],
+          body: "Vietnam's strategy for its international cable system targets at least 10 new submarine cables by 2030, for a total of at least 15 and at least 350 Tbps of capacity.",
+        },
+      ],
+    },
+    gialai: {
+      eyebrow: 'Gia Lai',
+      title: 'From the highlands to the sea',
+      intro:
+        'Since its 2025 merger with Bình Định, Gia Lai runs from the Central Highlands to the coast, with its administrative center at Quy Nhơn.',
+      power: {
+        index: '01',
+        kicker: 'Power',
+        title: 'A large renewable power base',
+        body: "85 renewable plants are operating in the province, with 4,179 MW of capacity. Together they supply more than 15 billion kWh a year to the national grid, and the adjusted national power plan takes the province's renewable capacity to about 9,657 MW by 2035.",
+      },
+      chart: {
+        title: 'Renewable plants in operation, MW',
+        axisMax: '4,179 MW',
+        keys: [
+          { n: '1', value: '2,516', label: 'hydro' },
+          { n: '2', value: '1,048', label: 'wind' },
+          { n: '3', value: '485', label: 'solar' },
+          { n: '4', value: '130', label: 'biomass' },
+        ],
+      },
+      items: [
+        {
+          index: '02',
+          kicker: 'Connectivity',
+          title: 'Two international cables land at Quy Nhơn',
+          stat: { figure: 'ADC · SJC2', label: '04/2025 · 07/2025' },
+          cites: [7, 8, 9],
+          body: 'ADC, operated in Vietnam by Viettel, entered service in April 2025. SJC2, with VNPT as its Vietnamese partner, went live in July 2025; its main trunk links Singapore, Hong Kong, China and Japan.',
+        },
+        {
+          index: '03',
+          kicker: 'Policy',
+          title: 'A province that wants this industry',
+          stat: { figure: 'AI · data centers', label: 'Priority sectors for investment' },
+          cites: [10],
+          body: 'Gia Lai lists digital technology, AI and data centers among the priority sectors in its investment promotion.',
+        },
+      ],
+    },
+    fit: {
+      eyebrow: 'Where PIDC fits',
+      title: 'Power and cables, one site',
+      intro:
+        "PIDC's site is in coastal Gia Lai, beside the 220 kV transmission grid and within reach of both cable landing stations. Site details are shared under NDA.",
+      mapCapA: 'Schematic location map',
+      mapCapB: 'Not to scale',
+      btn: 'See the campus plan',
+    },
+    sources: {
+      eyebrow: 'Sources',
+      title: 'Where the numbers come from',
+      items: [
+        {
+          pre: 'Google, Temasek and Bain, e-Conomy SEA 2025, as reported by ',
+          href: 'https://ven.congthuong.vn/google-vietnam-s-digital-economy-to-reach-usd-39-billion-in-2025-58364.html',
+          text: 'Vietnam Economic News (Công Thương), 27 Nov 2025.',
+          post: '',
+        },
+        {
+          pre: 'LuatVietnam, ',
+          href: 'https://luatvietnam.vn/linh-vuc-khac/diem-dang-chu-y-tai-luat-cong-nghiep-cong-nghe-so-2025-883-103086-article.html',
+          text: 'Điểm đáng chú ý tại Luật Công nghiệp công nghệ số 2025.',
+          post: '',
+        },
+        {
+          pre: 'Tạp chí Luật sư Việt Nam, ',
+          href: 'https://lsvn.vn/tu-01102022-du-lieu-nguoi-dung-internet-tai-viet-nam-se-duoc-luu-tru1661052929.html',
+          text: 'Từ 01/10/2022, dữ liệu người dùng Internet tại Việt Nam sẽ được lưu trữ, 21 Aug 2022.',
+          post: '',
+        },
+        {
+          pre: 'VnEconomy, ',
+          href: 'https://vneconomy.vn/chien-luoc-phat-trien-cap-quang-bien-cua-viet-nam-den-2030-toi-thieu-dua-vao-hoat-dong-them-10-tuyen-cap.htm',
+          text: 'Chiến lược phát triển cáp quang biển của Việt Nam đến 2030, 18 Jun 2024.',
+          post: '',
+        },
+        {
+          pre: 'Wikipedia, ',
+          href: 'https://en.wikipedia.org/wiki/Gia_Lai_province',
+          text: 'Gia Lai province',
+          post: ' (Resolution 202/2025/QH15).',
+        },
+        {
+          pre: 'Nhà Đầu Tư, ',
+          href: 'https://nhadautu.vn/don-dong-von-ty-usd-gia-lai-tang-toc-tren-ban-do-nang-luong-xanh-d103183.html',
+          text: 'Đón dòng vốn tỷ USD, Gia Lai tăng tốc trên bản đồ năng lượng xanh, 2 Mar 2026.',
+          post: '',
+        },
+        {
+          pre: 'VTC News, ',
+          href: 'https://vtcnews.vn/tuyen-cap-bien-lon-nhat-vua-hoat-dong-dan-mang-viet-sap-luot-nhu-bay-ar938050.html',
+          text: 'ADC cable enters operation, Apr 2025.',
+          post: '',
+        },
+        {
+          pre: 'W.Media, ',
+          href: 'https://w.media/sjc2-goes-live-linking-singapore-hk-china-and-japan/',
+          text: 'SJC2 goes live linking Singapore, HK, China and Japan, 22 Jul 2025.',
+          post: '',
+        },
+        {
+          pre: 'SGGP, ',
+          href: 'https://www.sggp.org.vn/vnpt-cap-quang-bien-sjc2-tang-cuong-suc-manh-truyen-dan-quoc-te-post560862.html',
+          text: 'VNPT: SJC2 landing at Quy Nhơn, 7 Jul 2020.',
+          post: '',
+        },
+        {
+          pre: 'Tạp chí Quản lý nhà nước, ',
+          href: 'https://www.quanlynhanuoc.vn/2026/06/16/gia-lai-dinh-huong-thu-hut-dau-tu-chien-luoc-trong-boi-canh-hoi-nhap-quoc-te/',
+          text: 'Gia Lai định hướng thu hút đầu tư chiến lược, 16 Jun 2026.',
+          post: '',
+        },
+      ],
+    },
+    cta: {
+      title: 'Talk to us about the campus',
+      btn: 'Contact us',
+    },
+  },
   diagrams: {
     sld: {
       a11yTitle: 'Concept single-line diagram (SLD-00)',

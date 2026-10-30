@@ -1,0 +1,13 @@
+---
+// VI "Why Vietnam, why Gia Lai" ("/vi/why-vietnam/"). The demo ships no VI meta description
+// (EN-only demo head); this is the VI rendering of the same sentence, in the page's own
+// voice (DESIGN.md §6) — same approach as the aidc VI route.
+import WhyVietnamBody from '../../components/pages/WhyVietnamBody.astro';
+import { getDictionary } from '../../i18n';
+
+const dict = getDictionary('vi');
+const description =
+  'Vì sao PIDC phát triển khu trung tâm dữ liệu AI tại Việt Nam và tại Gia Lai: nhu cầu và chính sách, nguồn điện tái tạo lớn, cùng hai tuyến cáp quang biển quốc tế cập bờ tại Quy Nhơn.';
+---
+
+<WhyVietnamBody dict={dict} locale="vi" description={description} />
