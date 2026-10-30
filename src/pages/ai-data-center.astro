@@ -1,0 +1,12 @@
+---
+// EN AI data center explainer (canonical "/ai-data-center/"). Meta description verbatim
+// from the demo (design/content/ai-data-center.html).
+import AiDataCenterBody from '../components/pages/AiDataCenterBody.astro';
+import { getDictionary } from '../i18n';
+
+const dict = getDictionary('en');
+const description =
+  'A plain-language guide to AI data centers: GPUs, power per rack, liquid cooling, and why grid power decides where they are built.';
+---
+
+<AiDataCenterBody dict={dict} locale="en" description={description} />

@@ -106,6 +106,239 @@ const dictionary: Dictionary = {
     title: 'Trao đổi với chúng tôi về dự án',
     btn: 'Liên hệ với chúng tôi',
   },
+  // AI data center explainer — verbatim VI strings from design/screens/ai-data-center.html
+  // (lang="vi" spans; the VI mockup keeps the source list identical to EN).
+  aidc: {
+    hero: {
+      badge: 'Tìm hiểu',
+      title: 'Trung tâm dữ liệu AI là gì?',
+      lede: 'Trung tâm dữ liệu AI là một tòa nhà, hoặc một cụm tòa nhà, được thiết kế để cấp điện và làm mát cho các cụm GPU và chip AI quy mô lớn. Về cơ bản, nó làm cùng công việc như mọi trung tâm dữ liệu, nhưng điện năng và lượng nhiệt trên cùng một diện tích lớn hơn nhiều.',
+    },
+    tocSummary: 'Trên trang này',
+    tocItems: [
+      { id: 'what', label: 'Chức năng' },
+      { id: 'differs', label: 'Khác biệt' },
+      { id: 'power', label: 'Nguồn điện' },
+      { id: 'cooling', label: 'Làm mát' },
+      { id: 'province', label: 'Lợi ích cho địa phương' },
+      { id: 'terms', label: 'Thuật ngữ' },
+      { id: 'sources', label: 'Nguồn' },
+    ],
+    rack: {
+      a11yTitle: 'Tủ GPU minh họa',
+      a11yDesc:
+        'Tủ GPU minh họa: khối nguồn ở trên và dưới, các khay tính toán với GPU gắn tấm làm mát, khay chuyển mạch ở giữa, và đường cấp, hồi chất làm mát ở bên cạnh.',
+      keys: [
+        'Khay tính toán: GPU gắn tấm làm mát',
+        'Khay chuyển mạch kết nối các GPU',
+        'Khối nguồn điện',
+        'Đường cấp và hồi chất làm mát',
+      ],
+      capA: 'Tủ GPU minh họa',
+      capB: 'Không theo tỷ lệ',
+    },
+    what: {
+      eyebrow: 'Chức năng',
+      title: 'Huấn luyện và suy luận',
+      training: {
+        title: 'Huấn luyện',
+        body: 'Hàng nghìn GPU cùng làm việc trong nhiều tuần hoặc nhiều tháng để xây dựng một mô hình AI từ khối dữ liệu lớn. Các GPU phải đặt sát nhau và nối với nhau bằng mạng tốc độ rất cao, nên việc huấn luyện cần những cơ sở lớn, mật độ cao.',
+        data: 'Dữ liệu',
+        cluster: 'Cụm GPU',
+        model: 'Mô hình',
+      },
+      inference: {
+        title: 'Suy luận',
+        body: 'Vận hành mô hình đã huấn luyện để trả lời các yêu cầu, từ trợ lý trò chuyện đến nhận dạng hình ảnh. Suy luận chạy liên tục và tăng theo số người dùng, nên cũng cần kết nối tốt tới mạng lưới nơi người dùng truy cập.',
+        requests: 'yêu cầu',
+        answers: 'trả lời',
+        users: 'Người dùng',
+        modelOnGpus: 'Mô hình trên GPU',
+      },
+    },
+    differs: {
+      eyebrow: 'Khác biệt',
+      title: 'Cùng loại công trình, công suất gấp nhiều lần',
+      chart: {
+        title: 'Công suất điện của một tủ rack, kW',
+        rows: [
+          {
+            value: '≈ 8',
+            label: 'Tủ rack trung bình tại các trung tâm dữ liệu trên thế giới, 2024',
+            cite: 1,
+          },
+          { value: '132', label: 'Một tủ NVIDIA GB200 NVL72 gồm 72 GPU', cite: 2 },
+        ],
+      },
+      intro:
+        'Một tủ GPU thế hệ hiện nay tiêu thụ điện gấp khoảng 16 lần một tủ rack trung bình. Điều đó thay đổi toàn bộ hệ thống cấp điện và làm mát xung quanh nó.',
+      table: {
+        feature: 'Tiêu chí',
+        conventional: 'Trung tâm dữ liệu truyền thống',
+        ai: 'Trung tâm dữ liệu AI',
+        hConventional: 'Truyền thống',
+        hAi: 'AI',
+        rows: [
+          {
+            th: 'Thiết bị chính',
+            conv: 'Máy chủ CPU và thiết bị lưu trữ',
+            ai: 'Máy chủ GPU liên kết thành cụm lớn',
+          },
+          {
+            th: 'Công suất mỗi tủ',
+            conv: 'Phần lớn dưới 10 kW',
+            ai: 'Hàng chục kW; khoảng 130 kW với tủ GPU mới nhất',
+          },
+          {
+            th: 'Làm mát',
+            conv: 'Chủ yếu bằng không khí',
+            ai: 'Chất lỏng dẫn trực tiếp tới chip, kết hợp không khí cho phần còn lại',
+          },
+          {
+            th: 'Mạng',
+            conv: 'Phục vụ lưu lượng tới và từ người dùng',
+            ai: 'Kết nối tốc độ rất cao giữa các GPU trong cụm, cùng kết nối ra người dùng và đám mây',
+          },
+          { th: 'Quy mô', conv: 'Vài MW đến vài chục MW', ai: 'Vài chục đến hàng trăm MW' },
+          {
+            th: 'Đấu nối lưới',
+            conv: 'Trung áp hoặc 110 kV',
+            ai: 'Cao áp, thường 110–220 kV trở lên',
+          },
+        ],
+      },
+    },
+    power: {
+      eyebrow: 'Nguồn điện',
+      title: 'Vì sao nguồn điện quyết định nơi xây dựng',
+      p1: 'Các trung tâm dữ liệu đã tiêu thụ khoảng 415 TWh điện năm 2024, tương đương khoảng 1,5% điện năng toàn cầu. Cơ quan Năng lượng Quốc tế (IEA) dự báo con số này sẽ tăng hơn gấp đôi, lên khoảng 945 TWh vào năm 2030, với AI là động lực chính.',
+      chart: {
+        title: 'Điện năng tiêu thụ của trung tâm dữ liệu toàn cầu, TWh',
+        rows: [
+          { value: '415', label: 'Năm 2024' },
+          { value: '≈ 945', label: 'Năm 2030, dự báo của IEA' },
+        ],
+      },
+      p2: 'Vì vậy, câu hỏi đầu tiên với bất kỳ khu dữ liệu AI nào là nguồn điện: đấu nối lưới cao áp còn dư công suất, có khả năng tăng thêm theo thời gian, và nguồn cấp ổn định suốt ngày đêm. Đất đai, nhà xưởng và thiết bị đều có thể thu xếp; còn một đấu nối cao áp mới có thể mất nhiều năm.',
+      p3: 'Đó là lý do PIDC chọn địa điểm nằm cạnh lưới điện 220  kV.',
+      seeSite: 'Xem địa điểm',
+    },
+    cooling: {
+      eyebrow: 'Làm mát',
+      title: 'Làm mát và nguồn nước',
+      p1: 'Tủ GPU tỏa nhiệt quá lớn để chỉ làm mát bằng không khí. Các hệ thống thế hệ hiện nay như GB200 NVL72 được làm mát bằng chất lỏng: chất làm mát chảy qua các tấm tản nhiệt gắn trên chip và mang nhiệt ra ngoài.',
+      loop: {
+        a11yTitle: 'Vòng làm mát bằng chất lỏng',
+        a11yDesc:
+          'Vòng làm mát bằng chất lỏng: chất làm mát nhận nhiệt từ tấm làm mát trên chip, đưa về bộ phân phối chất làm mát (CDU), rồi chuyển sang vòng thứ hai để thải nhiệt ra ngoài trời qua thiết bị giải nhiệt khô hoặc tháp giải nhiệt.',
+        coldPlateA: 'Tấm làm mát',
+        coldPlateB: 'trên chip',
+        cdu: 'CDU',
+        cduSub: 'bộ phân phối chất làm mát',
+        dryA: 'Giải nhiệt khô',
+        dryB: 'hoặc tháp giải nhiệt',
+        rack: 'tủ rack',
+        outdoors: 'ngoài trời',
+        swCold: 'Chất làm mát nguội',
+        swWarm: 'Chất làm mát nóng',
+        capA: 'Vòng làm mát bằng chất lỏng',
+        capB: 'Sơ đồ',
+      },
+      p2: 'Bên ngoài, lượng nhiệt này được thải ra qua thiết bị giải nhiệt khô, tháp giải nhiệt hoặc kết hợp cả hai. Thiết kế vòng kín tuần hoàn cùng một lượng chất làm mát và dùng rất ít nước. Thiết kế bay hơi dùng nhiều nước hơn nhưng tốn ít điện hơn. Lựa chọn phù hợp phụ thuộc vào khí hậu và nguồn nước tại chỗ.',
+      p3: 'Hiệu suất được đo bằng chỉ số PUE (hiệu quả sử dụng điện năng): tổng điện năng của cơ sở chia cho điện năng của thiết bị tính toán. PUE bằng 1,0 nghĩa là không có tổn hao nào. Mức trung bình của ngành năm 2024 là 1,56.',
+      chart: {
+        title: 'Điện năng lấy từ lưới cho 100 kW thiết bị tính toán, kW',
+        rows: [
+          {
+            value: '156',
+            label: 'PUE 1,56, mức trung bình của ngành năm 2024',
+            cite: 1,
+          },
+          { value: '100', label: 'PUE 1,0, không có tổn hao' },
+        ],
+        swIt: 'Thiết bị tính toán',
+        swOver: 'Làm mát và tổn hao khác',
+      },
+    },
+    province: {
+      eyebrow: 'Lợi ích cho địa phương',
+      title: 'Một khu dữ liệu mang lại gì cho địa phương',
+      items: [
+        'Nguồn vốn lớn đầu tư vào nhà xưởng, hệ thống điện, làm mát và cáp quang.',
+        'Một khách hàng tiêu thụ điện ổn định ngay tại địa phương cho nguồn điện sản xuất trong tỉnh.',
+        'Việc làm kỹ thuật về điện, cơ điện, mạng và vận hành. Trung tâm dữ liệu sử dụng ít lao động hơn nhà máy có cùng mức vốn, nhưng là lao động có chuyên môn kỹ thuật.',
+        'Hạ tầng điện và cáp quang mới để các doanh nghiệp số khác cùng tận dụng.',
+      ],
+    },
+    terms: {
+      eyebrow: 'Thuật ngữ',
+      title: 'Các thuật ngữ thường gặp',
+      glossary: [
+        { dt: 'GPU', dd: 'Bộ xử lý đồ họa: loại chip thực hiện phần lớn các phép tính AI.' },
+        {
+          dt: 'Tủ rack',
+          dd: 'Tủ tiêu chuẩn chứa máy chủ. Mật độ công suất thường được tính theo từng tủ.',
+        },
+        {
+          dt: 'MW IT',
+          dd: 'Công suất điện dành cho thiết bị tính toán, chưa tính làm mát và tổn hao. Quy mô trung tâm dữ liệu thường được nêu theo chỉ số này.',
+        },
+        {
+          dt: 'PUE',
+          dd: 'Hiệu quả sử dụng điện năng: tổng điện năng của cơ sở chia cho điện năng thiết bị IT. Càng thấp càng tốt.',
+        },
+        {
+          dt: 'Làm mát bằng chất lỏng',
+          dd: 'Chất làm mát được dẫn tới các tấm tản nhiệt trên chip, giải nhiệt hiệu quả hơn nhiều so với không khí.',
+        },
+        {
+          dt: 'Colocation',
+          dd: 'Cho khách hàng thuê không gian, điện và làm mát để đặt máy chủ của chính họ.',
+        },
+        {
+          dt: 'Hyperscaler',
+          dd: 'Nhà cung cấp điện toán đám mây quy mô rất lớn, vận hành hệ thống trung tâm dữ liệu riêng trên toàn cầu.',
+        },
+        {
+          dt: 'Dự phòng (N+1, 2N)',
+          dd: 'Công suất dự phòng để một sự cố không làm gián đoạn dịch vụ. N+1 có thêm một thiết bị dự phòng; 2N nhân đôi toàn bộ hệ thống.',
+        },
+        { dt: 'Độ trễ', dd: 'Thời gian dữ liệu đi qua mạng, tính bằng mili giây.' },
+        {
+          dt: 'Trạm cập bờ',
+          dd: 'Nơi tuyến cáp quang biển lên bờ và kết nối với mạng trên đất liền.',
+        },
+      ],
+    },
+    sources: {
+      eyebrow: 'Nguồn',
+      title: 'Nguồn số liệu',
+      items: [
+        {
+          pre: 'Uptime Institute, ',
+          href: 'https://datacenter.uptimeinstitute.com/rs/711-RIA-145/images/2024.GlobalDataCenterSurvey.Report.pdf',
+          text: 'Global Data Center Survey 2024',
+          post: ' (rack density, PUE).',
+        },
+        {
+          pre: 'Supermicro, ',
+          href: 'https://www.supermicro.com/en/products/rack/srs-gb200-nvl72',
+          text: 'SRS-GB200-NVL72 rack specification',
+          post: ' (132 kW, 72 GPUs, direct liquid cooling).',
+        },
+        {
+          pre: 'International Energy Agency, ',
+          href: 'https://www.iea.org/reports/energy-and-ai/executive-summary',
+          text: 'Energy and AI: Executive summary',
+          post: ' (2025).',
+        },
+      ],
+    },
+    cta: {
+      title: 'Bạn có câu hỏi về dự án?',
+      btn: 'Liên hệ với chúng tôi',
+    },
+  },
   diagrams: {
     sld: {
       a11yTitle: 'Sơ đồ nguyên lý (SLD-00)',

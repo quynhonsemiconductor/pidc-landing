@@ -1,0 +1,230 @@
+---
+// AI data center explainer body, shared by the EN ("/ai-data-center/") and VI
+// ("/vi/ai-data-center/") routes — one markup source, every string resolved from the
+// locale dictionary. Full page from the locked mockup
+// (design/screens/ai-data-center.html): hero + rack anatomy figure, the r-tocrail
+// sticky TOC rail (a collapsed <details> at <=64em — CSS only, no JS), and the seven
+// explainer sections down to sources and the CTA band.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RackDiagram from '../diagrams/RackDiagram.astro';
+import TrainingInference from '../diagrams/TrainingInference.astro';
+import RackKwFigure from '../diagrams/RackKwFigure.astro';
+import TwhChart from '../diagrams/TwhChart.astro';
+import CoolingLoop from '../diagrams/CoolingLoop.astro';
+import PueChart from '../diagrams/PueChart.astro';
+import { localizedPath } from '../../i18n';
+import type { Dictionary, Locale } from '../../i18n';
+
+interface Props {
+  dict: Dictionary;
+  locale: Locale;
+  description: string;
+}
+
+const { dict, locale, description } = Astro.props;
+const t = dict.aidc;
+const contactPath = localizedPath(locale, '/contact/');
+const whyPath = localizedPath(locale, '/why-vietnam/');
+const title = 'What is an AI data center? · PIDC';
+
+// The TOC list is one data source (t.tocItems) rendered twice, exactly as the mockup
+// does: the standalone <nav> is the sticky desktop rail (>64em); the <details> copy is
+// the collapsed "On this page" at <=64em. CSS picks which one shows — no JS.
+// Scrollspy: aria-current stays STATIC on the first item, as in the mockup (BUILD-NOTES 3
+// allows CSS sticky only in this PR; IntersectionObserver would be new JS and is deferred).
+const tocList = `<ol>${t.tocItems
+  .map(
+    (item, i) =>
+      `<li${i === 0 ? ' aria-current="true"' : ''}><a href="#${item.id}">${item.label}</a></li>`,
+  )
+  .join('')}</ol>`;
+---
+
+<BaseLayout
+  dict={dict}
+  locale={locale}
+  path="/ai-data-center/"
+  title={title}
+  description={description}
+  ogImage="/assets/og/ai-data-center.png"
+>
+  <main id="main" class="l-page r-tocrail">
+    <details class="c-tocdetails">
+      <summary>{t.tocSummary}</summary>
+      <nav aria-label={t.tocSummary} set:html={tocList} />
+    </details>
+    <nav aria-label={t.tocSummary} set:html={tocList} />
+
+    <section class="l-pagehero" aria-labelledby="page-title">
+      <div class="c-hero">
+        <p class="c-hero__badge">
+          <span class="c-hero__dot" aria-hidden="true"></span>{t.hero.badge}
+        </p>
+        <h1 id="page-title" class="c-hero__title">{t.hero.title}</h1>
+        <p class="c-hero__lede">{t.hero.lede}</p>
+      </div>
+      <div class="l-fig-rack">
+        <RackDiagram t={t.rack} />
+      </div>
+    </section>
+
+    <section class="l-band" id="what" aria-labelledby="what-title">
+      <div class="r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.what.eyebrow}</p>
+          <h2 class="c-section__title" id="what-title">{t.what.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <TrainingInference t={t.what} />
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="differs" aria-labelledby="differs-title">
+      <div class="r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.differs.eyebrow}</p>
+          <h2 class="c-section__title" id="differs-title">{t.differs.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <RackKwFigure t={t.differs.chart} />
+          <p>{t.differs.intro}</p>
+          <div class="c-compare">
+            <table class="c-table">
+              <thead>
+                <tr>
+                  <th scope="col"><span class="sr">{t.differs.table.feature}</span></th>
+                  <th scope="col">{t.differs.table.conventional}</th>
+                  <th scope="col">{t.differs.table.ai}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  t.differs.table.rows.map((row) => (
+                    <tr>
+                      <th scope="row">{row.th}</th>
+                      <td data-h={t.differs.table.hConventional}>{row.conv}</td>
+                      <td class="c-compare__ai" data-h={t.differs.table.hAi}>
+                        {row.ai}
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="power" aria-labelledby="power-title">
+      <div class="r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.power.eyebrow}</p>
+          <h2 class="c-section__title" id="power-title">{t.power.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <p>
+            {t.power.p1}<a class="cite" href="#src-3">[3]</a>
+          </p>
+          <TwhChart t={t.power.chart} />
+          <p>{t.power.p2}</p>
+          <p>
+            {t.power.p3}
+            <a class="tlink" href={whyPath}>{t.power.seeSite}</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="cooling" aria-labelledby="cooling-title">
+      <div class="r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.cooling.eyebrow}</p>
+          <h2 class="c-section__title" id="cooling-title">{t.cooling.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <p>
+            {t.cooling.p1}<a class="cite" href="#src-2">[2]</a>
+          </p>
+          <CoolingLoop t={t.cooling.loop} />
+          <p>{t.cooling.p2}</p>
+          <p>
+            {t.cooling.p3}<a class="cite" href="#src-1">[1]</a>
+          </p>
+          <PueChart t={t.cooling.chart} />
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="province" aria-labelledby="province-title">
+      <div class="r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.province.eyebrow}</p>
+          <h2 class="c-section__title" id="province-title">{t.province.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <ul class="c-section__list">
+            {t.province.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="terms" aria-labelledby="terms-title">
+      <div class="r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.terms.eyebrow}</p>
+          <h2 class="c-section__title" id="terms-title">{t.terms.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <dl class="c-glossary">
+            {
+              t.terms.glossary.map((entry) => (
+                <div>
+                  <dt>{entry.dt}</dt>
+                  <dd>{entry.dd}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="sources" aria-labelledby="sources-title">
+      <div class="r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.sources.eyebrow}</p>
+          <h2 class="c-section__title" id="sources-title">{t.sources.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <div class="r-sourcebox">
+            <ol>
+              {
+                t.sources.items.map((src, i) => (
+                  <li id={`src-${i + 1}`}>
+                    <span>
+                      {src.pre}
+                      <a href={src.href} target="_blank" rel="noopener">
+                        {src.text}
+                      </a>
+                      {src.post}
+                    </span>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="c-cta" aria-label={dict.nav.contact}>
+    <div class="l-page c-cta__in">
+      <h2 class="c-cta__title">{t.cta.title}</h2>
+      <a class="c-btn c-btn--primary" href={contactPath}>{t.cta.btn}</a>
+    </div>
+  </section>
+</BaseLayout>

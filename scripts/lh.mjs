@@ -15,6 +15,8 @@ const BASE = `http://127.0.0.1:${PORT}`;
 const TARGETS = [
   { path: '/', name: 'home-en' },
   { path: '/vi/', name: 'home-vi' },
+  { path: '/ai-data-center/', name: 'aidc-en' },
+  { path: '/vi/ai-data-center/', name: 'aidc-vi' },
 ];
 const CATEGORIES = ['performance', 'accessibility', 'best-practices', 'seo'];
 

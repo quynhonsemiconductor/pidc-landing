@@ -83,6 +83,45 @@ body {
   margin-block: var(--s-5);
 }
 
+/* AI data center explainer page (from design/screens/ai-data-center.html layout styles).
+   r-tocrail page body: <main> is the rail grid so sections stay main's direct children
+   (the sheet separations/numbering from components.css keep applying). The rail spans
+   all 8 section rows; sections flow down column 2. */
+@media (min-width: 1025px) {
+  .r-tocrail > nav {
+    grid-column: 1;
+    grid-row: 1 / span 8;
+  }
+  .r-tocrail > section {
+    grid-column: 2;
+  }
+}
+.l-pagehero {
+  display: grid;
+  gap: var(--s-6);
+  padding-block: var(--s-7);
+}
+.l-fig-rack {
+  max-width: var(--w-fig-rack);
+  margin: 0 auto;
+}
+.l-pair {
+  display: grid;
+  gap: var(--s-5);
+}
+@media (min-width: 43.75em) {
+  .l-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-6);
+  }
+}
+.l-pair > div {
+  min-width: 0;
+}
+.l-fig-loop {
+  max-width: var(--w-fig-loop);
+}
+
 /* skip link — first focusable element, visible on focus */
 .c-skiplink {
   position: absolute;

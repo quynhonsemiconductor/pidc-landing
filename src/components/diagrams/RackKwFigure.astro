@@ -1,0 +1,43 @@
+---
+// Rack kW chart — HTML bar chart (r-chart) inside a c-figure, ported verbatim from the
+// mockup. Bar values/axis are the chart's own numbers (locale-independent); labels and
+// the title resolve from the i18n dictionaries at render time (BUILD-NOTES 1).
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['aidc']['differs']['chart'];
+}
+
+const { t } = Astro.props;
+const rows = [
+  { label: t.rows[0], bar: 'muted', v: 8 },
+  { label: t.rows[1], bar: '', v: 132 },
+];
+---
+
+<figure class="c-figure r-chart" style="--max:150;--ticks:3">
+  <figcaption class="c-figure__title">{t.title}</figcaption>
+  {
+    rows.map((row) => (
+      <div class="bar-row">
+        <span class="bar-label">
+          <b class="c-stat__figure">{row.label.value}</b>
+          {row.label.label}
+          {row.label.cite && (
+            <a class="cite" href={`#src-${row.label.cite}`}>
+              [{row.label.cite}]
+            </a>
+          )}
+        </span>
+        <div class="track">
+          <div class={`bar ${row.bar}`} style={`--v:${row.v}`} />
+        </div>
+      </div>
+    ))
+  }
+  <div class="axis" aria-hidden="true">
+    <span style="left:0">0</span><span style="left:33.333%">50</span><span style="left:66.667%"
+      >100</span
+    ><span style="left:100%">150 kW</span>
+  </div>
+</figure>

@@ -16,6 +16,11 @@ const SHOTS = [
   { path: '/', name: 'home-en-1440', width: 1440, height: 900, dsf: 1 },
   { path: '/vi/', name: 'home-vi-390', width: 390, height: 844, dsf: 2 },
   { path: '/vi/', name: 'home-vi-1440', width: 1440, height: 900, dsf: 1 },
+  { path: '/ai-data-center/', name: 'aidc-en-390', width: 390, height: 844, dsf: 2 },
+  { path: '/ai-data-center/', name: 'aidc-en-1440', width: 1440, height: 900, dsf: 1 },
+  { path: '/ai-data-center/', name: 'aidc-en-1024', width: 1024, height: 800, dsf: 1 },
+  { path: '/vi/ai-data-center/', name: 'aidc-vi-390', width: 390, height: 844, dsf: 2 },
+  { path: '/vi/ai-data-center/', name: 'aidc-vi-1440', width: 1440, height: 900, dsf: 1 },
 ];
 
 async function waitForServer(url, attempts = 60) {
