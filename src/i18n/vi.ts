@@ -581,7 +581,7 @@ const dictionary: Dictionary = {
       eyebrow: 'Hiện trạng',
       title: 'Các cột mốc',
       intro:
-        'Trạng thái đất đai, đấu nối lưới điện và giấy phép của dự án — những gì CEO xác nhận đã hoàn tất, và những gì đang triển khai.',
+        'Trạng thái đất đai, đấu nối lưới điện và giấy phép của dự án — những gì đã được xác nhận hoàn tất, và những gì đang triển khai.',
       items: [
         {
           time: 'TODO(CEO): ngày tháng — đất đai',
