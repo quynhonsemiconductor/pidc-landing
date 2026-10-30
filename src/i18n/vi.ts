@@ -520,6 +520,99 @@ const dictionary: Dictionary = {
       btn: 'Liên hệ với chúng tôi',
     },
   },
+  // Công ty ("/company/") — chuỗi verbatim từ mockup (design/screens/company.html); các
+  // placeholder [CEO: …] theo quy ước TODO(CEO): … của bản dựng (BUILD-NOTES 6).
+  company: {
+    pageMeta: {
+      title: 'Công ty · PIDC',
+      description:
+        'PIDC — Công ty Cổ phần Pisico Data Center: công ty dự án khu trung tâm dữ liệu AI tại Gia Lai, thành viên Tổng Công ty PISICO Bình Định.',
+    },
+    hero: {
+      badge: 'Công ty',
+      title: 'Thành viên Tổng Công ty PISICO Bình Định',
+      ledePre:
+        'Công ty Cổ phần Pisico Data Center (PIDC) là pháp nhân dự án của khu dữ liệu, làm việc với các nhà đầu tư và khách thuê. PIDC là công ty thành viên của ',
+      ledeLink: 'Tổng Công ty PISICO Bình Định – CTCP',
+      ledePost: ' (Pisico).',
+    },
+    group: {
+      eyebrow: 'Công ty',
+      title: 'Các lĩnh vực của Pisico',
+      p1: 'Pisico là doanh nghiệp đa ngành tại Gia Lai, có lịch sử từ năm 1985. Cổ phiếu của Pisico giao dịch trên UPCoM với mã PIS từ năm 2016. Hoạt động của Tổng công ty gồm chế biến lâm sản xuất khẩu, hạ tầng cụm công nghiệp, bất động sản, thương mại – dịch vụ, logistics (trong đó có Cảng Thị Nại tại Quy Nhơn), phát triển nguồn nhân lực và đầu tư nông nghiệp, với các vùng trồng keo, cao su và cà phê tại Việt Nam và Lào.',
+      p2: 'TODO(CEO): xác nhận tuyên bố sở hữu PIDC (thuộc sở hữu Việt Nam, cơ cấu đơn giản, hồ sơ rõ ràng, có thể xác minh).',
+      facts: {
+        company: {
+          dt: 'Tên công ty',
+          ddLine1: 'Công ty Cổ phần Pisico Data Center',
+          ddLine2: 'Pisico Data Center Joint Stock Company',
+        },
+        short: { dt: 'Tên viết tắt', dd: 'PIDC' },
+        code: { dt: 'Mã số doanh nghiệp', dd: '4101699991' },
+        chairman: {
+          dt: 'Chủ tịch HĐQT',
+          dd: 'TODO(CEO): xác nhận việc công khai tên Chủ tịch HĐQT',
+        },
+        member: { dt: 'Thành viên của', dd: 'Tổng Công ty PISICO Bình Định – CTCP' },
+        office: {
+          dt: 'Trụ sở chính',
+          dd: '99 Tây Sơn, phường Quy Nhơn Nam, tỉnh Gia Lai, Việt Nam',
+        },
+        capA: 'PIDC.VN',
+        capB: 'Sơ đồ minh họa',
+      },
+      figure: {
+        title: 'Các lĩnh vực của Pisico',
+        keys: [
+          { n: '1', label: 'Chế biến lâm sản xuất khẩu' },
+          { n: '2', label: 'Hạ tầng cụm công nghiệp' },
+          { n: '3', label: 'Bất động sản' },
+          { n: '4', label: 'Thương mại – dịch vụ' },
+          { n: '5', label: 'Logistics và Cảng Thị Nại' },
+          { n: '6', label: 'Phát triển nguồn nhân lực' },
+          { n: '7', label: 'Nông nghiệp: keo, cao su, cà phê' },
+          { n: '8', label: 'Trung tâm dữ liệu AI · PIDC', strong: true },
+        ],
+        capLink: 'pisico.vn',
+        capB: 'PIDC.VN',
+      },
+    },
+    milestones: {
+      eyebrow: 'Hiện trạng',
+      title: 'Các cột mốc',
+      intro:
+        'Trạng thái đất đai, đấu nối lưới điện và giấy phép của dự án — những gì CEO xác nhận đã hoàn tất, và những gì đang triển khai.',
+      items: [
+        {
+          time: 'TODO(CEO): ngày tháng — đất đai',
+          body: 'TODO(CEO): đất dự án — cột mốc và trạng thái',
+        },
+        {
+          time: 'TODO(CEO): ngày tháng — đấu nối lưới điện',
+          body: 'TODO(CEO): đấu nối lưới điện — cột mốc và trạng thái',
+        },
+        {
+          time: 'TODO(CEO): ngày tháng — giấy phép',
+          body: 'TODO(CEO): giấy phép — cột mốc và trạng thái',
+        },
+        { time: 'TODO(CEO): ngày tháng — mục khác', body: 'TODO(CEO): cột mốc khác và trạng thái' },
+      ],
+    },
+    people: {
+      eyebrow: 'Công ty',
+      title: 'Ai đứng sau PIDC',
+      intro: 'TODO(CEO): 1–2 câu về quan hệ với Pisico và cơ cấu quản trị',
+      cards: [
+        { role: 'TODO(CEO): vai trò', line: 'TODO(CEO): tên + một dòng' },
+        { role: 'TODO(CEO): vai trò', line: 'TODO(CEO): tên + một dòng' },
+        { role: 'TODO(CEO): vai trò', line: 'TODO(CEO): tên + một dòng' },
+      ],
+    },
+    cta: {
+      title: 'Trao đổi với chúng tôi về dự án',
+      btn: 'Liên hệ với chúng tôi',
+    },
+  },
   diagrams: {
     sld: {
       a11yTitle: 'Sơ đồ nguyên lý (SLD-00)',

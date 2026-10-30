@@ -518,6 +518,103 @@ const dictionary = {
       btn: 'Contact us',
     },
   },
+  // Company profile ("/company/") — copy verbatim from the locked mockup
+  // (design/screens/company.html). Entity facts are registry data kept verbatim from the
+  // demo (BUILD-NOTES / handoff: enterprise code stays public); the Chairman's name is the
+  // one TODO(CEO) slot in the table. Milestones and people are all TODO(CEO) content slots
+  // (BUILD-NOTES 6) and render inside .c-ceo. The hero lede carries the pisico.vn link, so
+  // it is split pre/link/post for markup.
+  company: {
+    pageMeta: {
+      title: 'Company · PIDC',
+      description:
+        'PIDC — Pisico Data Center Joint Stock Company: the project company for the AI data center campus in Gia Lai, and a member of the Pisico group.',
+    },
+    hero: {
+      badge: 'Company',
+      title: 'Part of the Pisico group',
+      ledePre:
+        'Pisico Data Center Joint Stock Company (PIDC) is the project company for the campus and works with investors and tenants. It is a member of ',
+      ledeLink: 'Pisico',
+      ledePost: ' (Tổng Công ty PISICO Bình Định – CTCP).',
+    },
+    group: {
+      eyebrow: 'Company',
+      title: 'The Pisico group',
+      p1: 'Pisico is a multi-sector group in Gia Lai that traces its history to 1985. Its shares have traded on UPCoM under the ticker PIS since 2016. Its businesses span forest-product processing for export, industrial cluster infrastructure, real estate, trade and services, logistics including Thị Nại Port in Quy Nhơn, workforce development, and agricultural investment, with acacia, rubber and coffee plantations in Vietnam and Laos.',
+      p2: 'TODO(CEO): PIDC ownership statement (Vietnamese-owned, simple and documented ownership, verifiable for tenants deploying advanced GPUs).',
+      facts: {
+        company: {
+          dt: 'Company',
+          ddLine1: 'Công ty Cổ phần Pisico Data Center',
+          ddLine2: 'Pisico Data Center Joint Stock Company',
+        },
+        short: { dt: 'Short name', dd: 'PIDC' },
+        code: { dt: 'Enterprise code', dd: '4101699991' },
+        chairman: {
+          dt: 'Chairman of the Board',
+          dd: "TODO(CEO): confirm showing the Chairman's name",
+        },
+        member: { dt: 'Member of', dd: 'Tổng Công ty PISICO Bình Định – CTCP' },
+        office: {
+          dt: 'Registered office',
+          dd: '99 Tây Sơn, Quy Nhơn Nam Ward, Gia Lai Province, Vietnam',
+        },
+        capA: 'PIDC.VN',
+        capB: 'Schematic sheet',
+      },
+      figure: {
+        title: 'The Pisico group',
+        keys: [
+          { n: '1', label: 'Forest products for export' },
+          { n: '2', label: 'Industrial cluster infrastructure' },
+          { n: '3', label: 'Real estate' },
+          { n: '4', label: 'Trade and services' },
+          { n: '5', label: 'Logistics and Thị Nại Port' },
+          { n: '6', label: 'Workforce development' },
+          { n: '7', label: 'Agriculture: acacia, rubber, coffee' },
+          { n: '8', label: 'AI data centers · PIDC', strong: true },
+        ],
+        capLink: 'pisico.vn',
+        capB: 'PIDC.VN',
+      },
+    },
+    milestones: {
+      eyebrow: 'Status',
+      title: 'Milestones',
+      intro:
+        'Status of land, grid connection and permits for the campus — what the CEO confirms as secured, and what is still in progress.',
+      items: [
+        {
+          time: 'TODO(CEO): date — land secured',
+          body: 'TODO(CEO): land secured — milestone + status',
+        },
+        {
+          time: 'TODO(CEO): date — grid connection',
+          body: 'TODO(CEO): grid connection — milestone + status',
+        },
+        {
+          time: 'TODO(CEO): date — permits',
+          body: 'TODO(CEO): permits — milestone + status',
+        },
+        { time: 'TODO(CEO): date — other', body: 'TODO(CEO): other milestone + status' },
+      ],
+    },
+    people: {
+      eyebrow: 'Company',
+      title: 'Who stands behind PIDC',
+      intro: 'TODO(CEO): 1–2 sentences on the Pisico relationship and governance',
+      cards: [
+        { role: 'TODO(CEO): role', line: 'TODO(CEO): name + one line' },
+        { role: 'TODO(CEO): role', line: 'TODO(CEO): name + one line' },
+        { role: 'TODO(CEO): role', line: 'TODO(CEO): name + one line' },
+      ],
+    },
+    cta: {
+      title: 'Talk to us about the campus',
+      btn: 'Contact us',
+    },
+  },
   diagrams: {
     sld: {
       a11yTitle: 'Concept single-line diagram (SLD-00)',

@@ -158,6 +158,40 @@ body {
   padding-block: var(--s-5) var(--s-6);
 }
 
+/* Company page (from design/screens/company.html layout styles). Profile layout — no TOC
+   rail; the hero's ≥57.5em padding bump is scoped to the .r-profile body (home keeps its
+   own flat rhythm). S-01's split puts the prose left, the entity-facts sheet right; the
+   numbered-keys group figure spans the sheet below it. */
+@media (min-width: 57.5em) {
+  .r-profile > .l-pagehero {
+    padding-block: var(--s-8);
+  }
+}
+.l-split {
+  display: grid;
+  gap: var(--s-6);
+  margin-top: var(--s-6);
+}
+@media (min-width: 57.5em) {
+  .l-split {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--s-8);
+    align-items: start;
+  }
+}
+.l-split > * {
+  min-width: 0;
+}
+.l-titleblock {
+  padding: var(--s-4);
+}
+.l-group {
+  margin-top: var(--s-7);
+}
+.l-milestones {
+  margin-top: var(--s-5);
+}
+
 /* skip link — first focusable element, visible on focus */
 .c-skiplink {
   position: absolute;

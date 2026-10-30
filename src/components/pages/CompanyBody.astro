@@ -1,0 +1,191 @@
+---
+// Company profile body, shared by the EN ("/company/") and VI ("/vi/company/") routes —
+// one markup source, every string resolved from the locale dictionary. Full page from the
+// locked mockup (design/screens/company.html): hero, S-01 the Pisico group (prose + the
+// entity-facts c-glossary sheet and the numbered-keys group figure — keys 1–8 ported as
+// markup, not an SVG), S-02 milestones (all TODO(CEO) slots), S-03 who stands behind PIDC
+// (TODO(CEO) governance intro + three placeholder people cards), terrain rule and CTA band.
+// Profile layout: no TOC rail. Sheet numbers S-01… come from the existing main > section
+// counter in components.css. The group figure's key 8 carries the mockup's <strong> PIDC
+// entry; entity facts are registry data kept verbatim (BUILD-NOTES / company handoff).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localizedPath } from '../../i18n';
+import type { Dictionary, Locale } from '../../i18n';
+
+interface Props {
+  dict: Dictionary;
+  locale: Locale;
+}
+
+const { dict, locale } = Astro.props;
+const t = dict.company;
+const f = t.group.facts;
+const contactPath = localizedPath(locale, '/contact/');
+const pisicoUrl = 'https://www.pisico.vn';
+const title = t.pageMeta.title;
+const description = t.pageMeta.description;
+---
+
+<BaseLayout
+  dict={dict}
+  locale={locale}
+  path="/company/"
+  title={title}
+  description={description}
+  ogImage="/assets/og/company.png"
+>
+  <main id="main" class="r-profile">
+    <section class="l-pagehero l-page" aria-labelledby="page-title">
+      <div class="c-hero">
+        <p class="c-hero__badge">
+          <span class="c-hero__dot" aria-hidden="true"></span>{t.hero.badge}
+        </p>
+        <h1 id="page-title" class="c-hero__title">{t.hero.title}</h1>
+        <p class="c-hero__lede">
+          {t.hero.ledePre}<a class="tlink" href={pisicoUrl} target="_blank" rel="noopener"
+            >{t.hero.ledeLink}<span aria-hidden="true">↗</span></a
+          >{t.hero.ledePost}
+        </p>
+      </div>
+    </section>
+
+    <section class="l-band" id="group" aria-labelledby="group-title">
+      <div class="l-page">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.group.eyebrow}</p>
+          <h2 class="c-section__title" id="group-title">{t.group.title}</h2>
+        </header>
+        <div class="l-split">
+          <div class="c-section c-section--body">
+            <p>{t.group.p1}</p>
+            {
+              t.group.p2.startsWith('TODO(CEO)') ? (
+                <p>
+                  <span class="c-ceo">{t.group.p2}</span>
+                </p>
+              ) : (
+                <p>{t.group.p2}</p>
+              )
+            }
+          </div>
+          <figure class="c-figure l-titleblock">
+            <dl class="c-glossary">
+              <div>
+                <dt>{f.company.dt}</dt>
+                <dd>{f.company.ddLine1}<br />{f.company.ddLine2}</dd>
+              </div>
+              <div>
+                <dt>{f.short.dt}</dt>
+                <dd>{f.short.dd}</dd>
+              </div>
+              <div>
+                <dt>{f.code.dt}</dt>
+                <dd>{f.code.dd}</dd>
+              </div>
+              <div>
+                <dt>{f.chairman.dt}</dt>
+                <dd><span class="c-ceo">{f.chairman.dd}</span></dd>
+              </div>
+              <div>
+                <dt>{f.member.dt}</dt>
+                <dd>
+                  <a class="tlink" href={pisicoUrl} target="_blank" rel="noopener">{f.member.dd}</a>
+                </dd>
+              </div>
+              <div>
+                <dt>{f.office.dt}</dt>
+                <dd>{f.office.dd}</dd>
+              </div>
+            </dl>
+            <figcaption class="c-figure__cap">
+              <span>{f.capA}</span><span>{f.capB}</span>
+            </figcaption>
+          </figure>
+        </div>
+        <figure class="c-figure l-group">
+          <figcaption class="c-figure__title">{t.group.figure.title}</figcaption>
+          <ol class="c-figure__keys c-figure__keys--3">
+            {
+              t.group.figure.keys.map((key) => (
+                <li class="c-phase">
+                  <span class="c-phase__n" aria-hidden="true">
+                    {key.n}
+                  </span>
+                  <span>{key.strong ? <strong>{key.label}</strong> : key.label}</span>
+                </li>
+              ))
+            }
+          </ol>
+          <figcaption class="c-figure__cap">
+            <span
+              ><a class="tlink" href={pisicoUrl} target="_blank" rel="noopener"
+                >{t.group.figure.capLink}<span aria-hidden="true"> ↗</span></a
+              ></span
+            ><span>{t.group.figure.capB}</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="l-band" id="milestones" aria-labelledby="milestones-title">
+      <div class="l-page r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.milestones.eyebrow}</p>
+          <h2 class="c-section__title" id="milestones-title">{t.milestones.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <p>{t.milestones.intro}</p>
+          <ul class="c-milestones l-milestones">
+            {
+              t.milestones.items.map((item) => (
+                <li>
+                  <time>
+                    <span class="c-ceo">{item.time}</span>
+                  </time>
+                  <p>
+                    <span class="c-ceo">{item.body}</span>
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="l-band" id="people" aria-labelledby="people-title">
+      <div class="l-page r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.people.eyebrow}</p>
+          <h2 class="c-section__title" id="people-title">{t.people.title}</h2>
+        </header>
+        <div class="c-section c-section--body">
+          <p><span class="c-ceo">{t.people.intro}</span></p>
+          <div class="c-people">
+            {
+              t.people.cards.map((card) => (
+                <div class="c-people__card">
+                  <p class="c-people__role">
+                    <span class="c-ceo">{card.role}</span>
+                  </p>
+                  <p>
+                    <span class="c-ceo">{card.line}</span>
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="l-page l-rule"><hr class="c-terrainrule" /></div>
+  </main>
+
+  <section class="c-cta" aria-label={dict.nav.contact}>
+    <div class="l-page c-cta__in">
+      <h2 class="c-cta__title">{t.cta.title}</h2>
+      <a class="c-btn c-btn--primary" href={contactPath}>{t.cta.btn}</a>
+    </div>
+  </section>
+</BaseLayout>

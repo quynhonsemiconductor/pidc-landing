@@ -1,0 +1,10 @@
+---
+// EN "Company" (canonical "/company/"). Meta description verbatim from the demo
+// (design/content/company.html).
+import CompanyBody from '../components/pages/CompanyBody.astro';
+import { getDictionary } from '../i18n';
+
+const dict = getDictionary('en');
+---
+
+<CompanyBody dict={dict} locale="en" />

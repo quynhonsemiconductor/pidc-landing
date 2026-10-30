@@ -1,0 +1,9 @@
+---
+// VI Company ("/vi/company/"). Title + meta description from the dictionary (pageMeta).
+import CompanyBody from '../../components/pages/CompanyBody.astro';
+import { getDictionary } from '../../i18n';
+
+const dict = getDictionary('vi');
+---
+
+<CompanyBody dict={dict} locale="vi" />
