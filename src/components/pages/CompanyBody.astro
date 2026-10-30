@@ -58,7 +58,15 @@ const description = t.pageMeta.description;
         <div class="l-split">
           <div class="c-section c-section--body">
             <p>{t.group.p1}</p>
-            <p>{t.group.p2}</p>
+            {
+              t.group.p2.startsWith('TODO(CEO)') ? (
+                <p>
+                  <span class="c-ceo">{t.group.p2}</span>
+                </p>
+              ) : (
+                <p>{t.group.p2}</p>
+              )
+            }
           </div>
           <figure class="c-figure l-titleblock">
             <dl class="c-glossary">
