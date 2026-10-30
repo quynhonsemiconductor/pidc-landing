@@ -37,4 +37,5 @@ jobs:
       web_dist_path: dist
       single_environment: production
       pnpm_version: '10.34.7'
-    secrets: inherit
+    secrets: # explicit pass (zizmor secrets-inherit): only what the reusable needs
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
