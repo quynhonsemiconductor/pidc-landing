@@ -122,6 +122,42 @@ body {
   max-width: var(--w-fig-loop);
 }
 
+/* Why Vietnam page (from design/screens/why-vietnam.html layout styles). The four ruled
+   sections sit inside the .l-rail wrapper (the sheet counter re-seeds inside it — see
+   components.css), so the wrapper and the closing terrain rule join column 2 of the rail
+   grid. The hero's ≥57.5em padding bump is scoped to this page (the aidc hero keeps its
+   own mockup's flat rhythm). */
+@media (min-width: 1025px) {
+  .r-tocrail > .l-rail,
+  .r-tocrail > .l-rule {
+    grid-column: 2;
+  }
+}
+@media (min-width: 57.5em) {
+  .r-tocrail:has(> .l-rail) > .l-pagehero {
+    padding-block: var(--s-8);
+  }
+}
+.l-rail > section {
+  padding-block: var(--s-6) var(--s-7);
+}
+.l-facts {
+  display: grid;
+  gap: var(--s-6);
+}
+@media (min-width: 48em) {
+  .l-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-7);
+  }
+}
+.l-rail .l-more {
+  margin-top: var(--s-5);
+}
+.l-rule {
+  padding-block: var(--s-5) var(--s-6);
+}
+
 /* skip link — first focusable element, visible on focus */
 .c-skiplink {
   position: absolute;

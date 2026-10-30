@@ -1,0 +1,206 @@
+---
+// Why Vietnam, why Gia Lai body, shared by the EN ("/why-vietnam/") and VI
+// ("/vi/why-vietnam/") routes — one markup source, every string resolved from the locale
+// dictionary. Full page from the locked mockup (design/screens/why-vietnam.html): hero,
+// the r-tocrail sticky TOC rail (a collapsed <details> at <=64em — CSS only, no JS), the
+// four ruled sections inside the .l-rail wrapper (market proofs, Gia Lai terrain + power,
+// where PIDC fits with the location map, sources) down to the terrain rule and CTA band.
+// The terrain cross-section and the location map reuse the shared diagram components
+// (TerrainSection/LM-01) — the mockup repeats the home page's figures verbatim.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TerrainSection from '../diagrams/TerrainSection.astro';
+import LocationMap from '../diagrams/LocationMap.astro';
+import RenewablesChart from '../diagrams/RenewablesChart.astro';
+import { localizedPath } from '../../i18n';
+import type { Dictionary, Locale } from '../../i18n';
+
+interface Props {
+  dict: Dictionary;
+  locale: Locale;
+  description: string;
+}
+
+const { dict, locale, description } = Astro.props;
+const t = dict.whyv;
+const contactPath = localizedPath(locale, '/contact/');
+const campusPath = localizedPath(locale, '/#campus');
+const title =
+  locale === 'vi'
+    ? 'Vì sao Việt Nam, vì sao Gia Lai · PIDC'
+    : 'Why Vietnam, and why Gia Lai · PIDC';
+
+// The TOC list is one data source (t.tocItems) rendered twice, exactly as the mockup does:
+// the standalone <nav> is the sticky desktop rail (>64em); the <details> copy is the
+// collapsed "On this page" at <=64em. CSS picks which one shows — no JS. Scrollspy:
+// aria-current stays STATIC on the first item, as in the mockup (BUILD-NOTES 3 allows CSS
+// sticky only; IntersectionObserver would be new JS and is deferred).
+const tocList = `<ol>${t.tocItems
+  .map(
+    (item, i) =>
+      `<li${i === 0 ? ' aria-current="true"' : ''}><a href="#${item.id}">${item.label}</a></li>`,
+  )
+  .join('')}</ol>`;
+---
+
+<BaseLayout
+  dict={dict}
+  locale={locale}
+  path="/why-vietnam/"
+  title={title}
+  description={description}
+  ogImage="/assets/og/why-vietnam.png"
+>
+  <main id="main" class="l-page r-tocrail">
+    <details class="c-tocdetails">
+      <summary>{t.tocSummary}</summary>
+      <nav aria-label={t.tocSummary} set:html={tocList} />
+    </details>
+    <nav aria-label={t.tocSummary} set:html={tocList} />
+
+    <section class="l-pagehero" aria-labelledby="page-title">
+      <div class="c-hero">
+        <p class="c-hero__badge">
+          <span class="c-hero__dot" aria-hidden="true"></span>{t.hero.badge}
+        </p>
+        <h1 id="page-title" class="c-hero__title">{t.hero.title}</h1>
+        <p class="c-hero__lede">{t.hero.lede}</p>
+      </div>
+    </section>
+
+    <div class="l-rail">
+      <section id="vietnam" aria-labelledby="vietnam-title">
+        <div class="r-section-split">
+          <header class="c-section">
+            <p class="c-section__eyebrow">{t.vietnam.eyebrow}</p>
+            <h2 class="c-section__title" id="vietnam-title">{t.vietnam.title}</h2>
+          </header>
+          <div class="c-section c-section--body">
+            <div class="l-facts">
+              {
+                t.vietnam.items.map((item) => (
+                  <article class="c-proof">
+                    <p class="c-proof__index">{item.index}</p>
+                    <p class="c-proof__kicker">{item.kicker}</p>
+                    <h3 class="c-proof__title">{item.title}</h3>
+                    <div class="c-stat">
+                      <span class="c-stat__figure">{item.stat.figure}</span>
+                      <span class="c-stat__label">{item.stat.label}</span>
+                    </div>
+                    <p class="c-proof__body">
+                      {item.body}
+                      {item.cites.map((cite) => (
+                        <a class="cite" href={`#src-${cite}`}>
+                          [{cite}]
+                        </a>
+                      ))}
+                    </p>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gia-lai" aria-labelledby="gialai-title">
+        <div class="r-section-split">
+          <header class="c-section">
+            <p class="c-section__eyebrow">{t.gialai.eyebrow}</p>
+            <h2 class="c-section__title" id="gialai-title">{t.gialai.title}</h2>
+          </header>
+          <div class="c-section c-section--body">
+            <p>
+              {t.gialai.intro}<a class="cite" href="#src-5">[5]</a>
+            </p>
+            <TerrainSection t={dict.diagrams.terrain} />
+            <article class="c-proof">
+              <p class="c-proof__index">{t.gialai.power.index}</p>
+              <p class="c-proof__kicker">{t.gialai.power.kicker}</p>
+              <h3 class="c-proof__title">{t.gialai.power.title}</h3>
+              <p class="c-proof__body">
+                {t.gialai.power.body}<a class="cite" href="#src-6">[6]</a>
+              </p>
+            </article>
+            <RenewablesChart t={t.gialai.chart} />
+            <div class="l-facts">
+              {
+                t.gialai.items.map((item) => (
+                  <article class="c-proof">
+                    <p class="c-proof__index">{item.index}</p>
+                    <p class="c-proof__kicker">{item.kicker}</p>
+                    <h3 class="c-proof__title">{item.title}</h3>
+                    <div class="c-stat">
+                      <span class="c-stat__figure">{item.stat.figure}</span>
+                      <span class="c-stat__label">{item.stat.label}</span>
+                    </div>
+                    <p class="c-proof__body">
+                      {item.body}
+                      {item.cites.map((cite) => (
+                        <a class="cite" href={`#src-${cite}`}>
+                          [{cite}]
+                        </a>
+                      ))}
+                    </p>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pidc-site" aria-labelledby="fit-title">
+        <div class="r-section-split">
+          <header class="c-section">
+            <p class="c-section__eyebrow">{t.fit.eyebrow}</p>
+            <h2 class="c-section__title" id="fit-title">{t.fit.title}</h2>
+          </header>
+          <div class="c-section c-section--body">
+            <p>{t.fit.intro}</p>
+            <LocationMap t={dict.diagrams.lm} capA={t.fit.mapCapA} capB={t.fit.mapCapB} />
+            <div class="l-more">
+              <a class="c-btn" href={campusPath}>{t.fit.btn}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sources" aria-labelledby="sources-title">
+        <div class="r-section-split">
+          <header class="c-section">
+            <p class="c-section__eyebrow">{t.sources.eyebrow}</p>
+            <h2 class="c-section__title" id="sources-title">{t.sources.title}</h2>
+          </header>
+          <div class="c-section c-section--body">
+            <div class="r-sourcebox">
+              <ol>
+                {
+                  t.sources.items.map((src, i) => (
+                    <li id={`src-${i + 1}`}>
+                      <span>
+                        {src.pre}
+                        <a href={src.href} target="_blank" rel="noopener">
+                          {src.text}
+                        </a>
+                        {src.post}
+                      </span>
+                    </li>
+                  ))
+                }
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="l-rule"><hr class="c-terrainrule" /></div>
+  </main>
+
+  <section class="c-cta" aria-label={dict.nav.contact}>
+    <div class="l-page c-cta__in">
+      <h2 class="c-cta__title">{t.cta.title}</h2>
+      <a class="c-btn c-btn--primary" href={contactPath}>{t.cta.btn}</a>
+    </div>
+  </section>
+</BaseLayout>

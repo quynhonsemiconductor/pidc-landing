@@ -525,7 +525,9 @@ main > section + section {
   display: grid;
   align-content: start;
 }
-.c-proof__index {
+/* child combinator keeps the index white-on-red when a proof sits inside .c-section--body
+   (whose `p` rule would otherwise out-rank a bare class selector — design review fix) */
+.c-proof > .c-proof__index {
   width: 44px;
   height: var(--proof-index-size);
   margin: 0 0 var(--s-3);
@@ -553,6 +555,22 @@ main > section + section {
   font: 400 var(--fs-body)/var(--lh-body) var(--font-ui);
   color: var(--color-text-2);
   max-width: 60ch;
+}
+
+/* c-stat — big figure + label pair (proof cards on the why-vietnam page; the figure size is
+   shared with the r-chart bar labels below) */
+.c-stat {
+  display: grid;
+  gap: var(--s-1);
+  min-width: 0;
+}
+.c-stat__figure {
+  font: 600 var(--fs-figure)/1 var(--font-num);
+  font-variant-numeric: tabular-nums;
+}
+.c-stat__label {
+  font: 400 var(--fs-small)/var(--lh-body) var(--font-ui);
+  color: var(--color-text-2);
 }
 
 /* c-statband — site facts: every figure carries source + as-of */
@@ -1443,6 +1461,16 @@ main > section + section {
   .c-tocdetails ol {
     padding: 0 var(--s-3) var(--s-3);
   }
+}
+
+/* Why Vietnam: the ruled sections sit inside the .l-rail wrapper (not direct main children),
+   so the sheet counter re-seeds inside it and numbers them S-01…S-04 as in the mockup */
+.r-tocrail .l-rail {
+  min-width: 0;
+  counter-reset: sheet 0;
+}
+.r-tocrail .l-rail > section {
+  counter-increment: sheet;
 }
 
 /* r-sourcebox — "Where the numbers come from" */

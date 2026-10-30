@@ -1,0 +1,41 @@
+---
+// Gia Lai renewables stacked-bar chart — HTML chart (r-chart) inside a c-figure, ported
+// verbatim from the mockup (design/screens/why-vietnam.html). Segment widths/axis are the
+// chart's own numbers via --v/--max (locale-independent); the title and key labels resolve
+// from the i18n dictionaries at render time (BUILD-NOTES 1).
+import type { Dictionary } from '../../i18n';
+
+interface Props {
+  t: Dictionary['whyv']['gialai']['chart'];
+}
+
+const { t } = Astro.props;
+// Segment MW values in draw order: hydro, wind, solar, biomass (sums to the 4,179 MW axis max).
+const segments = [2516, 1048, 485, 130];
+---
+
+<figure class="c-figure r-chart" style="--max:4179;--ticks:4">
+  <figcaption class="c-figure__title">{t.title}</figcaption>
+  <div class="track">
+    <div class="stackbar">
+      {segments.map((v) => <div class="bar" style={`--v:${v}`} />)}
+    </div>
+  </div>
+  <div class="axis" aria-hidden="true">
+    <span style="left:0">0</span><span style="left:100%">{t.axisMax}</span>
+  </div>
+  <ol class="c-figure__keys">
+    {
+      t.keys.map((key) => (
+        <li class="c-phase">
+          <span class="c-phase__n" aria-hidden="true">
+            {key.n}
+          </span>
+          <span>
+            <b>{key.value}</b> {key.label}
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+</figure>
