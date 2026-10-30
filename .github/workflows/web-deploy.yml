@@ -4,7 +4,7 @@
 # 1-env static site: merge to main -> build + publish to Cloudflare Pages via
 # the shared workflow (build runs in CI, not Cloudflare's builder). No release
 # tag needed. No approval gate (marketing site, but NOT indexed until launch:
-# see functions/_middleware and public/robots.txt).
+# see public/_headers and public/robots.txt).
 #
 # PREREQUISITES (owner, one-time — this repo deploys into the SEPARATE
 # Cloudflare account "PIDC", not QNSC, so these are REPO-level, not org-level):
@@ -30,6 +30,7 @@ jobs:
     # Union of the reusable's inner job permissions (qnsc-landing parity).
     permissions:
       contents: read
+      packages: read
     uses: quynhonsemiconductor/ci/.github/workflows/web-deploy.yml@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
     with:
       product: pidc-landing

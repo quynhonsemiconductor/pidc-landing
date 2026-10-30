@@ -21,7 +21,10 @@ concurrency:
 
 jobs:
   preview:
+    # fork PRs get no secrets/vars; only same-repo PRs publish
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
     steps:
@@ -47,9 +50,11 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           PAGES_PROJECT: ${{ vars.PAGES_PROJECT }}
       - name: Preview URL / setup notice
+        env:
+          PREVIEW_URL: ${{ steps.publish.outputs.url }}
         run: |
-          if [ -n "${{ steps.publish.outputs.url }}" ]; then
-            echo "Preview: ${{ steps.publish.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ -n "${PREVIEW_URL}" ]; then
+            echo "Preview: ${PREVIEW_URL}" >> "$GITHUB_STEP_SUMMARY"
           else
             echo "Preview NOT published: PAGES_PROJECT / CLOUDFLARE_ACCOUNT_ID repo vars are not set yet (owner step, see web-deploy.yml header). Build + verify:dist ran; publish will start once configured." >> "$GITHUB_STEP_SUMMARY"
           fi
