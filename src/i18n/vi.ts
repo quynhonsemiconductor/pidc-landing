@@ -456,7 +456,7 @@ const dictionary: Dictionary = {
         {
           pre: 'Google, Temasek and Bain, e-Conomy SEA 2025, as reported by ',
           href: 'https://ven.congthuong.vn/google-vietnam-s-digital-economy-to-reach-usd-39-billion-in-2025-58364.html',
-          text: 'Vietnam Economic News (Công Thương), 27 Nov 2025.',
+          text: 'Vietnam Economic News (Công Thương), 27/11/2025.',
           post: '',
         },
         {
@@ -468,13 +468,13 @@ const dictionary: Dictionary = {
         {
           pre: 'Tạp chí Luật sư Việt Nam, ',
           href: 'https://lsvn.vn/tu-01102022-du-lieu-nguoi-dung-internet-tai-viet-nam-se-duoc-luu-tru1661052929.html',
-          text: 'Từ 01/10/2022, dữ liệu người dùng Internet tại Việt Nam sẽ được lưu trữ, 21 Aug 2022.',
+          text: 'Từ 01/10/2022, dữ liệu người dùng Internet tại Việt Nam sẽ được lưu trữ, 21/08/2022.',
           post: '',
         },
         {
           pre: 'VnEconomy, ',
           href: 'https://vneconomy.vn/chien-luoc-phat-trien-cap-quang-bien-cua-viet-nam-den-2030-toi-thieu-dua-vao-hoat-dong-them-10-tuyen-cap.htm',
-          text: 'Chiến lược phát triển cáp quang biển của Việt Nam đến 2030, 18 Jun 2024.',
+          text: 'Chiến lược phát triển cáp quang biển của Việt Nam đến 2030, 18/06/2024.',
           post: '',
         },
         {
@@ -486,31 +486,31 @@ const dictionary: Dictionary = {
         {
           pre: 'Nhà Đầu Tư, ',
           href: 'https://nhadautu.vn/don-dong-von-ty-usd-gia-lai-tang-toc-tren-ban-do-nang-luong-xanh-d103183.html',
-          text: 'Đón dòng vốn tỷ USD, Gia Lai tăng tốc trên bản đồ năng lượng xanh, 2 Mar 2026.',
+          text: 'Đón dòng vốn tỷ USD, Gia Lai tăng tốc trên bản đồ năng lượng xanh, 02/03/2026.',
           post: '',
         },
         {
           pre: 'VTC News, ',
           href: 'https://vtcnews.vn/tuyen-cap-bien-lon-nhat-vua-hoat-dong-dan-mang-viet-sap-luot-nhu-bay-ar938050.html',
-          text: 'ADC cable enters operation, Apr 2025.',
+          text: 'ADC cable enters operation, 04/2025.',
           post: '',
         },
         {
           pre: 'W.Media, ',
           href: 'https://w.media/sjc2-goes-live-linking-singapore-hk-china-and-japan/',
-          text: 'SJC2 goes live linking Singapore, HK, China and Japan, 22 Jul 2025.',
+          text: 'SJC2 goes live linking Singapore, HK, China and Japan, 22/07/2025.',
           post: '',
         },
         {
           pre: 'SGGP, ',
           href: 'https://www.sggp.org.vn/vnpt-cap-quang-bien-sjc2-tang-cuong-suc-manh-truyen-dan-quoc-te-post560862.html',
-          text: 'VNPT: SJC2 landing at Quy Nhơn, 7 Jul 2020.',
+          text: 'VNPT: SJC2 landing at Quy Nhơn, 07/07/2020.',
           post: '',
         },
         {
           pre: 'Tạp chí Quản lý nhà nước, ',
           href: 'https://www.quanlynhanuoc.vn/2026/06/16/gia-lai-dinh-huong-thu-hut-dau-tu-chien-luoc-trong-boi-canh-hoi-nhap-quoc-te/',
-          text: 'Gia Lai định hướng thu hút đầu tư chiến lược, 16 Jun 2026.',
+          text: 'Gia Lai định hướng thu hút đầu tư chiến lược, 16/06/2026.',
           post: '',
         },
       ],
@@ -599,9 +599,9 @@ const dictionary: Dictionary = {
       },
       mobile: {
         a11yTitle:
-          'Sơ đồ vị trí, mobile — khu dự án PIDC tại Gia Lai, lưới 220 kV, tuyến cáp quang đến trạm cập bờ ADC và SJC2 tại Quy Nhơn (LM-01)',
+          'Sơ đồ vị trí, bản di động — khu dự án PIDC tại Gia Lai, lưới 220 kV, tuyến cáp quang đến trạm cập bờ ADC và SJC2 tại Quy Nhơn (LM-01)',
         a11yDesc:
-          'Sơ đồ vị trí (mobile). Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.',
+          'Sơ đồ vị trí (bản di động). Miền Trung Việt Nam, với khu dự án PIDC tại tỉnh Gia Lai, kết nối lưới 220 kV, và hai tuyến cáp quang riêng hướng đông đến các trạm cập bờ ADC và SJC2 tại Quy Nhơn ven biển.',
         kv: 'Lưới 220 kV',
         site: 'Khu dự án PIDC',
         coast: 'Quy Nhơn',
