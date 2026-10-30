@@ -1,0 +1,40 @@
+# =============================================================================
+# Web · Deploy — thin caller of the shared reusable (ci), qnsc-landing pattern.
+#
+# 1-env static site: merge to main -> build + publish to Cloudflare Pages via
+# the shared workflow (build runs in CI, not Cloudflare's builder). No release
+# tag needed. No approval gate (marketing site, but NOT indexed until launch:
+# see functions/_middleware and public/robots.txt).
+#
+# PREREQUISITES (owner, one-time — this repo deploys into the SEPARATE
+# Cloudflare account "PIDC", not QNSC, so these are REPO-level, not org-level):
+#   1. Pages project "pidc-landing" created in the PIDC account (direct upload;
+#      do NOT connect GitHub — CI is the single source of deploys).
+#   2. Repo secret  CLOUDFLARE_API_TOKEN  — API token scoped to the PIDC
+#      account, Pages: Edit only.
+#   3. Repo vars    CLOUDFLARE_ACCOUNT_ID (the PIDC account id — an identifier,
+#      not a secret) and PAGES_PROJECT=pidc-landing.
+# =============================================================================
+name: Web · Deploy
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy-web-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Union of the reusable's inner job permissions (qnsc-landing parity).
+    permissions:
+      contents: read
+    uses: quynhonsemiconductor/ci/.github/workflows/web-deploy.yml@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
+    with:
+      product: pidc-landing
+      build_command: pnpm build && pnpm verify:dist
+      web_dist_path: dist
+      single_environment: production
+      pnpm_version: '10.34.7'
+    secrets: inherit
