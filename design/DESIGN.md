@@ -67,7 +67,7 @@ Every figure keeps its drawing honesty: sheet id + "SCHEMATIC · NOT TO SCALE".
 
 ## 3. Layout grammar
 - Shell: text top nav (5 items + EN|VI toggle), `--w-sheet` 1180px page column, paper ground.
-- Home: hero (badge + H1 + SLD figure) → site-facts statband → Power/Fiber/Land proofs + location map →
+- Home: hero (badge + H1 + SLD figure) → key-facts statband → Power/Fiber/Land proofs + location map →
   terrain cross-section → phases → CTA. Ruled hairlines separate sections; sheet numbers S-01… auto.
 - Inner pages: `r-tocrail` — sticky 220px TOC left rail on >1024, first figure after the lead
   paragraph (never beside the H1), TOC rail visible ≥1025 px only; at ≤1024 px the rail is hidden and a collapsed "On this page" <details> shows instead (breakpoint 64em, intentional).
@@ -90,8 +90,7 @@ Key decisions:
 - `r-tocrail` — mono labels, hairline left rule, red current marker.
 - `c-choice` — native radios, checked = ink double border; no JS.
 - `c-milestones`/`c-people` — placeholder-driven until CEO supplies content; ink ✓ for secured items.
-- `c-terrainrule` — the borrowed motif: 3 stepped ink segments (highlands → pass → coast), decorative
-  separator before CTAs. Never carries meaning alone.
+- Section rule before CTAs: the `c-cta` band's own hairline (border-top). The stepped `c-terrainrule` motif was retired (2026-10-30): it read as stray black bars; the terrain cross-section figure keeps the terrain motif.
 
 ## 5. Patterns
 Long-form explainer = r-tocrail + sections with sheet numbers; evidence lists = c-proof/c-stat;

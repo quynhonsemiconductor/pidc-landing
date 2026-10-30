@@ -25,11 +25,21 @@ const dictionary: Dictionary = {
     figureTitle: 'Xây dựng hạ tầng AI ngay tại nguồn năng lượng.',
   },
   statband: {
-    eyebrow: 'Thông số khu đất',
+    eyebrow: 'Thông số chính',
     kv: {
       value: '220 kV',
       label: 'Đấu nối lưới',
       src: 'TODO(CEO): nguồn + thời điểm',
+    },
+    cables: {
+      value: '2',
+      label: 'Tuyến cáp quang biển quốc tế cập bờ tại Quy Nhơn',
+      src: 'ADC · SJC2',
+    },
+    location: {
+      value: 'Gia Lai',
+      label: 'Địa điểm',
+      src: 'Việt Nam',
     },
     distance: {
       value: 'TODO(CEO): khoảng cách km đến trạm cập bờ Quy Nhơn',
@@ -538,7 +548,7 @@ const dictionary: Dictionary = {
     },
     group: {
       eyebrow: 'Công ty',
-      title: 'Các lĩnh vực của Pisico',
+      title: 'Tập đoàn Pisico',
       p1: 'Pisico là doanh nghiệp đa ngành tại Gia Lai, có lịch sử từ năm 1985. Cổ phiếu của Pisico giao dịch trên UPCoM với mã PIS từ năm 2016. Hoạt động của Tổng công ty gồm chế biến lâm sản xuất khẩu, hạ tầng cụm công nghiệp, bất động sản, thương mại – dịch vụ, logistics (trong đó có Cảng Thị Nại tại Quy Nhơn), phát triển nguồn nhân lực và đầu tư nông nghiệp, với các vùng trồng keo, cao su và cà phê tại Việt Nam và Lào.',
       p2: 'PIDC thuộc sở hữu Việt Nam, với cơ cấu sở hữu đơn giản và hồ sơ rõ ràng, giúp khách hàng triển khai GPU tiên tiến dễ dàng xác minh chủ sở hữu hưởng lợi của cơ sở.',
       facts: {
@@ -559,7 +569,7 @@ const dictionary: Dictionary = {
           dd: '99 Tây Sơn, phường Quy Nhơn Nam, tỉnh Gia Lai, Việt Nam',
         },
         capA: 'PIDC.VN',
-        capB: 'Sơ đồ minh họa',
+        capB: 'Thông tin pháp nhân',
       },
       figure: {
         title: 'Các lĩnh vực của Pisico',
@@ -596,17 +606,6 @@ const dictionary: Dictionary = {
           body: 'TODO(CEO): giấy phép — cột mốc và trạng thái',
         },
         { time: 'TODO(CEO): ngày tháng — mục khác', body: 'TODO(CEO): cột mốc khác và trạng thái' },
-      ],
-    },
-    people: {
-      eyebrow: 'Công ty',
-      title: 'Ai đứng sau PIDC',
-      intro:
-        'PIDC là pháp nhân dự án của khu dữ liệu và là công ty thành viên của Tổng Công ty PISICO Bình Định – CTCP.',
-      cards: [
-        { role: 'Chủ tịch HĐQT', line: 'Lâm Duy Việt' },
-        { role: 'TODO(CEO): vai trò', line: 'TODO(CEO): tên + một dòng' },
-        { role: 'TODO(CEO): vai trò', line: 'TODO(CEO): tên + một dòng' },
       ],
     },
     cta: {
@@ -775,7 +774,8 @@ const dictionary: Dictionary = {
       'Khu trung tâm dữ liệu AI quốc tế, xanh, có khả năng chống chịu, phục hồi, tại tỉnh dư thừa năng lượng tái tạo.',
     legal: '© 2026 Công ty Cổ phần Pisico Data Center',
     status: 'Đang phát triển · Gia Lai, Việt Nam',
-    site: 'pidc.vn',
+    navTitle: 'Trang',
+    contactTitle: 'Liên hệ',
   },
   ui: {
     skipLink: 'Tới nội dung',

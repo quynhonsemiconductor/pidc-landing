@@ -22,7 +22,7 @@ interface Props {
 const { dict, locale, description } = Astro.props;
 const t = dict;
 const sb = pruneTodo(dict.statband);
-const stats = [sb.kv, sb.distance, sb.land, sb.phases, sb.stage].filter(
+const stats = [sb.kv, sb.cables, sb.location, sb.distance, sb.land, sb.phases, sb.stage].filter(
   (x): x is NonNullable<typeof x> => x !== undefined,
 );
 const siteUrl = new URL('/', Astro.site).href; // canonical host comes from astro.config `site`
@@ -180,8 +180,6 @@ const jsonLd = [
         </div>
       </div>
     </section>
-
-    <hr class="c-terrainrule l-page l-sep" />
   </main>
 
   <section class="c-cta" aria-label={dict.nav.contact}>

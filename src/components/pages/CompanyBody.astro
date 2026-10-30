@@ -4,7 +4,7 @@
 // locked mockup (design/screens/company.html): hero, S-01 the Pisico group (prose + the
 // entity-facts c-glossary sheet and the numbered-keys group figure — keys 1–8 ported as
 // markup, not an SVG), S-02 milestones (hidden until dated items are confirmed), S-03 who stands behind PIDC
-// (governance intro + people cards, only the confirmed ones), terrain rule and CTA band.
+// (removed: it only repeated the entity sheet), then the CTA band.
 // Profile layout: no TOC rail. Sheet numbers S-01… come from the existing main > section
 // counter in components.css. The group figure's key 8 carries the mockup's <strong> PIDC
 // entry; entity facts are registry data kept verbatim (BUILD-NOTES / company handoff).
@@ -148,34 +148,6 @@ const { title, description } = dict.company.pageMeta;
         </section>
       ) : null
     }
-
-    {
-      t.people?.cards?.length ? (
-        <section class="l-band" id="people" aria-labelledby="people-title">
-          <div class="l-page r-section-split">
-            <header class="c-section">
-              <p class="c-section__eyebrow">{t.people.eyebrow}</p>
-              <h2 class="c-section__title" id="people-title">
-                {t.people.title}
-              </h2>
-            </header>
-            <div class="c-section c-section--body">
-              {t.people.intro && <p>{t.people.intro}</p>}
-              <div class="c-people">
-                {t.people.cards.map((card) => (
-                  <div class="c-people__card">
-                    <p class="c-people__role">{card.role}</p>
-                    <p>{card.line}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      ) : null
-    }
-
-    <div class="l-page l-rule"><hr class="c-terrainrule" /></div>
   </main>
 
   <section class="c-cta" aria-label={dict.nav.contact}>

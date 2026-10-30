@@ -252,63 +252,83 @@
   max-width: 60ch;
 }
 
-/* c-sitefoot — wordmark, tagline, nav, legal, status */
+/* c-sitefoot — brand + tagline, nav group, contact group, bottom bar (copyright left, status right).
+   Stacked on mobile; 3-column grid at >= 64em. */
 .c-sitefoot {
   border-top: 1px solid var(--color-line);
-}
-.c-sitefoot__tag {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--s-4);
-  padding-block: var(--s-6) 0;
-}
-.c-sitefoot__wordmark {
-  margin: 0;
-  font: 700 var(--fs-title)/var(--lh-tight) var(--font-display);
-  letter-spacing: var(--ls-2);
-}
-.c-sitefoot__tagline {
-  margin: 0;
-  font: 600 var(--fs-title)/var(--lh-tight) var(--font-display);
-  max-width: 46ch;
-}
-.c-sitefoot__in {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s-2) var(--s-6);
-  padding-block: var(--s-5) var(--s-6);
   font: 400 var(--fs-small)/var(--lh-body) var(--font-ui);
   color: var(--color-text-2);
 }
-.c-sitefoot__nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-1) var(--s-4);
+.c-sitefoot__grid {
+  display: grid;
+  gap: var(--s-6);
+  padding-block: var(--s-7) var(--s-6);
 }
-.c-sitefoot__nav a {
+@media (min-width: 64em) {
+  .c-sitefoot__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 4fr);
+    gap: var(--s-8);
+  }
+}
+.c-sitefoot__brand,
+.c-sitefoot__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-1);
+  min-width: 0;
+}
+.c-sitefoot__wordmark {
+  margin: 0 0 var(--s-3);
+  font: 700 var(--fs-title)/var(--lh-tight) var(--font-display);
+  letter-spacing: var(--ls-2);
+  color: var(--color-text);
+}
+.c-sitefoot__tagline {
+  margin: 0;
+  max-width: 40ch;
+  font: 400 var(--fs-body)/var(--lh-body) var(--font-ui);
+}
+.c-sitefoot__head {
+  margin: 0 0 var(--s-2);
+  font: 600 var(--fs-meta)/var(--lh-tight) var(--font-num);
+  letter-spacing: var(--ls-3);
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.c-sitefoot__col a {
   display: inline-flex;
   align-items: center;
   min-height: var(--target);
-  padding-block: var(--s-2);
   color: var(--color-text-2);
   text-decoration: none;
 }
-.c-sitefoot__nav a:hover {
+.c-sitefoot__col a:hover {
   color: var(--color-text);
   text-decoration: underline;
   text-underline-offset: var(--s-1);
 }
-.c-sitefoot__nav a:focus-visible {
+.c-sitefoot__col a:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
-.c-sitefoot__site {
-  font: 600 var(--fs-meta)/var(--lh-body) var(--font-num);
-  letter-spacing: var(--ls-3);
-  text-transform: uppercase;
+.c-sitefoot__col a[aria-current='page'] {
+  color: var(--color-text);
+}
+.c-sitefoot__contact address {
+  font-style: normal;
+  max-width: 36ch;
+}
+.c-sitefoot__bar {
+  border-top: 1px solid var(--color-line);
+}
+.c-sitefoot__in {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-6);
+  padding-block: var(--s-4);
+  font-size: var(--fs-meta);
 }
 .c-sitefoot__status {
   font-family: var(--font-num);
@@ -545,22 +565,6 @@ main > section + section {
   color: var(--color-text);
 } /* secured items: ink check, never red */
 
-/* c-people — leadership block (placeholders only, no names/photos yet) */
-.c-people {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--s-5);
-}
-.c-people__card {
-  border: 1px solid var(--color-line);
-  padding: var(--s-4);
-  display: grid;
-  gap: var(--s-2);
-}
-.c-people__role {
-  font: 600 var(--fs-small)/1.4 var(--font-display);
-}
-
 /* c-proof — numbered proof card; the index is the 44px red callout circle */
 .c-proof {
   border-top: 2px solid var(--color-text);
@@ -609,8 +613,12 @@ main > section + section {
   min-width: 0;
 }
 .c-stat__figure {
-  font: 600 var(--fs-figure)/1 var(--font-num);
+  font: 600 var(--fs-stat)/1 var(--font-num);
   font-variant-numeric: tabular-nums;
+}
+.c-proof .c-stat__figure {
+  white-space: nowrap;
+  overflow-wrap: normal;
 }
 .c-stat__label {
   font: 400 var(--fs-small)/var(--lh-body) var(--font-ui);
@@ -628,6 +636,7 @@ main > section + section {
 }
 .c-statband__item {
   display: grid;
+  align-content: start;
   gap: var(--s-1);
 }
 .c-statband__value {
@@ -704,21 +713,6 @@ main > section + section {
   max-width: 30ch;
 }
 
-/* c-terrainrule — recurring motif (highlands → pass → coast); decoration only */
-.c-terrainrule {
-  height: 6px;
-  border: 0;
-  margin: 0;
-  background: linear-gradient(
-    to right,
-    var(--color-text) 0 46%,
-    transparent 46% 54%,
-    var(--color-text) 54% 78%,
-    transparent 78% 86%,
-    var(--color-text) 86% 100%
-  );
-}
-
 /* ————— recipes (r-*) ————— */
 
 /* r-hero-figure — the SLD beside the hero copy */
@@ -739,24 +733,11 @@ main > section + section {
   }
 }
 
-/* r-section-split — section head left, body right */
+/* r-section-split — section head on top across the full main column, body below it
+   (the old head-left/body-right split squeezed the cards into ~180px columns) */
 .r-section-split {
   display: grid;
-  gap: var(--s-6);
-}
-@media (min-width: 57.5em) {
-  .r-section-split {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
-    gap: var(--s-8);
-    align-items: start;
-  }
-}
-/* VI titles run long (stacked diacritics, ~20-30% longer): give the section-head
-   column more width on desktop so headings wrap 2-3 lines, not 5-6. */
-@media (min-width: 64em) {
-  html[lang='vi'] .r-section-split {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-  }
+  gap: var(--s-5);
 }
 .r-section-split > * {
   min-width: 0;
@@ -1320,12 +1301,6 @@ main > section + section {
   height: 8px;
 }
 
-/* c-stat__figure — big mono figure inside chart bar labels */
-.c-stat__figure {
-  font: 600 var(--fs-figure)/1 var(--font-num);
-  font-variant-numeric: tabular-nums;
-}
-
 /* c-table — one table for read-only data lists */
 .c-table {
   width: 100%;
@@ -1422,7 +1397,10 @@ main > section + section {
   }
   .r-tocrail > nav {
     position: sticky;
-    top: var(--s-7);
+    top: var(--rail-top);
+    align-self: start;
+    max-height: calc(100dvh - var(--rail-top) - var(--s-5));
+    overflow-y: auto;
   }
 }
 .r-tocrail ol {

@@ -78,6 +78,11 @@
   --fs-display: var(--p-size-40);
   --fs-hero: clamp(2.3rem, 4.6vw, 3.6rem); /* page H1 */
   --fs-section: clamp(1.9rem, 3.4vw, 2.7rem); /* section H2 */
+  --fs-stat: clamp(
+    1.25rem,
+    2.4vw,
+    var(--p-size-28)
+  ); /* proof-card big figure: fluid, never breaks mid-token */
   /* diagram label sizes (SVG user units — keep, they are tuned to each viewBox) */
   --fs-diagram-label: 11px;
   --fs-diagram-xs: 9.5px;
@@ -116,6 +121,7 @@
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --target: 44px; /* minimum interactive size */
 
+  --rail-top: var(--s-7); /* sticky TOC rail offset below the (non-sticky) header */
   --row-h: 48px; /* list/table row height */
   /* 3 · component tokens are NOT declared here. Components read them with a semantic fallback,
      e.g. min-height: var(--btn-height, var(--target)). Declaring "--btn-height: var(--target)" on :root
