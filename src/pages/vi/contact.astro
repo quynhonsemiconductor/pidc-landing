@@ -1,0 +1,9 @@
+---
+// VI "Contact" ("/vi/contact/"). Title and meta description come from the dictionary (pageMeta).
+import ContactBody from '../../components/pages/ContactBody.astro';
+import { getDictionary } from '../../i18n';
+
+const dict = getDictionary('vi');
+---
+
+<ContactBody dict={dict} locale="vi" />

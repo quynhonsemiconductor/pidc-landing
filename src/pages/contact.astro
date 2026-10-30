@@ -1,0 +1,10 @@
+---
+// EN "Contact" (canonical "/contact/"). Meta description verbatim from the demo
+// (design/content/contact.html).
+import ContactBody from '../components/pages/ContactBody.astro';
+import { getDictionary } from '../i18n';
+
+const dict = getDictionary('en');
+---
+
+<ContactBody dict={dict} locale="en" />
