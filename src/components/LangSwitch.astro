@@ -1,0 +1,34 @@
+---
+// EN|VI switch as plain links to the same page in the other locale (BUILD-NOTES 3: no JS).
+import { localizedPath } from '../i18n';
+import type { Dictionary, Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  path: string; // canonical path without locale prefix, e.g. "/" or "/company/"
+  dict: Dictionary;
+}
+
+const { locale, path, dict } = Astro.props;
+---
+
+<div class="c-sitehead__lang" role="group" aria-label={dict.ui.languageGroup}>
+  <a
+    class="c-sitehead__langbtn"
+    href={localizedPath('en', path)}
+    aria-current={locale === 'en' ? 'true' : undefined}
+    lang="en"
+    hreflang="en"
+  >
+    EN
+  </a>
+  <a
+    class="c-sitehead__langbtn"
+    href={localizedPath('vi', path)}
+    aria-current={locale === 'vi' ? 'true' : undefined}
+    lang="vi"
+    hreflang="vi"
+  >
+    VI
+  </a>
+</div>

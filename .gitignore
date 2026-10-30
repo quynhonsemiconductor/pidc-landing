@@ -21,3 +21,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# lighthouse reports (local runs)
+.lighthouse/
+
+# review screenshots
+.shots/

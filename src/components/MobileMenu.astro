@@ -1,0 +1,47 @@
+---
+// Mobile menu — the design-review change: a FULL-WIDTH panel under the header holding BOTH the
+// nav links and the EN/VI switch. Base is a native <details> (works without JS); the small inline
+// module script below is THE ONLY JS ON THE SITE (BUILD-NOTES 3). Inline module scripts are
+// deferred by default and run after parse.
+import { localizedPath, navItems } from '../i18n';
+import type { Dictionary, Locale } from '../i18n';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  locale: Locale;
+  path: string;
+  dict: Dictionary;
+}
+
+const { locale, path, dict } = Astro.props;
+const nav = navItems(dict).map((item) => ({
+  ...item,
+  localized: localizedPath(locale, item.href),
+  current: item.href === path,
+}));
+---
+
+<details class="c-sitemenu" id="site-menu">
+  <summary
+    aria-controls="site-menu-panel"
+    data-open-label={dict.ui.menuOpen}
+    data-close-label={dict.ui.menuClose}
+  >
+    <span>{dict.ui.menu}</span>
+    <span class="c-sitemenu__mark" aria-hidden="true"></span>
+  </summary>
+  <div class="c-sitemenu__panel l-page" id="site-menu-panel">
+    <nav aria-label={dict.ui.siteNav}>
+      {
+        nav.map((item) => (
+          <a href={item.localized} aria-current={item.current ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <LangSwitch locale={locale} path={path} dict={dict} />
+  </div>
+</details>
+
+<script type="module" src="/scripts/menu.js"></script>

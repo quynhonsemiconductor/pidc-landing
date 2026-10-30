@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0B2A33" />
-  <rect x="14" y="24" width="36" height="4" rx="2" fill="#1BB35C" />
-  <rect x="18" y="32" width="28" height="4" rx="2" fill="#1BB35C" />
-  <rect x="22" y="40" width="20" height="4" rx="2" fill="#F5C400" />
+  <!-- Drawing-set mark: ink sheet bars on paper ground, one red callout square (token hexes:
+       --p-paper #fafaf7, --p-ink-900 #1a1d1f, --p-red-700 #c8401a; SVG asset, CSS vars not reachable) -->
+  <rect width="64" height="64" fill="#fafaf7"/>
+  <rect x="10" y="42" width="44" height="4" fill="#1a1d1f"/>
+  <rect x="10" y="31" width="32" height="4" fill="#1a1d1f"/>
+  <rect x="10" y="20" width="20" height="4" fill="#1a1d1f"/>
+  <rect x="46" y="14" width="10" height="10" fill="#c8401a"/>
 </svg>

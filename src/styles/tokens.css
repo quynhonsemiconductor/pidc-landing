@@ -1,0 +1,133 @@
+/* tokens.css — the ONLY place raw values live. Copied verbatim from design/tokens.css
+   (single source of truth); only the design-phase Google Fonts CDN import is dropped —
+   fonts are self-hosted via fonts.css (BUILD-NOTES 5).
+   Three tiers: 1 primitive (--p-*) → 2 semantic (roles) → 3 component (--btn-*, --table-*).
+   Components use tiers 2–3 only. Contexts/themes override tiers 2–3 inside a selector,
+   never tier 1. */
+:root {
+  /* 1 · primitives */
+  --p-paper: #fafaf7;
+  --p-white: #ffffff;
+  --p-ink-900: #1a1d1f;
+  --p-ink-600: #565b5d;
+  --p-ink-200: #d8d8d2;
+  --p-blue-700: #565b5d; /* unused hue slots retained for tier shape */
+  --p-green-700: #1f7a3d;
+  --p-amber-700: #9a5b00;
+  --p-red-700: #c8401a;
+  --p-cyan-700: #7a8082;
+  /* diagram primitives (electric power = warm, fiber/water = cool) */
+  --p-gold-700: #8c5a06;
+  --p-gold-400: #f5c400;
+  --p-cyan-500: #0e7c8c;
+  --p-cyan-300: #3fc9cc;
+  --p-blue-500: #2b78b4;
+  --p-blue-300: #6bb3ea;
+  --p-red-500: #c0503a;
+  --p-red-300: #f08c70;
+  --p-iso-left: #f0f0e9;
+  --p-iso-right: #e3e3da;
+  --p-space-1: 4px;
+  --p-space-2: 8px;
+  --p-space-3: 12px;
+  --p-space-4: 16px;
+  --p-space-5: 24px;
+  --p-space-6: 32px;
+  --p-space-7: 48px;
+  --p-space-8: 64px;
+  --p-size-13: 13px;
+  --p-size-14: 14px;
+  --p-size-16: 16px;
+  --p-size-18: 18px;
+  --p-size-20: 20px;
+  --p-size-28: 28px;
+  --p-size-40: 40px;
+
+  /* 2 · semantic roles */
+  --color-bg: var(--p-paper);
+  --color-surface: var(--p-white);
+  --color-text: var(--p-ink-900);
+  --color-text-2: var(--p-ink-600);
+  --color-line: var(--p-ink-200);
+  --color-accent: var(--p-red-700);
+  --color-on-accent: var(--p-white);
+  --color-accent-2: var(--p-ink-900); /* citations/links: ink; underline carries them */
+  --color-ok: #a8ae9f; /* neutral vegetation gray in diagrams */
+  --color-warn: var(--p-red-700);
+  --color-danger: var(--p-red-700);
+  --color-info: var(--p-cyan-700);
+  /* diagram roles — the SVG figures stroke/fill with these so a skin recolors them via token overrides only */
+  --color-power: var(--p-ink-900); /* power lines: solid ink */
+  --color-fiber: #7a8082; /* fiber/coolant: faded ink, dashed in recipes */
+  --color-cool: #7a8082;
+  --color-heat: var(--p-ink-900); /* coolant loops: gray dashed / ink solid */
+  --color-grid: #ecece6; /* drawing grid / hatched ground */
+  --color-iso-top: var(--p-white);
+  --color-iso-left: var(--p-iso-left);
+  --color-iso-right: var(--p-iso-right); /* isometric faces */
+  --font-ui: 'Inter', sans-serif;
+  --font-num: 'IBM Plex Mono', monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-diagram: var(--font-num);
+  --fs-meta: var(--p-size-13);
+  --fs-small: var(--p-size-14);
+  --fs-body: var(--p-size-16);
+  --fs-lede: var(--p-size-18);
+  --fs-title: var(--p-size-20);
+  --fs-figure: var(--p-size-28);
+  --fs-display: var(--p-size-40);
+  --fs-hero: clamp(2.3rem, 4.6vw, 3.6rem); /* page H1 */
+  --fs-section: clamp(1.9rem, 3.4vw, 2.7rem); /* section H2 */
+  /* diagram label sizes (SVG user units — keep, they are tuned to each viewBox) */
+  --fs-diagram-label: 11px;
+  --fs-diagram-xs: 9.5px;
+  --fs-diagram-name: 12.5px;
+  --fs-diagram-small: 10.5px;
+  --fs-diagram-kv: 13px;
+  --fs-diagram-kv-sm: 12px;
+  --fs-diagram-fbl: 12px;
+  --fs-diagram-dgs: 11px;
+  --ls-1: 0.04em;
+  --ls-2: 0.08em;
+  --ls-3: 0.14em; /* letter-spacing steps */
+  --lh-body: 1.5;
+  --lh-tight: 1.22; /* looser for VI stacked diacritics */
+  --s-1: var(--p-space-1);
+  --s-2: var(--p-space-2);
+  --s-3: var(--p-space-3);
+  --s-4: var(--p-space-4);
+  --s-5: var(--p-space-5);
+  --s-6: var(--p-space-6);
+  --s-7: var(--p-space-7);
+  --s-8: var(--p-space-8);
+  --w-sheet: 1180px; /* page column */
+  --w-fig-hero: 400px;
+  --w-fig-rack: 300px;
+  --w-fig-loop: 640px;
+  --w-fig-iso: 900px; /* figure max widths */
+  --r-1: 2px;
+  --r-2: 2px;
+  --r-3: 2px; /* drawing sheets are square */
+  --shadow-overlay: 0 12px 32px rgba(0, 0, 0, 0.18);
+  --dur: 160ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --target: 44px; /* minimum interactive size */
+
+  --row-h: 48px; /* list/table row height */
+  /* 3 · component tokens are NOT declared here. Components read them with a semantic fallback,
+     e.g. min-height: var(--btn-height, var(--target)). Declaring "--btn-height: var(--target)" on :root
+     would freeze it at :root's value (custom properties inherit COMPUTED values), so a context that
+     changes --target would no longer reach the button. Set a component token only inside a context
+     that needs to break from the semantic default. */
+}
+
+/* PR4-fix additions — print + hamburger component tokens (raw values live ONLY here) */
+:root {
+  --print-bg: #ffffff;
+  --print-ink: #000000;
+  --print-link: #555555;
+  --fs-print-url: 10pt;
+  --menu-mark-w: 14px;
+  --menu-mark-bar: 2px;
+  --menu-mark-gap: 5px;
+}

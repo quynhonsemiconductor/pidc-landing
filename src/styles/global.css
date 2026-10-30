@@ -1,1 +1,93 @@
+/* global.css — import order matters: Tailwind 4 stays for layout utilities only (no design
+   values encoded in its theme); tokens.css is the single source of design values; fonts.css
+   self-hosts the three families; components.css holds the ported c-* component rules. */
 @import 'tailwindcss';
+@import './fonts.css';
+@import './tokens.css';
+@import './components.css';
+
+/* base */
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: var(--fs-body)/var(--lh-body) var(--font-ui);
+}
+@media (width <= 64em) {
+  html.menu-open {
+    overflow: hidden;
+  } /* body scroll lock while the mobile menu panel is open (mobile only — the menu closes at the breakpoint) */
+}
+
+/* layout shell (layout only: grid, regions — var(--*) values, never raw colors/sizes) */
+.l-page {
+  max-width: var(--w-sheet);
+  margin-inline: auto;
+  padding-inline: var(--s-4);
+}
+@media (min-width: 45em) {
+  .l-page {
+    padding-inline: var(--s-6);
+  }
+}
+.l-hero {
+  display: grid;
+  gap: var(--s-6);
+  padding-block: var(--s-7) var(--s-8);
+}
+
+/* skip link — first focusable element, visible on focus */
+.c-skiplink {
+  position: absolute;
+  left: var(--s-2);
+  top: var(--s-2);
+  z-index: 100;
+  transform: translateY(calc(-100 * var(--s-8)));
+}
+.c-skiplink:focus {
+  transform: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target);
+  padding: var(--s-2) var(--s-4);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-accent);
+  font: 600 var(--fs-small)/var(--lh-body) var(--font-ui);
+  text-decoration: none;
+}
+.c-skiplink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* print — every page prints a clean PDF for investment memos (DESIGN.md §3, BUILD-NOTES 7) */
+@media print {
+  .c-sitehead__nav,
+  .c-sitehead__in > .c-sitehead__lang,
+  .c-sitemenu,
+  .c-skiplink {
+    display: none !important;
+  }
+  body {
+    background: var(--print-bg);
+    color: var(--print-ink);
+  }
+  a[href^='http']::after,
+  a[href^='/']::after {
+    content: ' (https://pidc.vn' attr(href) ')';
+    font: 400 var(--fs-print-url)/1.4 var(--font-num);
+    color: var(--print-link);
+  }
+  figure,
+  .c-figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}
