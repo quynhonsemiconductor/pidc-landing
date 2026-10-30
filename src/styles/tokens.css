@@ -120,3 +120,14 @@
      changes --target would no longer reach the button. Set a component token only inside a context
      that needs to break from the semantic default. */
 }
+
+/* PR4-fix additions — print + hamburger component tokens (raw values live ONLY here) */
+:root {
+  --print-bg: #ffffff;
+  --print-ink: #000000;
+  --print-link: #555555;
+  --fs-print-url: 10pt;
+  --menu-mark-w: 14px;
+  --menu-mark-bar: 2px;
+  --menu-mark-gap: 5px;
+}

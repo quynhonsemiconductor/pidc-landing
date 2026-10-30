@@ -75,6 +75,8 @@ jobs:
 
       - name: Build
         run: pnpm build
+      - name: Verify dist (canonical/hreflang + no inline scripts)
+        run: pnpm verify:dist
 
   # ── The aggregate gate ──────────────────────────────────────────────────────
   # `CI required` is THE required check for this workflow. It exists because

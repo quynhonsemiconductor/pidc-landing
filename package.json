@@ -22,7 +22,8 @@
     "lint:fix": "eslint . --fix && prettier --write .",
     "typecheck": "astro check",
     "lh": "astro build && node scripts/lh.mjs",
-    "prepare": "husky"
+    "prepare": "husky",
+    "verify:dist": "node scripts/verify-dist.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

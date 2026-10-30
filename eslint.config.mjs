@@ -15,6 +15,17 @@ export default [
     },
   },
   {
+    // browser script (public/scripts) and node scripts (scripts/) run in different globals
+    files: ['public/scripts/**'],
+    languageOptions: {
+      globals: { document: 'readonly', matchMedia: 'readonly', addEventListener: 'readonly' },
+    },
+  },
+  {
+    files: ['scripts/**'],
+    languageOptions: { globals: { console: 'readonly', process: 'readonly', URL: 'readonly' } },
+  },
+  {
     ignores: ['dist/**', 'node_modules/**', '.astro/**', 'design/**'], // design artifacts: uiux-studio mockups, not shipped source
   },
 ];

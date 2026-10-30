@@ -3,7 +3,7 @@
 // nav links and the EN/VI switch. Base is a native <details> (works without JS); the small inline
 // module script below is THE ONLY JS ON THE SITE (BUILD-NOTES 3). Inline module scripts are
 // deferred by default and run after parse.
-import { localizedPath } from '../i18n';
+import { localizedPath, navItems } from '../i18n';
 import type { Dictionary, Locale } from '../i18n';
 import LangSwitch from './LangSwitch.astro';
 
@@ -14,13 +14,7 @@ interface Props {
 }
 
 const { locale, path, dict } = Astro.props;
-const navItems = [
-  { href: '/', label: dict.nav.project },
-  { href: '/why-vietnam/', label: dict.nav.vietnamGiaLai },
-  { href: '/ai-data-center/', label: dict.nav.aiDataCenters },
-  { href: '/company/', label: dict.nav.company },
-  { href: '/contact/', label: dict.nav.contact },
-].map((item) => ({
+const nav = navItems(dict).map((item) => ({
   ...item,
   localized: localizedPath(locale, item.href),
   current: item.href === path,
@@ -29,7 +23,6 @@ const navItems = [
 
 <details class="c-sitemenu" id="site-menu">
   <summary
-    aria-expanded="false"
     aria-controls="site-menu-panel"
     data-open-label={dict.ui.menuOpen}
     data-close-label={dict.ui.menuClose}
@@ -37,10 +30,10 @@ const navItems = [
     <span>{dict.ui.menu}</span>
     <span class="c-sitemenu__mark" aria-hidden="true"></span>
   </summary>
-  <div class="c-sitemenu__panel" id="site-menu-panel">
+  <div class="c-sitemenu__panel l-page" id="site-menu-panel">
     <nav aria-label={dict.ui.siteNav}>
       {
-        navItems.map((item) => (
+        nav.map((item) => (
           <a href={item.localized} aria-current={item.current ? 'page' : undefined}>
             {item.label}
           </a>
@@ -51,34 +44,4 @@ const navItems = [
   </div>
 </details>
 
-<script is:inline type="module">
-  (() => {
-    const menu = document.getElementById('site-menu');
-    if (!menu) return;
-    const toggle = menu.querySelector('summary');
-    const panel = menu.querySelector('.c-sitemenu__panel');
-    if (!toggle || !panel) return;
-
-    // native <details> emits "toggle" on every open/close, whatever triggered it
-    menu.addEventListener('toggle', () => {
-      toggle.setAttribute('aria-expanded', String(menu.open));
-      toggle.setAttribute(
-        'aria-label',
-        menu.open ? toggle.dataset.closeLabel : toggle.dataset.openLabel,
-      );
-      document.documentElement.classList.toggle('menu-open', menu.open); // body scroll lock
-      if (menu.open) {
-        const first = panel.querySelector('a');
-        if (first) first.focus(); // focus moves into the panel on open
-      } else {
-        toggle.focus(); // and returns to the toggle on close
-      }
-    });
-
-    menu.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && menu.open) {
-        menu.open = false; // closing fires "toggle" above, which restores focus
-      }
-    });
-  })();
-</script>
+<script type="module" src="/scripts/menu.js"></script>

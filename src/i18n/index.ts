@@ -18,5 +18,16 @@ export function getDictionary(locale: Locale): Dictionary {
 
 export function localizedPath(locale: Locale, path: string): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return locale === 'en' ? clean : `/vi${clean === '/' ? '' : clean}`;
+  return locale === 'en' ? clean : `/vi${clean}`; // '/' -> '/vi/' (trailing slash kept; canonical VI home)
+}
+
+// Single source of navigation (used by SiteHeader, MobileMenu, SiteFooter).
+export function navItems(dict: Dictionary): { href: string; label: string }[] {
+  return [
+    { href: '/', label: dict.nav.project },
+    { href: '/why-vietnam/', label: dict.nav.vietnamGiaLai },
+    { href: '/ai-data-center/', label: dict.nav.aiDataCenters },
+    { href: '/company/', label: dict.nav.company },
+    { href: '/contact/', label: dict.nav.contact },
+  ];
 }

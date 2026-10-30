@@ -99,7 +99,7 @@
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
-@media (min-width: 64em) {
+@media (width > 64em) {
   .c-sitehead__in {
     flex-wrap: nowrap;
   }
@@ -120,7 +120,7 @@
 .c-sitemenu {
   display: none;
 }
-@media (max-width: 64em) {
+@media (width <= 64em) {
   .c-sitehead__nav {
     display: none;
   }
@@ -151,8 +151,8 @@
     outline-offset: 2px;
   }
   .c-sitemenu__mark {
-    width: 14px;
-    height: 2px;
+    width: var(--menu-mark-w);
+    height: var(--menu-mark-bar);
     background: var(--color-text);
     position: relative;
   }
@@ -161,16 +161,19 @@
     content: '';
     position: absolute;
     left: 0;
-    width: 14px;
-    height: 2px;
+    width: var(--menu-mark-w);
+    height: var(--menu-mark-bar);
     background: var(--color-text);
     transition: transform var(--dur) var(--ease);
   }
   .c-sitemenu__mark::before {
-    top: -5px;
+    top: calc(-1 * var(--menu-mark-gap));
   }
   .c-sitemenu__mark::after {
-    top: 5px;
+    top: var(--menu-mark-gap);
+  }
+  .c-sitemenu[open] .c-sitemenu__mark {
+    background: transparent; /* open state: two bars only, no asterisk look */
   }
   .c-sitemenu[open] .c-sitemenu__mark::before {
     transform: translateY(5px) rotate(45deg);

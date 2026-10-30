@@ -28,7 +28,7 @@ const dictionary: Dictionary = {
   },
   ui: {
     skipLink: 'Tới nội dung',
-    siteNav: 'Mục lục',
+    siteNav: 'Điều hướng chính',
     footerNav: 'Chân trang',
     languageGroup: 'Language / Ngôn ngữ',
     menu: 'Menu',

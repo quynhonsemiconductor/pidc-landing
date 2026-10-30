@@ -1,6 +1,6 @@
 ---
 // Site header — markup/classes ported from the locked mockup (design/screens/index.html c-sitehead).
-import { localizedPath } from '../i18n';
+import { localizedPath, navItems } from '../i18n';
 import type { Dictionary, Locale } from '../i18n';
 import LangSwitch from './LangSwitch.astro';
 import MobileMenu from './MobileMenu.astro';
@@ -12,13 +12,7 @@ interface Props {
 }
 
 const { locale, path, dict } = Astro.props;
-const navItems = [
-  { href: '/', label: dict.nav.project },
-  { href: '/why-vietnam/', label: dict.nav.vietnamGiaLai },
-  { href: '/ai-data-center/', label: dict.nav.aiDataCenters },
-  { href: '/company/', label: dict.nav.company },
-  { href: '/contact/', label: dict.nav.contact },
-].map((item) => ({
+const nav = navItems(dict).map((item) => ({
   ...item,
   localized: localizedPath(locale, item.href),
   current: item.href === path,
@@ -33,7 +27,7 @@ const navItems = [
     </a>
     <nav class="c-sitehead__nav" aria-label={dict.ui.siteNav}>
       {
-        navItems.map((item) => (
+        nav.map((item) => (
           <a href={item.localized} aria-current={item.current ? 'page' : undefined}>
             {item.label}
           </a>

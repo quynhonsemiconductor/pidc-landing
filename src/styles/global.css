@@ -13,9 +13,11 @@ body {
   color: var(--color-text);
   font: var(--fs-body)/var(--lh-body) var(--font-ui);
 }
-html.menu-open {
-  overflow: hidden;
-} /* body scroll lock while the mobile menu panel is open */
+@media (width <= 64em) {
+  html.menu-open {
+    overflow: hidden;
+  } /* body scroll lock while the mobile menu panel is open (mobile only — the menu closes at the breakpoint) */
+}
 
 /* layout shell (layout only: grid, regions — var(--*) values, never raw colors/sizes) */
 .l-page {
@@ -69,13 +71,14 @@ html.menu-open {
     display: none !important;
   }
   body {
-    background: #fff;
-    color: #000;
+    background: var(--print-bg);
+    color: var(--print-ink);
   }
-  a[href^='http']::after {
-    content: ' (' attr(href) ')';
-    font: 400 10pt/1.4 var(--font-num);
-    color: #555;
+  a[href^='http']::after,
+  a[href^='/']::after {
+    content: ' (https://pidc.vn' attr(href) ')';
+    font: 400 var(--fs-print-url)/1.4 var(--font-num);
+    color: var(--print-link);
   }
   figure,
   .c-figure {
