@@ -260,6 +260,7 @@
   flex: none;
 }
 .c-hero__title {
+  text-wrap: balance; /* long headings: no orphan word on the last line */
   margin: var(--s-4) 0;
   font: 600 var(--fs-hero)/var(--lh-tight) var(--font-display);
   max-width: 27ch;
@@ -449,6 +450,7 @@ main > section + section {
   margin-right: var(--s-3);
 }
 .c-section__title {
+  text-wrap: balance;
   margin: 0;
   font: 600 var(--fs-section)/var(--lh-tight) var(--font-display);
   max-width: 24ch;
@@ -1798,6 +1800,37 @@ main > section + section {
    enough to read at a glance and to copy by eye. The address wraps rather than
    overflowing on a 390 px screen; the underline is the affordance (the site's
    link grammar), the accent is reserved for callout markers. */
+/* c-audience — who PIDC talks to, as a plain list (owner, 2026-10-31: the three
+   audiences belong on the contact page, but not as form controls). Wording is
+   the site's own, matching the reference site. */
+.c-audience {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--color-line);
+}
+.c-audience > li {
+  display: grid;
+  gap: var(--s-1);
+  padding-block: var(--s-4);
+  border-bottom: 1px solid var(--color-line);
+}
+@media (min-width: 48em) {
+  .c-audience > li {
+    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+    column-gap: var(--s-5);
+    align-items: baseline;
+  }
+}
+.c-audience__title {
+  font: 600 var(--fs-body)/1.4 var(--font-display);
+}
+.c-audience__desc {
+  font: var(--fs-small)/1.5 var(--font-ui);
+  color: var(--color-text-2);
+}
 .c-contact-mail {
   display: inline-block;
   font: 700 var(--fs-display)/var(--lh-tight) var(--font-display);

@@ -43,14 +43,11 @@ body {
   }
 }
 
-/* home page section rhythm (from design/screens/index.html layout styles) */
+/* Section rhythm. One value at every width (owner decision, 2026-10-31):
+   64 px at ≥57.5em read as drift — ~150 px of white before each section title —
+   while the space inside a section is 24–32 px. 48 px matches that inner rhythm. */
 .l-band {
   padding-block: var(--s-7);
-}
-@media (min-width: 57.5em) {
-  .l-band {
-    padding-block: var(--s-8);
-  }
 }
 .l-statband {
   margin-top: var(--s-5);

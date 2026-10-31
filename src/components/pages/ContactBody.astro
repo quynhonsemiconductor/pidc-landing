@@ -41,6 +41,25 @@ const { title, description } = dict.contact.pageMeta;
       </div>
     </section>
 
+    <section class="l-band" id="audience" aria-labelledby="audience-title">
+      <div class="l-page r-section-split">
+        <header class="c-section">
+          <p class="c-section__eyebrow">{t.audience.eyebrow}</p>
+          <h2 class="c-section__title" id="audience-title">{t.audience.title}</h2>
+        </header>
+        <ul class="c-audience">
+          {
+            t.audience.options.map((option) => (
+              <li>
+                <span class="c-audience__title">{option.title}</span>
+                <span class="c-audience__desc">{option.desc}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
     <section class="l-band" id="email" aria-labelledby="email-title">
       <div class="l-page r-section-split">
         <header class="c-section">
