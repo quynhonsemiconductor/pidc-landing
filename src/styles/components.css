@@ -8,7 +8,12 @@
 
 /* c-sitehead — banner: wordmark, primary nav, EN|VI toggle */
 .c-sitehead {
-  position: relative;
+  /* Sticky at every width (owner 2026-10-31): the language switch and the menu
+     must stay reachable while reading. sticky, never fixed — no layout hole,
+     no scroll listeners. Solid background so content cannot show through. */
+  position: sticky;
+  top: 0;
+  z-index: 30;
   border-bottom: 1px solid var(--color-line);
   background: var(--color-bg);
 }
@@ -120,6 +125,11 @@
    Design review: full-width panel under the header holding BOTH nav and EN/VI switch. */
 .c-sitemenu {
   display: none;
+}
+/* In-page anchors land below the sticky header, not under it. */
+:target,
+[id] {
+  scroll-margin-top: var(--sitehead-h);
 }
 @media (width <= 64em) {
   .c-sitehead__nav {
@@ -260,6 +270,7 @@
   flex: none;
 }
 .c-hero__title {
+  text-wrap: balance; /* long headings: no orphan word on the last line */
   margin: var(--s-4) 0;
   font: 600 var(--fs-hero)/var(--lh-tight) var(--font-display);
   max-width: 27ch;
@@ -449,6 +460,7 @@ main > section + section {
   margin-right: var(--s-3);
 }
 .c-section__title {
+  text-wrap: balance;
   margin: 0;
   font: 600 var(--fs-section)/var(--lh-tight) var(--font-display);
   max-width: 24ch;
@@ -762,6 +774,18 @@ main > section + section {
 .r-section-split > * {
   min-width: 0;
   margin-block-start: 0;
+}
+
+/* Contact page: two short blocks (one mailto, one address) in a full-width
+   stack left a 900 px void beside each. At ≥57.5em the heading takes its own
+   column — the same sheet split the company page uses — so the page reads as
+   composed rather than ragged. */
+@media (min-width: 57.5em) {
+  .r-contact .r-section-split {
+    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    column-gap: var(--s-7);
+    align-items: start;
+  }
 }
 
 /* ————— diagram languages (from recipes.css r-diagram) ————— */
@@ -1423,14 +1447,14 @@ main > section + section {
     overflow-y: auto;
   }
 }
-.r-tocrail ol {
+.r-tocrail > nav ol {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   gap: var(--s-2);
 }
-.r-tocrail a {
+.r-tocrail > nav a {
   font: 500 var(--fs-small)/1.5 var(--font-num);
   color: var(--color-text-2);
   text-decoration: none;
@@ -1439,14 +1463,14 @@ main > section + section {
   border-left: 2px solid var(--color-line);
   padding-left: var(--s-3);
 }
-.r-tocrail a:hover {
+.r-tocrail > nav a:hover {
   color: var(--color-text);
 }
-.r-tocrail a:focus-visible {
+.r-tocrail > nav a:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
-.r-tocrail li[aria-current] a {
+.r-tocrail > nav li[aria-current] a {
   color: var(--color-text);
   border-left-color: var(--color-accent);
 }
@@ -1496,6 +1520,17 @@ main > section + section {
 
 /* Why Vietnam: the ruled sections sit inside the .l-rail wrapper (not direct main children),
    so the sheet counter re-seeds inside it and numbers them S-01…S-04 as in the mockup */
+/* The rail's own link styles are scoped to its nav; article-body links on these
+   pages keep the site's link grammar (underline), like every other page. */
+.r-tocrail > .l-rail a,
+.r-tocrail > section a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.r-tocrail > .l-rail a:hover,
+.r-tocrail > section a:hover {
+  color: var(--color-accent);
+}
 .r-tocrail .l-rail {
   min-width: 0;
   counter-reset: sheet 0;
@@ -1786,6 +1821,37 @@ main > section + section {
    enough to read at a glance and to copy by eye. The address wraps rather than
    overflowing on a 390 px screen; the underline is the affordance (the site's
    link grammar), the accent is reserved for callout markers. */
+/* c-audience — who PIDC talks to, as a plain list (owner, 2026-10-31: the three
+   audiences belong on the contact page, but not as form controls). Wording is
+   the site's own, matching the reference site. */
+.c-audience {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--color-line);
+}
+.c-audience > li {
+  display: grid;
+  gap: var(--s-1);
+  padding-block: var(--s-4);
+  border-bottom: 1px solid var(--color-line);
+}
+@media (min-width: 48em) {
+  .c-audience > li {
+    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+    column-gap: var(--s-5);
+    align-items: baseline;
+  }
+}
+.c-audience__title {
+  font: 600 var(--fs-body)/1.4 var(--font-display);
+}
+.c-audience__desc {
+  font: var(--fs-small)/1.5 var(--font-ui);
+  color: var(--color-text-2);
+}
 .c-contact-mail {
   display: inline-block;
   font: 700 var(--fs-display)/var(--lh-tight) var(--font-display);

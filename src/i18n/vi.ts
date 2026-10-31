@@ -627,6 +627,21 @@ const dictionary: Dictionary = {
       title: 'Trao đổi với chúng tôi về dự án',
       lede: 'Chúng tôi mong được trao đổi với đối tác vốn, khách thuê hạ tầng AI, và đối tác kỹ thuật hoặc cơ quan nhà nước.',
     },
+    audience: {
+      eyebrow: 'Liên hệ',
+      title: 'Chúng tôi mong được làm việc với:',
+      options: [
+        { title: 'Đối tác vốn', desc: 'Nhà đầu tư và quỹ hạ tầng tham gia đầu tư xây dựng dự án.' },
+        {
+          title: 'Khách thuê hạ tầng AI',
+          desc: 'Doanh nghiệp triển khai cụm GPU, cần điện, mặt bằng và kết nối tại Việt Nam.',
+        },
+        {
+          title: 'Đối tác kỹ thuật hoặc cơ quan nhà nước',
+          desc: 'Đơn vị chuyên về điện, làm mát, thiết kế và thi công.',
+        },
+      ],
+    },
     email: {
       eyebrow: 'Liên hệ',
       title: 'Liên hệ qua email',

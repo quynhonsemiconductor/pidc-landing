@@ -43,14 +43,11 @@ body {
   }
 }
 
-/* home page section rhythm (from design/screens/index.html layout styles) */
+/* Section rhythm. One value at every width (owner decision, 2026-10-31):
+   64 px at ≥57.5em read as drift — ~150 px of white before each section title —
+   while the space inside a section is 24–32 px. 48 px matches that inner rhythm. */
 .l-band {
   padding-block: var(--s-7);
-}
-@media (min-width: 57.5em) {
-  .l-band {
-    padding-block: var(--s-8);
-  }
 }
 .l-statband {
   margin-top: var(--s-5);
@@ -76,8 +73,11 @@ body {
   }
 }
 .l-fig-iso {
-  max-width: var(--w-fig-iso);
-  margin-inline: auto;
+  /* Edge to edge with the content column — same left/right edges as the facts
+     grid and the NDA note (owner, 2026-10-31). It used to be narrower and
+     centred, which put its left edge ~100 px inside the column at 1440. */
+  max-width: none;
+  margin-inline: 0;
 }
 
 /* AI data center explainer page (from design/screens/ai-data-center.html layout styles).
@@ -102,6 +102,26 @@ body {
   max-width: var(--w-fig-rack);
   margin: 0 auto;
 }
+/* AIDC hero: the rack figure is a portrait drawing (222×392). Stacked under the
+   hero copy it left two thirds of a 1440 row empty and made the hero 1036 px
+   tall. Beside the copy at ≥64em it fills the column at its natural size. */
+@media (min-width: 64em) {
+  .l-pagehero:has(> .l-fig-rack) {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    column-gap: var(--s-8);
+    align-items: start;
+  }
+  .l-pagehero:has(> .l-fig-rack) > .c-hero {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .l-pagehero:has(> .l-fig-rack) > .l-fig-rack {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: none;
+    margin: 0;
+  }
+}
 .l-pair {
   display: grid;
   gap: var(--s-5);
@@ -116,7 +136,13 @@ body {
   min-width: 0;
 }
 .l-fig-loop {
+  /* Frame spans the content column like every other figure; the drawing keeps
+     its own size and is centred inside it (owner, 2026-10-31). */
+  max-width: none;
+}
+.l-fig-loop > .c-figure > svg {
   max-width: var(--w-fig-loop);
+  margin-inline: auto;
 }
 
 /* Why Vietnam page (from design/screens/why-vietnam.html layout styles). The four ruled

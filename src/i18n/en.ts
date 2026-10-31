@@ -631,6 +631,24 @@ const dictionary = {
       title: 'Talk to us about the campus',
       lede: 'We welcome conversations with capital partners, AI compute tenants, and engineering or government partners.',
     },
+    audience: {
+      eyebrow: 'Contact',
+      title: 'We welcome conversations with:',
+      options: [
+        {
+          title: 'Capital partners',
+          desc: 'Infrastructure investors and funds for the campus build-out.',
+        },
+        {
+          title: 'AI compute tenants',
+          desc: 'Companies deploying GPU clusters that need power, space and connectivity in Vietnam.',
+        },
+        {
+          title: 'Engineering or government partners',
+          desc: 'Specialists in power, cooling, design and construction.',
+        },
+      ],
+    },
     email: {
       eyebrow: 'Contact',
       title: 'Contact us by email',
