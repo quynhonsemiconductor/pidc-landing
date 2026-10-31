@@ -136,7 +136,13 @@ body {
   min-width: 0;
 }
 .l-fig-loop {
+  /* Frame spans the content column like every other figure; the drawing keeps
+     its own size and is centred inside it (owner, 2026-10-31). */
+  max-width: none;
+}
+.l-fig-loop > .c-figure > svg {
   max-width: var(--w-fig-loop);
+  margin-inline: auto;
 }
 
 /* Why Vietnam page (from design/screens/why-vietnam.html layout styles). The four ruled
