@@ -1,0 +1,33 @@
+---
+// 404 — Cloudflare Pages serves this file for any unknown path, with status 404.
+// Without it, Pages' SPA fallback answered every junk URL with the home page at
+// 200 (a soft-404 that search engines index). Deliberately one page, in the
+// default locale, and short: get the reader back to a real page.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getDictionary, localizedPath } from '../i18n';
+
+const dict = getDictionary('en');
+const home = localizedPath('en', '/');
+const contact = localizedPath('en', '/contact/');
+---
+
+<BaseLayout
+  dict={dict}
+  locale="en"
+  path="/404/"
+  title="Page not found · PIDC"
+  errorPage
+  description="That page does not exist. Back to the PIDC home page, or write to us."
+>
+  <main id="main" class="l-pagehero l-page">
+    <div class="c-hero">
+      <p class="c-hero__badge"><span class="c-hero__dot" aria-hidden="true"></span>404</p>
+      <h1 class="c-hero__title">That page does not exist.</h1>
+      <p class="c-hero__lede">
+        The address may be mistyped, or the page may have moved. <a class="tlink" href={home}
+          >Back to the home page</a
+        >, or <a class="tlink" href={contact}>write to us</a>.
+      </p>
+    </div>
+  </main>
+</BaseLayout>
