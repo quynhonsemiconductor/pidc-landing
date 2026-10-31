@@ -33,7 +33,7 @@ const aiPath = localizedPath(locale, '/ai-data-center/');
 const title =
   locale === 'vi'
     ? 'Pisico Data Center (PIDC) — khu dữ liệu AI tại Gia Lai'
-    : 'Pisico Data Center (PIDC)';
+    : 'Pisico Data Center (PIDC) — AI data center campus in Gia Lai, Vietnam';
 
 // Organization JSON-LD ported from the demo (design/content/index.html); WebSite added.
 const jsonLd = [
@@ -42,6 +42,7 @@ const jsonLd = [
     name: 'Pisico Data Center Joint Stock Company',
     alternateName: ['PIDC', 'Công ty Cổ phần Pisico Data Center'],
     url: siteUrl,
+    logo: `${siteUrl.replace(/\/$/, '')}/favicon.svg`,
     // VI pages state the slogan in Vietnamese (SA decision: VI fully Vietnamese except brand/tech terms)
     slogan:
       locale === 'vi'
