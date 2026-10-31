@@ -124,7 +124,7 @@
   /* Sticky header height, ceiling of both layouts (72 px on phones, ~64 on
      desktop). Anchor offsets use it; being a few px generous is harmless. */
   --sitehead-h: 72px;
-  --rail-top: calc(var(--sitehead-h) + var(--s-4)); /* sticky TOC rail clears the sticky header */
+  --rail-top: var(--sitehead-h); /* sticky rail's top; its own 48 px padding keeps item 1 clear */
   --row-h: 48px; /* list/table row height */
   /* 3 · component tokens are NOT declared here. Components read them with a semantic fallback,
      e.g. min-height: var(--btn-height, var(--target)). Declaring "--btn-height: var(--target)" on :root
