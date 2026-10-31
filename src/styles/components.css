@@ -41,30 +41,31 @@
 .c-sitehead__lang {
   order: 1;
   display: inline-flex;
-  border: 1px solid var(--color-line);
-  border-radius: var(--r-1);
-  overflow: hidden;
+  /* Always visible: the switch is header chrome, not a menu item. One link that
+     names the other language in that language — no codes, no flags. */
+  flex: none;
 }
 .c-sitehead__langbtn {
   appearance: none;
-  border: 0;
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-1);
   margin: 0;
-  background: transparent;
+  background: var(--color-bg);
   color: var(--color-text);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font: 600 var(--fs-small)/1 var(--font-num);
-  letter-spacing: var(--ls-1);
+  /* UI font, not the mono annotation face: this is a word a reader looks for,
+     at a size they can find without hunting. */
+  font: 600 var(--fs-small)/1 var(--font-ui);
   padding: 0 var(--s-3);
-  min-width: var(--target);
   min-height: var(--target);
+  white-space: nowrap;
   cursor: pointer;
 }
-.c-sitehead__langbtn[aria-current='true'] {
-  color: var(--color-text);
-  border-bottom: 2px solid var(--color-accent);
+.c-sitehead__langbtn:hover {
+  border-color: var(--color-text);
 }
 .c-sitehead__langbtn:focus-visible {
   outline: 2px solid var(--color-accent);
@@ -124,11 +125,30 @@
   .c-sitehead__nav {
     display: none;
   }
+  .c-sitehead__in {
+    flex-wrap: nowrap;
+    gap: var(--s-3);
+  }
+  /* The switch stays: hiding it behind the menu is the problem this fixed. */
   .c-sitehead__in > .c-sitehead__lang {
-    display: none;
-  } /* the switch lives in the panel instead */
+    order: 1;
+  }
   .c-sitemenu {
     display: block;
+    order: 2;
+  }
+  /* Under 26em three items compete for one row. The language word is the one the
+   brief protects, so the menu keeps its icon and its accessible name (menu.js
+   sets aria-label from data-open-label) and loses only its visible word. */
+  @media (width <= 26em) {
+    .c-sitemenu__word {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
   }
   .c-sitemenu summary {
     list-style: none;
@@ -1762,63 +1782,36 @@ main > section + section {
 
 /* ————— Contact page (ported from design/components/components.css) ————— */
 
-/* c-formfield — label + input (contact page; real labels per the SA fix, never placeholders) */
-.c-formfield {
-  display: grid;
-  gap: var(--s-1);
-  min-width: 0;
-}
-.c-formfield__label {
-  font: 600 var(--fs-small)/var(--lh-body) var(--font-ui);
+/* c-contact-mail — the contact page's whole point: one email address, large
+   enough to read at a glance and to copy by eye. The address wraps rather than
+   overflowing on a 390 px screen; the underline is the affordance (the site's
+   link grammar), the accent is reserved for callout markers. */
+.c-contact-mail {
+  display: inline-block;
+  font: 700 var(--fs-display)/var(--lh-tight) var(--font-display);
   color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+  overflow-wrap: anywhere;
 }
-.c-formfield__input {
-  min-height: var(--target);
-  padding: var(--s-2) var(--s-3);
-  border: 1px solid var(--color-line);
-  border-radius: var(--r-1);
-  background: var(--color-surface);
+.c-contact-mail:hover {
+  color: var(--color-accent);
+}
+.c-office {
+  font: var(--fs-body)/var(--lh-body) var(--font-ui);
+  font-style: normal; /* <address> defaults to italic; this is a postal address, not emphasis */
   color: var(--color-text);
-  font: inherit;
+  max-width: 34ch;
 }
-.c-formfield__input:focus-visible {
+.c-contact-mail:focus-visible {
   outline: 2px solid var(--color-accent);
-  outline-offset: 1px;
+  outline-offset: 3px;
 }
+
 input,
 button,
 textarea,
 select {
   font-family: inherit;
-}
-
-/* c-choice — contact "I am a" routing (radio semantics, keyboard-safe, native radios — no JS) */
-.c-choice {
-  display: grid;
-  gap: var(--s-3);
-}
-.c-choice__opt {
-  display: flex;
-  gap: var(--s-3);
-  align-items: flex-start;
-  border: 1px solid var(--color-line);
-  padding: var(--s-4);
-  cursor: pointer;
-}
-.c-choice__opt:has(input:checked) {
-  border-color: var(--color-text);
-  box-shadow: inset 0 0 0 1px var(--color-text);
-}
-.c-choice__input {
-  accent-color: var(--color-accent);
-  min-width: var(--target-check, 24px);
-  min-height: var(--target-check, 24px);
-  margin-top: 2px;
-}
-.c-choice__title {
-  font: 600 var(--fs-body)/1.4 var(--font-display);
-}
-.c-choice__desc {
-  font: var(--fs-small)/1.5 var(--font-ui);
-  color: var(--color-text-2);
 }

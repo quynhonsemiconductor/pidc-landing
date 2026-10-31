@@ -627,54 +627,13 @@ const dictionary: Dictionary = {
       title: 'Trao đổi với chúng tôi về dự án',
       lede: 'Chúng tôi mong được trao đổi với đối tác vốn, khách thuê hạ tầng AI, và đối tác kỹ thuật hoặc cơ quan nhà nước.',
     },
-    iam: {
+    email: {
       eyebrow: 'Liên hệ',
-      title: 'Tôi là',
-      legend: 'Tôi là',
-      options: [
-        {
-          value: 'capital',
-          title: 'Đối tác vốn',
-          desc: 'Nhà đầu tư và quỹ hạ tầng tham gia đầu tư xây dựng dự án.',
-        },
-        {
-          value: 'tenant',
-          title: 'Khách thuê hạ tầng AI',
-          desc: 'Doanh nghiệp triển khai cụm GPU, cần điện, mặt bằng và kết nối tại Việt Nam.',
-        },
-        {
-          value: 'engineering',
-          title: 'Đối tác kỹ thuật hoặc cơ quan nhà nước',
-          desc: 'Đơn vị chuyên về điện, làm mát, thiết kế và thi công.',
-        },
-      ],
-      imPre: 'Đối tác vốn:',
-      imCeo: 'TODO(CEO): xác nhận "Yêu cầu bản thông tin dự án (IM)"',
-    },
-    write: {
-      eyebrow: 'Liên hệ',
-      title: 'Viết cho chúng tôi',
-      fields: [
-        { id: 'f-name', name: 'name', type: 'text', autocomplete: 'name', label: 'Họ tên' },
-        { id: 'f-email', name: 'email', type: 'email', autocomplete: 'email', label: 'Email' },
-        {
-          id: 'f-org',
-          name: 'organization',
-          type: 'text',
-          autocomplete: 'organization',
-          label: 'Tổ chức',
-        },
-        { id: 'f-msg', name: 'message', type: 'textarea', autocomplete: '', label: 'Nội dung' },
-      ],
-      submit: 'Gửi tin nhắn',
-      notLive:
-        'Biểu mẫu này chưa hoạt động. Trong thời gian chờ, vui lòng gửi email trực tiếp cho chúng tôi:',
+      title: 'Liên hệ qua email',
     },
     office: {
       eyebrow: 'Liên hệ',
       title: 'Văn phòng',
-      emailDt: 'Email',
-      officeDt: 'Văn phòng',
       address: '99 Tây Sơn, phường Quy Nhơn Nam, tỉnh Gia Lai, Việt Nam',
       nda: 'Thông tin chi tiết về dự án được cung cấp cho các đối tác phù hợp trên cơ sở thỏa thuận bảo mật.',
     },
@@ -781,7 +740,6 @@ const dictionary: Dictionary = {
     skipLink: 'Tới nội dung',
     siteNav: 'Điều hướng chính',
     footerNav: 'Chân trang',
-    languageGroup: 'Language / Ngôn ngữ',
     menu: 'Menu',
     menuOpen: 'Mở menu',
     menuClose: 'Đóng menu',

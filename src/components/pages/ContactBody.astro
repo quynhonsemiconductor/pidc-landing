@@ -1,12 +1,11 @@
 ---
 // Contact body, shared by the EN ("/contact/") and VI ("/vi/contact/") routes — one markup
-// source, every string resolved from the locale dictionary. Full page from the locked mockup
-// (design/screens/contact.html): hero, S-01 "I am a" audience routing (native c-choice
-// radios — keyboard-safe, zero JS; capital pre-checked as the mockup ships it) + the
-// capital-partner IM callout (hidden until the CTA wording is confirmed), S-02 "Write to us" form
-// (c-formfield, real labels per the SA fix; submit stays disabled — no backend yet) with the
-// not-live callout + mailto fallback, S-03 Office (address verbatim, CONTACT_EMAIL only) + NDA callout. Routing layout: no TOC rail and no CTA band —
-// the page is itself the CTA, so it ends on the terrain rule, flush above the footer.
+// source, every string resolved from the locale dictionary.
+//
+// The page is one calm thing: an address you can write to. There is no form — PIDC's clients
+// are organisations that contact by email, and a form would need a handler, anti-spam and its
+// own copy to say what an email already says. So: hero, S-01 "Contact us by email" (one large
+// mailto, the NDA note), S-02 Office (address). The email is also in the footer on every page.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { pruneTodo } from '../../i18n/prune';
 import { CONTACT_EMAIL } from '../../site';
@@ -19,7 +18,7 @@ interface Props {
 
 const { dict, locale } = Astro.props;
 const t = pruneTodo(dict.contact);
-const contactEmail = CONTACT_EMAIL; // mailto fallback target, one constant (src/site.ts)
+const contactEmail = CONTACT_EMAIL; // one constant (src/site.ts); also used by the footer
 const { title, description } = dict.contact.pageMeta;
 ---
 
@@ -42,90 +41,16 @@ const { title, description } = dict.contact.pageMeta;
       </div>
     </section>
 
-    <section class="l-band" id="iam" aria-labelledby="iam-title">
+    <section class="l-band" id="email" aria-labelledby="email-title">
       <div class="l-page r-section-split">
         <header class="c-section">
-          <p class="c-section__eyebrow">{t.iam.eyebrow}</p>
-          <h2 class="c-section__title" id="iam-title">{t.iam.title}</h2>
+          <p class="c-section__eyebrow">{t.email.eyebrow}</p>
+          <h2 class="c-section__title" id="email-title">{t.email.title}</h2>
         </header>
-        <div>
-          <fieldset class="c-choice">
-            <legend class="sr">{t.iam.legend}</legend>
-            {
-              t.iam.options.map((option) => (
-                <label class="c-choice__opt">
-                  <input
-                    class="c-choice__input"
-                    type="radio"
-                    name="audience"
-                    value={option.value}
-                    checked={option.value === 'capital'}
-                  />
-                  <span class="l-choice-body">
-                    <span class="c-choice__title">{option.title}</span>
-                    <span class="c-choice__desc">{option.desc}</span>
-                  </span>
-                </label>
-              ))
-            }
-          </fieldset>
-          {
-            t.iam.imCeo && (
-              <p class="c-callout l-im">
-                {t.iam.imPre} {t.iam.imCeo}
-              </p>
-            )
-          }
+        <div class="l-office">
+          <a class="c-contact-mail" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+          <p class="c-callout l-im">{t.office.nda}</p>
         </div>
-      </div>
-    </section>
-
-    <section class="l-band" id="write" aria-labelledby="write-title">
-      <div class="l-page r-section-split">
-        <header class="c-section">
-          <p class="c-section__eyebrow">{t.write.eyebrow}</p>
-          <h2 class="c-section__title" id="write-title">{t.write.title}</h2>
-        </header>
-        <form class="l-form">
-          <fieldset disabled class="l-form--full" aria-describedby="not-live">
-            <div class="l-note">
-              <p class="c-callout" id="not-live">{t.write.notLive}</p>
-              <a class="c-btn c-btn--primary" href={`mailto:${contactEmail}`}>{contactEmail}</a>
-            </div>
-            {
-              t.write.fields.map((field) =>
-                field.type === 'textarea' ? (
-                  <p class="c-formfield l-form--full">
-                    <label class="c-formfield__label" for={field.id}>
-                      {field.label}
-                    </label>
-                    <textarea class="c-formfield__input" id={field.id} name={field.name} rows="5" />
-                  </p>
-                ) : (
-                  <p
-                    class:list={['c-formfield', { 'l-form--full': field.name === 'organization' }]}
-                  >
-                    <label class="c-formfield__label" for={field.id}>
-                      {field.label}
-                    </label>
-                    <input
-                      class="c-formfield__input"
-                      id={field.id}
-                      name={field.name}
-                      type={field.type as 'text' | 'email'}
-                      autocomplete={field.autocomplete}
-                    />
-                  </p>
-                ),
-              )
-            }
-            <div class="l-form--full">
-              <div class="l-actions">
-                <button class="c-btn" type="submit" disabled>{t.write.submit}</button>
-              </div>
-            </div>
-          </fieldset>
-        </form>
       </div>
     </section>
 
@@ -136,19 +61,7 @@ const { title, description } = dict.contact.pageMeta;
           <h2 class="c-section__title" id="office-title">{t.office.title}</h2>
         </header>
         <div class="l-office">
-          <dl class="c-glossary">
-            <div>
-              <dt>{t.office.emailDt}</dt>
-              <dd>
-                <a class="tlink" href={`mailto:${contactEmail}`}>{contactEmail}</a>
-              </dd>
-            </div>
-            <div>
-              <dt>{t.office.officeDt}</dt>
-              <dd>{t.office.address}</dd>
-            </div>
-          </dl>
-          <p class="c-callout l-im">{t.office.nda}</p>
+          <address class="c-office">{t.office.address}</address>
         </div>
       </div>
     </section>
