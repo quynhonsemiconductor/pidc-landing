@@ -30,6 +30,14 @@ overrides:
   # unbounded intermediate arrays, fixed 5.0.9 — it explicitly BYPASSES the earlier
   # mitigation, so 5.0.8 is not a safe floor). Dev-only, via minimatch.
   'brace-expansion': '5.0.12'
+  # GHSA-3g3m-2fjr-6pw4 (CVSS 6.3) — glob 13.0.6, reached only through
+  # @sentry/bundler-plugins → @sentry/node → lighthouse (dev). Fixed in 14.0.3.
+  # A major, but every consumer here is a build-time tool run against our own
+  # tree, and the build/lint/typecheck/Lighthouse gates below are the test.
+  'glob@<14.0.3': '14.0.3'
+  # GHSA-g3hv-75wg-m249 (CVSS 6.9) — minimatch 10.2.6, reached through eslint
+  # and its plugins (dev). Fixed in 11.0.3; same reasoning for the major.
+  'minimatch@<11.0.3': '11.0.3'
 
 # pnpm 11 refuses to run a package's postinstall unless it is named here, and exits 1
 # with ERR_PNPM_IGNORED_BUILDS if the decision is unmade. Both of these build native
