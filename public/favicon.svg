@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Drawing-set mark: ink sheet bars on paper ground, one red callout square (token hexes:
-       --p-paper #fafaf7, --p-ink-900 #1a1d1f, --p-red-700 #c8401a; SVG asset, CSS vars not reachable) -->
+  <!-- Drawing-set mark: ink sheet bars on paper ground, one red callout square. Token hexes:
+       paper #fafaf7, ink #1a1d1f, red #c8401a (SVG assets cannot read CSS variables). -->
   <rect width="64" height="64" fill="#fafaf7"/>
   <rect x="10" y="42" width="44" height="4" fill="#1a1d1f"/>
   <rect x="10" y="31" width="32" height="4" fill="#1a1d1f"/>

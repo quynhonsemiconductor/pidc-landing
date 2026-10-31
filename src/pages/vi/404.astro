@@ -1,0 +1,33 @@
+---
+// 404 — Cloudflare Pages serves this file for any unknown path, with status 404.
+// Without it, Pages' SPA fallback answered every junk URL with the home page at
+// 200 (a soft-404 that search engines index). Deliberately one page, in the
+// default locale, and short: get the reader back to a real page.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getDictionary, localizedPath } from '../../i18n';
+
+const dict = getDictionary('vi');
+const home = localizedPath('vi', '/');
+const contact = localizedPath('vi', '/contact/');
+---
+
+<BaseLayout
+  dict={dict}
+  locale="vi"
+  path="/404/"
+  title="Không tìm thấy trang · PIDC"
+  errorPage
+  description="Trang không tồn tại. Về trang chủ PIDC, hoặc liên hệ với chúng tôi."
+>
+  <main id="main" class="l-pagehero l-page">
+    <div class="c-hero">
+      <p class="c-hero__badge"><span class="c-hero__dot" aria-hidden="true"></span>404</p>
+      <h1 class="c-hero__title">Trang này không tồn tại.</h1>
+      <p class="c-hero__lede">
+        The address may be mistyped, or the page may have moved. <a class="tlink" href={home}
+          >Back to the home page</a
+        >, hoặc <a class="tlink" href={contact}>liên hệ với chúng tôi</a>.
+      </p>
+    </div>
+  </main>
+</BaseLayout>

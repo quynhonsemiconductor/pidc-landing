@@ -16,10 +16,12 @@ interface Props {
   description: string;
   path: string; // canonical path without locale prefix, e.g. "/" or "/company/"
   ogImage?: string;
-  jsonLd?: object[]; // schema.org nodes (Organization, WebSite …) rendered as ld+json
+  jsonLd?: object[];
+  /** 404 pages: no hreflang partner exists, and the page must not be indexed. */
+  errorPage?: boolean; // schema.org nodes (Organization, WebSite …) rendered as ld+json
 }
 
-const { dict, locale, title, description, path, ogImage, jsonLd } = Astro.props;
+const { dict, locale, title, description, path, ogImage, jsonLd, errorPage } = Astro.props;
 
 const canonicalUrl = new URL(localizedPath(locale, path), Astro.site).toString();
 const enUrl = new URL(localizedPath('en', path), Astro.site).toString();
@@ -45,10 +47,11 @@ const preloadFonts =
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="vi" href={viUrl} />
-    <link rel="alternate" hreflang="x-default" href={enUrl} />
+    {!errorPage && <link rel="canonical" href={canonicalUrl} />}
+    {!errorPage && <link rel="alternate" hreflang="en" href={enUrl} />}
+    {!errorPage && <link rel="alternate" hreflang="vi" href={viUrl} />}
+    {!errorPage && <link rel="alternate" hreflang="x-default" href={enUrl} />}
+    {errorPage && <meta name="robots" content="noindex" />}
 
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
@@ -57,8 +60,12 @@ const preloadFonts =
     {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
     <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'vi_VN'} />
     <meta property="og:locale:alternate" content={locale === 'en' ? 'vi_VN' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {
       jsonLd && (
         <script
