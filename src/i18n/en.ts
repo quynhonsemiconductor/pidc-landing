@@ -631,53 +631,13 @@ const dictionary = {
       title: 'Talk to us about the campus',
       lede: 'We welcome conversations with capital partners, AI compute tenants, and engineering or government partners.',
     },
-    iam: {
+    email: {
       eyebrow: 'Contact',
-      title: 'I am a',
-      legend: 'I am a',
-      options: [
-        {
-          value: 'capital',
-          title: 'Capital partners',
-          desc: 'Infrastructure investors and funds for the campus build-out.',
-        },
-        {
-          value: 'tenant',
-          title: 'AI compute tenants',
-          desc: 'Companies deploying GPU clusters that need power, space and connectivity in Vietnam.',
-        },
-        {
-          value: 'engineering',
-          title: 'Engineering or government partners',
-          desc: 'Specialists in power, cooling, design and construction.',
-        },
-      ],
-      imPre: 'Capital partners:',
-      imCeo: 'TODO(CEO): confirm "Request the information memorandum"',
-    },
-    write: {
-      eyebrow: 'Contact',
-      title: 'Write to us',
-      fields: [
-        { id: 'f-name', name: 'name', type: 'text', autocomplete: 'name', label: 'Name' },
-        { id: 'f-email', name: 'email', type: 'email', autocomplete: 'email', label: 'Email' },
-        {
-          id: 'f-org',
-          name: 'organization',
-          type: 'text',
-          autocomplete: 'organization',
-          label: 'Organisation',
-        },
-        { id: 'f-msg', name: 'message', type: 'textarea', autocomplete: '', label: 'Message' },
-      ],
-      submit: 'Send message',
-      notLive: 'This form is not live yet. Until it is, please email us directly:',
+      title: 'Contact us by email',
     },
     office: {
       eyebrow: 'Contact',
       title: 'Office',
-      emailDt: 'Email',
-      officeDt: 'Office',
       address: '99 Tây Sơn, Quy Nhơn Nam Ward, Gia Lai Province, Vietnam',
       nda: 'Detailed project information is shared with qualified parties under a non-disclosure agreement.',
     },
@@ -783,7 +743,6 @@ const dictionary = {
     skipLink: 'Skip to content',
     siteNav: 'Site',
     footerNav: 'Footer',
-    languageGroup: 'Language / Ngôn ngữ',
     menu: 'Menu',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',

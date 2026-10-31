@@ -198,27 +198,6 @@ body {
   display: grid;
   gap: var(--s-1);
 }
-.l-form {
-  display: grid;
-  gap: var(--s-4);
-  margin-top: var(--s-5);
-}
-@media (min-width: 48em) {
-  .l-form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--s-4) var(--s-5);
-  }
-  .l-form .l-form--full {
-    grid-column: 1 / -1;
-  }
-}
-.l-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--s-3);
-  margin-top: var(--s-5);
-}
 .l-note {
   margin-top: var(--s-4);
   max-width: 60ch;

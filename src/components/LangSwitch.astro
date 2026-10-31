@@ -1,5 +1,18 @@
 ---
-// EN|VI switch as plain links to the same page in the other locale (BUILD-NOTES 3: no JS).
+// Language switch — ONE link to the same page in the other locale, labelled with
+// that language's own name (English on a Vietnamese page, Tiếng Việt on an
+// English page). No ISO codes, no flags: a reader who cannot read the current
+// language still recognises the word for their own.
+//
+// It lives in the header at every width (desktop and next to the menu on
+// phones): switching language must never require opening a menu. Plain link, no
+// JS; hreflang + lang describe the destination, and the path is carried over so
+// the reader stays on the page they were reading.
+//
+// The visible word IS the accessible name; the visually hidden suffix adds what
+// the switch does, in the page's own language, without replacing the word
+// (a link whose aria-label does not contain its visible text breaks voice
+// control).
 import { localizedPath } from '../i18n';
 import type { Dictionary, Locale } from '../i18n';
 
@@ -9,26 +22,17 @@ interface Props {
   dict: Dictionary;
 }
 
-const { locale, path, dict } = Astro.props;
+const { locale, path } = Astro.props;
+const other: Locale = locale === 'en' ? 'vi' : 'en';
+const labels: Record<Locale, string> = { en: 'English', vi: 'Tiếng Việt' };
+const purposes: Record<Locale, string> = {
+  en: 'switch to English',
+  vi: 'chuyển sang tiếng Việt',
+};
 ---
 
-<div class="c-sitehead__lang" role="group" aria-label={dict.ui.languageGroup}>
-  <a
-    class="c-sitehead__langbtn"
-    href={localizedPath('en', path)}
-    aria-current={locale === 'en' ? 'true' : undefined}
-    lang="en"
-    hreflang="en"
-  >
-    EN
-  </a>
-  <a
-    class="c-sitehead__langbtn"
-    href={localizedPath('vi', path)}
-    aria-current={locale === 'vi' ? 'true' : undefined}
-    lang="vi"
-    hreflang="vi"
-  >
-    VI
+<div class="c-sitehead__lang">
+  <a class="c-sitehead__langbtn" href={localizedPath(other, path)} hreflang={other} lang={other}>
+    {labels[other]}<span class="sr" lang={locale}> — {purposes[other]}</span>
   </a>
 </div>
