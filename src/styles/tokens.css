@@ -121,7 +121,10 @@
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --target: 44px; /* minimum interactive size */
 
-  --rail-top: var(--s-7); /* sticky TOC rail offset below the (non-sticky) header */
+  /* Sticky header height, ceiling of both layouts (72 px on phones, ~64 on
+     desktop). Anchor offsets use it; being a few px generous is harmless. */
+  --sitehead-h: 72px;
+  --rail-top: calc(var(--sitehead-h) + var(--s-4)); /* sticky TOC rail clears the sticky header */
   --row-h: 48px; /* list/table row height */
   /* 3 · component tokens are NOT declared here. Components read them with a semantic fallback,
      e.g. min-height: var(--btn-height, var(--target)). Declaring "--btn-height: var(--target)" on :root

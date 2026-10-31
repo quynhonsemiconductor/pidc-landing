@@ -8,7 +8,12 @@
 
 /* c-sitehead — banner: wordmark, primary nav, EN|VI toggle */
 .c-sitehead {
-  position: relative;
+  /* Sticky at every width (owner 2026-10-31): the language switch and the menu
+     must stay reachable while reading. sticky, never fixed — no layout hole,
+     no scroll listeners. Solid background so content cannot show through. */
+  position: sticky;
+  top: 0;
+  z-index: 30;
   border-bottom: 1px solid var(--color-line);
   background: var(--color-bg);
 }
@@ -120,6 +125,11 @@
    Design review: full-width panel under the header holding BOTH nav and EN/VI switch. */
 .c-sitemenu {
   display: none;
+}
+/* In-page anchors land below the sticky header, not under it. */
+:target,
+[id] {
+  scroll-margin-top: var(--sitehead-h);
 }
 @media (width <= 64em) {
   .c-sitehead__nav {

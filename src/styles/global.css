@@ -73,8 +73,11 @@ body {
   }
 }
 .l-fig-iso {
-  max-width: var(--w-fig-iso);
-  margin-inline: auto;
+  /* Edge to edge with the content column — same left/right edges as the facts
+     grid and the NDA note (owner, 2026-10-31). It used to be narrower and
+     centred, which put its left edge ~100 px inside the column at 1440. */
+  max-width: none;
+  margin-inline: 0;
 }
 
 /* AI data center explainer page (from design/screens/ai-data-center.html layout styles).
