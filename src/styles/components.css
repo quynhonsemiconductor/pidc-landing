@@ -764,6 +764,18 @@ main > section + section {
   margin-block-start: 0;
 }
 
+/* Contact page: two short blocks (one mailto, one address) in a full-width
+   stack left a 900 px void beside each. At ≥57.5em the heading takes its own
+   column — the same sheet split the company page uses — so the page reads as
+   composed rather than ragged. */
+@media (min-width: 57.5em) {
+  .r-contact .r-section-split {
+    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    column-gap: var(--s-7);
+    align-items: start;
+  }
+}
+
 /* ————— diagram languages (from recipes.css r-diagram) ————— */
 
 /* hero legend strokes */

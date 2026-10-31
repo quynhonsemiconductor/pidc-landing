@@ -11,31 +11,34 @@ import { launch as launchChrome } from 'chrome-launcher';
 
 const PORT = Number(process.env.PORT ?? 4321);
 const BASE = `http://127.0.0.1:${PORT}`;
-const SHOTS = [
-  { path: '/', name: 'home-en-390', width: 390, height: 844, dsf: 2 },
-  { path: '/', name: 'home-en-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/vi/', name: 'home-vi-390', width: 390, height: 844, dsf: 2 },
-  { path: '/vi/', name: 'home-vi-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/ai-data-center/', name: 'aidc-en-390', width: 390, height: 844, dsf: 2 },
-  { path: '/ai-data-center/', name: 'aidc-en-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/ai-data-center/', name: 'aidc-en-1024', width: 1024, height: 800, dsf: 1 },
-  { path: '/vi/ai-data-center/', name: 'aidc-vi-390', width: 390, height: 844, dsf: 2 },
-  { path: '/vi/ai-data-center/', name: 'aidc-vi-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/why-vietnam/', name: 'whyv-en-390', width: 390, height: 844, dsf: 2 },
-  { path: '/why-vietnam/', name: 'whyv-en-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/why-vietnam/', name: 'whyv-en-1024', width: 1024, height: 800, dsf: 1 },
-  { path: '/vi/why-vietnam/', name: 'whyv-vi-390', width: 390, height: 844, dsf: 2 },
-  { path: '/vi/why-vietnam/', name: 'whyv-vi-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/company/', name: 'company-en-390', width: 390, height: 844, dsf: 2 },
-  { path: '/company/', name: 'company-en-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/vi/company/', name: 'company-vi-390', width: 390, height: 844, dsf: 2 },
-  { path: '/vi/company/', name: 'company-vi-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/contact/', name: 'contact-en-390', width: 390, height: 844, dsf: 2 },
-  { path: '/contact/', name: 'contact-en-1440', width: 1440, height: 900, dsf: 1 },
-  { path: '/vi/contact/', name: 'contact-vi-390', width: 390, height: 844, dsf: 2 },
-  { path: '/vi/contact/', name: 'contact-vi-1440', width: 1440, height: 900, dsf: 1 },
+// Every page, both locales, three widths — the review set (docs/ux/…).
+const PAGES = [
+  ['/', 'home'],
+  ['/ai-data-center/', 'aidc'],
+  ['/why-vietnam/', 'whyv'],
+  ['/company/', 'company'],
+  ['/contact/', 'contact'],
 ];
-
+const LOCALES = [
+  ['en', ''],
+  ['vi', '/vi'],
+];
+const VIEWS = [
+  [390, 844, 2],
+  [768, 1024, 2],
+  [1440, 900, 1],
+];
+const SHOTS = LOCALES.flatMap(([lang, prefix]) =>
+  PAGES.flatMap(([path, name]) =>
+    VIEWS.map(([width, height, dsf]) => ({
+      path: `${prefix}${path}`,
+      name: `${name}-${lang}-${width}`,
+      width,
+      height,
+      dsf,
+    })),
+  ),
+);
 async function waitForServer(url, attempts = 60) {
   for (let i = 0; i < attempts; i++) {
     try {

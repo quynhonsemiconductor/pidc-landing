@@ -102,6 +102,26 @@ body {
   max-width: var(--w-fig-rack);
   margin: 0 auto;
 }
+/* AIDC hero: the rack figure is a portrait drawing (222×392). Stacked under the
+   hero copy it left two thirds of a 1440 row empty and made the hero 1036 px
+   tall. Beside the copy at ≥64em it fills the column at its natural size. */
+@media (min-width: 64em) {
+  .l-pagehero:has(> .l-fig-rack) {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+    column-gap: var(--s-8);
+    align-items: start;
+  }
+  .l-pagehero:has(> .l-fig-rack) > .c-hero {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .l-pagehero:has(> .l-fig-rack) > .l-fig-rack {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: none;
+    margin: 0;
+  }
+}
 .l-pair {
   display: grid;
   gap: var(--s-5);
