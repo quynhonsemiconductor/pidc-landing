@@ -19,6 +19,9 @@ concurrency:
   group: preview-web-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   preview:
     # fork PRs get no secrets/vars; only same-repo PRs publish
