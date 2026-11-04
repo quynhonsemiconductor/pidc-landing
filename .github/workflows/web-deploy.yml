@@ -25,6 +25,9 @@ concurrency:
   group: deploy-web-${{ github.ref }}
   cancel-in-progress: false
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     # Union of the reusable's inner job permissions (qnsc-landing parity).
