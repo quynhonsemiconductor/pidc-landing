@@ -41,7 +41,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: quynhonsemiconductor/ci/actions/setup-node-pnpm@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
+      - uses: quynhonsemiconductor/ci/actions/setup-node-pnpm@956804ad4aa2dcf930909553d306d72b3708fd5d # v1.34.1+ci#308
         with:
           node-version: ${{ env.NODE_VERSION }}
           pnpm-version: ${{ env.PNPM_VERSION }}
@@ -68,7 +68,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: quynhonsemiconductor/ci/actions/setup-node-pnpm@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
+      - uses: quynhonsemiconductor/ci/actions/setup-node-pnpm@956804ad4aa2dcf930909553d306d72b3708fd5d # v1.34.1+ci#308
         with:
           node-version: ${{ env.NODE_VERSION }}
           pnpm-version: ${{ env.PNPM_VERSION }}
@@ -90,6 +90,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: quynhonsemiconductor/ci/actions/assert-jobs-succeeded@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
+      - uses: quynhonsemiconductor/ci/actions/assert-jobs-succeeded@956804ad4aa2dcf930909553d306d72b3708fd5d # v1.34.1+ci#308
         with:
           results: ${{ join(needs.*.result, ',') }}
