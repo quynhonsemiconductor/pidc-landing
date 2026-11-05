@@ -36,7 +36,7 @@ jobs:
           persist-credentials: false
       - uses: quynhonsemiconductor/ci/actions/setup-node-pnpm@956804ad4aa2dcf930909553d306d72b3708fd5d # v1.34.1+ci#308
         with:
-          node-version: '22'
+          node-version: '24.22.2'
       - run: pnpm build
       - run: pnpm verify:dist
       - name: Publish preview (soft-skip until the owner configures the Pages project)
