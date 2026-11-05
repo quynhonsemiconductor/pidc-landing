@@ -34,7 +34,7 @@ jobs:
     permissions:
       contents: read
       packages: read
-    uses: quynhonsemiconductor/ci/.github/workflows/web-deploy.yml@2a85ef7bb3c793edbc9b424ba2abeaed8080aab6 # v1.24.3
+    uses: quynhonsemiconductor/ci/.github/workflows/web-deploy.yml@956804ad4aa2dcf930909553d306d72b3708fd5d # v1.34.1+ci#308
     with:
       product: pidc-landing
       build_command: pnpm build && pnpm verify:dist
